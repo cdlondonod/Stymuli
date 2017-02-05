@@ -40,6 +40,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btncomparacion = new javax.swing.JButton();
         btnevolutivo = new javax.swing.JButton();
@@ -47,17 +48,21 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         btnfrecuencia = new javax.swing.JButton();
         btndistribucion = new javax.swing.JButton();
         btnmaxmin = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        btncomparacion.setBackground(new java.awt.Color(53, 29, 113));
-        btncomparacion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btncomparacion.setForeground(new java.awt.Color(255, 255, 255));
+        btncomparacion.setBackground(new java.awt.Color(255, 255, 255));
+        btncomparacion.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btncomparacion.setForeground(new java.awt.Color(75, 16, 160));
         btncomparacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
         btncomparacion.setText("Distribucion KPI");
         btncomparacion.setToolTipText("Gráfica comparación KPI, valor objetivo frente a valor obtenido");
@@ -73,15 +78,15 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 65;
+        gridBagConstraints.ipadx = 104;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
         jPanel1.add(btncomparacion, gridBagConstraints);
 
-        btnevolutivo.setBackground(new java.awt.Color(53, 29, 113));
-        btnevolutivo.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnevolutivo.setForeground(new java.awt.Color(255, 255, 255));
+        btnevolutivo.setBackground(new java.awt.Color(255, 255, 255));
+        btnevolutivo.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnevolutivo.setForeground(new java.awt.Color(75, 16, 160));
         btnevolutivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
         btnevolutivo.setText("Evolutivo Mensual");
         btnevolutivo.setToolTipText("Gráfica evolutivo mensual");
@@ -96,15 +101,15 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 49;
+        gridBagConstraints.ipadx = 75;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
         jPanel1.add(btnevolutivo, gridBagConstraints);
 
-        btnproyeccion.setBackground(new java.awt.Color(53, 29, 113));
-        btnproyeccion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnproyeccion.setForeground(new java.awt.Color(255, 255, 255));
+        btnproyeccion.setBackground(new java.awt.Color(255, 255, 255));
+        btnproyeccion.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnproyeccion.setForeground(new java.awt.Color(75, 16, 160));
         btnproyeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
         btnproyeccion.setText("Stymuli Proyectado");
         btnproyeccion.setToolTipText("Gráfica proyección estímulo obtenido frente a estímulo posible");
@@ -120,15 +125,15 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 44;
+        gridBagConstraints.ipadx = 62;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 7, 0, 9);
+        gridBagConstraints.insets = new java.awt.Insets(11, 7, 0, 0);
         jPanel1.add(btnproyeccion, gridBagConstraints);
 
-        btnfrecuencia.setBackground(new java.awt.Color(53, 29, 113));
-        btnfrecuencia.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnfrecuencia.setForeground(new java.awt.Color(255, 255, 255));
+        btnfrecuencia.setBackground(new java.awt.Color(255, 255, 255));
+        btnfrecuencia.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnfrecuencia.setForeground(new java.awt.Color(75, 16, 160));
         btnfrecuencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
         btnfrecuencia.setText("Frecuencia Cumplimiento");
         btnfrecuencia.setToolTipText("Frecuencia de cumplimiento de módelos y KPI");
@@ -143,16 +148,15 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 11;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 7, 0, 9);
+        gridBagConstraints.insets = new java.awt.Insets(11, 6, 0, 0);
         jPanel1.add(btnfrecuencia, gridBagConstraints);
 
-        btndistribucion.setBackground(new java.awt.Color(53, 29, 113));
-        btndistribucion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btndistribucion.setForeground(new java.awt.Color(255, 255, 255));
+        btndistribucion.setBackground(new java.awt.Color(255, 255, 255));
+        btndistribucion.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btndistribucion.setForeground(new java.awt.Color(75, 16, 160));
         btndistribucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
         btndistribucion.setText("Distribucion Stymuli");
         btndistribucion.setToolTipText("Gráfica distribución del estímulo obtenido por cada Área");
@@ -167,15 +171,15 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipadx = 69;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 10, 3, 0);
+        gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
         jPanel1.add(btndistribucion, gridBagConstraints);
 
-        btnmaxmin.setBackground(new java.awt.Color(53, 29, 113));
-        btnmaxmin.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnmaxmin.setForeground(new java.awt.Color(255, 255, 255));
+        btnmaxmin.setBackground(new java.awt.Color(255, 255, 255));
+        btnmaxmin.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnmaxmin.setForeground(new java.awt.Color(75, 16, 160));
         btnmaxmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
         btnmaxmin.setText("Máxmimos y Mínimos");
         btnmaxmin.setToolTipText("Máximo, Mínimo y media de valores obtenidos");
@@ -190,21 +194,30 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 31;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 43;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 6, 3, 0);
+        gridBagConstraints.insets = new java.awt.Insets(11, 9, 0, 15);
         jPanel1.add(btnmaxmin, gridBagConstraints);
+
+        jPanel2.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isotipo-1-fondo-transparente91x77.png"))); // NOI18N
+        jLabel2.setText("  ");
+        jLabel2.setPreferredSize(new java.awt.Dimension(91, 85));
+        jPanel2.add(jLabel2, java.awt.BorderLayout.PAGE_END);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
         );
 
         pack();
@@ -415,6 +428,8 @@ public class frmanalisis extends javax.swing.JInternalFrame {
     public static javax.swing.JButton btnfrecuencia;
     public static javax.swing.JButton btnmaxmin;
     public static javax.swing.JButton btnproyeccion;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

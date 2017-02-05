@@ -29,7 +29,7 @@ public class frmzfiltrokpi extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         Tablafiltrado.setDefaultEditor(Object.class, null);
         rootPane.setDefaultButton(btnaceptar);
-        jScrollPane1.getViewport().setBackground(new Color(153,103,198));
+        jScrollPane1.getViewport().setBackground(new Color(101,54,193));
         Tablafiltrado.setShowHorizontalLines(true);
        jScrollPane1.getColumnHeader().setVisible(false);
         txtfiltrar.requestFocus();
@@ -102,7 +102,7 @@ public class frmzfiltrokpi extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel1.setBackground(new java.awt.Color(101, 54, 193));
         jPanel1.setPreferredSize(new java.awt.Dimension(546, 214));
 
         txtfiltrar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -127,6 +127,8 @@ public class frmzfiltrokpi extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(null);
 
+        Tablafiltrado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        Tablafiltrado.setForeground(new java.awt.Color(75, 16, 160));
         Tablafiltrado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -138,7 +140,7 @@ public class frmzfiltrokpi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        Tablafiltrado.setGridColor(new java.awt.Color(153, 103, 198));
+        Tablafiltrado.setGridColor(new java.awt.Color(75, 16, 160));
         Tablafiltrado.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         Tablafiltrado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -174,7 +176,7 @@ public class frmzfiltrokpi extends javax.swing.JFrame {
                 .addContainerGap(102, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("KPI");
 
@@ -185,10 +187,10 @@ public class frmzfiltrokpi extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addComponent(btncancelar)
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

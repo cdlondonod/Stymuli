@@ -136,7 +136,7 @@ public class fkpi {
 
         modelo = new DefaultTableModel(null, titulos);
 
-        sSQL = "SELECT o.idkpi,k.nombre,k.descripcion FROM objetivos o INNER JOIN kpi k ON o.idkpi=k.idkpi"
+        sSQL = "SELECT DISTINCT o.idkpi,k.nombre,k.descripcion FROM objetivos o INNER JOIN kpi k ON o.idkpi=k.idkpi"
                 + " INNER JOIN modelo m ON o.idmodelo=m.idmodelo INNER JOIN subarea s ON m.idsubarea=s.idsubarea"
                 + " INNER JOIN persona p ON p.idsubarea=s.idsubarea WHERE k.nombre like '%" + buscar + "%' and p.idpersona=" + conexion.formsubarea + " ORDER BY k.nombre ";
 
@@ -170,7 +170,7 @@ public class fkpi {
 
         modelo = new DefaultTableModel(null, titulos);
 
-        sSQL = "SELECT o.idkpi,k.nombre,k.descripcion FROM objetivos o INNER JOIN kpi k ON o.idkpi=k.idkpi "
+        sSQL = "SELECT DISTINCT o.idkpi,k.nombre,k.descripcion FROM objetivos o INNER JOIN kpi k ON o.idkpi=k.idkpi "
                 + "INNER JOIN modelo m ON o.idmodelo=m.idmodelo INNER JOIN subarea s ON m.idsubarea=s.idsubarea "
                 + "WHERE k.nombre like '%" + buscar + "%' and s.idsubarea=" + conexion.formsubarea + " ORDER BY k.nombre  ";
 

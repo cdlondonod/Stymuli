@@ -203,6 +203,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         txtbuscar_sub = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 102, 0));
         setClosable(true);
@@ -219,7 +220,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel1.setBackground(new java.awt.Color(75, 16, 160));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -228,7 +229,8 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         jLabel1.setPreferredSize(new java.awt.Dimension(32, 25));
         jPanel3.add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
-        pnlregistro_area.setBackground(new java.awt.Color(153, 103, 198));
+        pnlregistro_area.setBackground(new java.awt.Color(255, 255, 255));
+        pnlregistro_area.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
         pnlregistro_area.setPreferredSize(new java.awt.Dimension(272, 108));
 
         txtnombre_area.addActionListener(new java.awt.event.ActionListener() {
@@ -237,8 +239,8 @@ public class frmareasubar extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrearea.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrearea.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrearea.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrearea.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrearea.setText("Nombre Área:");
 
         btnguardar_area.setBackground(new java.awt.Color(0, 102, 0));
@@ -287,7 +289,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
                         .addComponent(txtnombre_area)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_areaLayout.createSequentialGroup()
-                .addGap(0, 151, Short.MAX_VALUE)
+                .addGap(0, 149, Short.MAX_VALUE)
                 .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91))
         );
@@ -309,9 +311,11 @@ public class frmareasubar extends javax.swing.JInternalFrame {
 
         jPanel3.add(pnlregistro_area, java.awt.BorderLayout.PAGE_END);
 
-        pnllistado_area.setBackground(new java.awt.Color(102, 50, 159));
+        pnllistado_area.setBackground(new java.awt.Color(101, 54, 193));
         pnllistado_area.setPreferredSize(new java.awt.Dimension(276, 396));
 
+        tablalistado_area.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablalistado_area.setForeground(new java.awt.Color(75, 16, 160));
         tablalistado_area.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -323,7 +327,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistado_area.setGridColor(new java.awt.Color(102, 50, 159));
+        tablalistado_area.setGridColor(new java.awt.Color(75, 16, 160));
         tablalistado_area.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tablalistado_areaFocusGained(evt);
@@ -447,7 +451,8 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         jPanel4.setOpaque(false);
         jPanel4.setLayout(new java.awt.BorderLayout());
 
-        pnlregistro_sub.setBackground(new java.awt.Color(153, 103, 198));
+        pnlregistro_sub.setBackground(new java.awt.Color(255, 255, 255));
+        pnlregistro_sub.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
         pnlregistro_sub.setPreferredSize(new java.awt.Dimension(272, 108));
 
         txtnombre_sub.addActionListener(new java.awt.event.ActionListener() {
@@ -461,8 +466,8 @@ public class frmareasubar extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrearea3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrearea3.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrearea3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrearea3.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrearea3.setText("Nombre SubÁrea:");
 
         btnguardar_sub.setBackground(new java.awt.Color(0, 102, 0));
@@ -506,7 +511,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
                         .addComponent(txtnombre_sub)
                         .addGap(12, 12, 12))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_subLayout.createSequentialGroup()
-                        .addGap(0, 135, Short.MAX_VALUE)
+                        .addGap(0, 133, Short.MAX_VALUE)
                         .addGroup(pnlregistro_subLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_subLayout.createSequentialGroup()
                                 .addComponent(btnguardar_sub, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -522,7 +527,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
             .addGroup(pnlregistro_subLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(pnlregistro_subLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtnombre_sub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblnombrearea3))
@@ -534,7 +539,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
 
         jPanel4.add(pnlregistro_sub, java.awt.BorderLayout.PAGE_END);
 
-        lblsuba.setBackground(new java.awt.Color(53, 29, 113));
+        lblsuba.setBackground(new java.awt.Color(75, 16, 160));
         lblsuba.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblsuba.setForeground(new java.awt.Color(255, 255, 255));
         lblsuba.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -543,9 +548,11 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         lblsuba.setPreferredSize(new java.awt.Dimension(59, 25));
         jPanel4.add(lblsuba, java.awt.BorderLayout.PAGE_START);
 
-        pnllistado_sub.setBackground(new java.awt.Color(102, 50, 159));
+        pnllistado_sub.setBackground(new java.awt.Color(101, 54, 193));
         pnllistado_sub.setPreferredSize(new java.awt.Dimension(276, 396));
 
+        tablalistado_sub.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablalistado_sub.setForeground(new java.awt.Color(75, 16, 160));
         tablalistado_sub.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -557,7 +564,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistado_sub.setGridColor(new java.awt.Color(102, 50, 159));
+        tablalistado_sub.setGridColor(new java.awt.Color(75, 16, 160));
         tablalistado_sub.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablalistado_subMouseClicked(evt);
@@ -675,7 +682,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
 
         pnlprincipal.add(jPanel5, java.awt.BorderLayout.CENTER);
 
-        jLabel4.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel4.setBackground(new java.awt.Color(75, 16, 160));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -683,6 +690,12 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         jLabel4.setOpaque(true);
         jLabel4.setPreferredSize(new java.awt.Dimension(32, 20));
         pnlprincipal.add(jLabel4, java.awt.BorderLayout.PAGE_START);
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isotipo-1-fondo-transparente91x77.png"))); // NOI18N
+        jLabel5.setText("  ");
+        jLabel5.setPreferredSize(new java.awt.Dimension(91, 85));
+        pnlprincipal.add(jLabel5, java.awt.BorderLayout.PAGE_END);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -692,7 +705,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlprincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlprincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
         );
 
         pack();
@@ -1008,6 +1021,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

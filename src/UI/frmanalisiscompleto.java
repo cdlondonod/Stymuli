@@ -310,7 +310,7 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel1.setBackground(new java.awt.Color(75, 16, 160));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -321,7 +321,8 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
 
         jPanel3.setOpaque(false);
 
-        jPanel4.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
         jPanel4.setPreferredSize(new java.awt.Dimension(200, 300));
 
         btnclearselec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/errasesel.png"))); // NOI18N
@@ -336,8 +337,8 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
         });
 
         ckbenabledtabla.setBackground(new java.awt.Color(254, 150, 3));
-        ckbenabledtabla.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ckbenabledtabla.setForeground(new java.awt.Color(255, 255, 255));
+        ckbenabledtabla.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        ckbenabledtabla.setForeground(new java.awt.Color(75, 16, 160));
         ckbenabledtabla.setText("Habilitar Seleccion de Tabla");
         ckbenabledtabla.setBorder(null);
         ckbenabledtabla.setOpaque(false);
@@ -348,10 +349,11 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
         });
 
         jPanel11.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel11.setOpaque(false);
         jPanel11.setLayout(new javax.swing.BoxLayout(jPanel11, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi8.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi8.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi8.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi8.setText("Año:");
         lblnombrekpi8.setPreferredSize(new java.awt.Dimension(55, 14));
         jPanel11.add(lblnombrekpi8);
@@ -377,10 +379,11 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
         jPanel11.add(btnbuscayear);
 
         jPanel14.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel14.setOpaque(false);
         jPanel14.setLayout(new javax.swing.BoxLayout(jPanel14, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi7.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi7.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi7.setText("Mes:");
         lblnombrekpi7.setPreferredSize(new java.awt.Dimension(55, 14));
         jPanel14.add(lblnombrekpi7);
@@ -406,10 +409,11 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
         jPanel14.add(btnbuscames);
 
         pnlarea.setBackground(new java.awt.Color(153, 103, 198));
+        pnlarea.setOpaque(false);
         pnlarea.setLayout(new javax.swing.BoxLayout(pnlarea, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi6.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi6.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi6.setText("Área:");
         lblnombrekpi6.setPreferredSize(new java.awt.Dimension(55, 14));
         pnlarea.add(lblnombrekpi6);
@@ -435,10 +439,11 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
         pnlarea.add(btnbuscaarea);
 
         jPanel5.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel5.setOpaque(false);
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi13.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi13.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi13.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi13.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi13.setText("SubÁrea:");
         lblnombrekpi13.setPreferredSize(new java.awt.Dimension(55, 14));
         jPanel5.add(lblnombrekpi13);
@@ -464,10 +469,11 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
         jPanel5.add(btnbuscar_subarea_trab);
 
         jPanel6.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel6.setOpaque(false);
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi9.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi9.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi9.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi9.setText("KPI :");
         lblnombrekpi9.setPreferredSize(new java.awt.Dimension(55, 14));
         jPanel6.add(lblnombrekpi9);
@@ -493,10 +499,11 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
         jPanel6.add(btnbusca_kpi_Obj);
 
         jPanel13.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel13.setOpaque(false);
         jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi14.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi14.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi14.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi14.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi14.setText("Trabajador:");
         jPanel13.add(lblnombrekpi14);
 
@@ -536,7 +543,7 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtpersonadocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ckbenabledtabla, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel11, jPanel13, jPanel14, jPanel5, jPanel6, pnlarea});
@@ -560,7 +567,7 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
                 .addComponent(ckbenabledtabla, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtpersonadocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(btnclearselec)
                 .addContainerGap())
         );
@@ -569,8 +576,10 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
 
         jPanel3.add(jPanel4);
 
-        jPanel2.setBackground(new java.awt.Color(102, 50, 159));
+        jPanel2.setBackground(new java.awt.Color(101, 54, 193));
 
+        tablaanalisiscompleto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablaanalisiscompleto.setForeground(new java.awt.Color(75, 16, 160));
         tablaanalisiscompleto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -583,7 +592,7 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
             }
         ));
         tablaanalisiscompleto.setEnabled(false);
-        tablaanalisiscompleto.setGridColor(new java.awt.Color(102, 50, 159));
+        tablaanalisiscompleto.setGridColor(new java.awt.Color(75, 16, 160));
         tablaanalisiscompleto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tablaanalisiscompletoFocusGained(evt);

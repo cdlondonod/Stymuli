@@ -68,11 +68,13 @@ public class frmvistakpiobjetivos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(53, 29, 113));
+        jPanel1.setBackground(new java.awt.Color(75, 16, 160));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jPanel2.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel2.setBackground(new java.awt.Color(101, 54, 193));
 
+        tablalistado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablalistado.setForeground(new java.awt.Color(75, 16, 160));
         tablalistado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -84,7 +86,7 @@ public class frmvistakpiobjetivos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistado.setGridColor(new java.awt.Color(153, 103, 198));
+        tablalistado.setGridColor(new java.awt.Color(75, 16, 160));
         tablalistado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablalistadoMouseClicked(evt);

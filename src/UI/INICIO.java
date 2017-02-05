@@ -86,6 +86,7 @@ public class INICIO extends javax.swing.JFrame {
         lblinicioidsubarea = new javax.swing.JLabel();
         lbliniciosubarea = new javax.swing.JLabel();
         lblinicioacceso = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         pnlmenulistbuttons = new javax.swing.JPanel();
         btnperfil = new javax.swing.JButton();
         btnanalisis = new javax.swing.JButton();
@@ -175,6 +176,8 @@ public class INICIO extends javax.swing.JFrame {
         lblinicioacceso.setForeground(new java.awt.Color(53, 29, 113));
         lblinicioacceso.setText("Acceso");
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isotipo-1-fondo-transparente91x77.png"))); // NOI18N
+
         javax.swing.GroupLayout pnlmainLayout = new javax.swing.GroupLayout(pnlmain);
         pnlmain.setLayout(pnlmainLayout);
         pnlmainLayout.setHorizontalGroup(
@@ -193,7 +196,11 @@ public class INICIO extends javax.swing.JFrame {
                     .addComponent(lblinicioidsubarea)
                     .addComponent(lbliniciosubarea)
                     .addComponent(lblinicioacceso))
-                .addContainerGap(1305, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlmainLayout.createSequentialGroup()
+                .addContainerGap(1274, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
         pnlmainLayout.setVerticalGroup(
             pnlmainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,20 +227,22 @@ public class INICIO extends javax.swing.JFrame {
                 .addComponent(lbliniciosubarea)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblinicioacceso)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 257, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
 
         pnlenclose.add(pnlmain, java.awt.BorderLayout.CENTER);
 
-        pnlmenulistbuttons.setBackground(new java.awt.Color(53, 40, 113));
+        pnlmenulistbuttons.setBackground(new java.awt.Color(255, 255, 255));
         pnlmenulistbuttons.setPreferredSize(new java.awt.Dimension(400, 52));
         java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0);
         flowLayout1.setAlignOnBaseline(true);
         pnlmenulistbuttons.setLayout(flowLayout1);
 
         btnperfil.setBackground(new java.awt.Color(0, 0, 0));
-        btnperfil.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        btnperfil.setForeground(new java.awt.Color(255, 255, 255));
+        btnperfil.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnperfil.setForeground(new java.awt.Color(75, 16, 160));
         btnperfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/miperfil.png"))); // NOI18N
         btnperfil.setText("Mi Perfil");
         btnperfil.setToolTipText("Mi Perfil");
@@ -253,10 +262,10 @@ public class INICIO extends javax.swing.JFrame {
         pnlmenulistbuttons.add(btnperfil);
 
         btnanalisis.setBackground(new java.awt.Color(0, 0, 0));
-        btnanalisis.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        btnanalisis.setForeground(new java.awt.Color(255, 255, 255));
+        btnanalisis.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnanalisis.setForeground(new java.awt.Color(75, 16, 160));
         btnanalisis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
-        btnanalisis.setText("Análisis Resultados");
+        btnanalisis.setText("Analisis Resultados");
         btnanalisis.setToolTipText("Análisis de Resultados");
         btnanalisis.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         btnanalisis.setBorderPainted(false);
@@ -272,8 +281,8 @@ public class INICIO extends javax.swing.JFrame {
         pnlmenulistbuttons.add(btnanalisis);
 
         btnresultados.setBackground(new java.awt.Color(0, 0, 0));
-        btnresultados.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        btnresultados.setForeground(new java.awt.Color(255, 255, 255));
+        btnresultados.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnresultados.setForeground(new java.awt.Color(75, 16, 160));
         btnresultados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/resultados.png"))); // NOI18N
         btnresultados.setText("Resultados");
         btnresultados.setToolTipText("Ingreso y Edición de Resultados");
@@ -293,10 +302,10 @@ public class INICIO extends javax.swing.JFrame {
         pnlmenulistbuttons.add(btnresultados);
 
         btnmodelos.setBackground(new java.awt.Color(0, 0, 0));
-        btnmodelos.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        btnmodelos.setForeground(new java.awt.Color(255, 255, 255));
+        btnmodelos.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnmodelos.setForeground(new java.awt.Color(75, 16, 160));
         btnmodelos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/modelo.png"))); // NOI18N
-        btnmodelos.setText("Modélos");
+        btnmodelos.setText("Modelos");
         btnmodelos.setToolTipText("Creación y Edición de Modélos");
         btnmodelos.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         btnmodelos.setBorderPainted(false);
@@ -314,8 +323,8 @@ public class INICIO extends javax.swing.JFrame {
         pnlmenulistbuttons.add(btnmodelos);
 
         btnkpi.setBackground(new java.awt.Color(0, 0, 0));
-        btnkpi.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        btnkpi.setForeground(new java.awt.Color(255, 255, 255));
+        btnkpi.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnkpi.setForeground(new java.awt.Color(75, 16, 160));
         btnkpi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/kpi.png"))); // NOI18N
         btnkpi.setText("KPI");
         btnkpi.setToolTipText("Creación y Edición de KPI");
@@ -335,8 +344,8 @@ public class INICIO extends javax.swing.JFrame {
         pnlmenulistbuttons.add(btnkpi);
 
         btnusuarios.setBackground(new java.awt.Color(0, 0, 0));
-        btnusuarios.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        btnusuarios.setForeground(new java.awt.Color(255, 255, 255));
+        btnusuarios.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnusuarios.setForeground(new java.awt.Color(75, 16, 160));
         btnusuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trabajadores.png"))); // NOI18N
         btnusuarios.setText("Usuarios");
         btnusuarios.setToolTipText("Creación y Edición de Usuarios");
@@ -356,10 +365,10 @@ public class INICIO extends javax.swing.JFrame {
         pnlmenulistbuttons.add(btnusuarios);
 
         btnareas.setBackground(new java.awt.Color(0, 0, 0));
-        btnareas.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        btnareas.setForeground(new java.awt.Color(255, 255, 255));
+        btnareas.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnareas.setForeground(new java.awt.Color(75, 16, 160));
         btnareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/area.png"))); // NOI18N
-        btnareas.setText("Áreas");
+        btnareas.setText("Areas");
         btnareas.setToolTipText("Creación y Edición de Áreas y SubÁreas");
         btnareas.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         btnareas.setBorderPainted(false);
@@ -377,10 +386,10 @@ public class INICIO extends javax.swing.JFrame {
         pnlmenulistbuttons.add(btnareas);
 
         btnsimulac.setBackground(new java.awt.Color(0, 0, 0));
-        btnsimulac.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        btnsimulac.setForeground(new java.awt.Color(255, 255, 255));
+        btnsimulac.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnsimulac.setForeground(new java.awt.Color(75, 16, 160));
         btnsimulac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/resultado.png"))); // NOI18N
-        btnsimulac.setText("Simulación");
+        btnsimulac.setText("Simulacion");
         btnsimulac.setToolTipText("Simulación");
         btnsimulac.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         btnsimulac.setBorderPainted(false);
@@ -409,7 +418,7 @@ public class INICIO extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlenclose, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+            .addComponent(pnlenclose, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         menuBar.setBorder(null);
@@ -784,6 +793,7 @@ public class INICIO extends javax.swing.JFrame {
     public static javax.swing.JButton btnsimulac;
     public static javax.swing.JButton btnusuarios;
     public static javax.swing.JDesktopPane escritorio;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

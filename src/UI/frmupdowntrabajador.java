@@ -46,7 +46,7 @@ public class frmupdowntrabajador extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(102, 50, 159));
+        jPanel1.setBackground(new java.awt.Color(75, 16, 160));
 
         btncancelar.setBackground(new java.awt.Color(0, 51, 0));
         btncancelar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N

@@ -254,16 +254,17 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaanalisischart2 = new javax.swing.JTable();
         pnlgrafica = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
         setTitle("Frecuencia Cumplimiento");
         addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 formInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
 
@@ -272,7 +273,7 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel1.setBackground(new java.awt.Color(75, 16, 160));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -283,7 +284,8 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
 
         jPanel5.setOpaque(false);
 
-        jPanel4.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
         jPanel4.setPreferredSize(new java.awt.Dimension(200, 250));
 
         btngraficar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/graficar.png"))); // NOI18N
@@ -309,10 +311,11 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         });
 
         jPanel3.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi8.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi8.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi8.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi8.setText("Año:");
         lblnombrekpi8.setPreferredSize(new java.awt.Dimension(55, 14));
         jPanel3.add(lblnombrekpi8);
@@ -338,10 +341,11 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         jPanel3.add(btnbuscayear);
 
         pnlarea.setBackground(new java.awt.Color(153, 103, 198));
+        pnlarea.setOpaque(false);
         pnlarea.setLayout(new javax.swing.BoxLayout(pnlarea, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi6.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi6.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi6.setText("Área:");
         lblnombrekpi6.setPreferredSize(new java.awt.Dimension(55, 14));
         pnlarea.add(lblnombrekpi6);
@@ -367,10 +371,11 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         pnlarea.add(btnbuscaarea);
 
         jPanel6.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel6.setOpaque(false);
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi7.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi7.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi7.setText("Mes:");
         lblnombrekpi7.setPreferredSize(new java.awt.Dimension(55, 14));
         jPanel6.add(lblnombrekpi7);
@@ -396,10 +401,11 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         jPanel6.add(btnbuscames);
 
         jPanel7.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel7.setOpaque(false);
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi9.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi9.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi9.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi9.setText("KPI :");
         lblnombrekpi9.setPreferredSize(new java.awt.Dimension(55, 14));
         jPanel7.add(lblnombrekpi9);
@@ -425,10 +431,11 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         jPanel7.add(btnbusca_kpi_Obj);
 
         jPanel8.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel8.setOpaque(false);
         jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi13.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi13.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi13.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi13.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi13.setText("SubÁrea:");
         lblnombrekpi13.setPreferredSize(new java.awt.Dimension(55, 14));
         jPanel8.add(lblnombrekpi13);
@@ -460,7 +467,7 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pnlarea, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                    .addComponent(pnlarea, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -485,7 +492,7 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btngraficar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnclearselec, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -494,9 +501,10 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
 
         jPanel5.add(jPanel4);
 
-        jPanel2.setBackground(new java.awt.Color(102, 50, 159));
+        jPanel2.setBackground(new java.awt.Color(101, 54, 193));
         jPanel2.setPreferredSize(new java.awt.Dimension(400, 400));
 
+        tablaanalisischart2.setForeground(new java.awt.Color(75, 16, 160));
         tablaanalisischart2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -510,7 +518,7 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         ));
         tablaanalisischart2.setCellSelectionEnabled(true);
         tablaanalisischart2.setEnabled(false);
-        tablaanalisischart2.setGridColor(new java.awt.Color(102, 50, 159));
+        tablaanalisischart2.setGridColor(new java.awt.Color(75, 16, 160));
         tablaanalisischart2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tablaanalisischart2FocusGained(evt);
@@ -545,7 +553,8 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
 
         jPanel5.add(jPanel2);
 
-        pnlgrafica.setBackground(new java.awt.Color(102, 50, 159));
+        pnlgrafica.setBackground(new java.awt.Color(255, 255, 255));
+        pnlgrafica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
         pnlgrafica.setMinimumSize(new java.awt.Dimension(600, 0));
         pnlgrafica.setPreferredSize(new java.awt.Dimension(600, 400));
 
@@ -553,7 +562,7 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         pnlgrafica.setLayout(pnlgraficaLayout);
         pnlgraficaLayout.setHorizontalGroup(
             pnlgraficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 598, Short.MAX_VALUE)
         );
         pnlgraficaLayout.setVerticalGroup(
             pnlgraficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -564,6 +573,12 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
 
         jPanel9.add(jPanel5, java.awt.BorderLayout.CENTER);
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isotipo-1-fondo-transparente91x77.png"))); // NOI18N
+        jLabel2.setText("  ");
+        jLabel2.setPreferredSize(new java.awt.Dimension(91, 85));
+        jPanel9.add(jLabel2, java.awt.BorderLayout.PAGE_END);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -572,7 +587,7 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -904,6 +919,7 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnclearselec;
     private javax.swing.JButton btngraficar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -298,6 +298,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         txtnombrekpi_Obj = new javax.swing.JTextField();
         btnbusca_kpi_Obj = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -311,10 +312,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
         jPanel8.setLayout(new java.awt.BorderLayout());
 
-        pnllistado_stymuli.setBackground(new java.awt.Color(102, 50, 159));
+        pnllistado_stymuli.setBackground(new java.awt.Color(101, 54, 193));
         pnllistado_stymuli.setPreferredSize(new java.awt.Dimension(476, 300));
 
-        tablalistado_stymuli.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
+        tablalistado_stymuli.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        tablalistado_stymuli.setForeground(new java.awt.Color(75, 16, 160));
         tablalistado_stymuli.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -326,7 +328,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistado_stymuli.setGridColor(new java.awt.Color(102, 50, 159));
+        tablalistado_stymuli.setGridColor(new java.awt.Color(75, 16, 160));
         tablalistado_stymuli.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablalistado_stymuliMouseClicked(evt);
@@ -402,6 +404,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
+        checkmostrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         checkmostrar.setForeground(new java.awt.Color(255, 255, 255));
         checkmostrar.setText("Mostrar todo");
         checkmostrar.setOpaque(false);
@@ -466,7 +469,9 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
         jPanel8.add(pnllistado_stymuli, java.awt.BorderLayout.CENTER);
 
-        pnlregistro_stymuli.setBackground(new java.awt.Color(153, 103, 198));
+        pnlregistro_stymuli.setBackground(new java.awt.Color(255, 255, 255));
+        pnlregistro_stymuli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
+        pnlregistro_stymuli.setForeground(new java.awt.Color(153, 153, 153));
 
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -503,15 +508,16 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrekpi7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi7.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi7.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi7.setText("Descripción:");
 
         jPanel4.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel4.setOpaque(false);
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi13.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi13.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi13.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi13.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi13.setText("SubÁrea:");
         lblnombrekpi13.setPreferredSize(new java.awt.Dimension(83, 14));
         jPanel4.add(lblnombrekpi13);
@@ -538,10 +544,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jPanel4.add(btnbuscar_subarea_stym);
 
         jPanel3.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrearea.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrearea.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrearea.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrearea.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrearea.setText("Área:");
         lblnombrearea.setPreferredSize(new java.awt.Dimension(83, 14));
         jPanel3.add(lblnombrearea);
@@ -567,10 +574,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jPanel3.add(btnbusca_area_stym);
 
         pnlkpiestimulo.setBackground(new java.awt.Color(153, 103, 198));
+        pnlkpiestimulo.setOpaque(false);
         pnlkpiestimulo.setLayout(new javax.swing.BoxLayout(pnlkpiestimulo, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi12.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi12.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi12.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi12.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi12.setText("KPI objetivo:");
         lblnombrekpi12.setPreferredSize(new java.awt.Dimension(83, 14));
         pnlkpiestimulo.add(lblnombrekpi12);
@@ -592,12 +600,15 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jPanel6.setOpaque(false);
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi11.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi11.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi11.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi11.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi11.setText("Tipo de Symuli:");
         lblnombrekpi11.setPreferredSize(new java.awt.Dimension(83, 14));
         jPanel6.add(lblnombrekpi11);
+        lblnombrekpi11.getAccessibleContext().setAccessibleName("Tipo de Stymuli:");
 
+        cbotipo_stymuli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cbotipo_stymuli.setForeground(new java.awt.Color(75, 16, 160));
         cbotipo_stymuli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bono", "Salario", "Otro" }));
         cbotipo_stymuli.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -614,8 +625,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jPanel7.setOpaque(false);
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi10.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi10.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi10.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi10.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi10.setText("Stymuli:");
         lblnombrekpi10.setPreferredSize(new java.awt.Dimension(83, 14));
         jPanel7.add(lblnombrekpi10);
@@ -639,8 +650,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         });
         jPanel7.add(txtstymuli);
 
-        lblstymuli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblstymuli.setForeground(new java.awt.Color(255, 255, 255));
+        lblstymuli.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblstymuli.setForeground(new java.awt.Color(75, 16, 160));
         lblstymuli.setText("$");
         jPanel7.add(lblstymuli);
 
@@ -703,7 +714,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
         jPanel8.add(pnlregistro_stymuli, java.awt.BorderLayout.PAGE_END);
 
-        jLabel1.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel1.setBackground(new java.awt.Color(75, 16, 160));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -716,10 +727,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
         jPanel9.setLayout(new java.awt.BorderLayout());
 
-        pnllistado_Obj.setBackground(new java.awt.Color(102, 50, 159));
+        pnllistado_Obj.setBackground(new java.awt.Color(101, 54, 193));
         pnllistado_Obj.setPreferredSize(new java.awt.Dimension(476, 300));
 
-        tablalistado_Obj.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
+        tablalistado_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        tablalistado_Obj.setForeground(new java.awt.Color(75, 16, 160));
         tablalistado_Obj.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -731,7 +743,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistado_Obj.setGridColor(new java.awt.Color(102, 50, 159));
+        tablalistado_Obj.setGridColor(new java.awt.Color(75, 16, 160));
         tablalistado_Obj.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablalistado_ObjMouseClicked(evt);
@@ -804,8 +816,9 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
-        btnmodeloanterior.setBackground(new java.awt.Color(53, 29, 113));
-        btnmodeloanterior.setForeground(new java.awt.Color(255, 255, 255));
+        btnmodeloanterior.setBackground(new java.awt.Color(255, 255, 255));
+        btnmodeloanterior.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnmodeloanterior.setForeground(new java.awt.Color(75, 16, 160));
         btnmodeloanterior.setText("Copiar Objetivos mes Anterior");
         btnmodeloanterior.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnmodeloanterior.setBorderPainted(false);
@@ -865,7 +878,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
         jPanel9.add(pnllistado_Obj, java.awt.BorderLayout.CENTER);
 
-        lblobjetivos.setBackground(new java.awt.Color(53, 29, 113));
+        lblobjetivos.setBackground(new java.awt.Color(75, 16, 160));
         lblobjetivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblobjetivos.setForeground(new java.awt.Color(255, 255, 255));
         lblobjetivos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -874,7 +887,9 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         lblobjetivos.setPreferredSize(new java.awt.Dimension(68, 20));
         jPanel9.add(lblobjetivos, java.awt.BorderLayout.PAGE_START);
 
-        pnlregistro_Obj.setBackground(new java.awt.Color(153, 103, 198));
+        pnlregistro_Obj.setBackground(new java.awt.Color(255, 255, 255));
+        pnlregistro_Obj.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
+        pnlregistro_Obj.setForeground(new java.awt.Color(153, 153, 153));
         pnlregistro_Obj.setPreferredSize(new java.awt.Dimension(536, 150));
 
         btncancelar_Obj.setBackground(new java.awt.Color(0, 51, 0));
@@ -902,7 +917,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
-        cbocomparacion_Obj.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        cbocomparacion_Obj.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cbocomparacion_Obj.setForeground(new java.awt.Color(75, 16, 160));
         cbocomparacion_Obj.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mayor/Igual", "Menor/Igual", "Igual" }));
 
         txtvalor_Obj.addActionListener(new java.awt.event.ActionListener() {
@@ -916,16 +932,16 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
-        lblvaponderado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblvaponderado.setForeground(new java.awt.Color(255, 255, 255));
+        lblvaponderado.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblvaponderado.setForeground(new java.awt.Color(75, 16, 160));
         lblvaponderado.setText("Valor Ponderado:");
 
-        lblnombrekpi16.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi16.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi16.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi16.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi16.setText("Tipo de Objetivo: ");
 
-        lblnombrekpi17.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi17.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi17.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi17.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi17.setText(":Valor Objetivo");
 
         btnguardar_Obj.setBackground(new java.awt.Color(0, 51, 0));
@@ -942,6 +958,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
+        cbotipo_Obj.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cbotipo_Obj.setForeground(new java.awt.Color(75, 16, 160));
         cbotipo_Obj.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ponderado", "Habilitador" }));
         cbotipo_Obj.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -949,15 +967,16 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
-        lblpondperc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblpondperc.setForeground(new java.awt.Color(255, 255, 255));
+        lblpondperc.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblpondperc.setForeground(new java.awt.Color(75, 16, 160));
         lblpondperc.setText("%");
 
         jPanel2.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi9.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi9.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi9.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi9.setText("KPI :");
         lblnombrekpi9.setPreferredSize(new java.awt.Dimension(50, 14));
         jPanel2.add(lblnombrekpi9);
@@ -988,13 +1007,15 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(cbocomparacion_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtvalor_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtvalor_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblnombrekpi17))
                     .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
                         .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblnombrekpi16)
@@ -1004,15 +1025,12 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                             .addComponent(cbotipo_Obj, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtvalor_pon_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblpondperc)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblnombrekpi17)
-                    .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
+                        .addComponent(lblpondperc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnguardar_Obj)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btncancelar_Obj)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         pnlregistro_ObjLayout.setVerticalGroup(
             pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1026,6 +1044,13 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
+                        .addGap(0, 60, Short.MAX_VALUE)
+                        .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnguardar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btncancelar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblnombrekpi16)
                             .addComponent(cbotipo_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1034,13 +1059,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                             .addComponent(lblvaponderado)
                             .addComponent(txtvalor_pon_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblpondperc))
-                        .addGap(8, 64, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_ObjLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnguardar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btncancelar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jPanel9.add(pnlregistro_Obj, java.awt.BorderLayout.PAGE_END);
@@ -1049,7 +1068,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel5, java.awt.BorderLayout.CENTER);
 
-        jLabel3.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel3.setBackground(new java.awt.Color(75, 16, 160));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1057,6 +1076,12 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jLabel3.setOpaque(true);
         jLabel3.setPreferredSize(new java.awt.Dimension(53, 20));
         jPanel1.add(jLabel3, java.awt.BorderLayout.PAGE_START);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isotipo-1-fondo-transparente91x77.png"))); // NOI18N
+        jLabel2.setText("  ");
+        jLabel2.setPreferredSize(new java.awt.Dimension(91, 85));
+        jPanel1.add(jLabel2, java.awt.BorderLayout.PAGE_END);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1066,7 +1091,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
         );
 
         pack();
@@ -1698,6 +1723,7 @@ public static int modeloactual;
     private javax.swing.JComboBox<String> cbotipo_stymuli;
     public static javax.swing.JCheckBox checkmostrar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

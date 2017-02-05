@@ -116,6 +116,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
         txtdesc_kpi = new javax.swing.JTextArea();
         lbldesc_kpi = new javax.swing.JLabel();
         btncancelar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBorder(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -123,7 +124,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel1.setBackground(new java.awt.Color(75, 16, 160));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -137,9 +138,11 @@ public class frmkpi extends javax.swing.JInternalFrame {
 
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        pnllistado.setBackground(new java.awt.Color(102, 50, 159));
+        pnllistado.setBackground(new java.awt.Color(101, 54, 193));
         pnllistado.setPreferredSize(new java.awt.Dimension(260, 400));
 
+        tablalistado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablalistado.setForeground(new java.awt.Color(75, 16, 160));
         tablalistado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -151,7 +154,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistado.setGridColor(new java.awt.Color(102, 50, 159));
+        tablalistado.setGridColor(new java.awt.Color(75, 16, 160));
         tablalistado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablalistadoMouseClicked(evt);
@@ -262,7 +265,8 @@ public class frmkpi extends javax.swing.JInternalFrame {
 
         jPanel3.add(pnllistado, java.awt.BorderLayout.CENTER);
 
-        pnlregistro.setBackground(new java.awt.Color(153, 103, 198));
+        pnlregistro.setBackground(new java.awt.Color(255, 255, 255));
+        pnlregistro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
         pnlregistro.setPreferredSize(new java.awt.Dimension(230, 190));
 
         txtnom_kpi.addActionListener(new java.awt.event.ActionListener() {
@@ -276,8 +280,8 @@ public class frmkpi extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrekpi.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi.setText("Nombre nuevo KPI :");
 
         btnguardar.setBackground(new java.awt.Color(0, 51, 0));
@@ -301,8 +305,8 @@ public class frmkpi extends javax.swing.JInternalFrame {
         txtdesc_kpi.setRows(5);
         jScrollPane2.setViewportView(txtdesc_kpi);
 
-        lbldesc_kpi.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lbldesc_kpi.setForeground(new java.awt.Color(255, 255, 255));
+        lbldesc_kpi.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lbldesc_kpi.setForeground(new java.awt.Color(75, 16, 160));
         lbldesc_kpi.setText("Descripcion Nuevo KPI :");
 
         btncancelar.setBackground(new java.awt.Color(0, 51, 0));
@@ -340,7 +344,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
                         .addComponent(lblnombrekpi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtnom_kpi))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlregistroLayout.setVerticalGroup(
@@ -369,6 +373,12 @@ public class frmkpi extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isotipo-1-fondo-transparente91x77.png"))); // NOI18N
+        jLabel3.setText("  ");
+        jLabel3.setPreferredSize(new java.awt.Dimension(91, 85));
+        jPanel1.add(jLabel3, java.awt.BorderLayout.PAGE_END);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -377,7 +387,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
 
         pack();
@@ -559,6 +569,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnnuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

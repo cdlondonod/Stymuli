@@ -70,13 +70,13 @@ public class frmperfil extends javax.swing.JInternalFrame {
 
         lblnombre.setText(INICIO.lblinicionombre.getText() + " " + INICIO.lblinicio1erapellido.getText()
                 + " " + INICIO.lblinicio2doapellido.getText());
-        lblcargo.setText("Cargo: " + ftrabajador.logincargo);
-        lblarea.setText("Área: " + INICIO.lblinicioarea.getText());
-        lblsubarea.setText("SubÁrea: " + INICIO.lbliniciosubarea.getText());
+        lblcargo.setText( ftrabajador.logincargo);
+        lblarea.setText(INICIO.lblinicioarea.getText());
+        lblsubarea.setText( INICIO.lbliniciosubarea.getText());
 
         if (fperfilusuario.ganadomespasado == 0.0) {
-            lblhasganado.setText("No ganaste aun");
-            lblhasganado.setForeground(Color.RED);
+            lblhasganado.setText("");
+          
             lblvalorganado.setForeground(Color.WHITE);
         } else {
 
@@ -111,7 +111,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
                     true, // include legend   
                     true,
                     false);
-            chart.getTitle().setPaint(new Color(53, 29, 113));
+            chart.getTitle().setPaint(new Color(75,16,160));
             PiePlot plot = (PiePlot) chart.getPlot();
             PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
                     "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%"));
@@ -119,13 +119,13 @@ public class frmperfil extends javax.swing.JInternalFrame {
             plot.setLabelOutlinePaint(null);
             plot.setLabelShadowPaint(null);
             plot.setLabelBackgroundPaint(null);
-            plot.setLabelPaint(new Color(53, 29, 113));
+            plot.setLabelPaint(new Color(75,16,160));
             plot.setBackgroundPaint(Color.WHITE);
             // plot.setSimpleLabels(true);
             plot.setOutlineVisible(false);
             chart.setBackgroundPaint(Color.WHITE);
-            plot.setSectionPaint(0, new Color(121, 152, 40));
-            plot.setSectionPaint(1, new Color(49, 95, 118));
+            plot.setSectionPaint(0, new Color(20, 173, 23));
+            plot.setSectionPaint(1, new Color(101, 54, 193));
             final ChartPanel chartPanel = new ChartPanel(chart);
             chart.getLegend().setFrame(BlockBorder.NONE);
             pnlproyeccion.setLayout(new java.awt.BorderLayout());
@@ -149,9 +149,9 @@ public class frmperfil extends javax.swing.JInternalFrame {
 
             final CategoryItemRenderer renderer = new StackedBarRenderer();
             renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator("{2}", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%")));
-            renderer.setItemLabelPaint(new Color(53, 29, 113));
+            renderer.setItemLabelPaint(new Color(75,16,160));
             renderer.setItemLabelsVisible(true);
-            renderer.setSeriesPaint(0, new Color(121, 152, 40));
+            renderer.setSeriesPaint(0, new Color(20, 173, 23));
             renderer.setSeriesPaint(1, new Color(238, 238, 221));
             renderer.setBaseItemLabelsVisible(true);
             final CategoryPlot plot = new CategoryPlot();
@@ -171,12 +171,12 @@ public class frmperfil extends javax.swing.JInternalFrame {
             final JFreeChart chart = new JFreeChart(plot);
             chart.setBackgroundPaint(Color.WHITE);
             chart.setTitle("Mi Evolutivo");
-            chart.getTitle().setPaint(new Color(53, 29, 113));
+            chart.getTitle().setPaint(new Color(75,16,160));
             chart.getLegend().setFrame(BlockBorder.NONE);
-            plot.getDomainAxis().setTickLabelPaint(new Color(53, 29, 113));
-            plot.getRangeAxis().setTickLabelPaint(new Color(53, 29, 113));
-            plot.getRangeAxis().setLabelPaint(new Color(53, 29, 113));
-            plot.getDomainAxis().setLabelPaint(new Color(53, 29, 113));
+            plot.getDomainAxis().setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis().setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis().setLabelPaint(new Color(75,16,160));
+            plot.getDomainAxis().setLabelPaint(new Color(75,16,160));
             plot.setOutlineVisible(false);
             final ChartPanel chartPanel = new ChartPanel(chart);
             pnlevoluciondinero.setLayout(new java.awt.BorderLayout());
@@ -199,10 +199,10 @@ public class frmperfil extends javax.swing.JInternalFrame {
 
             final CategoryItemRenderer renderer = new BarRenderer();
             renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator("{2}", new DecimalFormat("#,##0%;(#,##0)"), new DecimalFormat("0%")));
-            renderer.setItemLabelPaint(new Color(53, 29, 113));
+            renderer.setItemLabelPaint(new Color(75,16,160));
             renderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.HALF_ASCENT_CENTER));
             renderer.setItemLabelsVisible(true);
-            renderer.setSeriesPaint(0, new Color(121, 152, 40));
+            renderer.setSeriesPaint(0, new Color(20, 173, 23));
             renderer.setSeriesPaint(1, new Color(238, 238, 221));
             renderer.setBaseItemLabelsVisible(true);
             final CategoryPlot plot = new CategoryPlot();
@@ -222,12 +222,12 @@ public class frmperfil extends javax.swing.JInternalFrame {
             final JFreeChart chart = new JFreeChart(plot);
             chart.setBackgroundPaint(Color.WHITE);
             chart.setTitle("Mi Cumplimiento");
-            chart.getTitle().setPaint(new Color(53, 29, 113));
+            chart.getTitle().setPaint(new Color(75,16,160));
             chart.getLegend().setFrame(BlockBorder.NONE);
-            plot.getDomainAxis().setTickLabelPaint(new Color(53, 29, 113));
-            plot.getRangeAxis().setTickLabelPaint(new Color(53, 29, 113));
-            plot.getRangeAxis().setLabelPaint(new Color(53, 29, 113));
-            plot.getDomainAxis().setLabelPaint(new Color(53, 29, 113));
+            plot.getDomainAxis().setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis().setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis().setLabelPaint(new Color(75,16,160));
+            plot.getDomainAxis().setLabelPaint(new Color(75,16,160));
             plot.setOutlineVisible(false);
             final ChartPanel chartPanel = new ChartPanel(chart);
             pnlcumplimiento.setLayout(new java.awt.BorderLayout());
@@ -267,7 +267,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
             ChartUtilities.applyCurrentTheme(chart);
 
             renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator());
-            renderer.setItemLabelPaint(new Color(53, 29, 113));
+            renderer.setItemLabelPaint(new Color(75,16,160));
             renderer.setItemLabelsVisible(true);
             renderer.setSeriesPaint(1, new Color(255, 5, 5));
             renderer.setSeriesStroke(1, new BasicStroke(4));
@@ -275,7 +275,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
             renderer.setSeriesStroke(0, new BasicStroke(4));
              renderer.setSeriesPaint(2, new Color(5, 255, 22));
              renderer.setSeriesStroke(2, new BasicStroke(4));
-             renderer.setSeriesPaint(3, new Color(53, 29, 113));
+             renderer.setSeriesPaint(3, new Color(75,16,160));
              renderer.setSeriesStroke(3, new BasicStroke(6));
             renderer.setBaseItemLabelsVisible(true);
             plot.setBackgroundPaint(Color.WHITE);
@@ -293,12 +293,12 @@ public class frmperfil extends javax.swing.JInternalFrame {
             plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
             chart.setBackgroundPaint(Color.WHITE);
             chart.setTitle("Mi Promedio");
-            chart.getTitle().setPaint(new Color(53, 29, 113));
+            chart.getTitle().setPaint(new Color(75,16,160));
             chart.getLegend().setFrame(BlockBorder.NONE);
-            plot.getDomainAxis().setTickLabelPaint(new Color(53, 29, 113));
-            plot.getRangeAxis().setTickLabelPaint(new Color(53, 29, 113));
-            plot.getRangeAxis().setLabelPaint(new Color(53, 29, 113));
-            plot.getDomainAxis().setLabelPaint(new Color(53, 29, 113));
+            plot.getDomainAxis().setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis().setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis().setLabelPaint(new Color(75,16,160));
+            plot.getDomainAxis().setLabelPaint(new Color(75,16,160));
             plot.setOutlineVisible(false);
 
             final ChartPanel chartPanel = new ChartPanel(chart);
@@ -370,28 +370,28 @@ public class frmperfil extends javax.swing.JInternalFrame {
         pnldatos.setBackground(new java.awt.Color(255, 255, 255));
         pnldatos.setPreferredSize(new java.awt.Dimension(0, 0));
 
-        lblnombre.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        lblnombre.setForeground(new java.awt.Color(53, 29, 113));
+        lblnombre.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblnombre.setForeground(new java.awt.Color(75, 16, 160));
         lblnombre.setText("nombre");
 
-        lblcargo.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        lblcargo.setForeground(new java.awt.Color(53, 29, 113));
+        lblcargo.setFont(new java.awt.Font("Arial", 3, 15)); // NOI18N
+        lblcargo.setForeground(new java.awt.Color(75, 16, 160));
         lblcargo.setText("cargo");
 
-        lblarea.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        lblarea.setForeground(new java.awt.Color(53, 29, 113));
+        lblarea.setFont(new java.awt.Font("Arial", 3, 15)); // NOI18N
+        lblarea.setForeground(new java.awt.Color(75, 16, 160));
         lblarea.setText("area");
 
-        lblsubarea.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        lblsubarea.setForeground(new java.awt.Color(53, 29, 113));
+        lblsubarea.setFont(new java.awt.Font("Arial", 3, 15)); // NOI18N
+        lblsubarea.setForeground(new java.awt.Color(75, 16, 160));
         lblsubarea.setText("subarea");
 
         lblhasganado.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        lblhasganado.setForeground(new java.awt.Color(53, 29, 113));
-        lblhasganado.setText("Has Ganado:");
+        lblhasganado.setForeground(new java.awt.Color(0, 0, 0));
+        lblhasganado.setText("Ganado mes anterior:");
 
-        lblvalorganado.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        lblvalorganado.setForeground(new java.awt.Color(0, 204, 0));
+        lblvalorganado.setFont(new java.awt.Font("abeatbyKai", 1, 36)); // NOI18N
+        lblvalorganado.setForeground(new java.awt.Color(20, 201, 29));
         lblvalorganado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblvalorganado.setText("Valor obtenido");
         lblvalorganado.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -406,18 +406,21 @@ public class frmperfil extends javax.swing.JInternalFrame {
                     .addComponent(lblvalorganado, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                     .addGroup(pnldatosLayout.createSequentialGroup()
                         .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblarea)
                             .addComponent(lblnombre)
-                            .addComponent(lblcargo)
-                            .addComponent(lblsubarea)
-                            .addComponent(lblhasganado))
+                            .addComponent(lblhasganado)
+                            .addGroup(pnldatosLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblarea)
+                                    .addComponent(lblcargo)
+                                    .addComponent(lblsubarea))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnldatosLayout.setVerticalGroup(
             pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnldatosLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(33, 33, 33)
                 .addComponent(lblnombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblcargo)
@@ -425,7 +428,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
                 .addComponent(lblarea)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblsubarea)
-                .addGap(53, 53, 53)
+                .addGap(32, 32, 32)
                 .addComponent(lblhasganado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblvalorganado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))

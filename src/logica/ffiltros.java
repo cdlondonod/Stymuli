@@ -117,7 +117,7 @@ public class ffiltros {
         String[] titulos = {"KPI"};
         String[] registro = new String[1];
         modelo = new DefaultTableModel(null, titulos);
-        sSQL = "SELECT o.idkpi,k.nombre,k.descripcion FROM objetivos o INNER JOIN kpi k ON o.idkpi=k.idkpi \n"
+        sSQL = "SELECT DISTINCT o.idkpi,k.nombre,k.descripcion FROM objetivos o INNER JOIN kpi k ON o.idkpi=k.idkpi \n"
                 + "INNER JOIN modelo m ON o.idmodelo=m.idmodelo INNER JOIN subarea s ON m.idsubarea=s.idsubarea \n"
                 + "WHERE k.nombre LIKE '%" + buscar + "%' and s.nombre LIKE '%" + conexion.formsubarea + "%' "
                 + "ORDER BY k.nombre DESC";

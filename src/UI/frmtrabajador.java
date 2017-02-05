@@ -254,10 +254,11 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         jPanel7.setPreferredSize(new java.awt.Dimension(745, 590));
         jPanel7.setLayout(new java.awt.BorderLayout());
 
-        pnllistado.setBackground(new java.awt.Color(102, 50, 159));
+        pnllistado.setBackground(new java.awt.Color(101, 54, 193));
         pnllistado.setPreferredSize(new java.awt.Dimension(745, 500));
 
-        tablalistado.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
+        tablalistado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablalistado.setForeground(new java.awt.Color(75, 16, 160));
         tablalistado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -269,7 +270,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistado.setGridColor(new java.awt.Color(102, 50, 159));
+        tablalistado.setGridColor(new java.awt.Color(75, 16, 160));
         tablalistado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablalistadoMouseClicked(evt);
@@ -298,9 +299,12 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         jLabel2.setLabelFor(txtbuscar);
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Filtrar por:");
 
+        cbofiltro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cbofiltro.setForeground(new java.awt.Color(75, 16, 160));
         cbofiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Documento", "Nombre", "1erApellido", "2doApellido", "Area", "SubArea", "Cargo", "Salario", "Acceso", "Estado", "Email", "Telefono" }));
 
         jPanel6.setOpaque(false);
@@ -417,13 +421,15 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
 
         jPanel5.add(jPanel7);
 
-        pnlregistro.setBackground(new java.awt.Color(153, 103, 198));
-        pnlregistro.setPreferredSize(new java.awt.Dimension(240, 570));
+        pnlregistro.setBackground(new java.awt.Color(255, 255, 255));
+        pnlregistro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
+        pnlregistro.setPreferredSize(new java.awt.Dimension(250, 570));
 
         jPanel4.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel4.setOpaque(false);
 
-        lblnombrekpi8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi8.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi8.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi8.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi8.setText("Acceso:");
 
         txtdocumento.addActionListener(new java.awt.event.ActionListener() {
@@ -432,12 +438,12 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrekpi5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi5.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi5.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi5.setText("Email:");
 
-        lblnombrekpi2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi2.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi2.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi2.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi2.setText("Segundo Apellido:");
 
         txtapaterno.addActionListener(new java.awt.event.ActionListener() {
@@ -452,10 +458,12 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             }
         });
 
+        cboestado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cboestado.setForeground(new java.awt.Color(75, 16, 160));
         cboestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
 
-        lblnombrekpi4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi4.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi4.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi4.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi4.setText("Num. Doc:");
 
         txtnombre.addActionListener(new java.awt.event.ActionListener() {
@@ -464,8 +472,8 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrekpi3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi3.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi3.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi3.setText("Tipo Doc:");
 
         txttel.addActionListener(new java.awt.event.ActionListener() {
@@ -475,6 +483,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         });
 
         jPanel3.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
         txtnombresubarea.addActionListener(new java.awt.event.ActionListener() {
@@ -497,14 +506,16 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         });
         jPanel3.add(btnbuscar_subarea_trab);
 
-        lblnombrekpi13.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi13.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi13.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi13.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi13.setText("SubÁrea:");
 
-        lblnombrekpi11.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi11.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi11.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi11.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi11.setText("Estado:");
 
+        cboacceso.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cboacceso.setForeground(new java.awt.Color(75, 16, 160));
         cboacceso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trabajador", "Administrador", "Jefe de Area", "Jefe de Subarea" }));
 
         txtamaterno.addActionListener(new java.awt.event.ActionListener() {
@@ -513,11 +524,12 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrekpi7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi7.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi7.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi7.setText("Salário:");
 
         jPanel2.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
         txtnombrearea.addActionListener(new java.awt.event.ActionListener() {
@@ -540,8 +552,8 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnbuscaarea);
 
-        lblnombrekpi12.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi12.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi12.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi12.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi12.setText("Teléfono:");
 
         txtpassword.addActionListener(new java.awt.event.ActionListener() {
@@ -550,14 +562,16 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             }
         });
 
-        lblpassword.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblpassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblpassword.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblpassword.setForeground(new java.awt.Color(75, 16, 160));
         lblpassword.setText("Password:");
 
+        cbotipo_documento.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cbotipo_documento.setForeground(new java.awt.Color(75, 16, 160));
         cbotipo_documento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula de Ciudadania", "Cedula de Extranjeria", "Tarjeta de identidad", "NIT", "Pasaporte" }));
 
-        lblnombrekpi.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi.setText("Nombre:");
 
         txtsalario.addActionListener(new java.awt.event.ActionListener() {
@@ -571,16 +585,16 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrekpi1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi1.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi1.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi1.setText("Primer Apellido:");
 
-        lblnombrekpi6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi6.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi6.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi6.setText("Área:");
 
-        lblnombrekpi14.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi14.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi14.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi14.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi14.setText("Cargo:");
 
         txtcargo.addActionListener(new java.awt.event.ActionListener() {
@@ -594,9 +608,9 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             }
         });
 
-        btnupdownload.setBackground(new java.awt.Color(53, 29, 113));
-        btnupdownload.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        btnupdownload.setForeground(new java.awt.Color(255, 255, 255));
+        btnupdownload.setBackground(new java.awt.Color(255, 255, 255));
+        btnupdownload.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnupdownload.setForeground(new java.awt.Color(75, 16, 160));
         btnupdownload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/upandown.png"))); // NOI18N
         btnupdownload.setText("Cargar");
         btnupdownload.setToolTipText("Subir datos o descargar plantilla");
@@ -777,7 +791,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
                         .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlregistroLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlregistroLayout.setVerticalGroup(
@@ -796,7 +810,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel5, java.awt.BorderLayout.CENTER);
 
-        jLabel3.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel3.setBackground(new java.awt.Color(75, 16, 160));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -809,7 +823,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1005, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1034, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

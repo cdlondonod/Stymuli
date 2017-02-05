@@ -29,7 +29,7 @@ public class frmzfiltrotrabajador extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         Tablafiltrado.setDefaultEditor(Object.class, null);
         
-        jScrollPane1.getViewport().setBackground(new Color(153,103,198));
+        jScrollPane1.getViewport().setBackground(new Color(101,54,193));
         Tablafiltrado.setShowHorizontalLines(true);
        jScrollPane1.getColumnHeader().setVisible(false);
         txtfiltrar.requestFocus();
@@ -87,7 +87,7 @@ public class frmzfiltrotrabajador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel2.setBackground(new java.awt.Color(53, 29, 113));
+        jPanel2.setBackground(new java.awt.Color(75, 16, 160));
 
         btncancelar.setBackground(new java.awt.Color(0, 51, 0));
         btncancelar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -103,7 +103,7 @@ public class frmzfiltrotrabajador extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel1.setBackground(new java.awt.Color(101, 54, 193));
         jPanel1.setPreferredSize(new java.awt.Dimension(546, 214));
 
         txtfiltrar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -114,6 +114,8 @@ public class frmzfiltrotrabajador extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(null);
 
+        Tablafiltrado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        Tablafiltrado.setForeground(new java.awt.Color(75, 16, 160));
         Tablafiltrado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -125,7 +127,7 @@ public class frmzfiltrotrabajador extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        Tablafiltrado.setGridColor(new java.awt.Color(153, 103, 198));
+        Tablafiltrado.setGridColor(new java.awt.Color(75, 16, 160));
         Tablafiltrado.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         Tablafiltrado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -154,11 +156,11 @@ public class frmzfiltrotrabajador extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(txtfiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Trabajador");
 

@@ -51,9 +51,9 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
         tablasim.setDefaultEditor(Object.class, null);
         tablasim.setShowGrid(true);
         ((DefaultCellEditor) tablakpires.getDefaultEditor(Object.class)).setClickCountToStart(1);
-        jScrollPane2.getViewport().setBackground(new Color(102, 50, 159));
-        jScrollPane1.getViewport().setBackground(new Color(153, 103, 198));
-        jScrollPane4.getViewport().setBackground(new Color(153, 103, 198));
+        jScrollPane2.getViewport().setBackground(new Color(101, 54, 193));
+        jScrollPane1.getViewport().setBackground(new Color(255, 255, 255));
+        jScrollPane4.getViewport().setBackground(new Color(255, 255, 255));
         rootPane.setDefaultButton(btnsimular);
     }
 
@@ -138,6 +138,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tablasim = new javax.swing.JTable();
         pnlgrafica = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -154,7 +155,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel1.setBackground(new java.awt.Color(75, 16, 160));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -167,12 +168,13 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
         jPanel3.setOpaque(false);
 
-        pnllistado.setBackground(new java.awt.Color(153, 103, 198));
-        pnllistado.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Objetivos a Cumplir", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        pnllistado.setBackground(new java.awt.Color(255, 255, 255));
+        pnllistado.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)), "Objetivos a Cumplir", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(75, 16, 160))); // NOI18N
 
         jScrollPane1.setBorder(null);
 
-        tablamodelo.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
+        tablamodelo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablamodelo.setForeground(new java.awt.Color(75, 16, 160));
         tablamodelo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -184,7 +186,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablamodelo.setGridColor(new java.awt.Color(102, 50, 159));
+        tablamodelo.setGridColor(new java.awt.Color(75, 16, 160));
         tablamodelo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablamodeloMouseClicked(evt);
@@ -209,7 +211,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
         );
 
-        pnlregistro.setBackground(new java.awt.Color(102, 50, 159));
+        pnlregistro.setBackground(new java.awt.Color(101, 54, 193));
 
         btnsimular.setBackground(new java.awt.Color(0, 51, 0));
         btnsimular.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -229,7 +231,8 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
         jScrollPane2.setBorder(null);
         jScrollPane2.setOpaque(false);
 
-        tablakpires.setBackground(new java.awt.Color(102, 50, 159));
+        tablakpires.setBackground(new java.awt.Color(101, 54, 193));
+        tablakpires.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tablakpires.setForeground(new java.awt.Color(255, 255, 255));
         tablakpires.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -243,7 +246,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
             }
         ));
         tablakpires.setCellSelectionEnabled(true);
-        tablakpires.setGridColor(new java.awt.Color(102, 50, 159));
+        tablakpires.setGridColor(new java.awt.Color(75, 16, 160));
         tablakpires.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tablakpiresMousePressed(evt);
@@ -274,12 +277,13 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        pnllistado3.setBackground(new java.awt.Color(153, 103, 198));
-        pnllistado3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Resultados Obtenidos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        pnllistado3.setBackground(new java.awt.Color(255, 255, 255));
+        pnllistado3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)), "Resultados Obtenidos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(75, 16, 160))); // NOI18N
 
         jScrollPane4.setBorder(null);
 
-        tablasim.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
+        tablasim.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablasim.setForeground(new java.awt.Color(75, 16, 160));
         tablasim.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -288,7 +292,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
                 "KPI", "Resultado", "Comparacion", "Objetivo", "Obtenido", "Hab."
             }
         ));
-        tablasim.setGridColor(new java.awt.Color(102, 50, 159));
+        tablasim.setGridColor(new java.awt.Color(75, 16, 160));
         tablasim.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablasimMouseClicked(evt);
@@ -332,16 +336,20 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnllistado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnllistado3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlregistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(pnlregistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnllistado3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jPanel4.add(jPanel3);
 
-        pnlgrafica.setBackground(new java.awt.Color(153, 103, 198));
+        pnlgrafica.setBackground(new java.awt.Color(255, 255, 255));
+        pnlgrafica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
         pnlgrafica.setMinimumSize(new java.awt.Dimension(600, 0));
         pnlgrafica.setPreferredSize(new java.awt.Dimension(600, 400));
 
@@ -353,12 +361,18 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
         );
         pnlgraficaLayout.setVerticalGroup(
             pnlgraficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 398, Short.MAX_VALUE)
         );
 
         jPanel4.add(pnlgrafica);
 
         jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isotipo-1-fondo-transparente91x77.png"))); // NOI18N
+        jLabel2.setText("  ");
+        jLabel2.setPreferredSize(new java.awt.Dimension(91, 85));
+        jPanel2.add(jLabel2, java.awt.BorderLayout.PAGE_END);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -807,6 +821,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnsimular;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

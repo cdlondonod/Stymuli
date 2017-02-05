@@ -36,7 +36,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         tablalistado.setDefaultEditor(Object.class, null);
         tablalistado.setShowGrid(true);
-        jScrollPane1.getViewport().setBackground(new Color(102, 50, 159));
+        jScrollPane1.getViewport().setBackground(new Color(101, 54, 193));
         
         
         btncomparacion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/comparacion.png") + "\">");        
@@ -202,7 +202,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel3.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel3.setBackground(new java.awt.Color(75, 16, 160));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -217,11 +217,12 @@ public class frmresultados extends javax.swing.JInternalFrame {
         jPanel7.setPreferredSize(new java.awt.Dimension(920, 500));
         jPanel7.setLayout(new java.awt.BorderLayout());
 
-        pnllistado.setBackground(new java.awt.Color(102, 50, 159));
+        pnllistado.setBackground(new java.awt.Color(101, 54, 193));
 
         jScrollPane1.setBackground(new java.awt.Color(102, 50, 159));
 
-        tablalistado.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
+        tablalistado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablalistado.setForeground(new java.awt.Color(75, 16, 160));
         tablalistado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -233,7 +234,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistado.setGridColor(new java.awt.Color(102, 50, 159));
+        tablalistado.setGridColor(new java.awt.Color(75, 16, 160));
         tablalistado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablalistadoMouseClicked(evt);
@@ -304,6 +305,8 @@ public class frmresultados extends javax.swing.JInternalFrame {
             }
         });
 
+        cbofiltro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cbofiltro.setForeground(new java.awt.Color(75, 16, 160));
         cbofiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Documento", "Nombre", "1erApellido", "Area", "SubArea", "KPI", "Año", "Mes", "Resultado" }));
         cbofiltro.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -370,13 +373,14 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
         jPanel4.add(jPanel7);
 
-        pnlregistro.setBackground(new java.awt.Color(153, 103, 198));
+        pnlregistro.setBackground(new java.awt.Color(255, 255, 255));
+        pnlregistro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
         pnlregistro.setPreferredSize(new java.awt.Dimension(267, 300));
 
         jPanel5.setOpaque(false);
 
-        lblnombrekpi6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi6.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi6.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi6.setText("Trabajador:");
 
         btnguardar.setBackground(new java.awt.Color(0, 51, 0));
@@ -393,11 +397,12 @@ public class frmresultados extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrekpi7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi7.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi7.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi7.setText("Resultado:");
 
         jPanel2.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
         txttrabajador.addActionListener(new java.awt.event.ActionListener() {
@@ -427,6 +432,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         });
 
         jPanel3.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
         txtkpi.addActionListener(new java.awt.event.ActionListener() {
@@ -463,12 +469,12 @@ public class frmresultados extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrekpi3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi3.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi3.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi3.setText("Mes:");
 
-        lblnombrekpi9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi9.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi9.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi9.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi9.setText("Año:");
 
         txtresultado.addActionListener(new java.awt.event.ActionListener() {
@@ -482,9 +488,9 @@ public class frmresultados extends javax.swing.JInternalFrame {
             }
         });
 
-        btnupdownload.setBackground(new java.awt.Color(53, 29, 113));
-        btnupdownload.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        btnupdownload.setForeground(new java.awt.Color(255, 255, 255));
+        btnupdownload.setBackground(new java.awt.Color(255, 255, 255));
+        btnupdownload.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnupdownload.setForeground(new java.awt.Color(75, 16, 160));
         btnupdownload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/upandown.png"))); // NOI18N
         btnupdownload.setText("Cargar ");
         btnupdownload.setToolTipText("Subir datos o descargar plantilla");
@@ -495,10 +501,12 @@ public class frmresultados extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrekpi13.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi13.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi13.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrekpi13.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi13.setText("KPI:");
 
+        cbomes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cbomes.setForeground(new java.awt.Color(75, 16, 160));
         cbomes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01_Enero", "02_Febrero", "03_Marzo", "04_Abril", "05_Mayo", "06_Junio", "07_Julio", "08_Agosto", "09_Septiembre", "10_Octubre", "11_Noviembre", "12_Dicimiebre" }));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -566,7 +574,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblnombrekpi9)
                     .addComponent(txtyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnguardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -607,12 +615,12 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel4, java.awt.BorderLayout.CENTER);
 
-        jPanel6.setBackground(new java.awt.Color(53, 29, 113));
-        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        btnanalisis7.setBackground(new java.awt.Color(53, 29, 113));
-        btnanalisis7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnanalisis7.setForeground(new java.awt.Color(255, 255, 255));
+        btnanalisis7.setBackground(new java.awt.Color(255, 255, 255));
+        btnanalisis7.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnanalisis7.setForeground(new java.awt.Color(75, 16, 160));
         btnanalisis7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/obtenido_persona.png"))); // NOI18N
         btnanalisis7.setText("Obtenido por Persona");
         btnanalisis7.setToolTipText("Estímulo obtenido por persona");
@@ -626,11 +634,11 @@ public class frmresultados extends javax.swing.JInternalFrame {
         });
         jPanel6.add(btnanalisis7);
 
-        btnanalisis5.setBackground(new java.awt.Color(53, 29, 113));
-        btnanalisis5.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnanalisis5.setForeground(new java.awt.Color(255, 255, 255));
+        btnanalisis5.setBackground(new java.awt.Color(255, 255, 255));
+        btnanalisis5.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnanalisis5.setForeground(new java.awt.Color(75, 16, 160));
         btnanalisis5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/todo.png"))); // NOI18N
-        btnanalisis5.setText("Análisis de Resultados");
+        btnanalisis5.setText("Analisis de Resultados");
         btnanalisis5.setToolTipText("Análisis histórico de todos los resultados");
         btnanalisis5.setBorder(null);
         btnanalisis5.setBorderPainted(false);
@@ -642,9 +650,9 @@ public class frmresultados extends javax.swing.JInternalFrame {
         });
         jPanel6.add(btnanalisis5);
 
-        btnproyeccion.setBackground(new java.awt.Color(53, 29, 113));
-        btnproyeccion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnproyeccion.setForeground(new java.awt.Color(255, 255, 255));
+        btnproyeccion.setBackground(new java.awt.Color(255, 255, 255));
+        btnproyeccion.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnproyeccion.setForeground(new java.awt.Color(75, 16, 160));
         btnproyeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
         btnproyeccion.setText("Mi Stymuli Proyectado");
         btnproyeccion.setToolTipText("Gráfica proyección estímulo obtenido frente a estímulo posible");
@@ -652,7 +660,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         btnproyeccion.setBorderPainted(false);
         btnproyeccion.setContentAreaFilled(false);
         btnproyeccion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnproyeccion.setPreferredSize(new java.awt.Dimension(195, 54));
+        btnproyeccion.setPreferredSize(new java.awt.Dimension(250, 54));
         btnproyeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnproyeccionActionPerformed(evt);
@@ -660,9 +668,9 @@ public class frmresultados extends javax.swing.JInternalFrame {
         });
         jPanel6.add(btnproyeccion);
 
-        btnevolutivo.setBackground(new java.awt.Color(53, 29, 113));
-        btnevolutivo.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnevolutivo.setForeground(new java.awt.Color(255, 255, 255));
+        btnevolutivo.setBackground(new java.awt.Color(255, 255, 255));
+        btnevolutivo.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btnevolutivo.setForeground(new java.awt.Color(75, 16, 160));
         btnevolutivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
         btnevolutivo.setText("Mi Evolutivo de KPI");
         btnevolutivo.setToolTipText("Gráfica evolutivo mensual");
@@ -670,7 +678,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         btnevolutivo.setBorderPainted(false);
         btnevolutivo.setContentAreaFilled(false);
         btnevolutivo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnevolutivo.setPreferredSize(new java.awt.Dimension(195, 54));
+        btnevolutivo.setPreferredSize(new java.awt.Dimension(240, 54));
         btnevolutivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnevolutivoActionPerformed(evt);
@@ -678,9 +686,9 @@ public class frmresultados extends javax.swing.JInternalFrame {
         });
         jPanel6.add(btnevolutivo);
 
-        btncomparacion.setBackground(new java.awt.Color(53, 29, 113));
-        btncomparacion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btncomparacion.setForeground(new java.awt.Color(255, 255, 255));
+        btncomparacion.setBackground(new java.awt.Color(255, 255, 255));
+        btncomparacion.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btncomparacion.setForeground(new java.awt.Color(75, 16, 160));
         btncomparacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
         btncomparacion.setText("Distribucion KPI");
         btncomparacion.setToolTipText("Gráfica comparación KPI, valor objetivo frente a valor obtenido");
