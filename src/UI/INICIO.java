@@ -13,10 +13,10 @@ import static UI.frmanalisis.form4chartkpi;
 import static UI.frmanalisis.form5chart;
 import static UI.frmresultados.formcompchart;
 import static UI.frmresultados.formobtpe;
-import java.awt.BorderLayout;
+
 
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -454,7 +454,8 @@ public class INICIO extends javax.swing.JFrame {
         }
         
               if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-
+                  
+      
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
@@ -594,7 +595,7 @@ public class INICIO extends javax.swing.JFrame {
         formt.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
 
-        if (INICIO.lblinicioacceso.equals("Trabajador")) {
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
