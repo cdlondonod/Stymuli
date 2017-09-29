@@ -5,6 +5,7 @@
  */
 package logica;
 
+import UI.INICIO;
 import datos.vmodelo;
 
 import java.sql.Connection;
@@ -24,6 +25,7 @@ public class fmodelo {
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
+    private String sSQL2="";
 
     DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
 
@@ -35,11 +37,23 @@ public class fmodelo {
         String[] registro = new String[8];
 
         modelo = new DefaultTableModel(null, titulos);
+        
+        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            
+            sSQL2="a.nombre like '%"+INICIO.lblinicioarea.getText()+"%' AND";
+            
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            
+            sSQL2="a.nombre like '%"+INICIO.lblinicioarea.getText()+"%' AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' AND"; 
+            
+        }
 
         sSQL = "select m.idmodelo,m.idarea,a.nombre,m.idsubarea,s.nombre,m.tipo_estimulo, m.estimulo, "
                 + "m.descripcion from modelo m INNER JOIN area a ON a.idarea=m.idarea INNER JOIN subarea s "
-                + "ON s.idsubarea=m.idsubarea where a.nombre like '%"
-                + buscar + "%' or s.nombre like '%" + buscar + "%' order by s.nombre";
+                + "ON s.idsubarea=m.idsubarea where "                
+                +sSQL2
+                + " (a.nombre like '%"
+                + buscar + "%' or s.nombre like '%" + buscar + "%') order by m.idmodelo";
 
         try {
             Statement st = cn.createStatement();

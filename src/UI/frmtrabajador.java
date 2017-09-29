@@ -81,7 +81,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
       
         
         btneliminar.setEnabled(false);
-        btneditar1.setEnabled(false);
+        btneditar.setEnabled(false);
 
         txtidpersona.setText("");
         txtidarea.setText("");
@@ -134,7 +134,7 @@ txtcargo.setText("");
 
     void habilitar_btnpr(){
          btneliminar.setEnabled(true);
-        btneditar1.setEnabled(true);
+        btneditar.setEnabled(true);
     
     }
     
@@ -212,7 +212,7 @@ txtcargo.setText("");
         jPanel6 = new javax.swing.JPanel();
         btnnuevo = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        btneditar1 = new javax.swing.JButton();
+        btneditar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -587,7 +587,7 @@ txtcargo.setText("");
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblnombrekpi11)
                     .addComponent(cboestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnupdownload, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -614,7 +614,7 @@ txtcargo.setText("");
                     .addGroup(pnlregistroLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlregistroLayout.setVerticalGroup(
             pnlregistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -707,17 +707,17 @@ txtcargo.setText("");
             }
         });
 
-        btneditar1.setBackground(new java.awt.Color(0, 51, 0));
-        btneditar1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        btneditar1.setForeground(new java.awt.Color(255, 255, 255));
-        btneditar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
-        btneditar1.setToolTipText("Editar seleccionado");
-        btneditar1.setBorder(null);
-        btneditar1.setBorderPainted(false);
-        btneditar1.setContentAreaFilled(false);
-        btneditar1.addActionListener(new java.awt.event.ActionListener() {
+        btneditar.setBackground(new java.awt.Color(0, 51, 0));
+        btneditar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btneditar.setForeground(new java.awt.Color(255, 255, 255));
+        btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        btneditar.setToolTipText("Editar seleccionado");
+        btneditar.setBorder(null);
+        btneditar.setBorderPainted(false);
+        btneditar.setContentAreaFilled(false);
+        btneditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditar1ActionPerformed(evt);
+                btneditarActionPerformed(evt);
             }
         });
 
@@ -729,7 +729,7 @@ txtcargo.setText("");
                 .addContainerGap()
                 .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btneditar1)
+                .addComponent(btneditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -741,7 +741,7 @@ txtcargo.setText("");
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnnuevo, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btneditar1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(btneditar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -759,7 +759,7 @@ txtcargo.setText("");
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnllistadoLayout.createSequentialGroup()
                         .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE)
                             .addGroup(pnllistadoLayout.createSequentialGroup()
                                 .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1076,7 +1076,7 @@ txtcargo.setText("");
         txtnombre.transferFocus();
     }//GEN-LAST:event_txtnombreActionPerformed
 
-    private void btneditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar1ActionPerformed
+    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
 
 btnguardar.setIcon(new ImageIcon(frmtrabajador.class.getResource("/img/editar.png")));
         habilitar();
@@ -1121,7 +1121,7 @@ btnguardar.setIcon(new ImageIcon(frmtrabajador.class.getResource("/img/editar.pn
         
         txtnombre.requestFocus();
       // TODO add your handling code here:
-    }//GEN-LAST:event_btneditar1ActionPerformed
+    }//GEN-LAST:event_btneditarActionPerformed
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
 
@@ -1247,10 +1247,10 @@ txtcargo.transferFocus();        // TODO add your handling code here:
     private javax.swing.JButton btnbuscaarea;
     private javax.swing.JButton btnbuscar_subarea_trab;
     private javax.swing.JButton btncancelar;
-    private javax.swing.JButton btneditar1;
-    private javax.swing.JButton btneliminar;
+    public static javax.swing.JButton btneditar;
+    public static javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JButton btnnuevo;
+    public static javax.swing.JButton btnnuevo;
     private javax.swing.JButton btnupdownload;
     private javax.swing.JComboBox<String> cboacceso;
     private javax.swing.JComboBox<String> cboestado;

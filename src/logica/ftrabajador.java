@@ -6,7 +6,6 @@
 package logica;
 
 import UI.INICIO;
-import UI.frmzzcrearpass;
 import datos.vtrabajador;
 import java.io.FileWriter;
 import java.sql.Connection;
@@ -16,7 +15,7 @@ import java.sql.Statement;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import org.jfree.ui.tabbedui.RootPanel;
+
 import org.mindrot.jbcrypt.BCrypt;
 
 /**
@@ -33,6 +32,7 @@ public class ftrabajador {
     private String sSQL4 = "";
     public Integer rows;
     private static int workload = 12;
+    
     DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
 
     public DefaultTableModel mostrar(String buscar, String filtrores) {
@@ -43,13 +43,22 @@ public class ftrabajador {
         String[] registro = new String[16];
 
         modelo = new DefaultTableModel(null, titulos);
+        
+        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            sSQL2=" AND a.nombre like '%"+INICIO.lblinicioarea.getText()+"%' ";
+            
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            sSQL2=" AND a.nombre like '%"+INICIO.lblinicioarea.getText()+"%' AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' "; 
+        }
 
         sSQL = " SELECT p.idpersona,p.nombre,p.apaterno,p.amaterno,p.tipo_documento,p.documento,"
                 + "p.email,p.tel,p.idarea,p.idsubarea,a.nombre,s.nombre,p.cargo,p.salario,p.acceso,"
                 + "p.password,p.estado "
                 + "FROM persona p INNER JOIN area a ON a.idarea=p.idarea INNER JOIN subarea s "
                 + "ON s.idsubarea=p.idsubarea "
-                + "where " + filtrores + " like '%" + buscar + "%' order by p.apaterno";
+                + "where " + filtrores + " like '%" + buscar + "%' "
+                + sSQL2
+                + " order by p.apaterno";
 
         try {
             Statement st = cn.createStatement();
@@ -234,7 +243,7 @@ public class ftrabajador {
         loginidpersona = "";
         loginnombre = "";
         login1erapellido = "";
-        login2doapellido = "";        
+        login2doapellido = "";
         loginemail = "";
         loginidarea = "";
         loginarea = "";

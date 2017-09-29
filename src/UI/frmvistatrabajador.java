@@ -77,9 +77,7 @@ public class frmvistatrabajador extends javax.swing.JFrame {
         tablalistado.getColumnModel().getColumn(15).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(15).setPreferredWidth(0);
         
-        tablalistado.getColumnModel().getColumn(16).setMaxWidth(0);
-        tablalistado.getColumnModel().getColumn(16).setMinWidth(0);
-        tablalistado.getColumnModel().getColumn(16).setPreferredWidth(0);
+  
         
         
         

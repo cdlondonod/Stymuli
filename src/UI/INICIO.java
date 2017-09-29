@@ -14,7 +14,6 @@ import static UI.frmanalisis.form5chart;
 import static UI.frmresultados.formcompchart;
 import static UI.frmresultados.formobtpe;
 
-
 import java.awt.Dimension;
 
 import javax.swing.JOptionPane;
@@ -452,10 +451,9 @@ public class INICIO extends javax.swing.JFrame {
                     (desktopSize.height - jInternalFrameSize.height) / 2);
 
         }
-        
-              if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-                  
-      
+
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
@@ -600,8 +598,14 @@ public class INICIO extends javax.swing.JFrame {
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            frmtrabajador.btneditar.setVisible(false);
+            frmtrabajador.btneliminar.setVisible(false);
+            frmtrabajador.btnnuevo.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            frmtrabajador.btneditar.setVisible(false);
+            frmtrabajador.btneliminar.setVisible(false);
+            frmtrabajador.btnnuevo.setVisible(false);
 
         } else {
 
@@ -734,15 +738,29 @@ public class INICIO extends javax.swing.JFrame {
         Dimension jInternalFrameSize = formm.getSize();
         formm.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
-        
-        
-              if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+             
+            frmmodelo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+            frmmodelo.txtnombrearea.setVisible(false);
+            frmmodelo.lblnombrearea.setVisible(false);
+            frmmodelo.txtidarea.setText(INICIO.lblinicioidarea.getText());
+            frmmodelo.btnbusca_area_stym.setVisible(false);
+
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            
+            frmmodelo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+            frmmodelo.txtnombrearea.setVisible(false);
+            frmmodelo.lblnombrearea.setVisible(false);
+            frmmodelo.txtidarea.setText(INICIO.lblinicioidarea.getText());
+            frmmodelo.btnbusca_area_stym.setVisible(false);
+            frmmodelo.txtbuscar_stymuli.setVisible(false);
+            frmmodelo.lblbuscstym.setVisible(false);
 
         } else {
 
@@ -813,9 +831,8 @@ public class INICIO extends javax.swing.JFrame {
         Dimension jInternalFrameSize = formr.getSize();
         formr.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
-        
-        
-              if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
@@ -895,7 +912,7 @@ public class INICIO extends javax.swing.JFrame {
 
     private void btnperfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfilActionPerformed
 
-         if (form1chart != null) {
+        if (form1chart != null) {
             form1chart.dispose();
         }
         if (form2chart != null) {
@@ -952,9 +969,8 @@ public class INICIO extends javax.swing.JFrame {
         Dimension desktopSize = escritorio.getSize();
         Dimension jInternalFrameSize = formpe.getSize();
         formpe.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);  
-        
-        
+                (desktopSize.height - jInternalFrameSize.height) / 2);
+
         JOptionPane.showMessageDialog(null, "bienvenido a tu perfil");
 
         // TODO add your handling code here:

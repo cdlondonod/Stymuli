@@ -134,7 +134,7 @@
                                   <Component id="jPanel4" min="-2" pref="215" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -310,7 +310,7 @@
                                   <Component id="lblnombrekpi11" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cboestado" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="68" max="32767" attributes="0"/>
+                              <EmptySpace pref="11" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnupdownload" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
@@ -745,7 +745,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane1" pref="880" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane1" pref="876" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="txtbuscar" min="-2" pref="132" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -878,7 +878,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnnuevo" min="-2" pref="37" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btneditar1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btneditar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btneliminar" min="-2" pref="37" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -892,7 +892,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btneliminar" linkSize="2" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnnuevo" linkSize="2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btneditar1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btneditar" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -924,6 +924,9 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnnuevoActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btneliminar">
                       <Properties>
@@ -949,8 +952,11 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminarActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btneditar1">
+                    <Component class="javax.swing.JButton" name="btneditar">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="0" green="33" red="0" type="rgb"/>
@@ -972,8 +978,11 @@
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneditar1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneditarActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>

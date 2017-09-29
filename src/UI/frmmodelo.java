@@ -234,7 +234,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         tablalistado_stymuli = new javax.swing.JTable();
         txtbuscar_stymuli = new javax.swing.JTextField();
         btneliminar_stymuli = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblbuscstym = new javax.swing.JLabel();
         btnnuevo_stymuli = new javax.swing.JButton();
         txtidmodelo = new javax.swing.JTextField();
         txtidsubarea = new javax.swing.JTextField();
@@ -245,7 +245,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         tablalistado_Obj = new javax.swing.JTable();
         txtbuscar_Obj = new javax.swing.JTextField();
         btneliminar_Obj = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        lblbuscarobj = new javax.swing.JLabel();
         btnnuevo_Obj = new javax.swing.JButton();
         txtidkpi = new javax.swing.JTextField();
         txtidobjetivos = new javax.swing.JTextField();
@@ -281,7 +281,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         txtnombresubarea = new javax.swing.JTextField();
         btnbuscar_subarea_stym = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        lblnombrekpi6 = new javax.swing.JLabel();
+        lblnombrearea = new javax.swing.JLabel();
         txtnombrearea = new javax.swing.JTextField();
         btnbusca_area_stym = new javax.swing.JButton();
         pnlkpiestimulo = new javax.swing.JPanel();
@@ -353,8 +353,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        lblbuscstym.setBackground(new java.awt.Color(255, 255, 255));
+        lblbuscstym.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
 
         btnnuevo_stymuli.setBackground(new java.awt.Color(0, 51, 0));
         btnnuevo_stymuli.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -406,7 +406,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(lblbuscstym)
                 .addGap(105, 105, 105)
                 .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -420,7 +420,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistado_stymuliLayout.createSequentialGroup()
                 .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
+                        .addComponent(lblbuscstym)
                         .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -495,8 +495,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        lblbuscarobj.setBackground(new java.awt.Color(255, 255, 255));
+        lblbuscarobj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
 
         btnnuevo_Obj.setBackground(new java.awt.Color(0, 51, 0));
         btnnuevo_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -534,7 +534,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(lblbuscarobj)
                 .addGap(95, 95, 95)
                 .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
@@ -555,7 +555,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistado_ObjLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                    .addComponent(lblbuscarobj)
                     .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -709,7 +709,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblnombrekpi17)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         pnlregistro_ObjLayout.setVerticalGroup(
             pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -761,10 +761,10 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         });
 
         txtstymuli.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 txtstymuliInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         txtstymuli.addActionListener(new java.awt.event.ActionListener() {
@@ -853,11 +853,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jPanel3.setBackground(new java.awt.Color(153, 103, 198));
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
-        lblnombrekpi6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi6.setForeground(new java.awt.Color(255, 255, 255));
-        lblnombrekpi6.setText("Área:");
-        lblnombrekpi6.setPreferredSize(new java.awt.Dimension(83, 14));
-        jPanel3.add(lblnombrekpi6);
+        lblnombrearea.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblnombrearea.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrearea.setText("Área:");
+        lblnombrearea.setPreferredSize(new java.awt.Dimension(83, 14));
+        jPanel3.add(lblnombrearea);
 
         txtnombrearea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1011,7 +1011,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     .addComponent(lblobjetivos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnllistado_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnllistado_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnllistado_stymuli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1612,7 +1612,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnbusca_area_stym;
+    public static javax.swing.JButton btnbusca_area_stym;
     private javax.swing.JButton btnbusca_kpi_Obj;
     private javax.swing.JButton btnbusca_kpi_estim;
     private javax.swing.JButton btnbuscar_subarea_stym;
@@ -1630,8 +1630,6 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbotipo_Obj;
     private javax.swing.JComboBox<String> cbotipo_stymuli;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1640,13 +1638,15 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    public static javax.swing.JLabel lblbuscarobj;
+    public static javax.swing.JLabel lblbuscstym;
+    public static javax.swing.JLabel lblnombrearea;
     private javax.swing.JLabel lblnombrekpi10;
     private javax.swing.JLabel lblnombrekpi11;
     private javax.swing.JLabel lblnombrekpi12;
     private javax.swing.JLabel lblnombrekpi13;
     private javax.swing.JLabel lblnombrekpi16;
     private javax.swing.JLabel lblnombrekpi17;
-    private javax.swing.JLabel lblnombrekpi6;
     private javax.swing.JLabel lblnombrekpi7;
     private javax.swing.JLabel lblnombrekpi9;
     private javax.swing.JLabel lblobjetivos;
@@ -1660,8 +1660,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlregistro_stymuli;
     private javax.swing.JTable tablalistado_Obj;
     private javax.swing.JTable tablalistado_stymuli;
-    private javax.swing.JTextField txtbuscar_Obj;
-    private javax.swing.JTextField txtbuscar_stymuli;
+    public static javax.swing.JTextField txtbuscar_Obj;
+    public static javax.swing.JTextField txtbuscar_stymuli;
     private javax.swing.JTextArea txtdescripcion;
     public static javax.swing.JTextField txtidarea;
     public static javax.swing.JTextField txtidkpi;

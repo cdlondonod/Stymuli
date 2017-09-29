@@ -5,6 +5,7 @@
  */
 package logica;
 
+import UI.INICIO;
 import UI.frmareasubar;
 
 
@@ -25,6 +26,7 @@ public class fsubarea {
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
+    private String sSQL2 = "";
 
     public DefaultTableModel mostrar(String buscar1) {
         DefaultTableModel modelo1;
@@ -141,9 +143,15 @@ public class fsubarea {
         String[] registro = new String[4];
 
         modelo = new DefaultTableModel(null, titulos);
+        
+        if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            
+            sSQL2=INICIO.lbliniciosubarea.getText(); 
+            
+        }
 
         sSQL = "select s.idsubarea,s.idarea,s.nombre,a.nombre from subarea s inner join area a on s.idarea=a.idarea "
-                + "where s.nombre like '%" + buscar + "%' and s.idarea=" + conexion.formsubarea + " order by s.nombre desc";
+                + "where s.nombre like '%" +sSQL2+buscar + "%' and s.idarea=" + conexion.formsubarea + " order by s.nombre desc";
 
         try {
             Statement st = cn.createStatement();
