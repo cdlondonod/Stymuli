@@ -5,6 +5,7 @@
  */
 package logica;
 
+import UI.INICIO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -20,7 +21,8 @@ public class ffiltros {
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
-
+    private String sSQL2 = "";
+    private String sSQL3 = "";
     public DefaultTableModel mostraryear(String buscar) {
         DefaultTableModel modelo;
         String[] titulos = {"Año"};
@@ -86,10 +88,15 @@ public class ffiltros {
         String[] titulos = {"SubÁrea"};
         String[] registro = new String[1];
         modelo = new DefaultTableModel(null, titulos);
-        
-        
+        if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            sSQL2 = INICIO.lbliniciosubarea.getText();
+        }
+        if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            sSQL3 = " AND a.idarea=" + INICIO.lblinicioidarea.getText() + " ";
+        }
         sSQL = "SELECT s.nombre FROM subarea s INNER JOIN area a ON s.idarea=a.idarea "
-                + "WHERE s.nombre LIKE '%" + buscar + "%' and a.nombre LIKE '%" + conexion.formsubarea + "%' "
+                + "WHERE s.nombre LIKE '%" +sSQL2+ buscar + "%' and a.nombre LIKE '%" + conexion.formsubarea + "%' "
+                + sSQL3
                 + "ORDER BY s.nombre DESC";
         try {
             Statement st = cn.createStatement();

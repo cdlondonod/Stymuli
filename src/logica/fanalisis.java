@@ -5,6 +5,7 @@
  */
 package logica;
 
+import UI.INICIO;
 import java.sql.Connection;
 
 import java.sql.ResultSet;
@@ -24,6 +25,7 @@ public class fanalisis {
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
+    private String sSQL2 = "";
     private String sSQL3 = "";
     private String bigquery = "SUBSTRING_INDEX(m.tipo_estimulo,'_',-1) AS kpiest,"
             + "SUBSTRING_INDEX(m.tipo_estimulo,'_',1) AS subareaest ,"
@@ -150,6 +152,9 @@ public class fanalisis {
         String[] registro = new String[15];
 
         modelo = new DefaultTableModel(null, titulos);
+        if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            sSQL2 = " AND a.idarea=" + INICIO.lblinicioidarea.getText() + " ";
+        }
 
         sSQL = "SELECT p.nombre,p.apaterno,p.documento,p.salario,a.nombre,s.nombre,m.tipo_estimulo,m.estimulo,"
                 + "k.nombre, r.resultado_kpi,o.comparacion,o.valor_objetivo,o.tipo_objetivo,o.valor_ponderado,r.mes,r.year,\n"
@@ -161,6 +166,7 @@ public class fanalisis {
                 + " AND s.nombre LIKE '%" + Subarea + "%'"
                 + " AND p.documento LIKE '%" + Trabajador + "%'"
                 + " AND k.nombre LIKE '%" + KPI + "%'"
+                + sSQL2
                 + " ORDER BY s.idsubarea,p.apaterno,p.nombre,k.nombre,r.mes,r.year";
 
         try {
@@ -174,14 +180,13 @@ public class fanalisis {
                 registro[3] = rs.getString("a.nombre");
                 registro[4] = rs.getString("s.nombre");
                 registro[5] = rs.getString("m.tipo_estimulo");
-                
-                if (rs.getString("estimulokpi")!=null) {
-                     registro[6] = "$" + numberFormat.format(Double.parseDouble(rs.getString("estimulokpi")));
-                }else{
-                     registro[6] = "$0.0";
+
+                if (rs.getString("estimulokpi") != null) {
+                    registro[6] = "$" + numberFormat.format(Double.parseDouble(rs.getString("estimulokpi")));
+                } else {
+                    registro[6] = "$0.0";
                 }
-               
-                
+
                 registro[7] = rs.getString("k.nombre");
                 registro[8] = rs.getString("r.resultado_kpi");
                 registro[9] = rs.getString("o.comparacion");
@@ -212,10 +217,13 @@ public class fanalisis {
         String[] titulos = {"Fecha", "Nombre", "Documento", "Stymuli Obtenido", "Stymuli Alcanzable"};
         String[] registro = new String[5];
         modelo = new DefaultTableModel(null, titulos);
+        if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            sSQL2 = " AND tbcomp.idarea=" + INICIO.lblinicioidarea.getText() + " ";
+        }
         sSQL3 = "  SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + "(IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
-                + "AS obtreal,tbcomp.year,tbcomp.mes ,tbcomp.area, tbcomp.kpi,tbcomp.subarea FROM   \n"
-                + " (SELECT p.nombre,p.apaterno,p.documento,r.mes,r.year,a.nombre AS area,k.nombre AS kpi,s.nombre "
+                + "AS obtreal,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   \n"
+                + " (SELECT p.nombre,p.apaterno,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
                 + "AS subarea,   \n"
                 + bigquery
                 + " )AS tbcomp   "
@@ -226,6 +234,7 @@ public class fanalisis {
                 + " AND tbcomp.subarea LIKE '%" + Subarea + "%'"
                 + " AND tbcomp.documento LIKE '%" + Trabajador + "%'"
                 + " AND tbcomp.kpi LIKE '%" + KPI + "%'"
+                +sSQL2
                 + " GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year"
                 + " ORDER BY tbcomp.subarea,tbcomp.apaterno,tbcomp.nombre,tbcomp.kpi,tbcomp.mes,tbcomp.year";
 
@@ -240,15 +249,13 @@ public class fanalisis {
                 registro[2] = rs.getString("documento");
                 registro[3] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("obtreal")));
                 registro[0] = rs.getString("year") + " " + rs.getString("mes");
-                
-                if (rs.getString("estimulokpi")!=null) {
-                     registro[4] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("estimulokpi")));
-                }else{
-                     registro[4] = "$0.0";
+
+                if (rs.getString("estimulokpi") != null) {
+                    registro[4] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("estimulokpi")));
+                } else {
+                    registro[4] = "$0.0";
                 }
-               
-                
-                
+
                 modelo.addRow(registro);
                 resultobttotal = resultobttotal + Double.parseDouble(rs.getString("obtreal"));
             }
@@ -264,6 +271,9 @@ public class fanalisis {
         String[] titulos = {"Fecha", "KPI", "Resultado Medio"};
         String[] registro = new String[3];
         modelo = new DefaultTableModel(null, titulos);
+        if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            sSQL2 = " AND a.idarea=" + INICIO.lblinicioidarea.getText() + " ";
+        }
         sSQL = "SELECT a.nombre,s.nombre,k.nombre, AVG(r.resultado_kpi) AS kpimed,r.mes,r.year "
                 + "FROM resultados r INNER JOIN persona p ON r.idpersona=p.idpersona INNER JOIN area a "
                 + "ON a.idarea=p.idarea INNER JOIN subarea s ON s.idsubarea=p.idsubarea INNER JOIN modelo m "
@@ -273,6 +283,7 @@ public class fanalisis {
                 + " a.nombre LIKE '%" + area + "%'"
                 + " AND s.nombre LIKE '%" + Subarea + "%'"
                 + " AND k.nombre LIKE '%" + KPI + "%'"
+                +sSQL2
                 + "GROUP BY k.nombre,r.mes,r.year "
                 + " ORDER BY s.nombre,r.mes,r.year DESC";
         try {
@@ -297,13 +308,16 @@ public class fanalisis {
         String[] titulos = {"Fecha", "Área", "Subárea", "Valor Obtenido"};
         String[] registro = new String[4];
         modelo = new DefaultTableModel(null, titulos);
-        sSQL3 = " SELECT  tbcompfiltrada.area,tbcompfiltrada.subarea,SUM(tbcompfiltrada.obtreal)AS obtsubarea,"
+        if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            sSQL2 = " AND tbcompfiltrada.idarea=" + INICIO.lblinicioidarea.getText() + " ";
+        }
+        sSQL3 = " SELECT  tbcompfiltrada.area,tbcompfiltrada.idarea,tbcompfiltrada.subarea,SUM(tbcompfiltrada.obtreal)AS obtsubarea,"
                 + "tbcompfiltrada.year,tbcompfiltrada.mes\n"
                 + " \n"
-                + " FROM  ( SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+                + " FROM  ( SELECT tbcomp.documento,tbcomp.idarea,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + "(IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
                 + "AS obtreal,tbcomp.year,tbcomp.mes ,tbcomp.area, tbcomp.kpi,tbcomp.subarea FROM       \n"
-                + " (SELECT p.nombre,p.apaterno,p.documento,r.mes,r.year,a.nombre AS area,k.nombre AS kpi,s.nombre AS subarea, "
+                + " (SELECT p.nombre,p.apaterno,p.documento,r.mes,r.year,a.idarea AS idarea,a.nombre AS area,k.nombre AS kpi,s.nombre AS subarea, "
                 + bigquery
                 + " )AS tbcomp GROUP BY tbcomp.documento)AS tbcompfiltrada  "
                 + " WHERE "
@@ -313,9 +327,10 @@ public class fanalisis {
                 + " AND tbcompfiltrada.subarea LIKE '%" + Subarea + "%'"
                 + " AND tbcompfiltrada.documento LIKE '%" + Trabajador + "%'"
                 + " AND tbcompfiltrada.kpi LIKE '%" + KPI + "%'"
+                +sSQL2
                 + "GROUP BY tbcompfiltrada.subarea,tbcompfiltrada.mes,tbcompfiltrada.year"
-                 + " ORDER BY tbcompfiltrada.subarea,tbcompfiltrada.apaterno,tbcompfiltrada.nombre,tbcompfiltrada.kpi,tbcompfiltrada.mes,tbcompfiltrada.year";
-                
+                + " ORDER BY tbcompfiltrada.subarea,tbcompfiltrada.apaterno,tbcompfiltrada.nombre,tbcompfiltrada.kpi,tbcompfiltrada.mes,tbcompfiltrada.year";
+
         resultobttotal = 0.0;
         try {
             Statement st = cn.createStatement();

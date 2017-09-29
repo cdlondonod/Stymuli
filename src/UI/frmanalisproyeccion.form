@@ -27,7 +27,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="1245" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="1251" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -75,17 +75,21 @@
                       <Component id="jPanel3" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jPanel4" min="-2" pref="212" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlgrafica" min="-2" pref="531" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel4" min="-2" pref="212" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="pnlgrafica" min="-2" pref="531" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -96,8 +100,8 @@
                       <Component id="jLabel1" min="-2" pref="14" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="pnlgrafica" alignment="0" pref="392" max="32767" attributes="0"/>
-                          <Component id="jPanel4" alignment="0" pref="392" max="32767" attributes="0"/>
+                          <Component id="pnlgrafica" alignment="0" pref="394" max="32767" attributes="0"/>
+                          <Component id="jPanel4" alignment="0" pref="394" max="32767" attributes="0"/>
                           <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -130,10 +134,10 @@
                                       <Component id="jPanel7" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="btnclearselec" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="110" max="32767" attributes="0"/>
+                                          <EmptySpace pref="108" max="32767" attributes="0"/>
                                           <Component id="btnresultado" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="pnlarea" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jPanel9" max="32767" attributes="0"/>
                                       <Component id="jPanel8" alignment="0" max="32767" attributes="0"/>
                                   </Group>
@@ -156,7 +160,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                          <Component id="pnlarea" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -317,12 +321,15 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="jPanel6">
+                <Container class="javax.swing.JPanel" name="pnlarea">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c6" green="67" red="99" type="rgb"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
                   <SubComponents>

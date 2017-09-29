@@ -156,7 +156,7 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jPanel4 = new javax.swing.JPanel();
         btngraficar = new javax.swing.JButton();
         btnclearselec = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        pnlarea = new javax.swing.JPanel();
         lblnombrekpi6 = new javax.swing.JLabel();
         txtnombrearea = new javax.swing.JTextField();
         btnbuscaarea = new javax.swing.JButton();
@@ -229,21 +229,21 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(153, 103, 198));
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+        pnlarea.setBackground(new java.awt.Color(153, 103, 198));
+        pnlarea.setLayout(new javax.swing.BoxLayout(pnlarea, javax.swing.BoxLayout.LINE_AXIS));
 
         lblnombrekpi6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblnombrekpi6.setForeground(new java.awt.Color(255, 255, 255));
         lblnombrekpi6.setText("Área:");
         lblnombrekpi6.setPreferredSize(new java.awt.Dimension(55, 14));
-        jPanel3.add(lblnombrekpi6);
+        pnlarea.add(lblnombrekpi6);
 
         txtnombrearea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnombreareaActionPerformed(evt);
             }
         });
-        jPanel3.add(txtnombrearea);
+        pnlarea.add(txtnombrearea);
 
         btnbuscaarea.setBackground(new java.awt.Color(0, 51, 0));
         btnbuscaarea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscarlista.png"))); // NOI18N
@@ -256,7 +256,7 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
                 btnbuscaareaActionPerformed(evt);
             }
         });
-        jPanel3.add(btnbuscaarea);
+        pnlarea.add(btnbuscaarea);
 
         jPanel5.setBackground(new java.awt.Color(153, 103, 198));
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
@@ -325,9 +325,9 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btnclearselec)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                         .addComponent(btngraficar))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlarea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -336,7 +336,7 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -386,7 +386,7 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -394,7 +394,7 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -699,7 +699,6 @@ txtnombrekpi.setText("");
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -708,6 +707,7 @@ txtnombrekpi.setText("");
     private javax.swing.JLabel lblnombrekpi13;
     private javax.swing.JLabel lblnombrekpi6;
     private javax.swing.JLabel lblnombrekpi9;
+    public static javax.swing.JPanel pnlarea;
     private javax.swing.JPanel pnlgrafica;
     private javax.swing.JTable tablaanalisis;
     public static javax.swing.JTextField txtnombrearea;

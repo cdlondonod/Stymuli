@@ -269,13 +269,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtdescripcion = new javax.swing.JTextArea();
         btncancelar_stymuli = new javax.swing.JButton();
-        txtstymuli = new javax.swing.JTextField();
-        cbotipo_stymuli = new javax.swing.JComboBox<>();
-        lblnombrekpi10 = new javax.swing.JLabel();
-        lblnombrekpi11 = new javax.swing.JLabel();
         btnguardar_stymuli = new javax.swing.JButton();
         lblnombrekpi7 = new javax.swing.JLabel();
-        lblstymuli = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblnombrekpi13 = new javax.swing.JLabel();
         txtnombresubarea = new javax.swing.JTextField();
@@ -288,6 +283,13 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         lblnombrekpi12 = new javax.swing.JLabel();
         txtnombrekpiestim = new javax.swing.JTextField();
         btnbusca_kpi_estim = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        lblnombrekpi11 = new javax.swing.JLabel();
+        cbotipo_stymuli = new javax.swing.JComboBox<>();
+        jPanel7 = new javax.swing.JPanel();
+        lblnombrekpi10 = new javax.swing.JLabel();
+        txtstymuli = new javax.swing.JTextField();
+        lblstymuli = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblobjetivos = new javax.swing.JLabel();
 
@@ -394,7 +396,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         pnllistado_stymuli.setLayout(pnllistado_stymuliLayout);
         pnllistado_stymuliLayout.setHorizontalGroup(
             pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
             .addGroup(pnllistado_stymuliLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnnuevo_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -709,7 +711,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblnombrekpi17)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlregistro_ObjLayout.setVerticalGroup(
             pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -725,7 +727,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                 .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblnombrekpi16)
                     .addComponent(cbotipo_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btncancelar_Obj, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -760,44 +762,6 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
-        txtstymuli.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                txtstymuliInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
-        txtstymuli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtstymuliActionPerformed(evt);
-            }
-        });
-        txtstymuli.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtstymuliKeyTyped(evt);
-            }
-        });
-
-        cbotipo_stymuli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bono", "Salario", "Otro" }));
-        cbotipo_stymuli.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbotipo_stymuliItemStateChanged(evt);
-            }
-        });
-        cbotipo_stymuli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbotipo_stymuliActionPerformed(evt);
-            }
-        });
-
-        lblnombrekpi10.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi10.setForeground(new java.awt.Color(255, 255, 255));
-        lblnombrekpi10.setText("Stymuli:");
-
-        lblnombrekpi11.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi11.setForeground(new java.awt.Color(255, 255, 255));
-        lblnombrekpi11.setText("Tipo de Symuli:");
-
         btnguardar_stymuli.setBackground(new java.awt.Color(0, 51, 0));
         btnguardar_stymuli.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnguardar_stymuli.setForeground(new java.awt.Color(255, 255, 255));
@@ -815,10 +779,6 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         lblnombrekpi7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblnombrekpi7.setForeground(new java.awt.Color(255, 255, 255));
         lblnombrekpi7.setText("Descripción:");
-
-        lblstymuli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblstymuli.setForeground(new java.awt.Color(255, 255, 255));
-        lblstymuli.setText("$");
 
         jPanel4.setBackground(new java.awt.Color(153, 103, 198));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
@@ -902,77 +862,120 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         });
         pnlkpiestimulo.add(btnbusca_kpi_estim);
 
+        jPanel6.setOpaque(false);
+        jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
+
+        lblnombrekpi11.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblnombrekpi11.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi11.setText("Tipo de Symuli:");
+        lblnombrekpi11.setPreferredSize(new java.awt.Dimension(83, 14));
+        jPanel6.add(lblnombrekpi11);
+
+        cbotipo_stymuli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bono", "Salario", "Otro" }));
+        cbotipo_stymuli.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbotipo_stymuliItemStateChanged(evt);
+            }
+        });
+        cbotipo_stymuli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbotipo_stymuliActionPerformed(evt);
+            }
+        });
+        jPanel6.add(cbotipo_stymuli);
+
+        jPanel7.setOpaque(false);
+        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
+
+        lblnombrekpi10.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblnombrekpi10.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi10.setText("Stymuli:");
+        lblnombrekpi10.setPreferredSize(new java.awt.Dimension(83, 14));
+        jPanel7.add(lblnombrekpi10);
+
+        txtstymuli.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtstymuliInputMethodTextChanged(evt);
+            }
+        });
+        txtstymuli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtstymuliActionPerformed(evt);
+            }
+        });
+        txtstymuli.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtstymuliKeyTyped(evt);
+            }
+        });
+        jPanel7.add(txtstymuli);
+
+        lblstymuli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblstymuli.setForeground(new java.awt.Color(255, 255, 255));
+        lblstymuli.setText("$");
+        jPanel7.add(lblstymuli);
+
         javax.swing.GroupLayout pnlregistro_stymuliLayout = new javax.swing.GroupLayout(pnlregistro_stymuli);
         pnlregistro_stymuli.setLayout(pnlregistro_stymuliLayout);
         pnlregistro_stymuliLayout.setHorizontalGroup(
             pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                        .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblnombrekpi10)
-                            .addComponent(lblnombrekpi11))
-                        .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(txtstymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblstymuli))
-                            .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbotipo_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(pnlkpiestimulo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_stymuliLayout.createSequentialGroup()
-                        .addComponent(lblnombrekpi7)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_stymuliLayout.createSequentialGroup()
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlkpiestimulo, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnguardar_stymuli)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btncancelar_stymuli))
-                    .addComponent(jScrollPane3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlregistro_stymuliLayout.createSequentialGroup()
+                        .addComponent(lblnombrekpi7)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap())
         );
 
-        pnlregistro_stymuliLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel3, jPanel4, pnlkpiestimulo});
+        pnlregistro_stymuliLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel3, jPanel4, jPanel6, jPanel7, pnlkpiestimulo});
 
         pnlregistro_stymuliLayout.setVerticalGroup(
             pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_stymuliLayout.createSequentialGroup()
-                .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                        .addComponent(lblnombrekpi7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnguardar_stymuli, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btncancelar_stymuli, javax.swing.GroupLayout.Alignment.TRAILING)))
+                .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_stymuliLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblnombrekpi7)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbotipo_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblnombrekpi11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtstymuli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblnombrekpi10)
-                            .addComponent(lblstymuli))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlkpiestimulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlkpiestimulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnguardar_stymuli, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btncancelar_stymuli, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(10, 10, 10))
         );
 
-        pnlregistro_stymuliLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cbotipo_stymuli, jPanel3, jPanel4, pnlkpiestimulo, txtstymuli});
+        pnlregistro_stymuliLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel3, jPanel4, jPanel6, jPanel7, pnlkpiestimulo});
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -987,20 +990,19 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(pnllistado_stymuli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlregistro_stymuli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1))
+                    .addComponent(pnlregistro_stymuli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnllistado_stymuli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(lblobjetivos)
                         .addContainerGap())
                     .addComponent(pnlregistro_Obj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnllistado_Obj, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)))
+                    .addComponent(pnllistado_Obj, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1635,6 +1637,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;

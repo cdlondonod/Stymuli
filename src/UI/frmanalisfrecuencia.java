@@ -252,7 +252,7 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         lblnombrekpi8 = new javax.swing.JLabel();
         txtyear = new javax.swing.JTextField();
         btnbuscayear = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        pnlarea = new javax.swing.JPanel();
         lblnombrekpi6 = new javax.swing.JLabel();
         txtnombrearea = new javax.swing.JTextField();
         btnbuscaarea = new javax.swing.JButton();
@@ -324,7 +324,7 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -404,21 +404,21 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         });
         jPanel3.add(btnbuscayear);
 
-        jPanel5.setBackground(new java.awt.Color(153, 103, 198));
-        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
+        pnlarea.setBackground(new java.awt.Color(153, 103, 198));
+        pnlarea.setLayout(new javax.swing.BoxLayout(pnlarea, javax.swing.BoxLayout.LINE_AXIS));
 
         lblnombrekpi6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblnombrekpi6.setForeground(new java.awt.Color(255, 255, 255));
         lblnombrekpi6.setText("Área:");
         lblnombrekpi6.setPreferredSize(new java.awt.Dimension(55, 14));
-        jPanel5.add(lblnombrekpi6);
+        pnlarea.add(lblnombrekpi6);
 
         txtnombrearea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnombreareaActionPerformed(evt);
             }
         });
-        jPanel5.add(txtnombrearea);
+        pnlarea.add(txtnombrearea);
 
         btnbuscaarea.setBackground(new java.awt.Color(0, 51, 0));
         btnbuscaarea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscarlista.png"))); // NOI18N
@@ -431,7 +431,7 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
                 btnbuscaareaActionPerformed(evt);
             }
         });
-        jPanel5.add(btnbuscaarea);
+        pnlarea.add(btnbuscaarea);
 
         jPanel6.setBackground(new java.awt.Color(153, 103, 198));
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
@@ -527,13 +527,13 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btnclearselec)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                         .addComponent(btngraficar))
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -546,7 +546,7 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -555,7 +555,7 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnclearselec)
                     .addComponent(btngraficar))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -980,7 +980,6 @@ frmzfiltromes form = new frmzfiltromes();
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
@@ -991,6 +990,7 @@ frmzfiltromes form = new frmzfiltromes();
     private javax.swing.JLabel lblnombrekpi7;
     private javax.swing.JLabel lblnombrekpi8;
     private javax.swing.JLabel lblnombrekpi9;
+    public static javax.swing.JPanel pnlarea;
     private javax.swing.JPanel pnlgrafica;
     public static javax.swing.JTable tablaanalisischart2;
     public static javax.swing.JTextField txtmes;

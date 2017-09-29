@@ -259,21 +259,18 @@ form1chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
             
           
-        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
-            
-
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
             
+            frmanalisdistrikpi.pnlarea.setVisible(false);
+            frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
      
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
             
+            frmanalisdistrikpi.pnlarea.setVisible(false);
+            frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
         
 
-        } else {
-
-            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
-                    + "Por favor comuniquese con el administrador");
-        }
+        } 
 
   
 
@@ -312,24 +309,22 @@ if(form4chartkpi!=null){
 Dimension jInternalFrameSize = form3chart.getSize();
 form3chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
     (desktopSize.height- jInternalFrameSize.height)/2);      
-   if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+   
             
           
-        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
             
-
+          
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            
+            frmanalisevolutivo.pnlarea.setVisible(false);
+            frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
      
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            
+            frmanalisevolutivo.pnlarea.setVisible(false);
+            frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
         
 
-        } else {
-
-            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
-                    + "Por favor comuniquese con el administrador");
-        }
+        } 
 
 
 // TODO add your handling code here:
@@ -371,21 +366,16 @@ form5chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
    if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
             
           
-        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
-            
-
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            
+            frmanalisproyeccion.pnlarea.setVisible(false);
+            frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
      
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            
+            frmanalisproyeccion.pnlarea.setVisible(false);
+            frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
         
 
-        } else {
-
-            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
-                    + "Por favor comuniquese con el administrador");
-        }
+        } 
 
 
 // TODO add your handling code here:
@@ -423,25 +413,21 @@ Dimension jInternalFrameSize = form2chart.getSize();
 form2chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
     (desktopSize.height- jInternalFrameSize.height)/2);  
 
-   if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+  if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
             
           
-        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
-            
-
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            
+              frmanalisfrecuencia.pnlarea.setVisible(false);
+            frmanalisfrecuencia.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+        
      
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            
+              frmanalisfrecuencia.pnlarea.setVisible(false);
+            frmanalisfrecuencia.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+        
         
 
-        } else {
-
-            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
-                    + "Por favor comuniquese con el administrador");
-        }
-
+        } 
 
 
 // TODO add your handling code here:
