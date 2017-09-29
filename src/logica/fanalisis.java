@@ -174,7 +174,14 @@ public class fanalisis {
                 registro[3] = rs.getString("a.nombre");
                 registro[4] = rs.getString("s.nombre");
                 registro[5] = rs.getString("m.tipo_estimulo");
-                registro[6] = "$" + numberFormat.format(Double.parseDouble(rs.getString("estimulokpi")));
+                
+                if (rs.getString("estimulokpi")!=null) {
+                     registro[6] = "$" + numberFormat.format(Double.parseDouble(rs.getString("estimulokpi")));
+                }else{
+                     registro[6] = "$0.0";
+                }
+               
+                
                 registro[7] = rs.getString("k.nombre");
                 registro[8] = rs.getString("r.resultado_kpi");
                 registro[9] = rs.getString("o.comparacion");
@@ -233,7 +240,15 @@ public class fanalisis {
                 registro[2] = rs.getString("documento");
                 registro[3] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("obtreal")));
                 registro[0] = rs.getString("year") + " " + rs.getString("mes");
-                registro[4] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("estimulokpi")));
+                
+                if (rs.getString("estimulokpi")!=null) {
+                     registro[4] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("estimulokpi")));
+                }else{
+                     registro[4] = "$0.0";
+                }
+               
+                
+                
                 modelo.addRow(registro);
                 resultobttotal = resultobttotal + Double.parseDouble(rs.getString("obtreal"));
             }

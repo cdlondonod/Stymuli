@@ -149,11 +149,11 @@ public class frmresultados extends javax.swing.JInternalFrame {
         tablalistado = new javax.swing.JTable();
         txtbuscar = new javax.swing.JTextField();
         btneliminar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblbuscar = new javax.swing.JLabel();
         btnnuevo = new javax.swing.JButton();
         btneditar1 = new javax.swing.JButton();
         cbofiltro = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        lblfiltrar = new javax.swing.JLabel();
         pnlregistro = new javax.swing.JPanel();
         txtidpersona = new javax.swing.JTextField();
         txtidresultados = new javax.swing.JTextField();
@@ -248,9 +248,9 @@ public class frmresultados extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-        jLabel2.setLabelFor(txtbuscar);
+        lblbuscar.setBackground(new java.awt.Color(255, 255, 255));
+        lblbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        lblbuscar.setLabelFor(txtbuscar);
 
         btnnuevo.setBackground(new java.awt.Color(0, 51, 0));
         btnnuevo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -287,8 +287,8 @@ public class frmresultados extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Filtrar por:");
+        lblfiltrar.setForeground(new java.awt.Color(255, 255, 255));
+        lblfiltrar.setText("Filtrar por:");
 
         javax.swing.GroupLayout pnllistadoLayout = new javax.swing.GroupLayout(pnllistado);
         pnllistado.setLayout(pnllistadoLayout);
@@ -301,9 +301,9 @@ public class frmresultados extends javax.swing.JInternalFrame {
                     .addGroup(pnllistadoLayout.createSequentialGroup()
                         .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(lblbuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1)
+                        .addComponent(lblfiltrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -321,11 +321,11 @@ public class frmresultados extends javax.swing.JInternalFrame {
             .addGroup(pnllistadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
+                    .addComponent(lblbuscar)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)))
+                        .addComponent(lblfiltrar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -602,7 +602,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setLayout(new java.awt.GridLayout());
+        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
 
         btnanalisis7.setBackground(new java.awt.Color(53, 29, 113));
         btnanalisis7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -927,7 +927,20 @@ public class frmresultados extends javax.swing.JInternalFrame {
         
         this.dispose();
 
-// TODO add your handling code here:
+          
+         if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            
+            frmanalisisobtpersona.pnlarea.setVisible(false);
+            frmanalisisobtpersona.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+            
+     
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            
+            frmanalisisobtpersona.pnlarea.setVisible(false);
+            frmanalisisobtpersona.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+            
+        }
+
     }//GEN-LAST:event_btnanalisis7ActionPerformed
 
     private void btnanalisis5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisis5ActionPerformed
@@ -940,9 +953,18 @@ public class frmresultados extends javax.swing.JInternalFrame {
         Dimension jInternalFrameSize = formcompchart.getSize();
         formcompchart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
             (desktopSize.height- jInternalFrameSize.height)/2);
-
         this.dispose();
-        // TODO add your handling code here:
+
+          if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            frmanalisiscompleto.pnlarea.setVisible(false);
+            frmanalisiscompleto.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+     
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            frmanalisiscompleto.pnlarea.setVisible(false);
+            frmanalisiscompleto.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+        }
+        
+
     }//GEN-LAST:event_btnanalisis5ActionPerformed
 
     /**
@@ -984,20 +1006,18 @@ public class frmresultados extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnanalisis5;
-    private javax.swing.JButton btnanalisis7;
+    public static javax.swing.JButton btnanalisis5;
+    public static javax.swing.JButton btnanalisis7;
     private javax.swing.JButton btnbuscarkpi;
     private javax.swing.JButton btnbuscartrabajador;
     private javax.swing.JButton btncancelar;
-    private javax.swing.JButton btneditar1;
-    private javax.swing.JButton btneliminar;
+    public static javax.swing.JButton btneditar1;
+    public static javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JButton btnnuevo;
+    public static javax.swing.JButton btnnuevo;
     private javax.swing.JButton btnupdownload;
-    private javax.swing.JComboBox<String> cbofiltro;
+    public static javax.swing.JComboBox<String> cbofiltro;
     private javax.swing.JComboBox<String> cbomes;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1006,6 +1026,8 @@ public class frmresultados extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JLabel lblbuscar;
+    public static javax.swing.JLabel lblfiltrar;
     private javax.swing.JLabel lblnombrekpi13;
     private javax.swing.JLabel lblnombrekpi3;
     private javax.swing.JLabel lblnombrekpi6;
@@ -1014,7 +1036,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnllistado;
     private javax.swing.JPanel pnlregistro;
     private javax.swing.JTable tablalistado;
-    private javax.swing.JTextField txtbuscar;
+    public static javax.swing.JTextField txtbuscar;
     public static javax.swing.JTextField txtidkpi;
     public static javax.swing.JTextField txtidpersona;
     private static javax.swing.JTextField txtidresultados;

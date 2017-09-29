@@ -99,6 +99,9 @@ public class frmvistakpi extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtbuscarKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscarKeyReleased(evt);
+            }
         });
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -224,13 +227,17 @@ public class frmvistakpi extends javax.swing.JFrame {
     }//GEN-LAST:event_tablalistadoMousePressed
 
     private void txtbuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyPressed
-mostrar(txtbuscar.getText());        // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyPressed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btncancelarActionPerformed
+
+    private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
+mostrar(txtbuscar.getText());         // TODO add your handling code here:
+    }//GEN-LAST:event_txtbuscarKeyReleased
 
     /**
      * @param args the command line arguments

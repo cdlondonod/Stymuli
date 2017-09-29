@@ -8,6 +8,7 @@ package UI;
 import static UI.INICIO.escritorio;
 
 import java.awt.Dimension;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -255,6 +256,24 @@ Dimension jInternalFrameSize = form1chart.getSize();
 form1chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
     (desktopSize.height- jInternalFrameSize.height)/2);
 
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+            
+          
+        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            
+
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            
+     
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            
+        
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
+                    + "Por favor comuniquese con el administrador");
+        }
 
   
 
@@ -292,7 +311,28 @@ if(form4chartkpi!=null){
        Dimension desktopSize = escritorio.getSize();
 Dimension jInternalFrameSize = form3chart.getSize();
 form3chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-    (desktopSize.height- jInternalFrameSize.height)/2);        // TODO add your handling code here:
+    (desktopSize.height- jInternalFrameSize.height)/2);      
+   if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+            
+          
+        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            
+
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            
+     
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            
+        
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
+                    + "Por favor comuniquese con el administrador");
+        }
+
+
+// TODO add your handling code here:
     }//GEN-LAST:event_btnevolutivoActionPerformed
 
     private void btnproyeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproyeccionActionPerformed
@@ -326,7 +366,29 @@ if(form4chartkpi!=null){
        Dimension desktopSize = escritorio.getSize();
 Dimension jInternalFrameSize = form5chart.getSize();
 form5chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-    (desktopSize.height- jInternalFrameSize.height)/2);        // TODO add your handling code here:
+    (desktopSize.height- jInternalFrameSize.height)/2);    
+
+   if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+            
+          
+        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            
+
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            
+     
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            
+        
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
+                    + "Por favor comuniquese con el administrador");
+        }
+
+
+// TODO add your handling code here:
     }//GEN-LAST:event_btnproyeccionActionPerformed
 
     private void btnfrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrecuenciaActionPerformed
@@ -359,7 +421,30 @@ if(form4chartkpi!=null){
        Dimension desktopSize = escritorio.getSize();
 Dimension jInternalFrameSize = form2chart.getSize();
 form2chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-    (desktopSize.height- jInternalFrameSize.height)/2);        // TODO add your handling code here:
+    (desktopSize.height- jInternalFrameSize.height)/2);  
+
+   if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+            
+          
+        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            
+
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            
+     
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            
+        
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
+                    + "Por favor comuniquese con el administrador");
+        }
+
+
+
+// TODO add your handling code here:
     }//GEN-LAST:event_btnfrecuenciaActionPerformed
 
     private void btndistribucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistribucionActionPerformed
@@ -470,12 +555,12 @@ form4chartkpi.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnchart6;
-    private javax.swing.JButton btncomparacion;
-    private javax.swing.JButton btndistribucion;
-    private javax.swing.JButton btnevolutivo;
-    private javax.swing.JButton btnfrecuencia;
-    private javax.swing.JButton btnproyeccion;
+    public static javax.swing.JButton btnchart6;
+    public static javax.swing.JButton btncomparacion;
+    public static javax.swing.JButton btndistribucion;
+    public static javax.swing.JButton btnevolutivo;
+    public static javax.swing.JButton btnfrecuencia;
+    public static javax.swing.JButton btnproyeccion;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

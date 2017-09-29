@@ -40,11 +40,11 @@ public class fmodelo {
         
         if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
             
-            sSQL2="a.nombre like '%"+INICIO.lblinicioarea.getText()+"%' AND";
+            sSQL2="a.idarea="+INICIO.lblinicioidarea.getText()+" AND";
             
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
             
-            sSQL2="a.nombre like '%"+INICIO.lblinicioarea.getText()+"%' AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' AND"; 
+            sSQL2="a.idarea="+INICIO.lblinicioidarea.getText()+" AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' AND"; 
             
         }
 

@@ -86,6 +86,8 @@ public class ffiltros {
         String[] titulos = {"SubÁrea"};
         String[] registro = new String[1];
         modelo = new DefaultTableModel(null, titulos);
+        
+        
         sSQL = "SELECT s.nombre FROM subarea s INNER JOIN area a ON s.idarea=a.idarea "
                 + "WHERE s.nombre LIKE '%" + buscar + "%' and a.nombre LIKE '%" + conexion.formsubarea + "%' "
                 + "ORDER BY s.nombre DESC";

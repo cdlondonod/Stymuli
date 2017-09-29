@@ -454,11 +454,24 @@ public class INICIO extends javax.swing.JFrame {
 
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
+            frmanalisis.btnchart6.setVisible(false);
+            frmanalisis.btncomparacion.setVisible(false);
+            frmanalisis.btndistribucion.setVisible(false);
+            frmanalisis.btnevolutivo.setVisible(false);
+            frmanalisis.btnfrecuencia.setVisible(false);
+            frmanalisis.btnproyeccion.setVisible(false);
+
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
 
+            frmanalisis.btndistribucion.setVisible(false);
+            frmanalisis.btnchart6.setVisible(false);
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+
+            frmanalisis.btndistribucion.setVisible(false);
+            frmanalisis.btnchart6.setVisible(false);
 
         } else {
 
@@ -833,7 +846,18 @@ public class INICIO extends javax.swing.JFrame {
                 (desktopSize.height - jInternalFrameSize.height) / 2);
 
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-
+            
+            frmresultados.lblbuscar.setVisible(false);
+            frmresultados.lblfiltrar.setVisible(false);
+            frmresultados.btnanalisis5.setVisible(false);
+            frmresultados.btnanalisis7.setVisible(false);
+            frmresultados.btneditar1.setVisible(false);
+            frmresultados.btnnuevo.setVisible(false);
+            frmresultados.btneliminar.setVisible(false);
+            frmresultados.txtbuscar.setVisible(false);
+            frmresultados.cbofiltro.setVisible(false);
+            
+            
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {

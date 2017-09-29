@@ -27,12 +27,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="684" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="690" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" pref="552" max="32767" attributes="0"/>
+          <Component id="jPanel1" pref="549" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -95,7 +95,7 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel4" pref="474" max="32767" attributes="0"/>
+                          <Component id="jPanel4" pref="470" max="32767" attributes="0"/>
                           <Component id="jPanel2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -127,13 +127,13 @@
                                       <Component id="jPanel5" linkSize="3" min="-2" pref="180" max="-2" attributes="0"/>
                                       <Component id="btnclearselec" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                                  <EmptySpace pref="18" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jPanel8" linkSize="3" pref="166" max="32767" attributes="0"/>
                                       <Component id="jPanel9" linkSize="3" max="32767" attributes="0"/>
-                                      <Component id="jPanel7" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="pnlarea" linkSize="3" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jPanel6" linkSize="3" alignment="0" pref="179" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -155,7 +155,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel8" linkSize="4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel7" linkSize="4" min="-2" max="-2" attributes="0"/>
+                          <Component id="pnlarea" linkSize="4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel6" linkSize="4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -292,12 +292,15 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="jPanel7">
+                <Container class="javax.swing.JPanel" name="pnlarea">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c6" green="67" red="99" type="rgb"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
                   <SubComponents>

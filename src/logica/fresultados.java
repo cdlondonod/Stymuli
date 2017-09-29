@@ -5,6 +5,7 @@
  */
 package logica;
 
+import UI.INICIO;
 import datos.vresultados;
 
 import java.io.FileWriter;
@@ -38,12 +39,25 @@ public class fresultados {
         String[] registro = new String[12];
 
         modelo = new DefaultTableModel(null, titulos);
+        
+         if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            sSQL2=" AND a.idarea="+INICIO.lblinicioidarea.getText()+" ";
+            
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            sSQL2=" AND a.idarea="+INICIO.lblinicioidarea.getText()+" AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' ";
+            
+        }else if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+            sSQL2=" AND a.idarea="+INICIO.lblinicioidarea.getText()+" AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' AND p.documento="+INICIO.lbliniciodocumento.getText()+" ";
+        }
+
 
         sSQL = "SELECT r.idresultados,r.idkpi,r.idpersona,r.mes,r.year,p.documento,p.apaterno,p.nombre, "
                 + "a.nombre,s.nombre,k.nombre,r.resultado_kpi,a.idarea,s.idsubarea FROM resultados r INNER JOIN persona p "
                 + "ON r.idpersona=p.idpersona INNER JOIN area a ON p.idarea=a.idarea INNER JOIN subarea s "
                 + "ON s.idsubarea=p.idsubarea INNER JOIN kpi k ON k.idkpi=r.idkpi  "
-                + "where " + filtrores + " like '%" + buscar + "%' order by year";
+                + "where " + filtrores + " like '%" + buscar + "%' "
+                + sSQL2
+                + "order by r.mes,r.year";
 
         try {
             Statement st = cn.createStatement();

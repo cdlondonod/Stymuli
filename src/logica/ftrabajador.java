@@ -45,10 +45,10 @@ public class ftrabajador {
         modelo = new DefaultTableModel(null, titulos);
         
         if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            sSQL2=" AND a.nombre like '%"+INICIO.lblinicioarea.getText()+"%' ";
+            sSQL2=" AND a.idarea="+INICIO.lblinicioidarea.getText()+" ";
             
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            sSQL2=" AND a.nombre like '%"+INICIO.lblinicioarea.getText()+"%' AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' "; 
+            sSQL2=" AND a.idarea="+INICIO.lblinicioidarea.getText()+" AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' "; 
         }
 
         sSQL = " SELECT p.idpersona,p.nombre,p.apaterno,p.amaterno,p.tipo_documento,p.documento,"

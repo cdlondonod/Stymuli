@@ -219,7 +219,7 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
         lblnombrekpi13 = new javax.swing.JLabel();
         txtnombresubarea = new javax.swing.JTextField();
         btnbuscar_subarea_trab = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
+        pnlarea = new javax.swing.JPanel();
         lblnombrekpi6 = new javax.swing.JLabel();
         txtnombrearea = new javax.swing.JTextField();
         btnbuscaarea = new javax.swing.JButton();
@@ -319,21 +319,21 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
         });
         jPanel6.add(btnbuscar_subarea_trab);
 
-        jPanel7.setBackground(new java.awt.Color(153, 103, 198));
-        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
+        pnlarea.setBackground(new java.awt.Color(153, 103, 198));
+        pnlarea.setLayout(new javax.swing.BoxLayout(pnlarea, javax.swing.BoxLayout.LINE_AXIS));
 
         lblnombrekpi6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblnombrekpi6.setForeground(new java.awt.Color(255, 255, 255));
         lblnombrekpi6.setText("Área:");
         lblnombrekpi6.setPreferredSize(new java.awt.Dimension(55, 14));
-        jPanel7.add(lblnombrekpi6);
+        pnlarea.add(lblnombrekpi6);
 
         txtnombrearea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnombreareaActionPerformed(evt);
             }
         });
-        jPanel7.add(txtnombrearea);
+        pnlarea.add(txtnombrearea);
 
         btnbuscaarea.setBackground(new java.awt.Color(0, 51, 0));
         btnbuscaarea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscarlista.png"))); // NOI18N
@@ -346,7 +346,7 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
                 btnbuscaareaActionPerformed(evt);
             }
         });
-        jPanel7.add(btnbuscaarea);
+        pnlarea.add(btnbuscaarea);
 
         jPanel8.setBackground(new java.awt.Color(153, 103, 198));
         jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
@@ -417,12 +417,12 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnclearselec))
-                        .addContainerGap(20, Short.MAX_VALUE))
+                        .addContainerGap(18, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -431,7 +431,7 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel5, jPanel6, jPanel7, jPanel8, jPanel9});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel5, jPanel6, jPanel8, jPanel9, pnlarea});
 
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -441,7 +441,7 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -453,7 +453,7 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel5, jPanel6, jPanel7, jPanel8, jPanel9});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel5, jPanel6, jPanel8, jPanel9, pnlarea});
 
         jPanel3.setBackground(new java.awt.Color(53, 29, 113));
 
@@ -540,7 +540,7 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -562,11 +562,11 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
         );
 
         pack();
@@ -723,7 +723,6 @@ frmzfiltroyear form = new frmzfiltroyear();
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
@@ -733,6 +732,7 @@ frmzfiltroyear form = new frmzfiltroyear();
     private javax.swing.JLabel lblnombrekpi7;
     private javax.swing.JLabel lblnombrekpi8;
     private javax.swing.JLabel lblresultadosobtenidos;
+    public static javax.swing.JPanel pnlarea;
     private javax.swing.JTable tablalistporpersona;
     public static javax.swing.JTextField txtmes;
     public static javax.swing.JTextField txtnombrearea;
