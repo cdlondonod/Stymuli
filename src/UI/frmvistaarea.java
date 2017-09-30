@@ -22,7 +22,7 @@ public class frmvistaarea extends javax.swing.JFrame {
     public frmvistaarea() {
         initComponents();
         mostrar("");
-        this.setLocationRelativeTo(null);
+                
         tablalistado.setDefaultEditor(Object.class, null);
     }
 
@@ -70,6 +70,7 @@ public class frmvistaarea extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(53, 29, 113));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel2.setBackground(new java.awt.Color(153, 103, 198));
 
@@ -170,7 +171,7 @@ public class frmvistaarea extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 11, Short.MAX_VALUE)
+                .addGap(0, 9, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -206,38 +207,13 @@ public class frmvistaarea extends javax.swing.JFrame {
             cod=tablalistado.getValueAt(fila, 0).toString();
             valor=tablalistado.getValueAt(fila, 1).toString();
             
-            if (conexion.frmabierto==1) {
-            //frmanalisischart1.txtidarea.setText(cod);
-            //frmanalisischart1.txtnombrearea.setText(valor);
-            
-            }else if (conexion.frmabierto==2) {
+            if (conexion.frmabierto==2) {
             frmtrabajador.txtidarea.setText(cod);
             frmtrabajador.txtnombrearea.setText(valor);
+            
             }else if (conexion.frmabierto==3) {
             frmmodelo.txtidarea.setText(cod);
             frmmodelo.txtnombrearea.setText(valor);
-            }else if (conexion.frmabierto==5) {
-           // frmanalisischart2.txtidarea.setText(cod);
-           // frmanalisischart2.txtnombrearea.setText(valor);
-            }else if (conexion.frmabierto==6) {
-           // frmanalisischart3.txtidarea.setText(cod);
-           // frmanalisischart3.txtnombrearea.setText(valor);
-            }else if (conexion.frmabierto==7) {
-           // frmanalisischart4.txtidarea.setText(cod);
-           // frmanalisischart4.txtnombrearea.setText(valor);
-            }else if (conexion.frmabierto==8) {
-           // frmanalisischart5.txtidarea.setText(cod);
-           // frmanalisischart5.txtnombrearea.setText(valor);
-            }else if (conexion.frmabierto==9) {
-           // frmanalisiscompleto.txtidarea.setText(cod);
-           // frmanalisiscompleto.txtnombrearea.setText(valor);
-            }
-            else if (conexion.frmabierto==10) {
-           // frmanalisisobtpersona.txtidarea.setText(cod);
-           // frmanalisisobtpersona.txtnombrearea.setText(valor);
-            } else if (conexion.frmabierto==10) {
-           // frmanalisischart4_1kpi.txtidarea.setText(cod);
-           // frmanalisischart4_1kpi.txtnombrearea.setText(valor);
             }
 
               

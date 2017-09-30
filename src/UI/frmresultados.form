@@ -436,16 +436,19 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                              <Component id="lblnombrekpi6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblnombrekpi13" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblnombrekpi7" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="1" attributes="0">
                                                   <Component id="lblnombrekpi9" min="-2" max="-2" attributes="0"/>
                                                   <Component id="lblnombrekpi3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="0" pref="32" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblnombrekpi6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblnombrekpi13" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblnombrekpi7" alignment="1" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -459,7 +462,7 @@
                                               <Component id="cbomes" alignment="0" pref="125" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>

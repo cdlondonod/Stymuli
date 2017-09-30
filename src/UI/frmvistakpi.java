@@ -23,7 +23,8 @@ public class frmvistakpi extends javax.swing.JFrame {
     public frmvistakpi() {
         initComponents();
         mostrar("");
-        this.setLocationRelativeTo(null);
+                  
+        
         tablalistado.setDefaultEditor(Object.class, null);
     }
 
@@ -70,6 +71,7 @@ public class frmvistakpi extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(53, 29, 113));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel2.setBackground(new java.awt.Color(153, 103, 198));
 
@@ -170,7 +172,7 @@ public class frmvistakpi extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 8, Short.MAX_VALUE)
+                .addGap(0, 6, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -213,9 +215,6 @@ public class frmvistakpi extends javax.swing.JFrame {
             }else if (conexion.frmabierto==3) {
             frmmodelo.txtidkpi.setText(cod);
             frmmodelo.txtnombrekpi_Obj.setText(valor);
-            }else if (conexion.frmabierto==1) {
-           // frmanalisischart1.txtidkpi.setText(cod);
-            //frmanalisischart1.txtnombrekpi.setText(valor);
             }
             
             

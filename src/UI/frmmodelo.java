@@ -91,7 +91,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         txtdescripcion.setText("");
           txtnombrearea.setText("");
         txtnombresubarea.setText("");
-        txtnombrekpi_Obj.setText("");
+        
         txtnombrekpiestim.setText("");
 
     }
@@ -134,7 +134,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         txtvalor_Obj.setText("");
         txtvalor_pon_Obj.setText("");
         txtvalor_Obj.requestFocus();
-
+txtnombrekpi_Obj.setText("");
     }
 
     void habilitar_btnopri() {
@@ -1128,11 +1128,13 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
     private void btnbusca_area_stymActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbusca_area_stymActionPerformed
         // TODO add your handling code here:
-
+         txtidsubarea.setText("");
+         txtnombresubarea.setText("");
         frmvistaarea form = new frmvistaarea();
         form.toFront();
         form.setVisible(true);
         form.setAlwaysOnTop(true);
+        form.setLocationRelativeTo(btnbusca_area_stym);
     }//GEN-LAST:event_btnbusca_area_stymActionPerformed
 
     private void btnbuscar_subarea_stymActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar_subarea_stymActionPerformed
@@ -1149,6 +1151,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         form.toFront();
         form.setVisible(true);
         form.setAlwaysOnTop(true);
+        form.setLocationRelativeTo(btnbuscar_subarea_stym);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_stymActionPerformed
@@ -1310,7 +1313,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         frmvistakpiobjetivos form = new frmvistakpiobjetivos();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop(true);        // TODO add your handling code here:
+        form.setAlwaysOnTop(true); 
+        form.setLocationRelativeTo(btnbusca_kpi_Obj);// TODO add your handling code here:
     }//GEN-LAST:event_btnbusca_kpi_ObjActionPerformed
 
     private void btnguardar_ObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar_ObjActionPerformed
@@ -1571,7 +1575,9 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         frmvistakpiobjetivos form = new frmvistakpiobjetivos();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop(true);         // TODO add your handling code here:
+        form.setAlwaysOnTop(true);
+        form.setLocationRelativeTo(btnbusca_kpi_estim);
+// TODO add your handling code here:
     }//GEN-LAST:event_btnbusca_kpi_estimActionPerformed
 
     private void cbotipo_stymuliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbotipo_stymuliActionPerformed

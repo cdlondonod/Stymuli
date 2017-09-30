@@ -914,18 +914,22 @@ txtcargo.setText("");
         form.toFront();
         form.setVisible(true);
         form.setAlwaysOnTop(true);
+        form.setLocationRelativeTo(btnbuscar_subarea_trab);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trabActionPerformed
 
     private void btnbuscaareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaareaActionPerformed
         // TODO add your handling code here:
-
+        
+        txtidsubarea.setText("");
+        txtnombresubarea.setText("");
         frmvistaarea form = new frmvistaarea();
         form.toFront();
         form.setVisible(true);
         form.setAlwaysOnTop(true);
-
+        form.setLocationRelativeTo(btnbuscaarea);
+       
     }//GEN-LAST:event_btnbuscaareaActionPerformed
 
     private void txttelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttelActionPerformed

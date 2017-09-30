@@ -489,15 +489,17 @@ public class frmresultados extends javax.swing.JInternalFrame {
                         .addComponent(btnguardar))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblnombrekpi6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblnombrekpi13, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblnombrekpi7, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblnombrekpi9)
-                                    .addComponent(lblnombrekpi3))))
+                                    .addComponent(lblnombrekpi3)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addGap(0, 32, Short.MAX_VALUE)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblnombrekpi6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblnombrekpi13, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblnombrekpi7, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -506,7 +508,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtyear, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(cbomes, javax.swing.GroupLayout.Alignment.LEADING, 0, 125, Short.MAX_VALUE)))
-                        .addGap(0, 8, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -743,17 +745,20 @@ public class frmresultados extends javax.swing.JInternalFrame {
         form.toFront();
         form.setVisible(true);
         form.setAlwaysOnTop(true);
+        form.setLocationRelativeTo(btnbuscarkpi);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscarkpiActionPerformed
 
     private void btnbuscartrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscartrabajadorActionPerformed
         // TODO add your handling code here:
-
+        txtkpi.setText("");
+        txtidkpi.setText("");
         frmvistatrabajador form = new frmvistatrabajador();
         form.toFront();
         form.setVisible(true);
         form.setAlwaysOnTop(true);
+        form.setLocationRelativeTo(btnbuscartrabajador);
 
     }//GEN-LAST:event_btnbuscartrabajadorActionPerformed
 
