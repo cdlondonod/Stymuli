@@ -216,11 +216,11 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
         lblnombrekpi6 = new javax.swing.JLabel();
         txtnombrearea = new javax.swing.JTextField();
         btnbuscaarea = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        pnlsubarea = new javax.swing.JPanel();
         lblnombrekpi13 = new javax.swing.JLabel();
         txtnombresubarea = new javax.swing.JTextField();
         btnbuscar_subarea_trab = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
+        pnltrabajador = new javax.swing.JPanel();
         lblnombrekpi14 = new javax.swing.JLabel();
         txtnombretrabajador = new javax.swing.JTextField();
         btnbuscar_subarea_trab1 = new javax.swing.JButton();
@@ -354,21 +354,21 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
         });
         pnlarea.add(btnbuscaarea);
 
-        jPanel5.setBackground(new java.awt.Color(153, 103, 198));
-        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
+        pnlsubarea.setBackground(new java.awt.Color(153, 103, 198));
+        pnlsubarea.setLayout(new javax.swing.BoxLayout(pnlsubarea, javax.swing.BoxLayout.LINE_AXIS));
 
         lblnombrekpi13.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblnombrekpi13.setForeground(new java.awt.Color(255, 255, 255));
         lblnombrekpi13.setText("SubÁrea:");
         lblnombrekpi13.setPreferredSize(new java.awt.Dimension(55, 14));
-        jPanel5.add(lblnombrekpi13);
+        pnlsubarea.add(lblnombrekpi13);
 
         txtnombresubarea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnombresubareaActionPerformed(evt);
             }
         });
-        jPanel5.add(txtnombresubarea);
+        pnlsubarea.add(txtnombresubarea);
 
         btnbuscar_subarea_trab.setBackground(new java.awt.Color(0, 51, 0));
         btnbuscar_subarea_trab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscarlista.png"))); // NOI18N
@@ -381,22 +381,22 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
                 btnbuscar_subarea_trabActionPerformed(evt);
             }
         });
-        jPanel5.add(btnbuscar_subarea_trab);
+        pnlsubarea.add(btnbuscar_subarea_trab);
 
-        jPanel7.setBackground(new java.awt.Color(153, 103, 198));
-        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
+        pnltrabajador.setBackground(new java.awt.Color(153, 103, 198));
+        pnltrabajador.setLayout(new javax.swing.BoxLayout(pnltrabajador, javax.swing.BoxLayout.LINE_AXIS));
 
         lblnombrekpi14.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblnombrekpi14.setForeground(new java.awt.Color(255, 255, 255));
         lblnombrekpi14.setText("Trabajador:");
-        jPanel7.add(lblnombrekpi14);
+        pnltrabajador.add(lblnombrekpi14);
 
         txtnombretrabajador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnombretrabajadorActionPerformed(evt);
             }
         });
-        jPanel7.add(txtnombretrabajador);
+        pnltrabajador.add(txtnombretrabajador);
 
         btnbuscar_subarea_trab1.setBackground(new java.awt.Color(0, 51, 0));
         btnbuscar_subarea_trab1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscarlista.png"))); // NOI18N
@@ -409,7 +409,7 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
                 btnbuscar_subarea_trab1ActionPerformed(evt);
             }
         });
-        jPanel7.add(btnbuscar_subarea_trab1);
+        pnltrabajador.add(btnbuscar_subarea_trab1);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -420,8 +420,8 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlsubarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnltrabajador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(btnclearselec)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
@@ -445,9 +445,9 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnltrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -538,21 +538,23 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(188, 188, 188)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
+                        .addGap(188, 188, 188)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlgrafica, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pnlgrafica, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1297,8 +1299,6 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1310,6 +1310,8 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblresultadosobtenidos;
     public static javax.swing.JPanel pnlarea;
     private javax.swing.JPanel pnlgrafica;
+    public static javax.swing.JPanel pnlsubarea;
+    public static javax.swing.JPanel pnltrabajador;
     private javax.swing.JTable tablalistproyeccion;
     public static javax.swing.JTextField txtmes;
     public static javax.swing.JTextField txtnombrearea;

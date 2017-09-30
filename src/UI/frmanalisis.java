@@ -5,10 +5,7 @@
  */
 package UI;
 
-import static UI.INICIO.escritorio;
-
 import java.awt.Dimension;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,30 +13,23 @@ import javax.swing.JOptionPane;
  */
 public class frmanalisis extends javax.swing.JInternalFrame {
 
-public static frmanalisdistrikpi form1chart;
-public static frmanalisfrecuencia form2chart;
-public static frmanalisevolutivo form3chart;
-public static frmanalisdistriestim form4chart;
-public static frmanalisproyeccion form5chart;
+   
 
-public static frmanalisischart6 form4chartkpi;
     /**
      * Creates new form frmanalisis
      */
     public frmanalisis() {
 
         initComponents();
-       ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
-this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-btncomparacion.setToolTipText("<html><img src=\"" +frmanalisis.class.getResource("/img/comparacion.png")+"\">");
-btndistribucion.setToolTipText("<html><img src=\"" +frmanalisis.class.getResource("/img/distribucion.png")+"\">");
-btnevolutivo.setToolTipText("<html><img src=\"" +frmanalisis.class.getResource("/img/evolutivo.png")+"\">");
-btnfrecuencia.setToolTipText("<html><img src=\"" +frmanalisis.class.getResource("/img/frecuencia.png")+"\">");
-btnproyeccion.setToolTipText("<html><img src=\"" +frmanalisis.class.getResource("/img/proyeccion.png")+"\">");
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btncomparacion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/comparacion.png") + "\">");
+        btndistribucion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/distribucion.png") + "\">");
+        btnevolutivo.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/evolutivo.png") + "\">");
+        btnfrecuencia.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/frecuencia.png") + "\">");
+        btnproyeccion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/proyeccion.png") + "\">");
 
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -220,282 +210,186 @@ btnproyeccion.setToolTipText("<html><img src=\"" +frmanalisis.class.getResource(
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncomparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomparacionActionPerformed
+      
 
+        INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
 
-        
-if(form1chart!=null){
-           form1chart.dispose();
-       }
-if(form2chart!=null){
-           form2chart.dispose();
-       }
-if(form3chart!=null){
-           form3chart.dispose();
-       }
-if(form4chart!=null){
-           form4chart.dispose();
-       }
-if(form5chart!=null){
-           form5chart.dispose();
-       }
+        frmanalisdistrikpi form1chart = new frmanalisdistrikpi();
+        INICIO.pnlmain.add(form1chart);
+        form1chart.toFront();
+        form1chart.setVisible(true);
+        Dimension desktopSize = INICIO.pnlmain.getSize();
+        Dimension jInternalFrameSize = form1chart.getSize();
+        form1chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
 
-if(form4chartkpi!=null){
-           form4chartkpi.dispose();
-       }
-
-
-
-
-
-      form1chart=new frmanalisdistrikpi();
-       escritorio.add(form1chart);
-       form1chart.toFront();
-       form1chart.setVisible(true);
-       Dimension desktopSize = escritorio.getSize();
-Dimension jInternalFrameSize = form1chart.getSize();
-form1chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-    (desktopSize.height- jInternalFrameSize.height)/2);
+        this.dispose();
 
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-            
-          
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            
+
             frmanalisdistrikpi.pnlarea.setVisible(false);
             frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-     
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            
+
             frmanalisdistrikpi.pnlarea.setVisible(false);
             frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-        
 
-        } 
-
-  
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btncomparacionActionPerformed
 
     private void btnevolutivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnevolutivoActionPerformed
-
-      
         
-if(form1chart!=null){
-           form1chart.dispose();
-       }
-if(form2chart!=null){
-           form2chart.dispose();
-       }
-if(form3chart!=null){
-           form3chart.dispose();
-       }
-if(form4chart!=null){
-           form4chart.dispose();
-       }
-if(form5chart!=null){
-           form5chart.dispose();
-       }
+        
+        INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
 
-if(form4chartkpi!=null){
-           form4chartkpi.dispose();
-       }
+       frmanalisevolutivo form3chart = new frmanalisevolutivo();
+        INICIO.pnlmain.add(form3chart);
+        form3chart.toFront();
+        form3chart.setVisible(true);
+        Dimension desktopSize = INICIO.pnlmain.getSize();
+        Dimension jInternalFrameSize = form3chart.getSize();
+        form3chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
 
-      form3chart=new frmanalisevolutivo();
-       escritorio.add(form3chart);
-       form3chart.toFront();
-       form3chart.setVisible(true);
-       Dimension desktopSize = escritorio.getSize();
-Dimension jInternalFrameSize = form3chart.getSize();
-form3chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-    (desktopSize.height- jInternalFrameSize.height)/2);      
-   
-            
-          
+        this.dispose();
+
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-            
-          
+
+            frmanalisevolutivo.pnlarea.setVisible(false);
+            frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+            frmanalisevolutivo.pnlsubarea.setVisible(false);
+            frmanalisevolutivo.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
             frmanalisevolutivo.pnlarea.setVisible(false);
             frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-     
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
             frmanalisevolutivo.pnlarea.setVisible(false);
             frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-        
 
-        } 
-
+        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnevolutivoActionPerformed
 
     private void btnproyeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproyeccionActionPerformed
+      
+        INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
 
-     
-        
-if(form1chart!=null){
-           form1chart.dispose();
-       }
-if(form2chart!=null){
-           form2chart.dispose();
-       }
-if(form3chart!=null){
-           form3chart.dispose();
-       }
-if(form4chart!=null){
-           form4chart.dispose();
-       }
-if(form5chart!=null){
-           form5chart.dispose();
-       }
+       frmanalisproyeccion form5chart = new frmanalisproyeccion();
+        INICIO.pnlmain.add(form5chart);
+        form5chart.toFront();
+        form5chart.setVisible(true);
+        Dimension desktopSize = INICIO.pnlmain.getSize();
+        Dimension jInternalFrameSize = form5chart.getSize();
+        form5chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
 
-if(form4chartkpi!=null){
-           form4chartkpi.dispose();
-       }
+        this.dispose();
 
-      form5chart=new frmanalisproyeccion();
-       escritorio.add(form5chart);
-       form5chart.toFront();
-       form5chart.setVisible(true);
-       Dimension desktopSize = escritorio.getSize();
-Dimension jInternalFrameSize = form5chart.getSize();
-form5chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-    (desktopSize.height- jInternalFrameSize.height)/2);    
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
-   if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-            
-          
+            frmanalisproyeccion.pnlarea.setVisible(false);
+            frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+            frmanalisproyeccion.pnlsubarea.setVisible(false);
+            frmanalisproyeccion.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
+            frmanalisproyeccion.pnltrabajador.setVisible(false);
+            frmanalisproyeccion.txtpersonadocumento.setText(INICIO.lbliniciodocumento.getText());
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
             frmanalisproyeccion.pnlarea.setVisible(false);
             frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-     
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
             frmanalisproyeccion.pnlarea.setVisible(false);
             frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-        
 
-        } 
-
+        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnproyeccionActionPerformed
 
     private void btnfrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrecuenciaActionPerformed
+        
 
+        INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
 
-if(form1chart!=null){
-           form1chart.dispose();
-       }
-if(form2chart!=null){
-           form2chart.dispose();
-       }
-if(form3chart!=null){
-           form3chart.dispose();
-       }
-if(form4chart!=null){
-           form4chart.dispose();
-       }
-if(form5chart!=null){
-           form5chart.dispose();
-       }
+        frmanalisfrecuencia form2chart = new frmanalisfrecuencia();
+        INICIO.pnlmain.add(form2chart);
+        form2chart.toFront();
+        form2chart.setVisible(true);
+        Dimension desktopSize = INICIO.pnlmain.getSize();
+        Dimension jInternalFrameSize = form2chart.getSize();
+        form2chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
 
-if(form4chartkpi!=null){
-           form4chartkpi.dispose();
-       }
+        this.dispose();
 
-      form2chart=new frmanalisfrecuencia();
-       escritorio.add(form2chart);
-       form2chart.toFront();
-       form2chart.setVisible(true);
-       Dimension desktopSize = escritorio.getSize();
-Dimension jInternalFrameSize = form2chart.getSize();
-form2chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-    (desktopSize.height- jInternalFrameSize.height)/2);  
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
-  if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-            
-          
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-              frmanalisfrecuencia.pnlarea.setVisible(false);
+            frmanalisfrecuencia.pnlarea.setVisible(false);
             frmanalisfrecuencia.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-        
-     
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-              frmanalisfrecuencia.pnlarea.setVisible(false);
+            frmanalisfrecuencia.pnlarea.setVisible(false);
             frmanalisfrecuencia.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-        
-        
 
-        } 
-
+        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnfrecuenciaActionPerformed
 
     private void btndistribucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistribucionActionPerformed
+        
 
+        INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
 
-if(form1chart!=null){
-           form1chart.dispose();
-       }
-if(form2chart!=null){
-           form2chart.dispose();
-       }
-if(form3chart!=null){
-           form3chart.dispose();
-       }
-if(form4chart!=null){
-           form4chart.dispose();
-       }
-if(form4chartkpi!=null){
-           form4chartkpi.dispose();
-       }
+       frmanalisdistriestim form4chart = new frmanalisdistriestim();
+        INICIO.pnlmain.add(form4chart);
+        form4chart.toFront();
+        form4chart.setVisible(true);
+        Dimension desktopSize = INICIO.pnlmain.getSize();
+        Dimension jInternalFrameSize = form4chart.getSize();
+        form4chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
 
-if(form5chart!=null){
-           form5chart.dispose();
-       }
-
-      form4chart=new frmanalisdistriestim();
-       escritorio.add(form4chart);
-       form4chart.toFront();
-       form4chart.setVisible(true);
-       Dimension desktopSize = escritorio.getSize();
-Dimension jInternalFrameSize = form4chart.getSize();
-form4chart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-    (desktopSize.height- jInternalFrameSize.height)/2);        // TODO add your handling code here:
+        this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btndistribucionActionPerformed
 
     private void btnchart6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchart6ActionPerformed
-     
-        
-if(form1chart!=null){
-           form1chart.dispose();
-       }
-if(form2chart!=null){
-           form2chart.dispose();
-       }
-if(form3chart!=null){
-           form3chart.dispose();
-       }
-if(form4chart!=null){
-           form4chart.dispose();
-       }
-if(form4chartkpi!=null){
-           form4chartkpi.dispose();
-       }
-if(form5chart!=null){
-           form5chart.dispose();
-       }
+      
 
-      form4chartkpi=new frmanalisischart6();
-       escritorio.add(form4chartkpi);
-       form4chartkpi.toFront();
-       form4chartkpi.setVisible(true);
-       Dimension desktopSize = escritorio.getSize();
-Dimension jInternalFrameSize = form4chartkpi.getSize();
-form4chartkpi.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-    (desktopSize.height- jInternalFrameSize.height)/2);        // TODO add your handling code here:
+        INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
+
+       frmanalisischart6 form4chartkpi = new frmanalisischart6();
+        INICIO.pnlmain.add(form4chartkpi);
+        form4chartkpi.toFront();
+        form4chartkpi.setVisible(true);
+        Dimension desktopSize = INICIO.pnlmain.getSize();
+        Dimension jInternalFrameSize = form4chartkpi.getSize();
+        form4chartkpi.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
+
+        this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btnchart6ActionPerformed
 
     /**

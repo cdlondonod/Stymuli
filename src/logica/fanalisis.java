@@ -192,7 +192,13 @@ public class fanalisis {
                 registro[9] = rs.getString("o.comparacion");
                 registro[10] = rs.getString("o.valor_objetivo");
                 registro[11] = numberFormat.format(Double.parseDouble(rs.getString("o.valor_ponderado"))) + "%";
-                registro[12] = numberFormat.format(Double.parseDouble(rs.getString("cumplimiento"))) + "%";
+                
+                 if (rs.getString("cumplimiento") != null) {
+                    registro[12] = numberFormat.format(Double.parseDouble(rs.getString("cumplimiento"))) + "%";
+                } else {
+                    registro[12] = "0.0%";
+                }
+                
                 registro[13] = "$" + numberFormat.format(Double.parseDouble(rs.getString("obtiene")));
                 registro[14] = rs.getString("habilita");
 
@@ -220,10 +226,13 @@ public class fanalisis {
         if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
             sSQL2 = " AND tbcomp.idarea=" + INICIO.lblinicioidarea.getText() + " ";
         }
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+            sSQL = " AND tbcomp.idpersona=" + INICIO.lblinicioidpersona.getText() + " ";
+        }
         sSQL3 = "  SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + "(IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
-                + "AS obtreal,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   \n"
-                + " (SELECT p.nombre,p.apaterno,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
+                + "AS obtreal,tbcomp.idpersona,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   \n"
+                + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
                 + "AS subarea,   \n"
                 + bigquery
                 + " )AS tbcomp   "
@@ -234,7 +243,7 @@ public class fanalisis {
                 + " AND tbcomp.subarea LIKE '%" + Subarea + "%'"
                 + " AND tbcomp.documento LIKE '%" + Trabajador + "%'"
                 + " AND tbcomp.kpi LIKE '%" + KPI + "%'"
-                +sSQL2
+                +sSQL2+sSQL
                 + " GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year"
                 + " ORDER BY tbcomp.subarea,tbcomp.apaterno,tbcomp.nombre,tbcomp.kpi,tbcomp.mes,tbcomp.year";
 
@@ -274,6 +283,9 @@ public class fanalisis {
         if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
             sSQL2 = " AND a.idarea=" + INICIO.lblinicioidarea.getText() + " ";
         }
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+            sSQL3 = " AND p.idpersona=" + INICIO.lblinicioidpersona.getText() + " ";
+        }
         sSQL = "SELECT a.nombre,s.nombre,k.nombre, AVG(r.resultado_kpi) AS kpimed,r.mes,r.year "
                 + "FROM resultados r INNER JOIN persona p ON r.idpersona=p.idpersona INNER JOIN area a "
                 + "ON a.idarea=p.idarea INNER JOIN subarea s ON s.idsubarea=p.idsubarea INNER JOIN modelo m "
@@ -283,7 +295,7 @@ public class fanalisis {
                 + " a.nombre LIKE '%" + area + "%'"
                 + " AND s.nombre LIKE '%" + Subarea + "%'"
                 + " AND k.nombre LIKE '%" + KPI + "%'"
-                +sSQL2
+                +sSQL2+sSQL3
                 + "GROUP BY k.nombre,r.mes,r.year "
                 + " ORDER BY s.nombre,r.mes,r.year DESC";
         try {

@@ -6,6 +6,7 @@
 package UI;
 
 import datos.vtrabajador;
+import java.awt.geom.RoundRectangle2D;
 import javax.swing.JOptionPane;
 import logica.ftrabajador;
 import static logica.ftrabajador.dbpasswordexist;
@@ -25,6 +26,7 @@ public class frmzzlogin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setAlwaysOnTop(rootPaneCheckingEnabled);
         rootPane.setDefaultButton(btningresar);
+
     }
 
     /**
@@ -191,6 +193,8 @@ public class frmzzlogin extends javax.swing.JFrame {
                 INICIO form = new INICIO();
                 form.toFront();
                 form.setVisible(true);
+                form.setExtendedState(INICIO.MAXIMIZED_BOTH);
+                
 
                 if (ftrabajador.loginacceso.equals("Trabajador")) {
                     INICIO.btnareas.setVisible(false);
@@ -198,10 +202,13 @@ public class frmzzlogin extends javax.swing.JFrame {
                     INICIO.btnmodelos.setVisible(false);
                     INICIO.btnusuarios.setVisible(false);
                     INICIO.btnperfil.doClick();
+                    
+                    
+                    
 
                 } else if (ftrabajador.loginacceso.equals("Administrador")) {
                     INICIO.btnperfil.setVisible(false);
-                    
+
                 } else if (ftrabajador.loginacceso.equals("Jefe de Area")) {
                     INICIO.btnareas.setVisible(false);
                     INICIO.btnperfil.setVisible(false);
@@ -210,7 +217,7 @@ public class frmzzlogin extends javax.swing.JFrame {
                     INICIO.btnareas.setVisible(false);
                     INICIO.btnperfil.setVisible(false);
 
-                }else{
+                } else {
                     INICIO.btnareas.setVisible(false);
                     INICIO.btnkpi.setVisible(false);
                     INICIO.btnmodelos.setVisible(false);
@@ -219,10 +226,10 @@ public class frmzzlogin extends javax.swing.JFrame {
                     INICIO.btnresultados.setVisible(false);
                     INICIO.btnsimulac.setVisible(false);
                     INICIO.btnanalisis.setVisible(false);
-                    
+
                     JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
                             + "Por favor comuniquese con el administrador");
-                
+
                 }
 
                 INICIO.lblinicioidpersona.setText(ftrabajador.loginidpersona);

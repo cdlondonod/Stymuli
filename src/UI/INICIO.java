@@ -5,16 +5,11 @@
  */
 package UI;
 
-import static UI.frmanalisis.form1chart;
-import static UI.frmanalisis.form2chart;
-import static UI.frmanalisis.form3chart;
-import static UI.frmanalisis.form4chart;
-import static UI.frmanalisis.form4chartkpi;
-import static UI.frmanalisis.form5chart;
-import static UI.frmresultados.formcompchart;
-import static UI.frmresultados.formobtpe;
+
+import java.awt.BorderLayout;
 
 import java.awt.Dimension;
+
 
 import javax.swing.JOptionPane;
 
@@ -24,14 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class INICIO extends javax.swing.JFrame {
 
-    frmareasubar forms;
-    frmanalisis forma;
-    frmkpi formk;
-    frmmodelo formm;
-    frmresultados formr;
-    frmtrabajador formt;
-    frmsimulacion formsim;
-    frmperfil formpe;
+
 
     /**
      * Creates new form INICIO
@@ -39,7 +27,7 @@ public class INICIO extends javax.swing.JFrame {
     public INICIO() {
         initComponents();
 
-        /* lblinicioidpersona.setVisible(false);
+        lblinicioidpersona.setVisible(false);
         lblinicionombre.setVisible(false);
         lblinicio1erapellido.setVisible(false);
         lblinicio2doapellido.setVisible(false);
@@ -49,7 +37,7 @@ public class INICIO extends javax.swing.JFrame {
         lblinicioarea.setVisible(false);
         lblinicioidsubarea.setVisible(false);
         lbliniciosubarea.setVisible(false);
-        lblinicioacceso.setVisible(false);*/
+        lblinicioacceso.setVisible(false);
         this.setExtendedState(INICIO.MAXIMIZED_BOTH);
         this.setTitle("STYMULI");
 
@@ -65,16 +53,8 @@ public class INICIO extends javax.swing.JFrame {
     private void initComponents() {
 
         escritorio = new javax.swing.JDesktopPane();
+        pnlenclose = new javax.swing.JPanel();
         pnlmain = new javax.swing.JPanel();
-        pnlmenulistbuttons = new javax.swing.JPanel();
-        btnperfil = new javax.swing.JButton();
-        btnanalisis = new javax.swing.JButton();
-        btnresultados = new javax.swing.JButton();
-        btnmodelos = new javax.swing.JButton();
-        btnkpi = new javax.swing.JButton();
-        btnusuarios = new javax.swing.JButton();
-        btnareas = new javax.swing.JButton();
-        btnsimulac = new javax.swing.JButton();
         lblinicionombre = new javax.swing.JLabel();
         lblinicioidpersona = new javax.swing.JLabel();
         lblinicio1erapellido = new javax.swing.JLabel();
@@ -86,6 +66,15 @@ public class INICIO extends javax.swing.JFrame {
         lblinicioidsubarea = new javax.swing.JLabel();
         lbliniciosubarea = new javax.swing.JLabel();
         lblinicioacceso = new javax.swing.JLabel();
+        pnlmenulistbuttons = new javax.swing.JPanel();
+        btnperfil = new javax.swing.JButton();
+        btnanalisis = new javax.swing.JButton();
+        btnresultados = new javax.swing.JButton();
+        btnmodelos = new javax.swing.JButton();
+        btnkpi = new javax.swing.JButton();
+        btnusuarios = new javax.swing.JButton();
+        btnareas = new javax.swing.JButton();
+        btnsimulac = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
 
@@ -93,10 +82,106 @@ public class INICIO extends javax.swing.JFrame {
 
         escritorio.setBackground(new java.awt.Color(153, 255, 51));
 
+        pnlenclose.setLayout(new java.awt.BorderLayout());
+
         pnlmain.setBackground(new java.awt.Color(255, 255, 255));
 
+        lblinicionombre.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lblinicionombre.setForeground(new java.awt.Color(53, 29, 113));
+        lblinicionombre.setText("nombre");
+
+        lblinicioidpersona.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lblinicioidpersona.setForeground(new java.awt.Color(53, 29, 113));
+        lblinicioidpersona.setText("idpersona");
+
+        lblinicio1erapellido.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lblinicio1erapellido.setForeground(new java.awt.Color(53, 29, 113));
+        lblinicio1erapellido.setText("1erapellido");
+
+        lblinicio2doapellido.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lblinicio2doapellido.setForeground(new java.awt.Color(53, 29, 113));
+        lblinicio2doapellido.setText("2doapellido");
+
+        lbliniciodocumento.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lbliniciodocumento.setForeground(new java.awt.Color(53, 29, 113));
+        lbliniciodocumento.setText("documento");
+
+        lblinicioemail.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lblinicioemail.setForeground(new java.awt.Color(53, 29, 113));
+        lblinicioemail.setText("email");
+
+        lblinicioidarea.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lblinicioidarea.setForeground(new java.awt.Color(53, 29, 113));
+        lblinicioidarea.setText("idarea");
+
+        lblinicioarea.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lblinicioarea.setForeground(new java.awt.Color(53, 29, 113));
+        lblinicioarea.setText("Área");
+
+        lblinicioidsubarea.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lblinicioidsubarea.setForeground(new java.awt.Color(53, 29, 113));
+        lblinicioidsubarea.setText("idsubarea");
+
+        lbliniciosubarea.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lbliniciosubarea.setForeground(new java.awt.Color(53, 29, 113));
+        lbliniciosubarea.setText("SubÁrea");
+
+        lblinicioacceso.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        lblinicioacceso.setForeground(new java.awt.Color(53, 29, 113));
+        lblinicioacceso.setText("Acceso");
+
+        javax.swing.GroupLayout pnlmainLayout = new javax.swing.GroupLayout(pnlmain);
+        pnlmain.setLayout(pnlmainLayout);
+        pnlmainLayout.setHorizontalGroup(
+            pnlmainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlmainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlmainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblinicioidpersona)
+                    .addComponent(lblinicionombre)
+                    .addComponent(lblinicio1erapellido)
+                    .addComponent(lblinicio2doapellido)
+                    .addComponent(lbliniciodocumento)
+                    .addComponent(lblinicioemail)
+                    .addComponent(lblinicioidarea)
+                    .addComponent(lblinicioarea)
+                    .addComponent(lblinicioidsubarea)
+                    .addComponent(lbliniciosubarea)
+                    .addComponent(lblinicioacceso))
+                .addContainerGap(1305, Short.MAX_VALUE))
+        );
+        pnlmainLayout.setVerticalGroup(
+            pnlmainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlmainLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(lblinicioidpersona)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblinicionombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblinicio1erapellido)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblinicio2doapellido)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbliniciodocumento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblinicioemail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblinicioidarea)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblinicioarea)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblinicioidsubarea)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbliniciosubarea)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblinicioacceso)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnlenclose.add(pnlmain, java.awt.BorderLayout.CENTER);
+
         pnlmenulistbuttons.setBackground(new java.awt.Color(54, 29, 120));
-        pnlmenulistbuttons.setPreferredSize(new java.awt.Dimension(400, 400));
+        pnlmenulistbuttons.setPreferredSize(new java.awt.Dimension(400, 52));
         pnlmenulistbuttons.setLayout(new javax.swing.BoxLayout(pnlmenulistbuttons, javax.swing.BoxLayout.X_AXIS));
 
         btnperfil.setBackground(new java.awt.Color(0, 0, 0));
@@ -259,111 +344,19 @@ public class INICIO extends javax.swing.JFrame {
         });
         pnlmenulistbuttons.add(btnsimulac);
 
-        lblinicionombre.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lblinicionombre.setForeground(new java.awt.Color(53, 29, 113));
-        lblinicionombre.setText("nombre");
+        pnlenclose.add(pnlmenulistbuttons, java.awt.BorderLayout.PAGE_START);
 
-        lblinicioidpersona.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lblinicioidpersona.setForeground(new java.awt.Color(53, 29, 113));
-        lblinicioidpersona.setText("idpersona");
-
-        lblinicio1erapellido.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lblinicio1erapellido.setForeground(new java.awt.Color(53, 29, 113));
-        lblinicio1erapellido.setText("1erapellido");
-
-        lblinicio2doapellido.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lblinicio2doapellido.setForeground(new java.awt.Color(53, 29, 113));
-        lblinicio2doapellido.setText("2doapellido");
-
-        lbliniciodocumento.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lbliniciodocumento.setForeground(new java.awt.Color(53, 29, 113));
-        lbliniciodocumento.setText("documento");
-
-        lblinicioemail.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lblinicioemail.setForeground(new java.awt.Color(53, 29, 113));
-        lblinicioemail.setText("email");
-
-        lblinicioidarea.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lblinicioidarea.setForeground(new java.awt.Color(53, 29, 113));
-        lblinicioidarea.setText("idarea");
-
-        lblinicioarea.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lblinicioarea.setForeground(new java.awt.Color(53, 29, 113));
-        lblinicioarea.setText("Área");
-
-        lblinicioidsubarea.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lblinicioidsubarea.setForeground(new java.awt.Color(53, 29, 113));
-        lblinicioidsubarea.setText("idsubarea");
-
-        lbliniciosubarea.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lbliniciosubarea.setForeground(new java.awt.Color(53, 29, 113));
-        lbliniciosubarea.setText("SubÁrea");
-
-        lblinicioacceso.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lblinicioacceso.setForeground(new java.awt.Color(53, 29, 113));
-        lblinicioacceso.setText("Acceso");
-
-        javax.swing.GroupLayout pnlmainLayout = new javax.swing.GroupLayout(pnlmain);
-        pnlmain.setLayout(pnlmainLayout);
-        pnlmainLayout.setHorizontalGroup(
-            pnlmainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlmenulistbuttons, javax.swing.GroupLayout.DEFAULT_SIZE, 1267, Short.MAX_VALUE)
-            .addGroup(pnlmainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlmainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblinicioidpersona)
-                    .addComponent(lblinicionombre)
-                    .addComponent(lblinicio1erapellido)
-                    .addComponent(lblinicio2doapellido)
-                    .addComponent(lbliniciodocumento)
-                    .addComponent(lblinicioemail)
-                    .addComponent(lblinicioidarea)
-                    .addComponent(lblinicioarea)
-                    .addComponent(lblinicioidsubarea)
-                    .addComponent(lbliniciosubarea)
-                    .addComponent(lblinicioacceso))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlmainLayout.setVerticalGroup(
-            pnlmainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlmainLayout.createSequentialGroup()
-                .addComponent(pnlmenulistbuttons, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblinicioidpersona)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblinicionombre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblinicio1erapellido)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblinicio2doapellido)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbliniciodocumento)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblinicioemail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblinicioidarea)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblinicioarea)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblinicioidsubarea)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbliniciosubarea)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblinicioacceso)
-                .addContainerGap(349, Short.MAX_VALUE))
-        );
-
-        escritorio.setLayer(pnlmain, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(pnlenclose, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlmain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlenclose, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1393, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlmain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlenclose, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
         );
 
         menuBar.setBorder(null);
@@ -388,64 +381,20 @@ public class INICIO extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnanalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisisActionPerformed
-        if (form1chart != null) {
-            form1chart.dispose();
-        }
-        if (form2chart != null) {
-            form2chart.dispose();
-        }
-        if (form3chart != null) {
-            form3chart.dispose();
-        }
-        if (form4chart != null) {
-            form4chart.dispose();
-        }
-        if (form5chart != null) {
-            form5chart.dispose();
-        }
-        if (formcompchart != null) {
-            formcompchart.dispose();
-        }
-        if (form4chartkpi != null) {
-            form4chartkpi.dispose();
-        }
-        if (formobtpe != null) {
-            formobtpe.dispose();
-        }
+        
+       
+        pnlmain.removeAll();
+        pnlmain.revalidate();
+        pnlmain.repaint();
 
-        if (forma != null) {
-            forma.dispose();
-        }
-        if (forms != null) {
-            forms.dispose();
-        }
-        if (formk != null) {
-            formk.dispose();
-        }
-        if (formm != null) {
-            formm.dispose();
-        }
-        if (formr != null) {
-            formr.dispose();
-        }
-        if (formt != null) {
-            formt.dispose();
-        }
-        if (formsim != null) {
-            formsim.dispose();
-        }
-        if (formpe != null) {
-            formpe.dispose();
-        }
-
-        forma = new frmanalisis();
+       frmanalisis forma = new frmanalisis();
 
         if (!forma.isVisible()) {
-            escritorio.add(forma);
+            pnlmain.add(forma);
             forma.setVisible(true);
             forma.toFront();
 
-            Dimension desktopSize = escritorio.getSize();
+            Dimension desktopSize = pnlmain.getSize();
             Dimension jInternalFrameSize = forma.getSize();
             forma.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                     (desktopSize.height - jInternalFrameSize.height) / 2);
@@ -457,9 +406,8 @@ public class INICIO extends javax.swing.JFrame {
             frmanalisis.btnchart6.setVisible(false);
             frmanalisis.btncomparacion.setVisible(false);
             frmanalisis.btndistribucion.setVisible(false);
-            frmanalisis.btnevolutivo.setVisible(false);
+
             frmanalisis.btnfrecuencia.setVisible(false);
-            frmanalisis.btnproyeccion.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
@@ -484,61 +432,16 @@ public class INICIO extends javax.swing.JFrame {
 
 
     private void btnareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnareasActionPerformed
+        
 
-        if (form1chart != null) {
-            form1chart.dispose();
-        }
-        if (form2chart != null) {
-            form2chart.dispose();
-        }
-        if (form3chart != null) {
-            form3chart.dispose();
-        }
-        if (form4chart != null) {
-            form4chart.dispose();
-        }
-        if (form5chart != null) {
-            form5chart.dispose();
-        }
-        if (formcompchart != null) {
-            formcompchart.dispose();
-        }
-        if (form4chartkpi != null) {
-            form4chartkpi.dispose();
-        }
-        if (formobtpe != null) {
-            formobtpe.dispose();
-        }
-
-        if (forma != null) {
-            forma.dispose();
-        }
-        if (forms != null) {
-            forms.dispose();
-        }
-        if (formk != null) {
-            formk.dispose();
-        }
-        if (formm != null) {
-            formm.dispose();
-        }
-        if (formr != null) {
-            formr.dispose();
-        }
-        if (formt != null) {
-            formt.dispose();
-        }
-        if (formsim != null) {
-            formsim.dispose();
-        }
-        if (formpe != null) {
-            formpe.dispose();
-        }
-        forms = new frmareasubar();
-        escritorio.add(forms);
+        pnlmain.removeAll();
+        pnlmain.revalidate();
+        pnlmain.repaint();
+       frmareasubar forms = new frmareasubar();
+        pnlmain.add(forms);
         forms.toFront();
         forms.setVisible(true);
-        Dimension desktopSize = escritorio.getSize();
+        Dimension desktopSize = pnlmain.getSize();
         Dimension jInternalFrameSize = forms.getSize();
         forms.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
@@ -547,61 +450,16 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnareasActionPerformed
 
     private void btnusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnusuariosActionPerformed
-        if (form1chart != null) {
-            form1chart.dispose();
-        }
-        if (form2chart != null) {
-            form2chart.dispose();
-        }
-        if (form3chart != null) {
-            form3chart.dispose();
-        }
-        if (form4chart != null) {
-            form4chart.dispose();
-        }
-        if (form5chart != null) {
-            form5chart.dispose();
-        }
-        if (formcompchart != null) {
-            formcompchart.dispose();
-        }
-        if (form4chartkpi != null) {
-            form4chartkpi.dispose();
-        }
-        if (formobtpe != null) {
-            formobtpe.dispose();
-        }
+       
 
-        if (forma != null) {
-            forma.dispose();
-        }
-        if (forms != null) {
-            forms.dispose();
-        }
-        if (formk != null) {
-            formk.dispose();
-        }
-        if (formm != null) {
-            formm.dispose();
-        }
-        if (formr != null) {
-            formr.dispose();
-        }
-        if (formt != null) {
-            formt.dispose();
-        }
-        if (formsim != null) {
-            formsim.dispose();
-        }
-        if (formpe != null) {
-            formpe.dispose();
-        }
-
-        formt = new frmtrabajador();
-        escritorio.add(formt);
+        pnlmain.removeAll();
+        pnlmain.revalidate();
+        pnlmain.repaint();
+       frmtrabajador formt = new frmtrabajador();
+        pnlmain.add(formt);
         formt.toFront();
         formt.setVisible(true);
-        Dimension desktopSize = escritorio.getSize();
+        Dimension desktopSize = pnlmain.getSize();
         Dimension jInternalFrameSize = formt.getSize();
         formt.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
@@ -630,61 +488,17 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnusuariosActionPerformed
 
     private void btnkpiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkpiActionPerformed
-        if (form1chart != null) {
-            form1chart.dispose();
-        }
-        if (form2chart != null) {
-            form2chart.dispose();
-        }
-        if (form3chart != null) {
-            form3chart.dispose();
-        }
-        if (form4chart != null) {
-            form4chart.dispose();
-        }
-        if (form5chart != null) {
-            form5chart.dispose();
-        }
-        if (formcompchart != null) {
-            formcompchart.dispose();
-        }
-        if (form4chartkpi != null) {
-            form4chartkpi.dispose();
-        }
-        if (formobtpe != null) {
-            formobtpe.dispose();
-        }
+       
+        
+        pnlmain.removeAll();
+        pnlmain.revalidate();
+        pnlmain.repaint();
 
-        if (forma != null) {
-            forma.dispose();
-        }
-        if (forms != null) {
-            forms.dispose();
-        }
-        if (formk != null) {
-            formk.dispose();
-        }
-        if (formm != null) {
-            formm.dispose();
-        }
-        if (formr != null) {
-            formr.dispose();
-        }
-        if (formt != null) {
-            formt.dispose();
-        }
-        if (formsim != null) {
-            formsim.dispose();
-        }
-        if (formpe != null) {
-            formpe.dispose();
-        }
-
-        formk = new frmkpi();
-        escritorio.add(formk);
+       frmkpi formk = new frmkpi();
+        pnlmain.add(formk);
         formk.toFront();
         formk.setVisible(true);
-        Dimension desktopSize = escritorio.getSize();
+        Dimension desktopSize = pnlmain.getSize();
         Dimension jInternalFrameSize = formk.getSize();
         formk.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
@@ -693,61 +507,17 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnkpiActionPerformed
 
     private void btnmodelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodelosActionPerformed
-        if (form1chart != null) {
-            form1chart.dispose();
-        }
-        if (form2chart != null) {
-            form2chart.dispose();
-        }
-        if (form3chart != null) {
-            form3chart.dispose();
-        }
-        if (form4chart != null) {
-            form4chart.dispose();
-        }
-        if (form5chart != null) {
-            form5chart.dispose();
-        }
-        if (formcompchart != null) {
-            formcompchart.dispose();
-        }
-        if (form4chartkpi != null) {
-            form4chartkpi.dispose();
-        }
-        if (formobtpe != null) {
-            formobtpe.dispose();
-        }
+        
 
-        if (forma != null) {
-            forma.dispose();
-        }
-        if (forms != null) {
-            forms.dispose();
-        }
-        if (formk != null) {
-            formk.dispose();
-        }
-        if (formm != null) {
-            formm.dispose();
-        }
-        if (formr != null) {
-            formr.dispose();
-        }
-        if (formt != null) {
-            formt.dispose();
-        }
-        if (formsim != null) {
-            formsim.dispose();
-        }
-        if (formpe != null) {
-            formpe.dispose();
-        }
 
-        formm = new frmmodelo();
-        escritorio.add(formm);
+        pnlmain.removeAll();
+        pnlmain.revalidate();
+        pnlmain.repaint();
+       frmmodelo formm = new frmmodelo();
+        pnlmain.add(formm);
         formm.toFront();
         formm.setVisible(true);
-        Dimension desktopSize = escritorio.getSize();
+        Dimension desktopSize = pnlmain.getSize();
         Dimension jInternalFrameSize = formm.getSize();
         formm.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
@@ -757,16 +527,15 @@ public class INICIO extends javax.swing.JFrame {
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-             
+
             frmmodelo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
             frmmodelo.txtnombrearea.setVisible(false);
             frmmodelo.lblnombrearea.setVisible(false);
             frmmodelo.txtidarea.setText(INICIO.lblinicioidarea.getText());
             frmmodelo.btnbusca_area_stym.setVisible(false);
 
-
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            
+
             frmmodelo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
             frmmodelo.txtnombrearea.setVisible(false);
             frmmodelo.lblnombrearea.setVisible(false);
@@ -785,68 +554,24 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmodelosActionPerformed
 
     private void btnresultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresultadosActionPerformed
+       
+         
 
-        if (form1chart != null) {
-            form1chart.dispose();
-        }
-        if (form2chart != null) {
-            form2chart.dispose();
-        }
-        if (form3chart != null) {
-            form3chart.dispose();
-        }
-        if (form4chart != null) {
-            form4chart.dispose();
-        }
-        if (form5chart != null) {
-            form5chart.dispose();
-        }
-        if (formcompchart != null) {
-            formcompchart.dispose();
-        }
-        if (form4chartkpi != null) {
-            form4chartkpi.dispose();
-        }
-        if (formobtpe != null) {
-            formobtpe.dispose();
-        }
+        pnlmain.removeAll();
+        pnlmain.revalidate();
+        pnlmain.repaint();
 
-        if (forma != null) {
-            forma.dispose();
-        }
-        if (forms != null) {
-            forms.dispose();
-        }
-        if (formk != null) {
-            formk.dispose();
-        }
-        if (formm != null) {
-            formm.dispose();
-        }
-        if (formr != null) {
-            formr.dispose();
-        }
-        if (formt != null) {
-            formt.dispose();
-        }
-        if (formsim != null) {
-            formsim.dispose();
-        }
-        if (formpe != null) {
-            formpe.dispose();
-        }
-
-        formr = new frmresultados();
-        escritorio.add(formr);
+       frmresultados formr = new frmresultados();
+        pnlmain.add(formr);
         formr.toFront();
         formr.setVisible(true);
-        Dimension desktopSize = escritorio.getSize();
+        Dimension desktopSize = pnlmain.getSize();
         Dimension jInternalFrameSize = formr.getSize();
         formr.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
 
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-            
+
             frmresultados.lblbuscar.setVisible(false);
             frmresultados.lblfiltrar.setVisible(false);
             frmresultados.btnanalisis5.setVisible(false);
@@ -856,8 +581,7 @@ public class INICIO extends javax.swing.JFrame {
             frmresultados.btneliminar.setVisible(false);
             frmresultados.txtbuscar.setVisible(false);
             frmresultados.cbofiltro.setVisible(false);
-            
-            
+
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
@@ -874,128 +598,36 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnresultadosActionPerformed
 
     private void btnsimulacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsimulacActionPerformed
-        if (form1chart != null) {
-            form1chart.dispose();
-        }
-        if (form2chart != null) {
-            form2chart.dispose();
-        }
-        if (form3chart != null) {
-            form3chart.dispose();
-        }
-        if (form4chart != null) {
-            form4chart.dispose();
-        }
-        if (form5chart != null) {
-            form5chart.dispose();
-        }
-        if (formcompchart != null) {
-            formcompchart.dispose();
-        }
-        if (form4chartkpi != null) {
-            form4chartkpi.dispose();
-        }
-        if (formobtpe != null) {
-            formobtpe.dispose();
-        }
+       
+       
+        pnlmain.removeAll();
+        pnlmain.revalidate();
+        pnlmain.repaint();
 
-        if (forma != null) {
-            forma.dispose();
-        }
-        if (forms != null) {
-            forms.dispose();
-        }
-        if (formk != null) {
-            formk.dispose();
-        }
-        if (formm != null) {
-            formm.dispose();
-        }
-        if (formr != null) {
-            formr.dispose();
-        }
-        if (formt != null) {
-            formt.dispose();
-        }
-        if (formsim != null) {
-            formsim.dispose();
-        }
-        if (formpe != null) {
-            formpe.dispose();
-        }
-
-        formsim = new frmsimulacion();
-        escritorio.add(formsim);
+       frmsimulacion formsim = new frmsimulacion();
+        pnlmain.add(formsim);
         formsim.toFront();
         formsim.setVisible(true);
-        Dimension desktopSize = escritorio.getSize();
+        Dimension desktopSize = pnlmain.getSize();
         Dimension jInternalFrameSize = formsim.getSize();
         formsim.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);               // TODO add your handling code here:
     }//GEN-LAST:event_btnsimulacActionPerformed
 
     private void btnperfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfilActionPerformed
+       
+     
 
-        if (form1chart != null) {
-            form1chart.dispose();
-        }
-        if (form2chart != null) {
-            form2chart.dispose();
-        }
-        if (form3chart != null) {
-            form3chart.dispose();
-        }
-        if (form4chart != null) {
-            form4chart.dispose();
-        }
-        if (form5chart != null) {
-            form5chart.dispose();
-        }
-        if (formcompchart != null) {
-            formcompchart.dispose();
-        }
-        if (form4chartkpi != null) {
-            form4chartkpi.dispose();
-        }
-        if (formobtpe != null) {
-            formobtpe.dispose();
-        }
+        pnlmain.removeAll();
+        pnlmain.revalidate();
+        pnlmain.repaint();
 
-        if (forma != null) {
-            forma.dispose();
-        }
-        if (forms != null) {
-            forms.dispose();
-        }
-        if (formk != null) {
-            formk.dispose();
-        }
-        if (formm != null) {
-            formm.dispose();
-        }
-        if (formr != null) {
-            formr.dispose();
-        }
-        if (formt != null) {
-            formt.dispose();
-        }
-        if (formsim != null) {
-            formsim.dispose();
-        }
-        if (formpe != null) {
-            formpe.dispose();
-        }
+       frmperfil formpe = new frmperfil();
 
-        formpe = new frmperfil();
-        escritorio.add(formpe);
+        pnlmain.add(formpe, BorderLayout.CENTER);
         formpe.toFront();
         formpe.setVisible(true);
-        Dimension desktopSize = escritorio.getSize();
-        Dimension jInternalFrameSize = formpe.getSize();
-        formpe.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
-
-        JOptionPane.showMessageDialog(null, "bienvenido a tu perfil");
+        formpe.setSize(pnlmain.getSize());
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnperfilActionPerformed
@@ -1058,7 +690,8 @@ public class INICIO extends javax.swing.JFrame {
     public static javax.swing.JLabel lblinicionombre;
     public static javax.swing.JLabel lbliniciosubarea;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JPanel pnlmain;
+    private javax.swing.JPanel pnlenclose;
+    public static javax.swing.JPanel pnlmain;
     private javax.swing.JPanel pnlmenulistbuttons;
     // End of variables declaration//GEN-END:variables
 

@@ -5,17 +5,17 @@
  */
 package UI;
 
-import static UI.INICIO.escritorio;
-import static UI.frmmodelo.txtvalor_Obj;
+
 import datos.vresultados;
-import datos.vtrabajador;
+
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.conexion;
 import logica.fresultados;
-import logica.ftrabajador;
+
 
 /**
  *
@@ -26,8 +26,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
     /**
      * Creates new form frmtrabajador
      */
-    public static frmanalisisobtpersona formobtpe;
-    public static frmanalisiscompleto formcompchart;
+    
     String filtropor="p.documento";
     public frmresultados() {
        
@@ -39,6 +38,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         tablalistado.setDefaultEditor(Object.class, null);
          tablalistado.setShowGrid(true);
+         jScrollPane1.getViewport().setBackground(new Color(102, 50, 159));
     }
     private String accion = "guardar";
     
@@ -196,6 +196,8 @@ public class frmresultados extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(53, 29, 113));
 
         pnllistado.setBackground(new java.awt.Color(102, 50, 159));
+
+        jScrollPane1.setBackground(new java.awt.Color(102, 50, 159));
 
         tablalistado.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
         tablalistado.setModel(new javax.swing.table.DefaultTableModel(
@@ -916,11 +918,15 @@ public class frmresultados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbofiltroItemStateChanged
 
     private void btnanalisis7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisis7ActionPerformed
-         formobtpe=new frmanalisisobtpersona();
-        escritorio.add(formobtpe);
+ INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
+        
+        frmanalisisobtpersona formobtpe=new frmanalisisobtpersona();
+        INICIO.pnlmain.add(formobtpe);
         formobtpe.toFront();
         formobtpe.setVisible(true);
-        Dimension desktopSize = escritorio.getSize();
+        Dimension desktopSize = INICIO.pnlmain.getSize();
         Dimension jInternalFrameSize = formobtpe.getSize();
         formobtpe.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
             (desktopSize.height- jInternalFrameSize.height)/2); 
@@ -944,12 +950,14 @@ public class frmresultados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnanalisis7ActionPerformed
 
     private void btnanalisis5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisis5ActionPerformed
-
-         formcompchart=new frmanalisiscompleto();
-        escritorio.add(formcompchart);
+INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
+         frmanalisiscompleto formcompchart=new frmanalisiscompleto();
+        INICIO.pnlmain.add(formcompchart);
         formcompchart.toFront();
         formcompchart.setVisible(true);
-        Dimension desktopSize = escritorio.getSize();
+        Dimension desktopSize = INICIO.pnlmain.getSize();
         Dimension jInternalFrameSize = formcompchart.getSize();
         formcompchart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
             (desktopSize.height- jInternalFrameSize.height)/2);
