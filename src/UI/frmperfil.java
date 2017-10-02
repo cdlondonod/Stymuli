@@ -12,7 +12,9 @@ import java.beans.PropertyVetoException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import logica.fanalisis;
 import logica.fperfilusuario;
@@ -74,7 +76,8 @@ public class frmperfil extends javax.swing.JInternalFrame {
         }else{
         
             lblvalorganado.setText("$ "+numberFormat.format(fperfilusuario.ganadomespasado));
-                    
+            lblvalorganado.setIcon(new ImageIcon(frmperfil.class.getResource("/img/trofeo.png")));
+            lblvalorganado.setHorizontalTextPosition(SwingConstants.LEFT);
         
         }
 
@@ -267,7 +270,9 @@ public class frmperfil extends javax.swing.JInternalFrame {
 
         lblvalorganado.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         lblvalorganado.setForeground(new java.awt.Color(0, 204, 0));
-        lblvalorganado.setText("subarea");
+        lblvalorganado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblvalorganado.setText("Valor obtenido");
+        lblvalorganado.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout pnldatosLayout = new javax.swing.GroupLayout(pnldatos);
         pnldatos.setLayout(pnldatosLayout);
