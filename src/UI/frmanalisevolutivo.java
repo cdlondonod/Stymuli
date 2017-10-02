@@ -5,7 +5,6 @@
  */
 package UI;
 
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 
@@ -35,91 +34,82 @@ import org.jfree.chart.renderer.category.CategoryItemRenderer;
 
 import org.jfree.data.category.DefaultCategoryDataset;
 
-
 /**
  *
  * @author crist
  */
 public class frmanalisevolutivo extends javax.swing.JInternalFrame {
 
-    
-    
     /**
      * Creates new form frmanalisis
      */
     public frmanalisevolutivo() {
-((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
-this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         initComponents();
-        mostrar("","","");
+        mostrar("", "", "");
         tablaanalisis.setShowGrid(true);
-        conexion.frmabierto=6;
+        conexion.frmabierto = 6;
         btngraficar.requestFocus();
-              
-         
-        
+
         txtnombrearea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                 mostrar(txtnombrearea.getText(),txtnombresubarea.getText(),txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtnombrearea.getText(), txtnombresubarea.getText(), txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-               mostrar(txtnombrearea.getText(),txtnombresubarea.getText(),txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtnombrearea.getText(), txtnombresubarea.getText(), txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                 mostrar(txtnombrearea.getText(),txtnombresubarea.getText(),txtnombrekpi.getText());//To change body of generated methods, choose Tools | Templates.
+                mostrar(txtnombrearea.getText(), txtnombresubarea.getText(), txtnombrekpi.getText());//To change body of generated methods, choose Tools | Templates.
             }
         });
-        
-        
-           txtnombresubarea.getDocument().addDocumentListener(new DocumentListener() {
+
+        txtnombresubarea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-             mostrar(txtnombrearea.getText(),txtnombresubarea.getText(),txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtnombrearea.getText(), txtnombresubarea.getText(), txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-              mostrar(txtnombrearea.getText(),txtnombresubarea.getText(),txtnombrekpi.getText());//To change body of generated methods, choose Tools | Templates.
+                mostrar(txtnombrearea.getText(), txtnombresubarea.getText(), txtnombrekpi.getText());//To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                mostrar(txtnombrearea.getText(),txtnombresubarea.getText(),txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtnombrearea.getText(), txtnombresubarea.getText(), txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
         });
-           
-           
-              txtnombrekpi.getDocument().addDocumentListener(new DocumentListener() {
+
+        txtnombrekpi.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-               mostrar(txtnombrearea.getText(),txtnombresubarea.getText(),txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtnombrearea.getText(), txtnombresubarea.getText(), txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-              mostrar(txtnombrearea.getText(),txtnombresubarea.getText(),txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtnombrearea.getText(), txtnombresubarea.getText(), txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-               mostrar(txtnombrearea.getText(),txtnombresubarea.getText(),txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtnombrearea.getText(), txtnombresubarea.getText(), txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
         });
-        
+
     }
-
-   
 
     public void mostrar(String area, String Subarea, String KPI) {
         try {
             DefaultTableModel modelo;
             fanalisis func = new fanalisis();
-            modelo = func.graficaevolutivo(area,Subarea,KPI);
+            modelo = func.graficaevolutivo(area, Subarea, KPI);
 
             tablaanalisis.setModel(modelo);
             ocultar();
@@ -128,16 +118,12 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         }
 
     }
-       void ocultar() {
-        
-         txtnombrearea.setEnabled(false);
-         txtnombrekpi.setEnabled(false);
-         txtnombresubarea.setEnabled(false);
-           
-           
-       
 
-        
+    void ocultar() {
+
+        txtnombrearea.setEnabled(false);
+        txtnombrekpi.setEnabled(false);
+        txtnombresubarea.setEnabled(false);
 
     }
 
@@ -464,87 +450,62 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
             txtnombrekpi.requestFocus();
             return;
 
-        }  
-        
-        ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());        
-     
-        
-        
-DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();  
- 
+        }
+
+        ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
+
+        DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
 
         TableModel tm = tablaanalisis.getModel();
-                        
-            for (int j = 0; j < tm.getRowCount(); j++) {
-             Double x = Double.parseDouble(tm.getValueAt(j, 2).toString().replaceAll("[^0-9.-]", ""));
-             String y = (tm.getValueAt(j, 0).toString());        
+
+        for (int j = 0; j < tm.getRowCount(); j++) {
+            Double x = Double.parseDouble(tm.getValueAt(j, 2).toString().replaceAll("[^0-9.-]", ""));
+            String y = (tm.getValueAt(j, 0).toString());
             dataset1.addValue(x, "Resultado Promedio", y);
-        }          
-                                
-                 
-       final CategoryItemRenderer renderer = new BarRenderer();
-    //    renderer.setLabelGenerator(generator);
+        }
+
+        final CategoryItemRenderer renderer = new BarRenderer();
+        //    renderer.setLabelGenerator(generator);
         renderer.setItemLabelsVisible(true);
-        
-        renderer.setSeriesPaint(0, new Color(121,152,40));
-        
-        
+
+        renderer.setSeriesPaint(0, new Color(121, 152, 40));
+
         final CategoryPlot plot = new CategoryPlot();
         plot.setBackgroundPaint(Color.WHITE);
         plot.setForegroundAlpha(0.8f);
         plot.setRangeGridlinesVisible(true);
         plot.setRangeGridlinePaint(Color.BLACK);
-        
+
         plot.setDataset(dataset1);
         plot.setRenderer(renderer);
-   
+
         plot.setDomainAxis(new CategoryAxis("Fecha"));
         plot.setRangeAxis(new NumberAxis("Res. Promedio"));
 
         plot.setOrientation(PlotOrientation.VERTICAL);
         plot.setRangeGridlinesVisible(true);
         plot.setDomainGridlinesVisible(true);
-        
-          
-                                                     
-        
+
         plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
-        
+
         plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
         final JFreeChart chart = new JFreeChart(plot);
-        chart.setBackgroundPaint(new Color(53,29,113));
-        chart.setTitle("Evolutivo "+txtnombrearea.getText()+", "+txtnombresubarea.getText()+", "+txtnombrekpi.getText());
-     chart.getTitle().setPaint(Color.WHITE);
-     
-     plot.getDomainAxis().setTickLabelPaint(Color.WHITE);
-     plot.getRangeAxis().setTickLabelPaint(Color.WHITE);
-      plot.getRangeAxis().setLabelPaint(Color.WHITE);
-    plot.getDomainAxis().setLabelPaint(Color.WHITE);
-    
-    
+        chart.setBackgroundPaint(new Color(53, 29, 113));
+        chart.setTitle("Evolutivo " + txtnombrearea.getText() + ", " + txtnombresubarea.getText() + ", " + txtnombrekpi.getText());
+        chart.getTitle().setPaint(Color.WHITE);
+
+        plot.getDomainAxis().setTickLabelPaint(Color.WHITE);
+        plot.getRangeAxis().setTickLabelPaint(Color.WHITE);
+        plot.getRangeAxis().setLabelPaint(Color.WHITE);
+        plot.getDomainAxis().setLabelPaint(Color.WHITE);
+
         final ChartPanel chartPanel = new ChartPanel(chart);
-        
-        
-          pnlgrafica.setLayout(new java.awt.BorderLayout());
 
-        
-       
-        
+        pnlgrafica.setLayout(new java.awt.BorderLayout());
+
         pnlgrafica.add(chartPanel, BorderLayout.CENTER);
-      
+
         pnlgrafica.validate();
-
-
-
-
-
-
-
-
-
-
-
-
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btngraficarActionPerformed
@@ -561,7 +522,7 @@ DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
         frmzfiltroarea form = new frmzfiltroarea();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);
+        form.setAlwaysOnTop(true);
     }//GEN-LAST:event_btnbuscaareaActionPerformed
 
     private void txtnombresubareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombresubareaActionPerformed
@@ -570,17 +531,17 @@ DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
 
     private void btnbuscar_subarea_trabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar_subarea_trabActionPerformed
 
-      if (txtnombrearea.getText().length() == 0) {
+        if (txtnombrearea.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un Área primero");
             txtnombrearea.requestFocus();
             return;
 
         }
-conexion.formsubarea=frmanalisevolutivo.txtnombrearea.getText();
+        conexion.formsubarea = frmanalisevolutivo.txtnombrearea.getText();
         frmzfiltrosubarea form = new frmzfiltrosubarea();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);
+        form.setAlwaysOnTop(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trabActionPerformed
@@ -591,24 +552,19 @@ conexion.formsubarea=frmanalisevolutivo.txtnombrearea.getText();
 
     private void btnbusca_kpi_ObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbusca_kpi_ObjActionPerformed
 
-  if (txtnombresubarea.getText().length() == 0) {
+        if (txtnombresubarea.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una SubÁrea primero");
             txtnombresubarea.requestFocus();
             return;
 
         }
-conexion.formsubarea=frmanalisevolutivo.txtnombresubarea.getText();
-
-
-
-
-
+        conexion.formsubarea = frmanalisevolutivo.txtnombresubarea.getText();
 
         frmzfiltrokpi form = new frmzfiltrokpi();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);   
-       // TODO add your handling code here:
+        form.setAlwaysOnTop(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnbusca_kpi_ObjActionPerformed
 
     private void formInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_formInputMethodTextChanged
@@ -616,13 +572,10 @@ conexion.formsubarea=frmanalisevolutivo.txtnombresubarea.getText();
     }//GEN-LAST:event_formInputMethodTextChanged
 
     private void btnclearselecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearselecActionPerformed
-     
-txtnombrearea.setText("");
-txtnombresubarea.setText("");
-txtnombrekpi.setText("");
 
-
-
+        txtnombrearea.setText("");
+        txtnombresubarea.setText("");
+        txtnombrekpi.setText("");
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed

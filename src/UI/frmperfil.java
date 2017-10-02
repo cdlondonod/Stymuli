@@ -7,6 +7,7 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.beans.PropertyVetoException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -15,12 +16,25 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.fanalisis;
 import logica.fperfilusuario;
+import logica.ftrabajador;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.StandardChartTheme;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.labels.PieSectionLabelGenerator;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.DatasetRenderingOrder;
 import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.CategoryItemRenderer;
+import org.jfree.chart.renderer.category.StackedBarRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 /**
@@ -36,11 +50,40 @@ public class frmperfil extends javax.swing.JInternalFrame {
         initComponents();
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        
         proyeccion();
+        evolutivodinero();
+        
+       
+    }
+
+   DecimalFormat numberFormat = new DecimalFormat("#,##0.0;(#,##0.0)");
+
+    void lblactivar() {
+
+        lblnombre.setText(INICIO.lblinicionombre.getText() + " " + INICIO.lblinicio1erapellido.getText()
+                + " " + INICIO.lblinicio2doapellido.getText());
+        lblcargo.setText("Cargo: " + ftrabajador.logincargo);
+        lblarea.setText("Área: " + INICIO.lblinicioarea.getText());
+        lblsubarea.setText("SubÁrea: " + INICIO.lbliniciosubarea.getText());
+        
+        if (fperfilusuario.ganadomespasado==0.0) {
+            lblhasganado.setText("No ganaste aun");
+            lblhasganado.setForeground(Color.RED);
+            lblvalorganado.setForeground(Color.WHITE);
+        }else{
+        
+            lblvalorganado.setText("$ "+numberFormat.format(fperfilusuario.ganadomespasado));
+                    
+        
+        }
 
     }
 
     void proyeccion() {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        String year = timeStamp.substring(0, 4);
+        String mes = Integer.toString(Integer.parseInt(timeStamp.substring(4, 6)) - 1);
 
         try {
             DefaultPieDataset dataset = new DefaultPieDataset();
@@ -52,25 +95,90 @@ public class frmperfil extends javax.swing.JInternalFrame {
             }
 
             JFreeChart chart = ChartFactory.createPieChart(
-                    "Proyección ", // chart title 
+                    "Mi Proyección " + year + " /" + mes, // chart title 
                     dataset, // data    
                     true, // include legend   
                     true,
                     false);
-            chart.getTitle().setPaint(Color.WHITE);
+            chart.getTitle().setPaint(new Color(53, 29, 113));
             PiePlot plot = (PiePlot) chart.getPlot();
 
             PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
                     "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%"));
             plot.setLabelGenerator(gen);
             plot.setBackgroundPaint(Color.WHITE);
-            chart.setBackgroundPaint(new Color(53, 29, 113));
+            plot.setOutlineVisible(false);
+            chart.setBackgroundPaint(Color.WHITE);
             plot.setSectionPaint(0, new Color(121, 152, 40));
             plot.setSectionPaint(1, new Color(49, 95, 118));
             final ChartPanel chartPanel = new ChartPanel(chart);
             pnlproyeccion.setLayout(new java.awt.BorderLayout());
             pnlproyeccion.add(chartPanel, BorderLayout.CENTER);
             pnlproyeccion.validate();
+
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(rootPane, e);
+        }
+
+    }
+    
+    void evolutivodinero() {
+        
+         ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
+       
+        try {
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            fperfilusuario func = new fperfilusuario();
+            dataset = func.evolutivodinero();
+           
+
+             final CategoryItemRenderer renderer = new StackedBarRenderer();
+        renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator("{2}", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%")));
+        renderer.setItemLabelPaint(new Color(53, 29, 113));
+        
+        renderer.setItemLabelsVisible(true);         
+        renderer.setSeriesPaint(0, new Color(121, 152, 40));
+        renderer.setSeriesPaint(1, new Color(238, 238, 221));
+        renderer.setBaseItemLabelsVisible(true);
+
+        final CategoryPlot plot = new CategoryPlot();
+        plot.setBackgroundPaint(Color.WHITE);
+        plot.setForegroundAlpha(0.8f);
+        plot.setRangeGridlinesVisible(true);
+        plot.setRangeGridlinePaint(Color.BLACK);
+
+        plot.setDataset(dataset);
+        
+        plot.setRenderer(renderer);
+        
+        plot.setDomainAxis(new CategoryAxis(""));
+        plot.setRangeAxis(new NumberAxis("$"));
+
+        plot.setOrientation(PlotOrientation.VERTICAL);
+        plot.setRangeGridlinesVisible(true);
+        plot.setDomainGridlinesVisible(true);
+
+        plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
+
+        plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
+        final JFreeChart chart = new JFreeChart(plot);
+        chart.setBackgroundPaint(Color.WHITE);
+        chart.setTitle("Mi Evolutivo" );
+        chart.getTitle().setPaint(new Color(53,29,113));
+
+        plot.getDomainAxis().setTickLabelPaint(new Color(53,29,113));
+        plot.getRangeAxis().setTickLabelPaint(new Color(53,29,113));
+        plot.getRangeAxis().setLabelPaint(new Color(53,29,113));
+        plot.getDomainAxis().setLabelPaint(new Color(53,29,113));
+        plot.setOutlineVisible(false);
+
+        final ChartPanel chartPanel = new ChartPanel(chart);
+
+        pnlevoluciondinero.setLayout(new java.awt.BorderLayout());
+
+        pnlevoluciondinero.add(chartPanel, BorderLayout.CENTER);
+
+        pnlevoluciondinero.validate();
 
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(rootPane, e);
@@ -86,128 +194,240 @@ public class frmperfil extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        pnldatos = new javax.swing.JPanel();
+        lblnombre = new javax.swing.JLabel();
+        lblcargo = new javax.swing.JLabel();
+        lblarea = new javax.swing.JLabel();
+        lblsubarea = new javax.swing.JLabel();
+        lblhasganado = new javax.swing.JLabel();
+        lblvalorganado = new javax.swing.JLabel();
         pnlproyeccion = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        pnlevoluciondinero = new javax.swing.JPanel();
+        pnlmiarea = new javax.swing.JPanel();
+        lblcargo1 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        pnlcumplimiento = new javax.swing.JPanel();
+        pnlotros = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel2.setMinimumSize(new java.awt.Dimension(200, 400));
+        jPanel2.setPreferredSize(new java.awt.Dimension(200, 400));
+        jPanel2.setLayout(new java.awt.GridLayout(2, 1));
+
+        pnldatos.setBackground(new java.awt.Color(255, 255, 255));
+        pnldatos.setPreferredSize(new java.awt.Dimension(0, 0));
+
+        lblnombre.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblnombre.setForeground(new java.awt.Color(53, 29, 113));
+        lblnombre.setText("nombre");
+
+        lblcargo.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblcargo.setForeground(new java.awt.Color(53, 29, 113));
+        lblcargo.setText("cargo");
+
+        lblarea.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblarea.setForeground(new java.awt.Color(53, 29, 113));
+        lblarea.setText("area");
+
+        lblsubarea.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblsubarea.setForeground(new java.awt.Color(53, 29, 113));
+        lblsubarea.setText("subarea");
+
+        lblhasganado.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblhasganado.setForeground(new java.awt.Color(53, 29, 113));
+        lblhasganado.setText("Has Ganado:");
+
+        lblvalorganado.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        lblvalorganado.setForeground(new java.awt.Color(0, 204, 0));
+        lblvalorganado.setText("subarea");
+
+        javax.swing.GroupLayout pnldatosLayout = new javax.swing.GroupLayout(pnldatos);
+        pnldatos.setLayout(pnldatosLayout);
+        pnldatosLayout.setHorizontalGroup(
+            pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnldatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblvalorganado, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                    .addGroup(pnldatosLayout.createSequentialGroup()
+                        .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblarea)
+                            .addComponent(lblnombre)
+                            .addComponent(lblcargo)
+                            .addComponent(lblsubarea)
+                            .addComponent(lblhasganado))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pnldatosLayout.setVerticalGroup(
+            pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnldatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblnombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblcargo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblarea)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblsubarea)
+                .addGap(53, 53, 53)
+                .addComponent(lblhasganado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblvalorganado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(pnldatos);
+
+        pnlproyeccion.setBackground(new java.awt.Color(255, 255, 255));
+        pnlproyeccion.setPreferredSize(new java.awt.Dimension(0, 0));
 
         javax.swing.GroupLayout pnlproyeccionLayout = new javax.swing.GroupLayout(pnlproyeccion);
         pnlproyeccion.setLayout(pnlproyeccionLayout);
         pnlproyeccionLayout.setHorizontalGroup(
             pnlproyeccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         pnlproyeccionLayout.setVerticalGroup(
             pnlproyeccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 355, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        jPanel2.add(pnlproyeccion);
+
+        jPanel1.add(jPanel2);
+
+        jPanel5.setMinimumSize(new java.awt.Dimension(200, 400));
+        jPanel5.setPreferredSize(new java.awt.Dimension(200, 400));
+        jPanel5.setLayout(new java.awt.GridLayout(2, 0));
+
+        pnlevoluciondinero.setBackground(new java.awt.Color(255, 255, 255));
+        pnlevoluciondinero.setForeground(new java.awt.Color(204, 204, 255));
+
+        javax.swing.GroupLayout pnlevoluciondineroLayout = new javax.swing.GroupLayout(pnlevoluciondinero);
+        pnlevoluciondinero.setLayout(pnlevoluciondineroLayout);
+        pnlevoluciondineroLayout.setHorizontalGroup(
+            pnlevoluciondineroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        pnlevoluciondineroLayout.setVerticalGroup(
+            pnlevoluciondineroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        jPanel5.add(pnlevoluciondinero);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        pnlmiarea.setBackground(new java.awt.Color(153, 255, 102));
+        pnlmiarea.setForeground(new java.awt.Color(204, 204, 255));
+        pnlmiarea.setPreferredSize(new java.awt.Dimension(0, 0));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(pnlproyeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(327, 327, 327)
-                        .addComponent(jButton1)
-                        .addContainerGap(923, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        lblcargo1.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblcargo1.setForeground(new java.awt.Color(53, 29, 113));
+        lblcargo1.setText("Mi dinero ganado");
+
+        javax.swing.GroupLayout pnlmiareaLayout = new javax.swing.GroupLayout(pnlmiarea);
+        pnlmiarea.setLayout(pnlmiareaLayout);
+        pnlmiareaLayout.setHorizontalGroup(
+            pnlmiareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlmiareaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(203, Short.MAX_VALUE)
-                .addComponent(pnlproyeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblcargo1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        pnlmiareaLayout.setVerticalGroup(
+            pnlmiareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlmiareaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblcargo1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel5.add(pnlmiarea);
+
+        jPanel1.add(jPanel5);
+
+        jPanel6.setMinimumSize(new java.awt.Dimension(200, 400));
+        jPanel6.setPreferredSize(new java.awt.Dimension(200, 400));
+        jPanel6.setLayout(new java.awt.GridLayout(2, 0));
+
+        pnlcumplimiento.setBackground(new java.awt.Color(255, 204, 0));
+        pnlcumplimiento.setForeground(new java.awt.Color(255, 204, 51));
+
+        javax.swing.GroupLayout pnlcumplimientoLayout = new javax.swing.GroupLayout(pnlcumplimiento);
+        pnlcumplimiento.setLayout(pnlcumplimientoLayout);
+        pnlcumplimientoLayout.setHorizontalGroup(
+            pnlcumplimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pnlcumplimientoLayout.setVerticalGroup(
+            pnlcumplimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel6.add(pnlcumplimiento);
+
+        pnlotros.setBackground(new java.awt.Color(255, 204, 51));
+        pnlotros.setForeground(new java.awt.Color(204, 204, 255));
+
+        javax.swing.GroupLayout pnlotrosLayout = new javax.swing.GroupLayout(pnlotros);
+        pnlotros.setLayout(pnlotrosLayout);
+        pnlotrosLayout.setHorizontalGroup(
+            pnlotrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pnlotrosLayout.setVerticalGroup(
+            pnlotrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel6.add(pnlotros);
+
+        jPanel1.add(jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        System.out.println(timeStamp);
-        String year = timeStamp.substring(0, 4);
-        System.out.println(year);
-        String mes = Integer.toString(Integer.parseInt(timeStamp.substring(4, 6)) - 1);
-        System.out.println(mes);
-        String messtring = "";
-        if (mes.equals("0")) {
-            messtring = "12";
-            year = Integer.toString(Integer.parseInt(timeStamp.substring(0, 4)) - 1);
-        } else {
-            messtring = mes;
-        }
-        System.out.println(messtring);
-        System.out.println(year);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+lblactivar();        // TODO add your handling code here:
+    }//GEN-LAST:event_formInternalFrameOpened
 
     /**
      * @param args the command line arguments
@@ -245,10 +465,22 @@ public class frmperfil extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel lblarea;
+    private javax.swing.JLabel lblcargo;
+    private javax.swing.JLabel lblcargo1;
+    private javax.swing.JLabel lblhasganado;
+    private javax.swing.JLabel lblnombre;
+    private javax.swing.JLabel lblsubarea;
+    private javax.swing.JLabel lblvalorganado;
+    private javax.swing.JPanel pnlcumplimiento;
+    private javax.swing.JPanel pnldatos;
+    private javax.swing.JPanel pnlevoluciondinero;
+    private javax.swing.JPanel pnlmiarea;
+    private javax.swing.JPanel pnlotros;
     private javax.swing.JPanel pnlproyeccion;
     // End of variables declaration//GEN-END:variables
 }

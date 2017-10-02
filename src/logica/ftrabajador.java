@@ -237,6 +237,7 @@ public class ftrabajador {
     public static String loginidsubarea;
     public static String loginsubarea;
     public static String loginacceso;
+    public static String logincargo;
 
     public boolean login(String documento, String password) {
         dbpasswordexist = "na";
@@ -250,12 +251,13 @@ public class ftrabajador {
         loginidsubarea = "";
         loginsubarea = "";
         loginacceso = "";
-
+        logincargo="";
+        
         String dbpassword = "";
         boolean password_verified = false;
 
         sSQL = "SELECT p.idpersona,p.idarea,p.idsubarea,p.email,p.password,a.nombre,s.nombre,p.acceso,"
-                + "p.apaterno,p.amaterno,p.nombre "
+                + "p.apaterno,p.amaterno,p.nombre,p.cargo "
                 + "FROM persona p INNER JOIN area a ON p.idarea=a.idarea "
                 + "INNER JOIN subarea s ON s.idsubarea=p.idsubarea "
                 + "WHERE p.documento='" + documento + "' AND p.estado LIKE '%A%' ";
@@ -278,6 +280,7 @@ public class ftrabajador {
                 loginidsubarea = (rs.getString("p.idsubarea"));
                 loginsubarea = (rs.getString("s.nombre"));
                 loginacceso = (rs.getString("p.acceso"));
+                logincargo=(rs.getString("p.cargo"));
 
             }
         } catch (Exception e) {
