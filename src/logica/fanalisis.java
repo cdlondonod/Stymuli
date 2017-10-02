@@ -27,7 +27,7 @@ public class fanalisis {
     private String sSQL = "";
     private String sSQL2 = "";
     private String sSQL3 = "";
-    private String bigquery = "SUBSTRING_INDEX(m.tipo_estimulo,'_',-1) AS kpiest,"
+    public static String bigquery = "SUBSTRING_INDEX(m.tipo_estimulo,'_',-1) AS kpiest,"
             + "SUBSTRING_INDEX(m.tipo_estimulo,'_',1) AS subareaest ,"
             + "@persona:=p.documento,"
             + "@mes:=r.mes,"

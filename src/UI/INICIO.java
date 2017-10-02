@@ -7,8 +7,10 @@ package UI;
 
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 
 import java.awt.Dimension;
+import java.awt.GridBagLayout;
 
 
 import javax.swing.JOptionPane;
@@ -26,7 +28,19 @@ public class INICIO extends javax.swing.JFrame {
      */
     public INICIO() {
         initComponents();
+        hidelbl();
+             
+        this.setExtendedState(INICIO.MAXIMIZED_BOTH);
+        this.setTitle("STYMULI");
+        
+       
 
+    }
+    
+    
+    
+    private void hidelbl(){
+    
         lblinicioidpersona.setVisible(false);
         lblinicionombre.setVisible(false);
         lblinicio1erapellido.setVisible(false);
@@ -38,9 +52,8 @@ public class INICIO extends javax.swing.JFrame {
         lblinicioidsubarea.setVisible(false);
         lbliniciosubarea.setVisible(false);
         lblinicioacceso.setVisible(false);
-        this.setExtendedState(INICIO.MAXIMIZED_BOTH);
-        this.setTitle("STYMULI");
-
+        
+     
     }
 
     /**
@@ -182,7 +195,9 @@ public class INICIO extends javax.swing.JFrame {
 
         pnlmenulistbuttons.setBackground(new java.awt.Color(54, 29, 120));
         pnlmenulistbuttons.setPreferredSize(new java.awt.Dimension(400, 52));
-        pnlmenulistbuttons.setLayout(new javax.swing.BoxLayout(pnlmenulistbuttons, javax.swing.BoxLayout.X_AXIS));
+        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 0, 0);
+        flowLayout1.setAlignOnBaseline(true);
+        pnlmenulistbuttons.setLayout(flowLayout1);
 
         btnperfil.setBackground(new java.awt.Color(0, 0, 0));
         btnperfil.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
@@ -197,6 +212,7 @@ public class INICIO extends javax.swing.JFrame {
         btnperfil.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnperfil.setMaximumSize(new java.awt.Dimension(140, 53));
         btnperfil.setMinimumSize(new java.awt.Dimension(140, 53));
+        btnperfil.setPreferredSize(new java.awt.Dimension(151, 52));
         btnperfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnperfilActionPerformed(evt);
@@ -257,6 +273,7 @@ public class INICIO extends javax.swing.JFrame {
         btnmodelos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnmodelos.setMaximumSize(new java.awt.Dimension(151, 53));
         btnmodelos.setMinimumSize(new java.awt.Dimension(151, 53));
+        btnmodelos.setPreferredSize(new java.awt.Dimension(151, 52));
         btnmodelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmodelosActionPerformed(evt);
@@ -277,6 +294,7 @@ public class INICIO extends javax.swing.JFrame {
         btnkpi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnkpi.setMaximumSize(new java.awt.Dimension(151, 53));
         btnkpi.setMinimumSize(new java.awt.Dimension(151, 53));
+        btnkpi.setPreferredSize(new java.awt.Dimension(151, 52));
         btnkpi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnkpiActionPerformed(evt);
@@ -297,6 +315,7 @@ public class INICIO extends javax.swing.JFrame {
         btnusuarios.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnusuarios.setMaximumSize(new java.awt.Dimension(151, 53));
         btnusuarios.setMinimumSize(new java.awt.Dimension(151, 53));
+        btnusuarios.setPreferredSize(new java.awt.Dimension(151, 52));
         btnusuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnusuariosActionPerformed(evt);
@@ -317,6 +336,7 @@ public class INICIO extends javax.swing.JFrame {
         btnareas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnareas.setMaximumSize(new java.awt.Dimension(151, 53));
         btnareas.setMinimumSize(new java.awt.Dimension(151, 53));
+        btnareas.setPreferredSize(new java.awt.Dimension(151, 52));
         btnareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnareasActionPerformed(evt);
@@ -337,6 +357,7 @@ public class INICIO extends javax.swing.JFrame {
         btnsimulac.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnsimulac.setMaximumSize(new java.awt.Dimension(151, 53));
         btnsimulac.setMinimumSize(new java.awt.Dimension(151, 53));
+        btnsimulac.setPreferredSize(new java.awt.Dimension(151, 52));
         btnsimulac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsimulacActionPerformed(evt);
@@ -352,7 +373,7 @@ public class INICIO extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlenclose, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1393, Short.MAX_VALUE)
+            .addComponent(pnlenclose, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
