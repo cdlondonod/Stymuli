@@ -28,16 +28,23 @@ public class INICIO extends javax.swing.JFrame {
      */
     public INICIO() {
         initComponents();
-        hidelbl();
+       
+       hidelbl();
              
         this.setExtendedState(INICIO.MAXIMIZED_BOTH);
         this.setTitle("STYMULI");
-        
+      
+       
        
 
     }
     
+    private void cliclperfil(){
+    if (lblinicioacceso.getText().equals("Trabajador")) {
+           btnperfil.doClick(); 
+        }
     
+    }
     
     private void hidelbl(){
     
@@ -92,6 +99,18 @@ public class INICIO extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         escritorio.setBackground(new java.awt.Color(153, 255, 51));
 
@@ -401,6 +420,7 @@ public class INICIO extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnanalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisisActionPerformed
         
        
@@ -649,9 +669,18 @@ public class INICIO extends javax.swing.JFrame {
         formpe.toFront();
         formpe.setVisible(true);
         formpe.setSize(pnlmain.getSize());
+        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnperfilActionPerformed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+     // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowGainedFocus
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    cliclperfil();     // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

@@ -6,7 +6,6 @@
 package UI;
 
 import datos.vtrabajador;
-import java.awt.BorderLayout;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.JOptionPane;
 import logica.ftrabajador;
@@ -195,23 +194,12 @@ public class frmzzlogin extends javax.swing.JFrame {
                 form.toFront();
                 form.setVisible(true);
                 form.setExtendedState(INICIO.MAXIMIZED_BOTH);
-                
-                
 
                 if (ftrabajador.loginacceso.equals("Trabajador")) {
                     INICIO.btnareas.setVisible(false);
                     INICIO.btnkpi.setVisible(false);
                     INICIO.btnmodelos.setVisible(false);
                     INICIO.btnusuarios.setVisible(false);
-                    
-                    frmperfil formpe = new frmperfil();
-                    formpe.setSize(INICIO.pnlmain.getSize());
-                    INICIO.pnlmain.add(formpe, BorderLayout.CENTER);
-                    formpe.toFront();
-                    formpe.setVisible(true);
-                    
-                    
-                    
 
                 } else if (ftrabajador.loginacceso.equals("Administrador")) {
                     INICIO.btnperfil.setVisible(false);
