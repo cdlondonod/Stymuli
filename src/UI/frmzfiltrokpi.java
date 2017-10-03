@@ -251,8 +251,6 @@ public class frmzfiltrokpi extends javax.swing.JFrame {
            
         } else if (conexion.frmabierto == 6) {
             frmanalisevolutivo.txtnombrekpi.setText(txtfiltrar.getText());
-        }else if (conexion.frmabierto == 11) {
-            frmanalisischart6.txtnombrekpi.setText(txtfiltrar.getText());
         }
 
         this.dispose();

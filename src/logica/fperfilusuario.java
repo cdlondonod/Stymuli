@@ -49,7 +49,7 @@ public class fperfilusuario {
                 + " tbcomp.year LIKE '%" + year + "%'"
                 + " AND tbcomp.mes LIKE '%" + messtring + "%'"
                 + " AND tbcomp.idpersona=" + INICIO.lblinicioidpersona.getText() + " "
-                + " GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year";
+                + " GROUP BY tbcomp.documento,tbcomp.year,tbcomp.mes";
         Double valueob;
         Double valuenoob;
         ganadomespasado = 0.0;
@@ -95,7 +95,7 @@ public class fperfilusuario {
                 + " WHERE "
                 + " tbcomp.idpersona=" + INICIO.lblinicioidpersona.getText() + " "
                 + " GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year"
-                 + " ORDER BY tbcomp.mes,tbcomp.year";
+                + " ORDER BY tbcomp.year,tbcomp.mes";
         Double valueob;
         Double valuenoob;
         String fecha = "";
@@ -146,7 +146,7 @@ public class fperfilusuario {
                 + " ) AS ta WHERE "
                 + " ta.idpersona=" + INICIO.lblinicioidpersona.getText() + " "
                 + "GROUP BY ta.mes,ta.year"
-                + " ORDER BY ta.mes,ta.year";
+                + " ORDER BY ta.year,ta.mes";
         Double fre;
         String fecha = "";
 
@@ -156,7 +156,7 @@ public class fperfilusuario {
 
             while (rs.next()) {
                 if (rs.getString("promcumplimiento") != null) {
-                    fre = Double.parseDouble(rs.getString("promcumplimiento"))/100;
+                    fre = Double.parseDouble(rs.getString("promcumplimiento")) / 100;
                 } else {
                     fre = 0.0;
                 }
@@ -179,6 +179,64 @@ public class fperfilusuario {
         }
     }
 
-    
-    
+    public DefaultCategoryDataset mixmaxavg() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        sSQL = "  SELECT AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+                + " (IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
+                + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
+                + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
+                + " AS subarea, s.idsubarea, "
+                + fanalisis.bigquery
+                + " )AS tbcomp "
+                + "GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year) AS ta "
+                + " WHERE ta.idsubarea="+INICIO.lblinicioidsubarea.getText()
+                + " GROUP BY ta.mes,ta.year"
+                + " ORDER BY ta.year,ta.mes";
+        Double maxobt;
+        Double minobt;
+        Double midobt;
+        String fecha = "";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+
+            while (rs.next()) {
+                if (rs.getString("maxobt") != null) {
+                    maxobt = Double.parseDouble(rs.getString("maxobt"));
+                } else {
+                    maxobt = 0.0;
+                }
+                if (rs.getString("minobt") != null) {
+                    minobt = Double.parseDouble(rs.getString("minobt"));
+                } else {
+                    minobt = 0.0;
+                }
+                if (rs.getString("midobt") != null) {
+                    midobt = Double.parseDouble(rs.getString("midobt"));
+                } else {
+                    midobt = 0.0;
+                }
+
+                String completeyear = rs.getString("ta.year");
+                String shortyear = completeyear.substring(2, 4);
+                String completemes = rs.getString("ta.mes");
+                String shortmes = completemes.substring(0, 6);
+
+                fecha = shortyear + "/ " + shortmes;
+
+                dataset.addValue(midobt, "Med", fecha);
+                dataset.addValue(minobt, "Min", fecha);
+                dataset.addValue(maxobt, "Max", fecha);
+
+            }
+
+            return dataset;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+
 }

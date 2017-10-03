@@ -5,27 +5,27 @@
  */
 package UI;
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.beans.PropertyVetoException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableModel;
-import logica.fanalisis;
 import logica.fperfilusuario;
 import logica.ftrabajador;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.labels.PieSectionLabelGenerator;
@@ -37,8 +37,7 @@ import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
-import org.jfree.chart.renderer.category.LineAndShapeRenderer;
-import org.jfree.chart.renderer.category.LineRenderer3D;
+import org.jfree.chart.renderer.category.MinMaxCategoryRenderer;
 import org.jfree.chart.renderer.category.StackedBarRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
@@ -61,6 +60,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
         proyeccion();
         evolutivodinero();
         frecuenciacumpl();
+        mixmaxavg();
 
     }
 
@@ -110,16 +110,21 @@ public class frmperfil extends javax.swing.JInternalFrame {
                     false);
             chart.getTitle().setPaint(new Color(53, 29, 113));
             PiePlot plot = (PiePlot) chart.getPlot();
-
             PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
                     "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%"));
             plot.setLabelGenerator(gen);
+            plot.setLabelOutlinePaint(null);
+            plot.setLabelShadowPaint(null);
+            plot.setLabelBackgroundPaint(null);
+            plot.setLabelPaint(new Color(53, 29, 113));
             plot.setBackgroundPaint(Color.WHITE);
+            // plot.setSimpleLabels(true);
             plot.setOutlineVisible(false);
             chart.setBackgroundPaint(Color.WHITE);
             plot.setSectionPaint(0, new Color(121, 152, 40));
             plot.setSectionPaint(1, new Color(49, 95, 118));
             final ChartPanel chartPanel = new ChartPanel(chart);
+            chart.getLegend().setFrame(BlockBorder.NONE);
             pnlproyeccion.setLayout(new java.awt.BorderLayout());
             pnlproyeccion.add(chartPanel, BorderLayout.CENTER);
             pnlproyeccion.validate();
@@ -142,51 +147,38 @@ public class frmperfil extends javax.swing.JInternalFrame {
             final CategoryItemRenderer renderer = new StackedBarRenderer();
             renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator("{2}", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%")));
             renderer.setItemLabelPaint(new Color(53, 29, 113));
-
             renderer.setItemLabelsVisible(true);
             renderer.setSeriesPaint(0, new Color(121, 152, 40));
             renderer.setSeriesPaint(1, new Color(238, 238, 221));
             renderer.setBaseItemLabelsVisible(true);
-
             final CategoryPlot plot = new CategoryPlot();
             plot.setBackgroundPaint(Color.WHITE);
             plot.setForegroundAlpha(0.8f);
             plot.setRangeGridlinesVisible(true);
-            plot.setRangeGridlinePaint(Color.BLACK);
-
+            plot.setRangeGridlinePaint(Color.WHITE);
             plot.setDataset(dataset);
-
             plot.setRenderer(renderer);
-
             plot.setDomainAxis(new CategoryAxis(""));
             plot.setRangeAxis(new NumberAxis("$"));
-
             plot.setOrientation(PlotOrientation.VERTICAL);
             plot.setRangeGridlinesVisible(true);
             plot.setDomainGridlinesVisible(true);
-
             plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
-
             plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
             final JFreeChart chart = new JFreeChart(plot);
             chart.setBackgroundPaint(Color.WHITE);
             chart.setTitle("Mi Evolutivo");
             chart.getTitle().setPaint(new Color(53, 29, 113));
-
+            chart.getLegend().setFrame(BlockBorder.NONE);
             plot.getDomainAxis().setTickLabelPaint(new Color(53, 29, 113));
             plot.getRangeAxis().setTickLabelPaint(new Color(53, 29, 113));
             plot.getRangeAxis().setLabelPaint(new Color(53, 29, 113));
             plot.getDomainAxis().setLabelPaint(new Color(53, 29, 113));
             plot.setOutlineVisible(false);
-
             final ChartPanel chartPanel = new ChartPanel(chart);
-
             pnlevoluciondinero.setLayout(new java.awt.BorderLayout());
-
             pnlevoluciondinero.add(chartPanel, BorderLayout.CENTER);
-
             pnlevoluciondinero.validate();
-
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(rootPane, e);
         }
@@ -206,37 +198,98 @@ public class frmperfil extends javax.swing.JInternalFrame {
             renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator("{2}", new DecimalFormat("#,##0%;(#,##0)"), new DecimalFormat("0%")));
             renderer.setItemLabelPaint(new Color(53, 29, 113));
             renderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.HALF_ASCENT_CENTER));
-
             renderer.setItemLabelsVisible(true);
             renderer.setSeriesPaint(0, new Color(121, 152, 40));
             renderer.setSeriesPaint(1, new Color(238, 238, 221));
             renderer.setBaseItemLabelsVisible(true);
-
             final CategoryPlot plot = new CategoryPlot();
             plot.setBackgroundPaint(Color.WHITE);
             plot.setForegroundAlpha(0.8f);
             plot.setRangeGridlinesVisible(true);
-            plot.setRangeGridlinePaint(Color.BLACK);
-
+            plot.setRangeGridlinePaint(Color.WHITE);
             plot.setDataset(dataset);
-
             plot.setRenderer(renderer);
-
             plot.setDomainAxis(new CategoryAxis(""));
             plot.setRangeAxis(new NumberAxis("% Cumplimiento Acumulado"));
-
             plot.setOrientation(PlotOrientation.VERTICAL);
             plot.setRangeGridlinesVisible(true);
             plot.setDomainGridlinesVisible(true);
-
             plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
-
             plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
             final JFreeChart chart = new JFreeChart(plot);
             chart.setBackgroundPaint(Color.WHITE);
             chart.setTitle("Mi Cumplimiento");
             chart.getTitle().setPaint(new Color(53, 29, 113));
+            chart.getLegend().setFrame(BlockBorder.NONE);
+            plot.getDomainAxis().setTickLabelPaint(new Color(53, 29, 113));
+            plot.getRangeAxis().setTickLabelPaint(new Color(53, 29, 113));
+            plot.getRangeAxis().setLabelPaint(new Color(53, 29, 113));
+            plot.getDomainAxis().setLabelPaint(new Color(53, 29, 113));
+            plot.setOutlineVisible(false);
+            final ChartPanel chartPanel = new ChartPanel(chart);
+            pnlcumplimiento.setLayout(new java.awt.BorderLayout());
+            pnlcumplimiento.add(chartPanel, BorderLayout.CENTER);
+            pnlcumplimiento.validate();
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(rootPane, e);
+        }
 
+    }
+
+    void mixmaxavg() {
+
+        ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
+
+        try {
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            fperfilusuario func = new fperfilusuario();
+            dataset = func.mixmaxavg();
+
+            JFreeChart chart = ChartFactory.createBarChart(
+                    "Min/Max Category Plot", // chart title
+                    "", // domain axis label
+                    "Obtenido", // range axis label
+                    dataset, // data
+                    PlotOrientation.VERTICAL,
+                    true, // include legend
+                    true, // tooltips
+                    false // urls
+            );
+
+            CategoryPlot plot = (CategoryPlot) chart.getPlot();
+            plot.setRangePannable(true);
+            MinMaxCategoryRenderer renderer = new MinMaxCategoryRenderer();
+            renderer.setDrawLines(false);
+            plot.setRenderer(renderer);
+            ChartUtilities.applyCurrentTheme(chart);
+
+            renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator());
+            renderer.setItemLabelPaint(new Color(53, 29, 113));
+            renderer.setItemLabelsVisible(true);
+            renderer.setSeriesPaint(1, new Color(255, 5, 5));
+            renderer.setSeriesStroke(1, new BasicStroke(4));
+            renderer.setSeriesPaint(0, new Color(255, 151, 5));
+            renderer.setSeriesStroke(0, new BasicStroke(4));
+             renderer.setSeriesPaint(2, new Color(5, 255, 22));
+             renderer.setSeriesStroke(2, new BasicStroke(4));
+            renderer.setBaseItemLabelsVisible(true);
+            plot.setBackgroundPaint(Color.WHITE);
+            plot.setForegroundAlpha(0.8f);
+            plot.setRangeGridlinesVisible(true);
+            plot.setRangeGridlinePaint(Color.WHITE);
+            plot.setDataset(dataset);
+            plot.setRenderer(renderer);
+            plot.setDomainAxis(new CategoryAxis(""));
+            plot.setRangeAxis(new NumberAxis("$"));
+            plot.setOrientation(PlotOrientation.VERTICAL);
+            plot.setRangeGridlinesVisible(true);
+            plot.setDomainGridlinesVisible(true);
+            plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
+            plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
+            chart.setBackgroundPaint(Color.WHITE);
+            chart.setTitle("Mi Evolutivo");
+            chart.getTitle().setPaint(new Color(53, 29, 113));
+            chart.getLegend().setFrame(BlockBorder.NONE);
             plot.getDomainAxis().setTickLabelPaint(new Color(53, 29, 113));
             plot.getRangeAxis().setTickLabelPaint(new Color(53, 29, 113));
             plot.getRangeAxis().setLabelPaint(new Color(53, 29, 113));
@@ -244,12 +297,9 @@ public class frmperfil extends javax.swing.JInternalFrame {
             plot.setOutlineVisible(false);
 
             final ChartPanel chartPanel = new ChartPanel(chart);
-
-            pnlcumplimiento.setLayout(new java.awt.BorderLayout());
-
-            pnlcumplimiento.add(chartPanel, BorderLayout.CENTER);
-
-            pnlcumplimiento.validate();
+            pnlmiarea.setLayout(new java.awt.BorderLayout());
+            pnlmiarea.add(chartPanel, BorderLayout.CENTER);
+            pnlmiarea.validate();
 
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(rootPane, e);
@@ -402,7 +452,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
         jPanel5.setPreferredSize(new java.awt.Dimension(200, 400));
         jPanel5.setLayout(new java.awt.GridLayout(2, 0));
 
-        pnlmiarea.setBackground(new java.awt.Color(153, 255, 102));
+        pnlmiarea.setBackground(new java.awt.Color(255, 255, 255));
         pnlmiarea.setForeground(new java.awt.Color(204, 204, 255));
         pnlmiarea.setPreferredSize(new java.awt.Dimension(0, 0));
 
@@ -414,7 +464,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
         );
         pnlmiareaLayout.setVerticalGroup(
             pnlmiareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 248, Short.MAX_VALUE)
+            .addGap(0, 254, Short.MAX_VALUE)
         );
 
         jPanel5.add(pnlmiarea);
@@ -542,7 +592,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
         );
 
         pack();
@@ -627,7 +677,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
         Dimension desktopSize = INICIO.pnlmain.getSize();
         Dimension jInternalFrameSize = form1chart.getSize();
         form1chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-            (desktopSize.height - jInternalFrameSize.height) / 2);
+                (desktopSize.height - jInternalFrameSize.height) / 2);
 
         this.dispose();
 
@@ -638,7 +688,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
             frmanalisdistrikpi.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
             frmanalisdistrikpi.jPanel2.setVisible(false);
             frmanalisdistrikpi.jPanel9.setBackground(Color.WHITE);
-        } 
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btncomparacionActionPerformed
 

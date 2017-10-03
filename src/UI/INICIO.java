@@ -455,12 +455,12 @@ public class INICIO extends javax.swing.JFrame {
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
 
             frmanalisis.btndistribucion.setVisible(false);
-            frmanalisis.btnchart6.setVisible(false);
+            frmanalisis.btnmaxmin.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
 
             frmanalisis.btndistribucion.setVisible(false);
-            frmanalisis.btnchart6.setVisible(false);
+            frmanalisis.btnmaxmin.setVisible(false);
 
         } else {
 

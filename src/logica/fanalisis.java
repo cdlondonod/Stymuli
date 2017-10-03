@@ -167,7 +167,7 @@ public class fanalisis {
                 + " AND p.documento LIKE '%" + Trabajador + "%'"
                 + " AND k.nombre LIKE '%" + KPI + "%'"
                 + sSQL2
-                + " ORDER BY s.idsubarea,p.apaterno,p.nombre,k.nombre,r.mes,r.year";
+                + " ORDER BY s.idsubarea,p.apaterno,p.nombre,k.nombre,r.year,r.mes";
 
         try {
             Statement st = cn.createStatement();
@@ -192,13 +192,13 @@ public class fanalisis {
                 registro[9] = rs.getString("o.comparacion");
                 registro[10] = rs.getString("o.valor_objetivo");
                 registro[11] = numberFormat.format(Double.parseDouble(rs.getString("o.valor_ponderado"))) + "%";
-                
-                 if (rs.getString("cumplimiento") != null) {
+
+                if (rs.getString("cumplimiento") != null) {
                     registro[12] = numberFormat.format(Double.parseDouble(rs.getString("cumplimiento"))) + "%";
                 } else {
                     registro[12] = "0.0%";
                 }
-                
+
                 registro[13] = "$" + numberFormat.format(Double.parseDouble(rs.getString("obtiene")));
                 registro[14] = rs.getString("habilita");
 
@@ -243,9 +243,9 @@ public class fanalisis {
                 + " AND tbcomp.subarea LIKE '%" + Subarea + "%'"
                 + " AND tbcomp.documento LIKE '%" + Trabajador + "%'"
                 + " AND tbcomp.kpi LIKE '%" + KPI + "%'"
-                +sSQL2+sSQL
+                + sSQL2 + sSQL
                 + " GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year"
-                + " ORDER BY tbcomp.subarea,tbcomp.apaterno,tbcomp.nombre,tbcomp.kpi,tbcomp.mes,tbcomp.year";
+                + " ORDER BY tbcomp.subarea,tbcomp.apaterno,tbcomp.nombre,tbcomp.kpi,tbcomp.year,tbcomp.mes";
 
         resultobttotal = 0.0;
 
@@ -275,6 +275,69 @@ public class fanalisis {
         }
     }
 
+    public DefaultTableModel minmaxmid(String year, String mes, String area, String Subarea, String Trabajador, String KPI) {
+        DefaultTableModel modelo;
+        String[] titulos = {"Fecha", "Área", "SubÁrea", "MIN", "MAX", "MID"};
+        String[] registro = new String[6];
+        modelo = new DefaultTableModel(null, titulos);
+        if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            sSQL2 = " AND ta.idarea=" + INICIO.lblinicioidarea.getText() + " ";
+        }
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+            sSQL = " AND ta.idpersona=" + INICIO.lblinicioidpersona.getText() + " ";
+        }
+        sSQL3 = "  SELECT ta.area,ta.subarea,AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+                + " (IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
+                + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
+                + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
+                + " AS subarea, s.idsubarea, "
+                + fanalisis.bigquery
+                + " )AS tbcomp "
+                + "GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year) AS ta "
+                + " WHERE "
+                + " ta.year LIKE '%" + year + "%'"
+                + " AND ta.mes LIKE '%" + mes + "%'"
+                + " AND ta.area LIKE '%" + area + "%'"
+                + " AND ta.subarea LIKE '%" + Subarea + "%'"
+                + sSQL2 + sSQL
+                + " GROUP BY ta.mes,ta.year"
+                + " ORDER BY ta.year,ta.mes";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL3);
+            while (rs.next()) {
+
+                registro[1] = rs.getString("ta.area");
+                registro[2] = rs.getString("ta.subarea");
+                registro[0] = rs.getString("ta.year") + " " + rs.getString("ta.mes");
+
+                if (rs.getString("minobt") != null) {
+                    registro[3] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("minobt")));
+                } else {
+                    registro[3] = "$0.0";
+                }
+                if (rs.getString("maxobt") != null) {
+                    registro[4] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("maxobt")));
+                } else {
+                    registro[4] = "$0.0";
+                }
+                if (rs.getString("midobt") != null) {
+                    registro[5] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("midobt")));
+                } else {
+                    registro[5] = "$0.0";
+                }
+
+                modelo.addRow(registro);
+
+            }
+            return modelo;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+
     public DefaultTableModel graficaevolutivo(String area, String Subarea, String KPI) {
         DefaultTableModel modelo;
         String[] titulos = {"Fecha", "KPI", "Resultado Medio"};
@@ -295,9 +358,9 @@ public class fanalisis {
                 + " a.nombre LIKE '%" + area + "%'"
                 + " AND s.nombre LIKE '%" + Subarea + "%'"
                 + " AND k.nombre LIKE '%" + KPI + "%'"
-                +sSQL2+sSQL3
+                + sSQL2 + sSQL3
                 + "GROUP BY k.nombre,r.mes,r.year "
-                + " ORDER BY s.nombre,r.mes,r.year DESC";
+                + " ORDER BY s.nombre,r.year,r.mes ";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sSQL);
@@ -339,9 +402,9 @@ public class fanalisis {
                 + " AND tbcompfiltrada.subarea LIKE '%" + Subarea + "%'"
                 + " AND tbcompfiltrada.documento LIKE '%" + Trabajador + "%'"
                 + " AND tbcompfiltrada.kpi LIKE '%" + KPI + "%'"
-                +sSQL2
+                + sSQL2
                 + "GROUP BY tbcompfiltrada.subarea,tbcompfiltrada.mes,tbcompfiltrada.year"
-                + " ORDER BY tbcompfiltrada.subarea,tbcompfiltrada.apaterno,tbcompfiltrada.nombre,tbcompfiltrada.kpi,tbcompfiltrada.mes,tbcompfiltrada.year";
+                + " ORDER BY tbcompfiltrada.subarea,tbcompfiltrada.apaterno,tbcompfiltrada.nombre,tbcompfiltrada.kpi,tbcompfiltrada.year,tbcompfiltrada.mes";
 
         resultobttotal = 0.0;
         try {

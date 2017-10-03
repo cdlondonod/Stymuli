@@ -252,7 +252,7 @@ public class frmzfiltromes extends javax.swing.JFrame {
         } else if (conexion.frmabierto == 10) {
             frmanalisisobtpersona.txtmes.setText(txtfiltrar.getText());
         } else if (conexion.frmabierto == 11) {
-            frmanalisischart6.txtmes.setText(txtfiltrar.getText());
+            frmanalisisminmaxmid.txtmes.setText(txtfiltrar.getText());
         }
 
         this.dispose();

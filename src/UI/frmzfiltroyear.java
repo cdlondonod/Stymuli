@@ -252,7 +252,7 @@ public class frmzfiltroyear extends javax.swing.JFrame {
         } else if (conexion.frmabierto == 10) {
             frmanalisisobtpersona.txtyear.setText(txtfiltrar.getText());
         } else if (conexion.frmabierto == 11) {
-            frmanalisischart6.txtyear.setText(txtfiltrar.getText());
+            frmanalisisminmaxmid.txtyear.setText(txtfiltrar.getText());
         }
 
         this.dispose();

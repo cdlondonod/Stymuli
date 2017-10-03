@@ -252,7 +252,7 @@ public class frmzfiltroarea extends javax.swing.JFrame {
         } else if (conexion.frmabierto == 10) {
             frmanalisisobtpersona.txtnombrearea.setText(txtfiltrar.getText());
         } else if (conexion.frmabierto == 11) {
-            frmanalisischart6.txtnombrearea.setText(txtfiltrar.getText());
+            frmanalisisminmaxmid.txtnombrearea.setText(txtfiltrar.getText());
         }else if (conexion.frmabierto == 6) {
             frmanalisevolutivo.txtnombrearea.setText(txtfiltrar.getText());
         }

@@ -5,55 +5,43 @@
  */
 package UI;
 
-import datos.vGraficas;
+
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import logica.conexion;
-
 import logica.fanalisis;
-import logica.fsubarea;
+import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.axis.CategoryLabelPositions;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.labels.BoxAndWhiskerToolTipGenerator;
 import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.DatasetRenderingOrder;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.category.BoxAndWhiskerRenderer;
-import org.jfree.chart.renderer.category.CategoryItemRenderer;
-import org.jfree.chart.renderer.category.LineAndShapeRenderer;
+import org.jfree.chart.renderer.category.MinMaxCategoryRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
-import org.jfree.ui.RefineryUtilities;
+
 
 /**
  *
  * @author crist
  */
-public class frmanalisischart6 extends javax.swing.JInternalFrame {
+public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frmanalisis
      */
-    public frmanalisischart6() {
+    public frmanalisisminmaxmid() {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         initComponents();
-        mostrar("", "", "", "","", "");
+        mostrar("", "", "", "", "", "");
         tablaanalisis.setShowGrid(true);
         conexion.frmabierto = 11;
         btngraficar.requestFocus();
@@ -61,94 +49,77 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
         txtyear.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());   //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");   //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");  //To change body of generated methods, choose Tools | Templates.
             }
         });
         txtmes.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());   //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");   //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());   //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");   //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");  //To change body of generated methods, choose Tools | Templates.
             }
         });
 
         txtnombrearea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());   //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");   //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");  //To change body of generated methods, choose Tools | Templates.
             }
         });
 
         txtnombresubarea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());   //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");   //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
-            }
-        });
-
-        txtnombrekpi.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(),"", txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", "");  //To change body of generated methods, choose Tools | Templates.
             }
         });
 
     }
 
-   void mostrar(String year, String mes, String area, String Subarea,String Trabajador, String KPI) {
+    void mostrar(String year, String mes, String area, String Subarea, String Trabajador, String KPI) {
         try {
             DefaultTableModel modelo;
             fanalisis func = new fanalisis();
-            modelo = func.mostrarcompleto(year, mes, area, Subarea,Trabajador, KPI);
+            modelo = func.minmaxmid(year, mes, area, Subarea, Trabajador, KPI);
 
             tablaanalisis.setModel(modelo);
             ocultar();
@@ -158,49 +129,25 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
         }
 
     }
+
     void ocultar() {
 
         txtnombrearea.setEnabled(false);
-        txtnombrekpi.setEnabled(false);
         txtnombresubarea.setEnabled(false);
         txtyear.setEnabled(false);
         txtmes.setEnabled(false);
-
+        
         tablaanalisis.getColumnModel().getColumn(0).setMaxWidth(0);
         tablaanalisis.getColumnModel().getColumn(0).setMinWidth(0);
         tablaanalisis.getColumnModel().getColumn(0).setPreferredWidth(0);
-
+        
         tablaanalisis.getColumnModel().getColumn(1).setMaxWidth(0);
         tablaanalisis.getColumnModel().getColumn(1).setMinWidth(0);
         tablaanalisis.getColumnModel().getColumn(1).setPreferredWidth(0);
-
+        
         tablaanalisis.getColumnModel().getColumn(2).setMaxWidth(0);
         tablaanalisis.getColumnModel().getColumn(2).setMinWidth(0);
         tablaanalisis.getColumnModel().getColumn(2).setPreferredWidth(0);
-
-        tablaanalisis.getColumnModel().getColumn(3).setMaxWidth(0);
-        tablaanalisis.getColumnModel().getColumn(3).setMinWidth(0);
-        tablaanalisis.getColumnModel().getColumn(3).setPreferredWidth(0);
-
-        tablaanalisis.getColumnModel().getColumn(4).setMaxWidth(0);
-        tablaanalisis.getColumnModel().getColumn(4).setMinWidth(0);
-        tablaanalisis.getColumnModel().getColumn(4).setPreferredWidth(0);
-
-        tablaanalisis.getColumnModel().getColumn(5).setMaxWidth(0);
-        tablaanalisis.getColumnModel().getColumn(5).setMinWidth(0);
-        tablaanalisis.getColumnModel().getColumn(5).setPreferredWidth(0);
-
-        tablaanalisis.getColumnModel().getColumn(10).setMaxWidth(0);
-        tablaanalisis.getColumnModel().getColumn(10).setMinWidth(0);
-        tablaanalisis.getColumnModel().getColumn(10).setPreferredWidth(0);
-
-        tablaanalisis.getColumnModel().getColumn(11).setMaxWidth(0);
-        tablaanalisis.getColumnModel().getColumn(11).setMinWidth(0);
-        tablaanalisis.getColumnModel().getColumn(11).setPreferredWidth(0);
-
-        tablaanalisis.getColumnModel().getColumn(12).setMaxWidth(0);
-        tablaanalisis.getColumnModel().getColumn(12).setMinWidth(0);
-        tablaanalisis.getColumnModel().getColumn(12).setPreferredWidth(0);
 
     }
 
@@ -217,10 +164,6 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         btngraficar = new javax.swing.JButton();
         btnclearselec = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        lblnombrekpi9 = new javax.swing.JLabel();
-        txtnombrekpi = new javax.swing.JTextField();
-        btnbusca_kpi_Obj = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lblnombrekpi13 = new javax.swing.JLabel();
         txtnombresubarea = new javax.swing.JTextField();
@@ -281,35 +224,6 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
                 btnclearselecActionPerformed(evt);
             }
         });
-
-        jPanel3.setBackground(new java.awt.Color(153, 103, 198));
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
-
-        lblnombrekpi9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi9.setForeground(new java.awt.Color(255, 255, 255));
-        lblnombrekpi9.setText("KPI :");
-        lblnombrekpi9.setPreferredSize(new java.awt.Dimension(55, 14));
-        jPanel3.add(lblnombrekpi9);
-
-        txtnombrekpi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnombrekpiActionPerformed(evt);
-            }
-        });
-        jPanel3.add(txtnombrekpi);
-
-        btnbusca_kpi_Obj.setBackground(new java.awt.Color(0, 51, 0));
-        btnbusca_kpi_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscarlista.png"))); // NOI18N
-        btnbusca_kpi_Obj.setToolTipText("Buscar KPI");
-        btnbusca_kpi_Obj.setBorder(null);
-        btnbusca_kpi_Obj.setBorderPainted(false);
-        btnbusca_kpi_Obj.setContentAreaFilled(false);
-        btnbusca_kpi_Obj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbusca_kpi_ObjActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnbusca_kpi_Obj);
 
         jPanel5.setBackground(new java.awt.Color(153, 103, 198));
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
@@ -436,9 +350,8 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btnclearselec)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                         .addComponent(btngraficar))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -456,9 +369,7 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnclearselec, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btngraficar, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -550,45 +461,70 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btngraficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngraficarActionPerformed
-        if (txtnombrekpi.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar un KPI");
-            txtnombrekpi.requestFocus();
-            return;
 
-        }
-
-        DefaultBoxAndWhiskerCategoryDataset dataset2 = new DefaultBoxAndWhiskerCategoryDataset();
+        ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        Double maxobt = 0.0;
+        Double minobt = 0.0;
+        Double midobt = 0.0;
+        String fecha = "";
 
         TableModel tm = tablaanalisis.getModel();
-        for (int i = 0; i < 4; i++) {
-            
-        
+
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double r = Double.parseDouble(tm.getValueAt(j, 7).toString().replaceAll("[^0-9.-]", ""));
-            int row = j;
-            String d = Integer.toString(row);
-            final List list = new ArrayList();
-            list.add(r);
-            
-            
-            dataset2.add(list, "Series "+i , " Type "+i);
+            maxobt = Double.parseDouble(tm.getValueAt(j, 4).toString().replaceAll("[^0-9.-]", ""));
+            fecha = tm.getValueAt(j, 0).toString();
+            dataset.addValue(maxobt, "max", fecha);
         }
+        for (int j = 0; j < tm.getRowCount(); j++) {
+            minobt = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
+            fecha = tm.getValueAt(j, 0).toString();
+            dataset.addValue(minobt, "min", fecha);
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
+            midobt = Double.parseDouble(tm.getValueAt(j, 5).toString().replaceAll("[^0-9.-]", ""));
+            fecha = tm.getValueAt(j, 0).toString();
+            dataset.addValue(midobt, "mid", fecha);
         }
 
-          final CategoryAxis xAxis = new CategoryAxis("Type");
-        final NumberAxis yAxis = new NumberAxis("Value");
-        yAxis.setAutoRangeIncludesZero(true);
-        final BoxAndWhiskerRenderer renderer = new BoxAndWhiskerRenderer();
-        renderer.setFillBox(true);
-        renderer.setToolTipGenerator(new BoxAndWhiskerToolTipGenerator());
-        final CategoryPlot plot = new CategoryPlot(dataset2, xAxis, yAxis, renderer);
-
-        final JFreeChart chart = new JFreeChart(
-            "Box-and-Whisker Demo",
-            new Font("SansSerif", Font.BOLD, 14),
-            plot,
-            true
+        JFreeChart chart = ChartFactory.createBarChart(
+                "", // chart title
+                "", // domain axis label
+                "Obtenido", // range axis label
+                dataset, // data
+                PlotOrientation.VERTICAL,
+                true, // include legend
+                true, // tooltips
+                false // urls
         );
+
+        CategoryPlot plot = (CategoryPlot) chart.getPlot();
+        plot.setRangePannable(true);
+        MinMaxCategoryRenderer renderer = new MinMaxCategoryRenderer();
+        renderer.setDrawLines(false);
+        plot.setRenderer(renderer);
+        ChartUtilities.applyCurrentTheme(chart);
+
+        renderer.setItemLabelsVisible(true);
+        renderer.setBaseItemLabelsVisible(true);
+        renderer.setBaseItemLabelPaint(Color.GREEN);
+        renderer.setSeriesPaint(0, new Color(121, 152, 40));
+        renderer.setSeriesStroke(1, new BasicStroke(4));
+        renderer.setSeriesStroke(0, new BasicStroke(4));
+        renderer.setSeriesStroke(2, new BasicStroke(4));
+        plot.setBackgroundPaint(Color.WHITE);
+        plot.setForegroundAlpha(0.8f);
+        plot.setRangeGridlinesVisible(true);
+        plot.setRangeGridlinePaint(Color.BLACK);
+        plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
+        chart.setBackgroundPaint(new Color(53, 29, 113));
+        chart.setTitle("Max/Min/Mid " + txtnombrearea.getText() + " " + txtnombresubarea.getText());
+        chart.getTitle().setPaint(Color.WHITE);
+
+        plot.getDomainAxis().setTickLabelPaint(Color.WHITE);
+        plot.getRangeAxis().setTickLabelPaint(Color.WHITE);
+        plot.getRangeAxis().setLabelPaint(Color.WHITE);
+        plot.getDomainAxis().setLabelPaint(Color.WHITE);
 
         final ChartPanel chartPanel = new ChartPanel(chart);
 
@@ -628,7 +564,7 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
             return;
 
         }
-        conexion.formsubarea = frmanalisischart6.txtnombrearea.getText();
+        conexion.formsubarea = frmanalisisminmaxmid.txtnombrearea.getText();
         frmzfiltrosubarea form = new frmzfiltrosubarea();
         form.toFront();
         form.setVisible(true);
@@ -636,27 +572,6 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trabActionPerformed
-
-    private void txtnombrekpiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombrekpiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnombrekpiActionPerformed
-
-    private void btnbusca_kpi_ObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbusca_kpi_ObjActionPerformed
-
-        if (txtnombresubarea.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una SubÁrea primero");
-            txtnombresubarea.requestFocus();
-            return;
-
-        }
-        conexion.formsubarea = frmanalisischart6.txtnombresubarea.getText();
-
-        frmzfiltrokpi form = new frmzfiltrokpi();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbusca_kpi_ObjActionPerformed
 
     private void formInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_formInputMethodTextChanged
         // TODO add your handling code here:
@@ -667,7 +582,6 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
         txtyear.setText("");
         txtnombrearea.setText("");
         txtnombresubarea.setText("");
-        txtnombrekpi.setText("");
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed
@@ -724,14 +638,22 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmanalisischart6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmanalisisminmaxmid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmanalisischart6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmanalisisminmaxmid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmanalisischart6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmanalisisminmaxmid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmanalisischart6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmanalisisminmaxmid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -744,13 +666,12 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmanalisischart6().setVisible(true);
+                new frmanalisisminmaxmid().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnbusca_kpi_Obj;
     private javax.swing.JButton btnbuscaarea;
     private javax.swing.JButton btnbuscames;
     private javax.swing.JButton btnbuscar_subarea_trab;
@@ -759,7 +680,6 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
     private javax.swing.JButton btngraficar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -770,12 +690,10 @@ public class frmanalisischart6 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblnombrekpi6;
     private javax.swing.JLabel lblnombrekpi7;
     private javax.swing.JLabel lblnombrekpi8;
-    private javax.swing.JLabel lblnombrekpi9;
     private javax.swing.JPanel pnlgrafica;
     private javax.swing.JTable tablaanalisis;
     public static javax.swing.JTextField txtmes;
     public static javax.swing.JTextField txtnombrearea;
-    public static javax.swing.JTextField txtnombrekpi;
     public static javax.swing.JTextField txtnombresubarea;
     public static javax.swing.JTextField txtyear;
     // End of variables declaration//GEN-END:variables

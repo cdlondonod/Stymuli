@@ -5,7 +5,6 @@
  */
 package UI;
 
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 
@@ -38,124 +37,114 @@ import org.jfree.data.category.CategoryDataset;
 
 import org.jfree.data.category.DefaultCategoryDataset;
 
-
 /**
  *
  * @author crist
  */
 public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
 
-    
-    
     /**
      * Creates new form frmanalisis
      */
     public frmanalisfrecuencia() {
-((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
-this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         initComponents();
-        mostrar("","","","","","");
+        mostrar("", "", "", "", "", "");
         tablaanalisischart2.setShowGrid(true);
-        conexion.frmabierto=5;
+        conexion.frmabierto = 5;
         btngraficar.requestFocus();
-           txtyear.getDocument().addDocumentListener(new DocumentListener() {
+        txtyear.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-             mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-             mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
         });
-           txtmes.getDocument().addDocumentListener(new DocumentListener() {
+        txtmes.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-             mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
         });
-        
-        
-         
-        
+
         txtnombrearea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText());//To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());//To change body of generated methods, choose Tools | Templates.
             }
         });
-        
-        
-           txtnombresubarea.getDocument().addDocumentListener(new DocumentListener() {
+
+        txtnombresubarea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
         });
-           
-           
-              txtnombrekpi.getDocument().addDocumentListener(new DocumentListener() {
+
+        txtnombrekpi.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),"",txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
             }
         });
-        
+
     }
 
-   
-
- void mostrar(String year, String mes, String area, String Subarea,String Trabajador, String KPI) {
+    void mostrar(String year, String mes, String area, String Subarea, String Trabajador, String KPI) {
         try {
             DefaultTableModel modelo;
             fanalisis func = new fanalisis();
-            modelo = func.mostrarcompleto(year, mes, area, Subarea,Trabajador, KPI);
+            modelo = func.mostrarcompleto(year, mes, area, Subarea, Trabajador, KPI);
 
             tablaanalisischart2.setModel(modelo);
             ocultar();
@@ -165,16 +154,14 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         }
 
     }
-       void ocultar() {
-       
-         
-         txtnombrearea.setEnabled(false);
-         txtnombrekpi.setEnabled(false);
-         txtnombresubarea.setEnabled(false);
-              txtyear.setEnabled(false);
+
+    void ocultar() {
+
+        txtnombrearea.setEnabled(false);
+        txtnombrekpi.setEnabled(false);
+        txtnombresubarea.setEnabled(false);
+        txtyear.setEnabled(false);
         txtmes.setEnabled(false);
-           
-        
 
         tablaanalisischart2.getColumnModel().getColumn(1).setMaxWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(1).setMinWidth(0);
@@ -191,42 +178,38 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         tablaanalisischart2.getColumnModel().getColumn(4).setMaxWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(4).setMinWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(4).setPreferredWidth(0);
-        
+
         tablaanalisischart2.getColumnModel().getColumn(5).setMaxWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(5).setMinWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(5).setPreferredWidth(0);
-        
-         tablaanalisischart2.getColumnModel().getColumn(6).setMaxWidth(0);
+
+        tablaanalisischart2.getColumnModel().getColumn(6).setMaxWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(6).setMinWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(6).setPreferredWidth(0);
-        
-         tablaanalisischart2.getColumnModel().getColumn(8).setMaxWidth(0);
+
+        tablaanalisischart2.getColumnModel().getColumn(8).setMaxWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(8).setMinWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(8).setPreferredWidth(0);
-        
-         tablaanalisischart2.getColumnModel().getColumn(9).setMaxWidth(0);
+
+        tablaanalisischart2.getColumnModel().getColumn(9).setMaxWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(9).setMinWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(9).setPreferredWidth(0);
-        
-        
+
         tablaanalisischart2.getColumnModel().getColumn(10).setMaxWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(10).setMinWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(10).setPreferredWidth(0);
-        
+
         tablaanalisischart2.getColumnModel().getColumn(11).setMaxWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(11).setMinWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(11).setPreferredWidth(0);
-        
+
         tablaanalisischart2.getColumnModel().getColumn(13).setMaxWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(13).setMinWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(13).setPreferredWidth(0);
-        
+
         tablaanalisischart2.getColumnModel().getColumn(14).setMaxWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(14).setMinWidth(0);
         tablaanalisischart2.getColumnModel().getColumn(14).setPreferredWidth(0);
-       
-
-        
 
     }
 
@@ -620,185 +603,150 @@ this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
     private void btngraficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngraficarActionPerformed
 
+        fanalisis func = new fanalisis();
 
-fanalisis func=new fanalisis();
+        ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
 
-     ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
-        
-        
-DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();  
- 
+        DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
 
         TableModel tm = tablaanalisischart2.getModel();
-                   Double y1=0.0;   
-                   Double y2=0.0;
-                   Double y3=0.0;
-                   Double y4=0.0;
-                   Double y5=0.0;
-                   Double y6=0.0;
-                   Double y7=0.0;
-                   Double y8=0.0;
-                   Double y9=0.0;
-                   Double y10=0.0;
-                   Double y11=0.0;
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+        Double y1 = 0.0;
+        Double y2 = 0.0;
+        Double y3 = 0.0;
+        Double y4 = 0.0;
+        Double y5 = 0.0;
+        Double y6 = 0.0;
+        Double y7 = 0.0;
+        Double y8 = 0.0;
+        Double y9 = 0.0;
+        Double y10 = 0.0;
+        Double y11 = 0.0;
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre<=14.00) {
-                    y1++;
-                }                                 
-            }  
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+            if (fre <= 14.00) {
+                y1++;
+            }
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre>14.00&&fre<=24.00) {
-                    y2++;
-                }                                 
-            }  
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+            if (fre > 14.00 && fre <= 24.00) {
+                y2++;
+            }
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre>24.00&&fre<=34.00) {
-                    y3++;
-                }                                 
-            }  
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+            if (fre > 24.00 && fre <= 34.00) {
+                y3++;
+            }
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre>34.00&&fre<=44.00) {
-                    y4++;
-                }                                 
-            }  
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+            if (fre > 34.00 && fre <= 44.00) {
+                y4++;
+            }
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre>44.00&&fre<=54.00) {
-                    y5++;
-                }                                 
-            }  
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+            if (fre > 44.00 && fre <= 54.00) {
+                y5++;
+            }
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre>54.00&&fre<=64.00) {
-                    y6++;
-                }                                 
-            }  
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+            if (fre > 54.00 && fre <= 64.00) {
+                y6++;
+            }
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre>64.00&&fre<=74.00) {
-                    y7++;
-                }                                 
-            }  
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+            if (fre > 64.00 && fre <= 74.00) {
+                y7++;
+            }
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre>74.00&&fre<=84.00) {
-                    y8++;
-                }                                 
-            }  
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+            if (fre > 74.00 && fre <= 84.00) {
+                y8++;
+            }
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre>84.00&&fre<=99.00) {
-                    y9++;
-                }                                 
-            }  
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+            if (fre > 84.00 && fre <= 99.00) {
+                y9++;
+            }
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre>99.00&&fre<=100.00) {
-                    y10++;
-                }                                 
-            }  
-            for (int j = 0; j < tm.getRowCount(); j++) {                                                       
+            if (fre > 99.00 && fre <= 100.00) {
+                y10++;
+            }
+        }
+        for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-                if (fre>100.00) {
-                    y11++;
-                }                                 
-            }  
-            
-            dataset1.addValue(y1, "Frecuencia", "10%");
-            dataset1.addValue(y2, "Frecuencia", "20%");
-            dataset1.addValue(y3, "Frecuencia", "30%");
-            dataset1.addValue(y4, "Frecuencia", "40%");
-            dataset1.addValue(y5, "Frecuencia", "50%");
-            dataset1.addValue(y6, "Frecuencia", "60%");
-            dataset1.addValue(y7, "Frecuencia", "70%");
-            dataset1.addValue(y8, "Frecuencia", "80%");
-            dataset1.addValue(y9, "Frecuencia", "90%");
-            dataset1.addValue(y10, "Frecuencia", "100%");
-            dataset1.addValue(y11, "Frecuencia", "101%++");
-            
-           
-        
-                 
-       final CategoryItemRenderer renderer = new BarRenderer();
-       
-   
-    //    renderer.setLabelGenerator(generator);
+            if (fre > 100.00) {
+                y11++;
+            }
+        }
+
+        dataset1.addValue(y1, "Frecuencia", "10%");
+        dataset1.addValue(y2, "Frecuencia", "20%");
+        dataset1.addValue(y3, "Frecuencia", "30%");
+        dataset1.addValue(y4, "Frecuencia", "40%");
+        dataset1.addValue(y5, "Frecuencia", "50%");
+        dataset1.addValue(y6, "Frecuencia", "60%");
+        dataset1.addValue(y7, "Frecuencia", "70%");
+        dataset1.addValue(y8, "Frecuencia", "80%");
+        dataset1.addValue(y9, "Frecuencia", "90%");
+        dataset1.addValue(y10, "Frecuencia", "100%");
+        dataset1.addValue(y11, "Frecuencia", "101%++");
+
+        final CategoryItemRenderer renderer = new BarRenderer();
+
+        //    renderer.setLabelGenerator(generator);
         renderer.setItemLabelsVisible(true);
-       
+
         renderer.setBaseItemLabelsVisible(true);
         renderer.setBaseItemLabelPaint(Color.GREEN);
-        
-        
-        
-  
-        renderer.setSeriesPaint(0, new Color(121,152,40));
-        
-        
+
+        renderer.setSeriesPaint(0, new Color(121, 152, 40));
+
         final CategoryPlot plot = new CategoryPlot();
         plot.setBackgroundPaint(Color.WHITE);
         plot.setForegroundAlpha(0.8f);
         plot.setRangeGridlinesVisible(true);
         plot.setRangeGridlinePaint(Color.BLACK);
-        
+
         plot.setDataset(dataset1);
         plot.setRenderer(renderer);
-   
+
         plot.setDomainAxis(new CategoryAxis("% de Cumplimiento"));
-        
-     
-         
+
         plot.setRangeAxis(new NumberAxis("C/Trabajadores"));
 
         plot.setOrientation(PlotOrientation.VERTICAL);
         plot.setRangeGridlinesVisible(true);
         plot.setDomainGridlinesVisible(true);
-        
-        
-        
-       
-       
-                                              
-        
+
         plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
-        
+
         plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
         final JFreeChart chart = new JFreeChart(plot);
-        chart.setBackgroundPaint(new Color(53,29,113));
-        chart.setTitle("Frecuencia de Cumplimiento "+txtnombrearea.getText()+" "+txtnombresubarea.getText()+" "+txtnombrekpi.getText());
+        chart.setBackgroundPaint(new Color(53, 29, 113));
+        chart.setTitle("Frecuencia de Cumplimiento " + txtnombrearea.getText() + " " + txtnombresubarea.getText() + " " + txtnombrekpi.getText());
         chart.getTitle().setPaint(Color.WHITE);
 
         plot.getDomainAxis().setTickLabelPaint(Color.WHITE);
-     plot.getRangeAxis().setTickLabelPaint(Color.WHITE);
-      plot.getRangeAxis().setLabelPaint(Color.WHITE);
-    plot.getDomainAxis().setLabelPaint(Color.WHITE);
-    
+        plot.getRangeAxis().setTickLabelPaint(Color.WHITE);
+        plot.getRangeAxis().setLabelPaint(Color.WHITE);
+        plot.getDomainAxis().setLabelPaint(Color.WHITE);
+
         final ChartPanel chartPanel = new ChartPanel(chart);
-        
-        
-          pnlgrafica.setLayout(new java.awt.BorderLayout());
 
-        
-       
-        
+        pnlgrafica.setLayout(new java.awt.BorderLayout());
+
         pnlgrafica.add(chartPanel, BorderLayout.CENTER);
-      
+
         pnlgrafica.validate();
-
-
-
-
-
-
-
-
-
-
-
-
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btngraficarActionPerformed
@@ -815,7 +763,7 @@ DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
         frmzfiltroarea form = new frmzfiltroarea();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);
+        form.setAlwaysOnTop(true);
     }//GEN-LAST:event_btnbuscaareaActionPerformed
 
     private void txtnombresubareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombresubareaActionPerformed
@@ -824,17 +772,17 @@ DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
 
     private void btnbuscar_subarea_trabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar_subarea_trabActionPerformed
 
-      if (txtnombrearea.getText().length() == 0) {
+        if (txtnombrearea.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un Área primero");
             txtnombrearea.requestFocus();
             return;
 
         }
-conexion.formsubarea=frmanalisfrecuencia.txtnombrearea.getText();
+        conexion.formsubarea = frmanalisfrecuencia.txtnombrearea.getText();
         frmzfiltrosubarea form = new frmzfiltrosubarea();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);
+        form.setAlwaysOnTop(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trabActionPerformed
@@ -845,24 +793,19 @@ conexion.formsubarea=frmanalisfrecuencia.txtnombrearea.getText();
 
     private void btnbusca_kpi_ObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbusca_kpi_ObjActionPerformed
 
-  if (txtnombresubarea.getText().length() == 0) {
+        if (txtnombresubarea.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una SubÁrea primero");
             txtnombresubarea.requestFocus();
             return;
 
         }
-conexion.formsubarea=frmanalisfrecuencia.txtnombresubarea.getText();
-
-
-
-
-
+        conexion.formsubarea = frmanalisfrecuencia.txtnombresubarea.getText();
 
         frmzfiltrokpi form = new frmzfiltrokpi();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);   
-       // TODO add your handling code here:
+        form.setAlwaysOnTop(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnbusca_kpi_ObjActionPerformed
 
     private void formInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_formInputMethodTextChanged
@@ -870,14 +813,11 @@ conexion.formsubarea=frmanalisfrecuencia.txtnombresubarea.getText();
     }//GEN-LAST:event_formInputMethodTextChanged
 
     private void btnclearselecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearselecActionPerformed
-txtmes.setText("");
-txtyear.setText("");       
-txtnombrearea.setText("");
-txtnombresubarea.setText("");
-txtnombrekpi.setText("");
-
-
-
+        txtmes.setText("");
+        txtyear.setText("");
+        txtnombrearea.setText("");
+        txtnombresubarea.setText("");
+        txtnombrekpi.setText("");
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed
@@ -904,17 +844,17 @@ txtnombrekpi.setText("");
     }//GEN-LAST:event_txtyearActionPerformed
 
     private void btnbuscayearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscayearActionPerformed
-frmzfiltroyear form = new frmzfiltroyear();
+        frmzfiltroyear form = new frmzfiltroyear();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);         // TODO add your handling code here:
+        form.setAlwaysOnTop(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscayearActionPerformed
 
     private void btnbuscamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscamesActionPerformed
-frmzfiltromes form = new frmzfiltromes();
+        frmzfiltromes form = new frmzfiltromes();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);           // TODO add your handling code here:
+        form.setAlwaysOnTop(true);           // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscamesActionPerformed
 
     /**

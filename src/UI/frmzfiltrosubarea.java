@@ -252,7 +252,7 @@ public class frmzfiltrosubarea extends javax.swing.JFrame {
         } else if (conexion.frmabierto == 6) {
             frmanalisevolutivo.txtnombresubarea.setText(txtfiltrar.getText());
         }else if (conexion.frmabierto == 11) {
-            frmanalisischart6.txtnombresubarea.setText(txtfiltrar.getText());
+            frmanalisisminmaxmid.txtnombresubarea.setText(txtfiltrar.getText());
         }
 
         this.dispose();
