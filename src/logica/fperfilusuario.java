@@ -11,7 +11,6 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  *
@@ -22,6 +21,7 @@ public class fperfilusuario {
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
+    private String sSQL2 = "";
     DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
     String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
     String year = timeStamp.substring(0, 4);
@@ -190,17 +190,31 @@ public class fperfilusuario {
                 + fanalisis.bigquery
                 + " )AS tbcomp "
                 + "GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year) AS ta "
-                + " WHERE ta.idsubarea="+INICIO.lblinicioidsubarea.getText()
+                + " WHERE ta.idsubarea=" + INICIO.lblinicioidsubarea.getText()
+                + " GROUP BY ta.mes,ta.year"
+                + " ORDER BY ta.year,ta.mes";
+        sSQL2 = "  SELECT AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+                + " (IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
+                + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
+                + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
+                + " AS subarea, s.idsubarea, "
+                + fanalisis.bigquery
+                + " )AS tbcomp "
+                + "GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year) AS ta "
+                + " WHERE ta.idpersona=" + INICIO.lblinicioidpersona.getText()
                 + " GROUP BY ta.mes,ta.year"
                 + " ORDER BY ta.year,ta.mes";
         Double maxobt;
         Double minobt;
         Double midobt;
         String fecha = "";
+        Double tumid;
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sSQL);
+            Statement st2 = cn.createStatement();
+            ResultSet rs2 = st2.executeQuery(sSQL2);
 
             while (rs.next()) {
                 if (rs.getString("maxobt") != null) {
@@ -229,7 +243,22 @@ public class fperfilusuario {
                 dataset.addValue(midobt, "Med", fecha);
                 dataset.addValue(minobt, "Min", fecha);
                 dataset.addValue(maxobt, "Max", fecha);
+            }
+            while (rs2.next()) {
+                if (rs2.getString("midobt") != null) {
+                    tumid = Double.parseDouble(rs2.getString("midobt"));
+                } else {
+                    tumid = 0.0;
+                }
 
+                String completeyear = rs2.getString("ta.year");
+                String shortyear = completeyear.substring(2, 4);
+                String completemes = rs2.getString("ta.mes");
+                String shortmes = completemes.substring(0, 6);
+
+                fecha = shortyear + "/ " + shortmes;
+                
+                dataset.addValue(tumid, "Tu Med", fecha);
             }
 
             return dataset;

@@ -272,6 +272,8 @@ public class frmperfil extends javax.swing.JInternalFrame {
             renderer.setSeriesStroke(0, new BasicStroke(4));
              renderer.setSeriesPaint(2, new Color(5, 255, 22));
              renderer.setSeriesStroke(2, new BasicStroke(4));
+             renderer.setSeriesPaint(3, new Color(53, 29, 113));
+             renderer.setSeriesStroke(3, new BasicStroke(6));
             renderer.setBaseItemLabelsVisible(true);
             plot.setBackgroundPaint(Color.WHITE);
             plot.setForegroundAlpha(0.8f);

@@ -29,6 +29,7 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.DatasetRenderingOrder;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.AreaRenderer;
 
 import org.jfree.chart.renderer.category.BarRenderer;
 
@@ -623,67 +624,67 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         Double y11 = 0.0;
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre <= 14.00) {
+            if (fre <= 19.99) {
                 y1++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 14.00 && fre <= 24.00) {
+            if (fre > 19.99 && fre <= 29.99) {
                 y2++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 24.00 && fre <= 34.00) {
+            if (fre > 29.99 && fre <= 39.99) {
                 y3++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 34.00 && fre <= 44.00) {
+            if (fre > 39.99 && fre <= 49.99) {
                 y4++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 44.00 && fre <= 54.00) {
+            if (fre > 49.99&& fre <= 59.99) {
                 y5++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 54.00 && fre <= 64.00) {
+            if (fre > 59.99 && fre <= 69.99) {
                 y6++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 64.00 && fre <= 74.00) {
+            if (fre > 69.99 && fre <= 79.99) {
                 y7++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 74.00 && fre <= 84.00) {
+            if (fre > 79.99 && fre <= 89.99) {
                 y8++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 84.00 && fre <= 99.00) {
+            if (fre > 89.99 && fre <= 99.99) {
                 y9++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 99.00 && fre <= 100.00) {
+            if (fre > 99.99 && fre <= 119.99) {
                 y10++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 100.00) {
+            if (fre > 119.99) {
                 y11++;
             }
         }
@@ -698,9 +699,9 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         dataset1.addValue(y8, "Frecuencia", "80%");
         dataset1.addValue(y9, "Frecuencia", "90%");
         dataset1.addValue(y10, "Frecuencia", "100%");
-        dataset1.addValue(y11, "Frecuencia", "101%++");
+        dataset1.addValue(y11, "Frecuencia", "120%++");
 
-        final CategoryItemRenderer renderer = new BarRenderer();
+        final CategoryItemRenderer renderer = new AreaRenderer();
 
         //    renderer.setLabelGenerator(generator);
         renderer.setItemLabelsVisible(true);
