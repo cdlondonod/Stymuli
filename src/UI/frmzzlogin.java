@@ -200,6 +200,7 @@ public class frmzzlogin extends javax.swing.JFrame {
                     INICIO.btnkpi.setVisible(false);
                     INICIO.btnmodelos.setVisible(false);
                     INICIO.btnusuarios.setVisible(false);
+                     INICIO.btnanalisis.setVisible(false);
 
                 } else if (ftrabajador.loginacceso.equals("Administrador")) {
                     INICIO.btnperfil.setVisible(false);

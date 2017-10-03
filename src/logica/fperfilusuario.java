@@ -52,7 +52,7 @@ public class fperfilusuario {
                 + " GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year";
         Double valueob;
         Double valuenoob;
-        ganadomespasado=0.0;
+        ganadomespasado = 0.0;
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sSQL);
@@ -72,9 +72,8 @@ public class fperfilusuario {
 
                 dataset.setValue("Obtenido", valueob);
                 dataset.setValue("No Obtenido", valuenoob);
-                ganadomespasado=ganadomespasado+Double.parseDouble(rs.getString("obtreal"));
+                ganadomespasado = ganadomespasado + Double.parseDouble(rs.getString("obtreal"));
             }
-            
 
             return dataset;
         } catch (Exception e) {
@@ -83,9 +82,8 @@ public class fperfilusuario {
         }
     }
 
-     public DefaultCategoryDataset evolutivodinero() {
-            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-     
+    public DefaultCategoryDataset evolutivodinero() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
         sSQL = "  SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + "(IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
@@ -96,10 +94,11 @@ public class fperfilusuario {
                 + " )AS tbcomp   "
                 + " WHERE "
                 + " tbcomp.idpersona=" + INICIO.lblinicioidpersona.getText() + " "
-                + " GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year";
+                + " GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year"
+                 + " ORDER BY tbcomp.mes,tbcomp.year";
         Double valueob;
         Double valuenoob;
-        String fecha="";
+        String fecha = "";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sSQL);
@@ -116,18 +115,17 @@ public class fperfilusuario {
                 } else {
                     valuenoob = 0.0;
                 }
-                
-                String completeyear=rs.getString("tbcomp.year");
-                String shortyear=completeyear.substring(2, 4);
-                String completemes=rs.getString("tbcomp.mes");
-                String shortmes=completemes.substring(0, 6);
-                
-                    fecha= shortyear+ "/ " + shortmes;
+
+                String completeyear = rs.getString("tbcomp.year");
+                String shortyear = completeyear.substring(2, 4);
+                String completemes = rs.getString("tbcomp.mes");
+                String shortmes = completemes.substring(0, 6);
+
+                fecha = shortyear + "/ " + shortmes;
 
                 dataset.addValue(valueob, "Obtenido", fecha);
                 dataset.addValue(valuenoob, "No Obtenido", fecha);
             }
-            
 
             return dataset;
         } catch (Exception e) {
@@ -135,6 +133,52 @@ public class fperfilusuario {
             return null;
         }
     }
+
+    public DefaultCategoryDataset frecuenciacumpli() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        sSQL = " SELECT AVG(ta.cumplimiento) AS promcumplimiento, ta.idpersona, ta.mes,ta.year"
+                + " FROM ( SELECT p.nombre,p.apaterno,p.documento,p.salario,a.nombre AS area,s.nombre AS subarea,"
+                + "m.tipo_estimulo,m.estimulo,"
+                + "k.nombre AS kpi, r.resultado_kpi,o.comparacion,o.valor_objetivo,o.tipo_objetivo,"
+                + "o.valor_ponderado,r.mes,r.year, p.idpersona,"
+                + fanalisis.bigquery
+                + " ) AS ta WHERE "
+                + " ta.idpersona=" + INICIO.lblinicioidpersona.getText() + " "
+                + "GROUP BY ta.mes,ta.year"
+                + " ORDER BY ta.mes,ta.year";
+        Double fre;
+        String fecha = "";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+
+            while (rs.next()) {
+                if (rs.getString("promcumplimiento") != null) {
+                    fre = Double.parseDouble(rs.getString("promcumplimiento"))/100;
+                } else {
+                    fre = 0.0;
+                }
+
+                String completeyear = rs.getString("ta.year");
+                String shortyear = completeyear.substring(2, 4);
+                String completemes = rs.getString("ta.mes");
+                String shortmes = completemes.substring(0, 6);
+
+                fecha = shortyear + "/ " + shortmes;
+
+                dataset.addValue(fre, "Promedio de Cumplimiento", fecha);
+
+            }
+
+            return dataset;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+
     
     
 }

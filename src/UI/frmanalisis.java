@@ -262,14 +262,14 @@ public class frmanalisis extends javax.swing.JInternalFrame {
 
         this.dispose();
 
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+        /*if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
             frmanalisevolutivo.pnlarea.setVisible(false);
             frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
             frmanalisevolutivo.pnlsubarea.setVisible(false);
             frmanalisevolutivo.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+        } else */if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
             frmanalisevolutivo.pnlarea.setVisible(false);
             frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
@@ -299,7 +299,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
 
         this.dispose();
 
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+        /*if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
             frmanalisproyeccion.pnlarea.setVisible(false);
             frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
@@ -308,7 +308,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
             frmanalisproyeccion.pnltrabajador.setVisible(false);
             frmanalisproyeccion.txtpersonadocumento.setText(INICIO.lbliniciodocumento.getText());
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+        }else*/  if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
             frmanalisproyeccion.pnlarea.setVisible(false);
             frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 

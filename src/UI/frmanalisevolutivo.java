@@ -651,10 +651,10 @@ public class frmanalisevolutivo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btngraficar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    public static javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    public static javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblnombrekpi13;
     private javax.swing.JLabel lblnombrekpi6;

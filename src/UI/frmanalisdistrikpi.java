@@ -236,7 +236,7 @@ ocultar();
         lblnombrekpi9 = new javax.swing.JLabel();
         txtnombrekpi = new javax.swing.JTextField();
         btnbusca_kpi_Obj = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        pnlsubarea = new javax.swing.JPanel();
         lblnombrekpi13 = new javax.swing.JLabel();
         txtnombresubarea = new javax.swing.JTextField();
         btnbuscar_subarea_trab = new javax.swing.JButton();
@@ -388,21 +388,21 @@ ocultar();
         });
         jPanel3.add(btnbusca_kpi_Obj);
 
-        jPanel5.setBackground(new java.awt.Color(153, 103, 198));
-        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
+        pnlsubarea.setBackground(new java.awt.Color(153, 103, 198));
+        pnlsubarea.setLayout(new javax.swing.BoxLayout(pnlsubarea, javax.swing.BoxLayout.LINE_AXIS));
 
         lblnombrekpi13.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblnombrekpi13.setForeground(new java.awt.Color(255, 255, 255));
         lblnombrekpi13.setText("SubÁrea:");
         lblnombrekpi13.setPreferredSize(new java.awt.Dimension(55, 14));
-        jPanel5.add(lblnombrekpi13);
+        pnlsubarea.add(lblnombrekpi13);
 
         txtnombresubarea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnombresubareaActionPerformed(evt);
             }
         });
-        jPanel5.add(txtnombresubarea);
+        pnlsubarea.add(txtnombresubarea);
 
         btnbuscar_subarea_trab.setBackground(new java.awt.Color(0, 51, 0));
         btnbuscar_subarea_trab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscarlista.png"))); // NOI18N
@@ -415,7 +415,7 @@ ocultar();
                 btnbuscar_subarea_trabActionPerformed(evt);
             }
         });
-        jPanel5.add(btnbuscar_subarea_trab);
+        pnlsubarea.add(btnbuscar_subarea_trab);
 
         pnlarea.setBackground(new java.awt.Color(153, 103, 198));
         pnlarea.setLayout(new javax.swing.BoxLayout(pnlarea, javax.swing.BoxLayout.LINE_AXIS));
@@ -516,7 +516,7 @@ ocultar();
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                         .addComponent(btngraficar))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlsubarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlarea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -532,7 +532,7 @@ ocultar();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -874,13 +874,12 @@ frmzfiltromes form = new frmzfiltromes();
     private javax.swing.JButton btngraficar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    public static javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    public static javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblnombrekpi13;
     private javax.swing.JLabel lblnombrekpi6;
@@ -889,6 +888,7 @@ frmzfiltromes form = new frmzfiltromes();
     private javax.swing.JLabel lblnombrekpi9;
     public static javax.swing.JPanel pnlarea;
     private javax.swing.JPanel pnlgrafica;
+    public static javax.swing.JPanel pnlsubarea;
     private javax.swing.JTable tablaanalisis;
     public static javax.swing.JTextField txtmes;
     public static javax.swing.JTextField txtnombrearea;

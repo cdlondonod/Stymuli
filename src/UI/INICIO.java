@@ -214,7 +214,7 @@ public class INICIO extends javax.swing.JFrame {
 
         pnlmenulistbuttons.setBackground(new java.awt.Color(54, 29, 120));
         pnlmenulistbuttons.setPreferredSize(new java.awt.Dimension(400, 52));
-        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 0, 0);
+        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0);
         flowLayout1.setAlignOnBaseline(true);
         pnlmenulistbuttons.setLayout(flowLayout1);
 
@@ -442,7 +442,7 @@ public class INICIO extends javax.swing.JFrame {
 
         }
 
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+       /* if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
             frmanalisis.btnchart6.setVisible(false);
             frmanalisis.btncomparacion.setVisible(false);
@@ -450,7 +450,7 @@ public class INICIO extends javax.swing.JFrame {
 
             frmanalisis.btnfrecuencia.setVisible(false);
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+        } else*/ if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
 
