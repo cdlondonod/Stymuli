@@ -144,6 +144,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         pnllistado = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablalistado = new javax.swing.JTable();
@@ -154,6 +155,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         btneditar1 = new javax.swing.JButton();
         cbofiltro = new javax.swing.JComboBox<>();
         lblfiltrar = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         pnlregistro = new javax.swing.JPanel();
         txtidpersona = new javax.swing.JTextField();
         txtidresultados = new javax.swing.JTextField();
@@ -176,7 +178,6 @@ public class frmresultados extends javax.swing.JInternalFrame {
         btnupdownload = new javax.swing.JButton();
         lblnombrekpi13 = new javax.swing.JLabel();
         cbomes = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         btnanalisis7 = new javax.swing.JButton();
         btnanalisis5 = new javax.swing.JButton();
@@ -192,8 +193,13 @@ public class frmresultados extends javax.swing.JInternalFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel4.setBackground(new java.awt.Color(53, 29, 113));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setPreferredSize(new java.awt.Dimension(1181, 511));
+
+        jPanel7.setPreferredSize(new java.awt.Dimension(920, 500));
+        jPanel7.setLayout(new java.awt.BorderLayout());
 
         pnllistado.setBackground(new java.awt.Color(102, 50, 159));
 
@@ -299,7 +305,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
             .addGroup(pnllistadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 896, Short.MAX_VALUE)
                     .addGroup(pnllistadoLayout.createSequentialGroup()
                         .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -310,7 +316,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
                         .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistadoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 772, Short.MAX_VALUE)
                         .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btneditar1)
@@ -344,7 +350,21 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
         pnllistadoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btneliminar, btnnuevo});
 
+        jPanel7.add(pnllistado, java.awt.BorderLayout.CENTER);
+
+        jLabel3.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Resultados");
+        jLabel3.setOpaque(true);
+        jLabel3.setPreferredSize(new java.awt.Dimension(79, 20));
+        jPanel7.add(jLabel3, java.awt.BorderLayout.PAGE_START);
+
+        jPanel4.add(jPanel7);
+
         pnlregistro.setBackground(new java.awt.Color(153, 103, 198));
+        pnlregistro.setPreferredSize(new java.awt.Dimension(267, 300));
 
         jPanel5.setOpaque(false);
 
@@ -495,7 +515,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
                                     .addComponent(lblnombrekpi9)
                                     .addComponent(lblnombrekpi3)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addGap(0, 32, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblnombrekpi6, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblnombrekpi13, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -507,8 +527,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
                             .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtyear, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbomes, javax.swing.GroupLayout.Alignment.LEADING, 0, 125, Short.MAX_VALUE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(cbomes, javax.swing.GroupLayout.Alignment.LEADING, 0, 125, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
 
@@ -540,7 +559,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblnombrekpi9)
                     .addComponent(txtyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnguardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -577,35 +596,11 @@ public class frmresultados extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Resultados");
+        jPanel4.add(pnlregistro);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(pnllistado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlregistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlregistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnllistado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        jPanel1.add(jPanel4, java.awt.BorderLayout.CENTER);
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(53, 29, 113));
         jPanel6.setLayout(new java.awt.GridLayout(1, 0));
 
         btnanalisis7.setBackground(new java.awt.Color(53, 29, 113));
@@ -614,9 +609,9 @@ public class frmresultados extends javax.swing.JInternalFrame {
         btnanalisis7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/obtenido_persona.png"))); // NOI18N
         btnanalisis7.setText("Obtenido por Persona");
         btnanalisis7.setToolTipText("Estímulo obtenido por persona");
-        btnanalisis7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnanalisis7.setBorder(null);
         btnanalisis7.setBorderPainted(false);
-        btnanalisis7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnanalisis7.setContentAreaFilled(false);
         btnanalisis7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnanalisis7ActionPerformed(evt);
@@ -630,9 +625,9 @@ public class frmresultados extends javax.swing.JInternalFrame {
         btnanalisis5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/todo.png"))); // NOI18N
         btnanalisis5.setText("Análisis de Resultados");
         btnanalisis5.setToolTipText("Análisis histórico de todos los resultados");
-        btnanalisis5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnanalisis5.setBorder(null);
         btnanalisis5.setBorderPainted(false);
-        btnanalisis5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnanalisis5.setContentAreaFilled(false);
         btnanalisis5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnanalisis5ActionPerformed(evt);
@@ -640,31 +635,13 @@ public class frmresultados extends javax.swing.JInternalFrame {
         });
         jPanel6.add(btnanalisis5);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(406, 406, 406)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel1.add(jPanel6, java.awt.BorderLayout.PAGE_END);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1212, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1038,6 +1015,7 @@ INICIO.pnlmain.removeAll();
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lblbuscar;
     public static javax.swing.JLabel lblfiltrar;

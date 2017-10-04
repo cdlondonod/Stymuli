@@ -289,7 +289,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
             plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
             plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
             chart.setBackgroundPaint(Color.WHITE);
-            chart.setTitle("Mi Evolutivo");
+            chart.setTitle("Mi Promedio");
             chart.getTitle().setPaint(new Color(53, 29, 113));
             chart.getLegend().setFrame(BlockBorder.NONE);
             plot.getDomainAxis().setTickLabelPaint(new Color(53, 29, 113));
@@ -614,10 +614,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
         INICIO.pnlmain.add(form5chart);
         form5chart.toFront();
         form5chart.setVisible(true);
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = form5chart.getSize();
-        form5chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
+        form5chart.setSize(INICIO.pnlmain.getSize());
 
         this.dispose();
 
@@ -646,10 +643,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
         INICIO.pnlmain.add(form3chart);
         form3chart.toFront();
         form3chart.setVisible(true);
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = form3chart.getSize();
-        form3chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
+        form3chart.setSize(INICIO.pnlmain.getSize());
 
         this.dispose();
 
@@ -676,10 +670,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
         INICIO.pnlmain.add(form1chart);
         form1chart.toFront();
         form1chart.setVisible(true);
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = form1chart.getSize();
-        form1chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
+        form1chart.setSize(INICIO.pnlmain.getSize());
 
         this.dispose();
 

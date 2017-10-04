@@ -5,6 +5,7 @@
  */
 package UI;
 
+import static UI.INICIO.pnlmain;
 import java.awt.Dimension;
 
 /**
@@ -28,7 +29,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         btnevolutivo.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/evolutivo.png") + "\">");
         btnfrecuencia.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/frecuencia.png") + "\">");
         btnproyeccion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/proyeccion.png") + "\">");
-
+        btnmaxmin.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/mixmaxmin.png") + "\">");
     }
 
     /**
@@ -222,6 +223,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         INICIO.pnlmain.add(form1chart);
         form1chart.toFront();
         form1chart.setVisible(true);
+        form1chart.setSize(pnlmain.getSize());
         Dimension desktopSize = INICIO.pnlmain.getSize();
         Dimension jInternalFrameSize = form1chart.getSize();
         form1chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
@@ -257,6 +259,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         INICIO.pnlmain.add(form3chart);
         form3chart.toFront();
         form3chart.setVisible(true);
+        form3chart.setSize(pnlmain.getSize());
         Dimension desktopSize = INICIO.pnlmain.getSize();
         Dimension jInternalFrameSize = form3chart.getSize();
         form3chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
@@ -294,6 +297,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         INICIO.pnlmain.add(form5chart);
         form5chart.toFront();
         form5chart.setVisible(true);
+        form5chart.setSize(pnlmain.getSize());
         Dimension desktopSize = INICIO.pnlmain.getSize();
         Dimension jInternalFrameSize = form5chart.getSize();
         form5chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
@@ -334,6 +338,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         INICIO.pnlmain.add(form2chart);
         form2chart.toFront();
         form2chart.setVisible(true);
+        form2chart.setSize(pnlmain.getSize());
         Dimension desktopSize = INICIO.pnlmain.getSize();
         Dimension jInternalFrameSize = form2chart.getSize();
         form2chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
@@ -367,6 +372,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         INICIO.pnlmain.add(form4chart);
         form4chart.toFront();
         form4chart.setVisible(true);
+        form4chart.setSize(pnlmain.getSize());
         Dimension desktopSize = INICIO.pnlmain.getSize();
         Dimension jInternalFrameSize = form4chart.getSize();
         form4chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
@@ -386,12 +392,30 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         INICIO.pnlmain.add(form4chartkpi);
         form4chartkpi.toFront();
         form4chartkpi.setVisible(true);
+        form4chartkpi.setSize(pnlmain.getSize());
         Dimension desktopSize = INICIO.pnlmain.getSize();
         Dimension jInternalFrameSize = form4chartkpi.getSize();
         form4chartkpi.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
 
-        this.dispose();// TODO add your handling code here:
+        this.dispose();
+
+ if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            frmanalisisminmaxmid.pnlarea.setVisible(false);
+            frmanalisisminmaxmid.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            frmanalisisminmaxmid.pnlarea.setVisible(false);
+            frmanalisisminmaxmid.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+
+        }
+
+
+
+
+
+
+// TODO add your handling code here:
     }//GEN-LAST:event_btnmaxminActionPerformed
 
     /**

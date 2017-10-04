@@ -5,14 +5,9 @@
  */
 package UI;
 
-
 import java.awt.BorderLayout;
-import java.awt.Component;
-
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
-
-
 import javax.swing.JOptionPane;
 
 /**
@@ -21,33 +16,28 @@ import javax.swing.JOptionPane;
  */
 public class INICIO extends javax.swing.JFrame {
 
-
-
     /**
      * Creates new form INICIO
      */
     public INICIO() {
         initComponents();
-       
-       hidelbl();
-             
+
+        hidelbl();
+
         this.setExtendedState(INICIO.MAXIMIZED_BOTH);
         this.setTitle("STYMULI");
-      
-       
-       
 
     }
-    
-    private void cliclperfil(){
-    if (lblinicioacceso.getText().equals("Trabajador")) {
-           btnperfil.doClick(); 
+
+    private void cliclperfil() {
+        if (lblinicioacceso.getText().equals("Trabajador")) {
+            btnperfil.doClick();
         }
-    
+
     }
-    
-    private void hidelbl(){
-    
+
+    private void hidelbl() {
+
         lblinicioidpersona.setVisible(false);
         lblinicionombre.setVisible(false);
         lblinicio1erapellido.setVisible(false);
@@ -59,8 +49,7 @@ public class INICIO extends javax.swing.JFrame {
         lblinicioidsubarea.setVisible(false);
         lbliniciosubarea.setVisible(false);
         lblinicioacceso.setVisible(false);
-        
-     
+
     }
 
     /**
@@ -212,7 +201,7 @@ public class INICIO extends javax.swing.JFrame {
 
         pnlenclose.add(pnlmain, java.awt.BorderLayout.CENTER);
 
-        pnlmenulistbuttons.setBackground(new java.awt.Color(54, 29, 120));
+        pnlmenulistbuttons.setBackground(new java.awt.Color(53, 29, 130));
         pnlmenulistbuttons.setPreferredSize(new java.awt.Dimension(400, 52));
         java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0);
         flowLayout1.setAlignOnBaseline(true);
@@ -420,15 +409,14 @@ public class INICIO extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void btnanalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisisActionPerformed
-        
-       
+
         pnlmain.removeAll();
         pnlmain.revalidate();
         pnlmain.repaint();
 
-       frmanalisis forma = new frmanalisis();
+        frmanalisis forma = new frmanalisis();
 
         if (!forma.isVisible()) {
             pnlmain.add(forma);
@@ -442,25 +430,15 @@ public class INICIO extends javax.swing.JFrame {
 
         }
 
-       /* if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-
-            frmanalisis.btnchart6.setVisible(false);
-            frmanalisis.btncomparacion.setVisible(false);
-            frmanalisis.btndistribucion.setVisible(false);
-
-            frmanalisis.btnfrecuencia.setVisible(false);
-
-        } else*/ if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+         if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
 
             frmanalisis.btndistribucion.setVisible(false);
-            frmanalisis.btnmaxmin.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
 
             frmanalisis.btndistribucion.setVisible(false);
-            frmanalisis.btnmaxmin.setVisible(false);
 
         } else {
 
@@ -473,16 +451,15 @@ public class INICIO extends javax.swing.JFrame {
 
 
     private void btnareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnareasActionPerformed
-        
 
         pnlmain.removeAll();
         pnlmain.revalidate();
         pnlmain.repaint();
-       frmareasubar forms = new frmareasubar();
+        frmareasubar forms = new frmareasubar();
         pnlmain.add(forms);
         forms.toFront();
-        forms.setVisible(true);
-        Dimension desktopSize = pnlmain.getSize();
+        forms.setVisible(true);         
+      Dimension desktopSize = pnlmain.getSize();
         Dimension jInternalFrameSize = forms.getSize();
         forms.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
@@ -491,19 +468,15 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnareasActionPerformed
 
     private void btnusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnusuariosActionPerformed
-       
 
         pnlmain.removeAll();
         pnlmain.revalidate();
         pnlmain.repaint();
-       frmtrabajador formt = new frmtrabajador();
+        frmtrabajador formt = new frmtrabajador();
         pnlmain.add(formt);
         formt.toFront();
         formt.setVisible(true);
-        Dimension desktopSize = pnlmain.getSize();
-        Dimension jInternalFrameSize = formt.getSize();
-        formt.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
+       formt.setSize(pnlmain.getSize());
 
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
@@ -529,13 +502,12 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnusuariosActionPerformed
 
     private void btnkpiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkpiActionPerformed
-       
-        
+
         pnlmain.removeAll();
         pnlmain.revalidate();
         pnlmain.repaint();
 
-       frmkpi formk = new frmkpi();
+        frmkpi formk = new frmkpi();
         pnlmain.add(formk);
         formk.toFront();
         formk.setVisible(true);
@@ -548,13 +520,11 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnkpiActionPerformed
 
     private void btnmodelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodelosActionPerformed
-        
-
 
         pnlmain.removeAll();
         pnlmain.revalidate();
         pnlmain.repaint();
-       frmmodelo formm = new frmmodelo();
+        frmmodelo formm = new frmmodelo();
         pnlmain.add(formm);
         formm.toFront();
         formm.setVisible(true);
@@ -595,21 +565,17 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmodelosActionPerformed
 
     private void btnresultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresultadosActionPerformed
-       
-         
 
         pnlmain.removeAll();
         pnlmain.revalidate();
         pnlmain.repaint();
 
-       frmresultados formr = new frmresultados();
+        frmresultados formr = new frmresultados();
         pnlmain.add(formr);
         formr.toFront();
         formr.setVisible(true);
-        Dimension desktopSize = pnlmain.getSize();
-        Dimension jInternalFrameSize = formr.getSize();
-        formr.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
+        formr.setSize(pnlmain.getSize());
+    
 
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
@@ -639,16 +605,16 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnresultadosActionPerformed
 
     private void btnsimulacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsimulacActionPerformed
-       
-       
+
         pnlmain.removeAll();
         pnlmain.revalidate();
         pnlmain.repaint();
 
-       frmsimulacion formsim = new frmsimulacion();
+        frmsimulacion formsim = new frmsimulacion();
         pnlmain.add(formsim);
         formsim.toFront();
         formsim.setVisible(true);
+        formsim.setSize(pnlmain.getSize());
         Dimension desktopSize = pnlmain.getSize();
         Dimension jInternalFrameSize = formsim.getSize();
         formsim.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
@@ -656,30 +622,27 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsimulacActionPerformed
 
     private void btnperfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfilActionPerformed
-       
-     
 
         pnlmain.removeAll();
         pnlmain.revalidate();
         pnlmain.repaint();
 
-       frmperfil formpe = new frmperfil();
+        frmperfil formpe = new frmperfil();
 
         pnlmain.add(formpe, BorderLayout.CENTER);
         formpe.toFront();
         formpe.setVisible(true);
         formpe.setSize(pnlmain.getSize());
-        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnperfilActionPerformed
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-     // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-    cliclperfil();     // TODO add your handling code here:
+        cliclperfil();     // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
     /**

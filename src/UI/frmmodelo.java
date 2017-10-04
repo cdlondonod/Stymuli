@@ -229,6 +229,7 @@ txtnombrekpi_Obj.setText("");
 
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
         pnllistado_stymuli = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablalistado_stymuli = new javax.swing.JTable();
@@ -240,31 +241,6 @@ txtnombrekpi_Obj.setText("");
         txtidsubarea = new javax.swing.JTextField();
         txtidarea = new javax.swing.JTextField();
         btneditarsty = new javax.swing.JButton();
-        pnllistado_Obj = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tablalistado_Obj = new javax.swing.JTable();
-        txtbuscar_Obj = new javax.swing.JTextField();
-        btneliminar_Obj = new javax.swing.JButton();
-        lblbuscarobj = new javax.swing.JLabel();
-        btnnuevo_Obj = new javax.swing.JButton();
-        txtidkpi = new javax.swing.JTextField();
-        txtidobjetivos = new javax.swing.JTextField();
-        btneditarobj = new javax.swing.JButton();
-        pnlregistro_Obj = new javax.swing.JPanel();
-        btncancelar_Obj = new javax.swing.JButton();
-        txtvalor_pon_Obj = new javax.swing.JTextField();
-        cbocomparacion_Obj = new javax.swing.JComboBox<>();
-        txtvalor_Obj = new javax.swing.JTextField();
-        lblvaponderado = new javax.swing.JLabel();
-        lblnombrekpi16 = new javax.swing.JLabel();
-        lblnombrekpi17 = new javax.swing.JLabel();
-        btnguardar_Obj = new javax.swing.JButton();
-        cbotipo_Obj = new javax.swing.JComboBox<>();
-        lblpondperc = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        lblnombrekpi9 = new javax.swing.JLabel();
-        txtnombrekpi_Obj = new javax.swing.JTextField();
-        btnbusca_kpi_Obj = new javax.swing.JButton();
         pnlregistro_stymuli = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtdescripcion = new javax.swing.JTextArea();
@@ -291,7 +267,33 @@ txtnombrekpi_Obj.setText("");
         txtstymuli = new javax.swing.JTextField();
         lblstymuli = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        pnllistado_Obj = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablalistado_Obj = new javax.swing.JTable();
+        txtbuscar_Obj = new javax.swing.JTextField();
+        btneliminar_Obj = new javax.swing.JButton();
+        lblbuscarobj = new javax.swing.JLabel();
+        btnnuevo_Obj = new javax.swing.JButton();
+        txtidkpi = new javax.swing.JTextField();
+        txtidobjetivos = new javax.swing.JTextField();
+        btneditarobj = new javax.swing.JButton();
         lblobjetivos = new javax.swing.JLabel();
+        pnlregistro_Obj = new javax.swing.JPanel();
+        btncancelar_Obj = new javax.swing.JButton();
+        txtvalor_pon_Obj = new javax.swing.JTextField();
+        cbocomparacion_Obj = new javax.swing.JComboBox<>();
+        txtvalor_Obj = new javax.swing.JTextField();
+        lblvaponderado = new javax.swing.JLabel();
+        lblnombrekpi16 = new javax.swing.JLabel();
+        lblnombrekpi17 = new javax.swing.JLabel();
+        btnguardar_Obj = new javax.swing.JButton();
+        cbotipo_Obj = new javax.swing.JComboBox<>();
+        lblpondperc = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblnombrekpi9 = new javax.swing.JLabel();
+        txtnombrekpi_Obj = new javax.swing.JTextField();
+        btnbusca_kpi_Obj = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -300,9 +302,12 @@ txtnombrekpi_Obj.setText("");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel5.setBackground(new java.awt.Color(53, 29, 113));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel8.setLayout(new java.awt.BorderLayout());
 
         pnllistado_stymuli.setBackground(new java.awt.Color(102, 50, 159));
+        pnllistado_stymuli.setPreferredSize(new java.awt.Dimension(476, 300));
 
         tablalistado_stymuli.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
         tablalistado_stymuli.setModel(new javax.swing.table.DefaultTableModel(
@@ -396,26 +401,29 @@ txtnombrekpi_Obj.setText("");
         pnllistado_stymuli.setLayout(pnllistado_stymuliLayout);
         pnllistado_stymuliLayout.setHorizontalGroup(
             pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-            .addGroup(pnllistado_stymuliLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnnuevo_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btneditarsty)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btneliminar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(pnllistado_stymuliLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblbuscstym)
-                .addGap(105, 105, 105)
-                .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnllistado_stymuliLayout.createSequentialGroup()
+                        .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblbuscstym)
+                        .addGap(105, 105, 105)
+                        .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 53, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistado_stymuliLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnnuevo_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btneditarsty)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btneliminar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         pnllistado_stymuliLayout.setVerticalGroup(
             pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,313 +439,16 @@ txtnombrekpi_Obj.setText("");
                         .addContainerGap()
                         .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btneliminar_stymuli, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnnuevo_stymuli, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btneditarsty, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(11, 11, 11))
-        );
-
-        pnllistado_Obj.setBackground(new java.awt.Color(102, 50, 159));
-        pnllistado_Obj.setPreferredSize(new java.awt.Dimension(505, 400));
-
-        tablalistado_Obj.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
-        tablalistado_Obj.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tablalistado_Obj.setGridColor(new java.awt.Color(102, 50, 159));
-        tablalistado_Obj.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablalistado_ObjMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                tablalistado_ObjMouseEntered(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tablalistado_ObjMousePressed(evt);
-            }
-        });
-        jScrollPane4.setViewportView(tablalistado_Obj);
-
-        txtbuscar_Obj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtbuscar_ObjActionPerformed(evt);
-            }
-        });
-        txtbuscar_Obj.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtbuscar_ObjKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtbuscar_ObjKeyReleased(evt);
-            }
-        });
-
-        btneliminar_Obj.setBackground(new java.awt.Color(153, 51, 0));
-        btneliminar_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        btneliminar_Obj.setForeground(new java.awt.Color(255, 255, 255));
-        btneliminar_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trash.png"))); // NOI18N
-        btneliminar_Obj.setToolTipText("Eliminar seleccionado");
-        btneliminar_Obj.setBorder(null);
-        btneliminar_Obj.setBorderPainted(false);
-        btneliminar_Obj.setContentAreaFilled(false);
-        btneliminar_Obj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneliminar_ObjActionPerformed(evt);
-            }
-        });
-
-        lblbuscarobj.setBackground(new java.awt.Color(255, 255, 255));
-        lblbuscarobj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-
-        btnnuevo_Obj.setBackground(new java.awt.Color(0, 51, 0));
-        btnnuevo_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        btnnuevo_Obj.setForeground(new java.awt.Color(255, 255, 255));
-        btnnuevo_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
-        btnnuevo_Obj.setToolTipText("Crear nuevo");
-        btnnuevo_Obj.setBorder(null);
-        btnnuevo_Obj.setBorderPainted(false);
-        btnnuevo_Obj.setContentAreaFilled(false);
-        btnnuevo_Obj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnuevo_ObjActionPerformed(evt);
-            }
-        });
-
-        btneditarobj.setBackground(new java.awt.Color(0, 51, 0));
-        btneditarobj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        btneditarobj.setForeground(new java.awt.Color(255, 255, 255));
-        btneditarobj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
-        btneditarobj.setToolTipText("Editar seleccionado");
-        btneditarobj.setBorder(null);
-        btneditarobj.setBorderPainted(false);
-        btneditarobj.setContentAreaFilled(false);
-        btneditarobj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditarobjActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnllistado_ObjLayout = new javax.swing.GroupLayout(pnllistado_Obj);
-        pnllistado_Obj.setLayout(pnllistado_ObjLayout);
-        pnllistado_ObjLayout.setHorizontalGroup(
-            pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnllistado_ObjLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblbuscarobj)
-                .addGap(95, 95, 95)
-                .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(txtidkpi, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pnllistado_ObjLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnnuevo_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btneditarobj)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btneliminar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btneliminar_stymuli)
+                    .addComponent(btneditarsty)
+                    .addComponent(btnnuevo_stymuli))
                 .addContainerGap())
-            .addComponent(jScrollPane4)
-        );
-        pnllistado_ObjLayout.setVerticalGroup(
-            pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistado_ObjLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblbuscarobj)
-                    .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtidkpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btneliminar_Obj, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnnuevo_Obj, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btneditarobj, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(11, 11, 11))
         );
 
-        pnlregistro_Obj.setBackground(new java.awt.Color(153, 103, 198));
-
-        btncancelar_Obj.setBackground(new java.awt.Color(0, 51, 0));
-        btncancelar_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        btncancelar_Obj.setForeground(new java.awt.Color(255, 255, 255));
-        btncancelar_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar.png"))); // NOI18N
-        btncancelar_Obj.setToolTipText("Cancelar");
-        btncancelar_Obj.setBorder(null);
-        btncancelar_Obj.setBorderPainted(false);
-        btncancelar_Obj.setContentAreaFilled(false);
-        btncancelar_Obj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancelar_ObjActionPerformed(evt);
-            }
-        });
-
-        txtvalor_pon_Obj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtvalor_pon_ObjActionPerformed(evt);
-            }
-        });
-        txtvalor_pon_Obj.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtvalor_pon_ObjKeyTyped(evt);
-            }
-        });
-
-        cbocomparacion_Obj.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        cbocomparacion_Obj.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mayor/Igual", "Menor/Igual", "Igual" }));
-
-        txtvalor_Obj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtvalor_ObjActionPerformed(evt);
-            }
-        });
-        txtvalor_Obj.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtvalor_ObjKeyTyped(evt);
-            }
-        });
-
-        lblvaponderado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblvaponderado.setForeground(new java.awt.Color(255, 255, 255));
-        lblvaponderado.setText("Valor Ponderado:");
-
-        lblnombrekpi16.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi16.setForeground(new java.awt.Color(255, 255, 255));
-        lblnombrekpi16.setText("Tipo de Objetivo: ");
-
-        lblnombrekpi17.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi17.setForeground(new java.awt.Color(255, 255, 255));
-        lblnombrekpi17.setText(":Valor Objetivo");
-
-        btnguardar_Obj.setBackground(new java.awt.Color(0, 51, 0));
-        btnguardar_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        btnguardar_Obj.setForeground(new java.awt.Color(255, 255, 255));
-        btnguardar_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar.png"))); // NOI18N
-        btnguardar_Obj.setToolTipText("Aceptar y guardar");
-        btnguardar_Obj.setBorder(null);
-        btnguardar_Obj.setBorderPainted(false);
-        btnguardar_Obj.setContentAreaFilled(false);
-        btnguardar_Obj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardar_ObjActionPerformed(evt);
-            }
-        });
-
-        cbotipo_Obj.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ponderado", "Habilitador" }));
-        cbotipo_Obj.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbotipo_ObjItemStateChanged(evt);
-            }
-        });
-
-        lblpondperc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblpondperc.setForeground(new java.awt.Color(255, 255, 255));
-        lblpondperc.setText("%");
-
-        jPanel2.setBackground(new java.awt.Color(153, 103, 198));
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
-
-        lblnombrekpi9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblnombrekpi9.setForeground(new java.awt.Color(255, 255, 255));
-        lblnombrekpi9.setText("KPI :");
-        lblnombrekpi9.setPreferredSize(new java.awt.Dimension(50, 14));
-        jPanel2.add(lblnombrekpi9);
-
-        txtnombrekpi_Obj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnombrekpi_ObjActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtnombrekpi_Obj);
-
-        btnbusca_kpi_Obj.setBackground(new java.awt.Color(0, 51, 0));
-        btnbusca_kpi_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscarlista.png"))); // NOI18N
-        btnbusca_kpi_Obj.setToolTipText("Buscar KPI");
-        btnbusca_kpi_Obj.setBorder(null);
-        btnbusca_kpi_Obj.setBorderPainted(false);
-        btnbusca_kpi_Obj.setContentAreaFilled(false);
-        btnbusca_kpi_Obj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbusca_kpi_ObjActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnbusca_kpi_Obj);
-
-        javax.swing.GroupLayout pnlregistro_ObjLayout = new javax.swing.GroupLayout(pnlregistro_Obj);
-        pnlregistro_Obj.setLayout(pnlregistro_ObjLayout);
-        pnlregistro_ObjLayout.setHorizontalGroup(
-            pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
-                        .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblnombrekpi16)
-                            .addComponent(lblvaponderado))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbotipo_Obj, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtvalor_pon_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblpondperc))
-                    .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbocomparacion_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtvalor_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(btnguardar_Obj)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btncancelar_Obj))
-                    .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblnombrekpi17)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlregistro_ObjLayout.setVerticalGroup(
-            pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtvalor_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblnombrekpi17)
-                        .addComponent(cbocomparacion_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblnombrekpi16)
-                    .addComponent(cbotipo_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btncancelar_Obj, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnguardar_Obj, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblvaponderado)
-                        .addComponent(txtvalor_pon_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblpondperc)))
-                .addGap(8, 8, 8))
-        );
+        jPanel8.add(pnllistado_stymuli, java.awt.BorderLayout.CENTER);
 
         pnlregistro_stymuli.setBackground(new java.awt.Color(153, 103, 198));
 
@@ -939,7 +650,7 @@ txtnombrekpi_Obj.setText("");
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlregistro_stymuliLayout.createSequentialGroup()
                         .addComponent(lblnombrekpi7)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -967,7 +678,7 @@ txtnombrekpi_Obj.setText("");
                         .addComponent(pnlkpiestimulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnguardar_stymuli, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -977,61 +688,352 @@ txtnombrekpi_Obj.setText("");
 
         pnlregistro_stymuliLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel3, jPanel4, jPanel6, jPanel7, pnlkpiestimulo});
 
+        jPanel8.add(pnlregistro_stymuli, java.awt.BorderLayout.PAGE_END);
+
+        jLabel1.setBackground(new java.awt.Color(53, 29, 113));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Modelo");
+        jLabel1.setOpaque(true);
+        jLabel1.setPreferredSize(new java.awt.Dimension(53, 20));
+        jPanel8.add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
+        jPanel5.add(jPanel8);
+
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        pnllistado_Obj.setBackground(new java.awt.Color(102, 50, 159));
+        pnllistado_Obj.setPreferredSize(new java.awt.Dimension(476, 300));
+
+        tablalistado_Obj.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
+        tablalistado_Obj.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablalistado_Obj.setGridColor(new java.awt.Color(102, 50, 159));
+        tablalistado_Obj.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablalistado_ObjMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tablalistado_ObjMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablalistado_ObjMousePressed(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tablalistado_Obj);
+
+        txtbuscar_Obj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtbuscar_ObjActionPerformed(evt);
+            }
+        });
+        txtbuscar_Obj.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtbuscar_ObjKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscar_ObjKeyReleased(evt);
+            }
+        });
+
+        btneliminar_Obj.setBackground(new java.awt.Color(153, 51, 0));
+        btneliminar_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btneliminar_Obj.setForeground(new java.awt.Color(255, 255, 255));
+        btneliminar_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trash.png"))); // NOI18N
+        btneliminar_Obj.setToolTipText("Eliminar seleccionado");
+        btneliminar_Obj.setBorder(null);
+        btneliminar_Obj.setBorderPainted(false);
+        btneliminar_Obj.setContentAreaFilled(false);
+        btneliminar_Obj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminar_ObjActionPerformed(evt);
+            }
+        });
+
+        lblbuscarobj.setBackground(new java.awt.Color(255, 255, 255));
+        lblbuscarobj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+
+        btnnuevo_Obj.setBackground(new java.awt.Color(0, 51, 0));
+        btnnuevo_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btnnuevo_Obj.setForeground(new java.awt.Color(255, 255, 255));
+        btnnuevo_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
+        btnnuevo_Obj.setToolTipText("Crear nuevo");
+        btnnuevo_Obj.setBorder(null);
+        btnnuevo_Obj.setBorderPainted(false);
+        btnnuevo_Obj.setContentAreaFilled(false);
+        btnnuevo_Obj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnuevo_ObjActionPerformed(evt);
+            }
+        });
+
+        btneditarobj.setBackground(new java.awt.Color(0, 51, 0));
+        btneditarobj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btneditarobj.setForeground(new java.awt.Color(255, 255, 255));
+        btneditarobj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        btneditarobj.setToolTipText("Editar seleccionado");
+        btneditarobj.setBorder(null);
+        btneditarobj.setBorderPainted(false);
+        btneditarobj.setContentAreaFilled(false);
+        btneditarobj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneditarobjActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnllistado_ObjLayout = new javax.swing.GroupLayout(pnllistado_Obj);
+        pnllistado_Obj.setLayout(pnllistado_ObjLayout);
+        pnllistado_ObjLayout.setHorizontalGroup(
+            pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnllistado_ObjLayout.createSequentialGroup()
+                .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnllistado_ObjLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnnuevo_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btneditarobj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btneliminar_Obj))
+                    .addGroup(pnllistado_ObjLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnllistado_ObjLayout.createSequentialGroup()
+                                .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblbuscarobj)
+                                .addGap(95, 95, 95)
+                                .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)
+                                .addComponent(txtidkpi, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        pnllistado_ObjLayout.setVerticalGroup(
+            pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnllistado_ObjLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblbuscarobj)
+                    .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtidkpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btneditarobj, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btneliminar_Obj, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnnuevo_Obj, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+        );
+
+        jPanel9.add(pnllistado_Obj, java.awt.BorderLayout.CENTER);
+
+        lblobjetivos.setBackground(new java.awt.Color(53, 29, 113));
         lblobjetivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblobjetivos.setForeground(new java.awt.Color(255, 255, 255));
+        lblobjetivos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblobjetivos.setText("Objetivos");
+        lblobjetivos.setOpaque(true);
+        lblobjetivos.setPreferredSize(new java.awt.Dimension(68, 20));
+        jPanel9.add(lblobjetivos, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addComponent(pnlregistro_stymuli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnllistado_stymuli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(lblobjetivos)
-                        .addContainerGap())
-                    .addComponent(pnlregistro_Obj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnllistado_Obj, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)))
+        pnlregistro_Obj.setBackground(new java.awt.Color(153, 103, 198));
+        pnlregistro_Obj.setPreferredSize(new java.awt.Dimension(536, 150));
+
+        btncancelar_Obj.setBackground(new java.awt.Color(0, 51, 0));
+        btncancelar_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btncancelar_Obj.setForeground(new java.awt.Color(255, 255, 255));
+        btncancelar_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar.png"))); // NOI18N
+        btncancelar_Obj.setToolTipText("Cancelar");
+        btncancelar_Obj.setBorder(null);
+        btncancelar_Obj.setBorderPainted(false);
+        btncancelar_Obj.setContentAreaFilled(false);
+        btncancelar_Obj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelar_ObjActionPerformed(evt);
+            }
+        });
+
+        txtvalor_pon_Obj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtvalor_pon_ObjActionPerformed(evt);
+            }
+        });
+        txtvalor_pon_Obj.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtvalor_pon_ObjKeyTyped(evt);
+            }
+        });
+
+        cbocomparacion_Obj.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        cbocomparacion_Obj.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mayor/Igual", "Menor/Igual", "Igual" }));
+
+        txtvalor_Obj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtvalor_ObjActionPerformed(evt);
+            }
+        });
+        txtvalor_Obj.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtvalor_ObjKeyTyped(evt);
+            }
+        });
+
+        lblvaponderado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblvaponderado.setForeground(new java.awt.Color(255, 255, 255));
+        lblvaponderado.setText("Valor Ponderado:");
+
+        lblnombrekpi16.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblnombrekpi16.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi16.setText("Tipo de Objetivo: ");
+
+        lblnombrekpi17.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblnombrekpi17.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi17.setText(":Valor Objetivo");
+
+        btnguardar_Obj.setBackground(new java.awt.Color(0, 51, 0));
+        btnguardar_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btnguardar_Obj.setForeground(new java.awt.Color(255, 255, 255));
+        btnguardar_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar.png"))); // NOI18N
+        btnguardar_Obj.setToolTipText("Aceptar y guardar");
+        btnguardar_Obj.setBorder(null);
+        btnguardar_Obj.setBorderPainted(false);
+        btnguardar_Obj.setContentAreaFilled(false);
+        btnguardar_Obj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardar_ObjActionPerformed(evt);
+            }
+        });
+
+        cbotipo_Obj.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ponderado", "Habilitador" }));
+        cbotipo_Obj.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbotipo_ObjItemStateChanged(evt);
+            }
+        });
+
+        lblpondperc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblpondperc.setForeground(new java.awt.Color(255, 255, 255));
+        lblpondperc.setText("%");
+
+        jPanel2.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+
+        lblnombrekpi9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblnombrekpi9.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrekpi9.setText("KPI :");
+        lblnombrekpi9.setPreferredSize(new java.awt.Dimension(50, 14));
+        jPanel2.add(lblnombrekpi9);
+
+        txtnombrekpi_Obj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnombrekpi_ObjActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtnombrekpi_Obj);
+
+        btnbusca_kpi_Obj.setBackground(new java.awt.Color(0, 51, 0));
+        btnbusca_kpi_Obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscarlista.png"))); // NOI18N
+        btnbusca_kpi_Obj.setToolTipText("Buscar KPI");
+        btnbusca_kpi_Obj.setBorder(null);
+        btnbusca_kpi_Obj.setBorderPainted(false);
+        btnbusca_kpi_Obj.setContentAreaFilled(false);
+        btnbusca_kpi_Obj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbusca_kpi_ObjActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnbusca_kpi_Obj);
+
+        javax.swing.GroupLayout pnlregistro_ObjLayout = new javax.swing.GroupLayout(pnlregistro_Obj);
+        pnlregistro_Obj.setLayout(pnlregistro_ObjLayout);
+        pnlregistro_ObjLayout.setHorizontalGroup(
+            pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbocomparacion_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtvalor_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
+                        .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblnombrekpi16)
+                            .addComponent(lblvaponderado))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbotipo_Obj, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtvalor_pon_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblpondperc)
+                        .addGap(4, 4, 4)))
+                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblnombrekpi17)
+                    .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
+                        .addComponent(btnguardar_Obj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btncancelar_Obj)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblobjetivos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnllistado_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnllistado_stymuli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlregistro_stymuli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlregistro_Obj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        pnlregistro_ObjLayout.setVerticalGroup(
+            pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtvalor_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblnombrekpi17)
+                        .addComponent(cbocomparacion_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
+                        .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblnombrekpi16)
+                            .addComponent(cbotipo_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblvaponderado)
+                            .addComponent(txtvalor_pon_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblpondperc))
+                        .addGap(8, 46, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_ObjLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnguardar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btncancelar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
 
-        jPanel5Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {pnllistado_Obj, pnllistado_stymuli});
+        jPanel9.add(pnlregistro_Obj, java.awt.BorderLayout.PAGE_END);
+
+        jPanel5.add(jPanel9);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1645,6 +1647,8 @@ txtnombrekpi_Obj.setText("");
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;

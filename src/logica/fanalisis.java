@@ -283,9 +283,7 @@ public class fanalisis {
         if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
             sSQL2 = " AND ta.idarea=" + INICIO.lblinicioidarea.getText() + " ";
         }
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-            sSQL = " AND ta.idpersona=" + INICIO.lblinicioidpersona.getText() + " ";
-        }
+        
         sSQL3 = "  SELECT ta.area,ta.subarea,AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + " (IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
                 + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
