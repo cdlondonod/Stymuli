@@ -275,6 +275,7 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         jLabel1.setBackground(new java.awt.Color(53, 29, 113));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Frecuencia de Cumplimiento");
         jLabel1.setOpaque(true);
         jLabel1.setPreferredSize(new java.awt.Dimension(201, 20));
@@ -634,7 +635,7 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
-            if (fre > 49.99&& fre <= 59.99) {
+            if (fre > 49.99 && fre <= 59.99) {
                 y5++;
             }
         }

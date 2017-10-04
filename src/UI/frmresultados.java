@@ -5,7 +5,6 @@
  */
 package UI;
 
-
 import datos.vresultados;
 
 import java.awt.Color;
@@ -16,7 +15,6 @@ import javax.swing.table.DefaultTableModel;
 import logica.conexion;
 import logica.fresultados;
 
-
 /**
  *
  * @author crist
@@ -26,108 +24,107 @@ public class frmresultados extends javax.swing.JInternalFrame {
     /**
      * Creates new form frmtrabajador
      */
-    
-    String filtropor="p.documento";
+    String filtropor = "p.documento";
+
     public frmresultados() {
-       
+
         initComponents();
-        mostrar("",filtropor);
+        mostrar("", filtropor);
         inhabilitar();
         conexion.frmabierto = 4;
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         tablalistado.setDefaultEditor(Object.class, null);
-         tablalistado.setShowGrid(true);
-         jScrollPane1.getViewport().setBackground(new Color(102, 50, 159));
+        tablalistado.setShowGrid(true);
+        jScrollPane1.getViewport().setBackground(new Color(102, 50, 159));
     }
     private String accion = "guardar";
-    
-    
+
     void ocultar_columnas() {
         tablalistado.getColumnModel().getColumn(0).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(0).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(0).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(1).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(1).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(1).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(2).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(2).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(2).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(4).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(4).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(4).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(6).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(6).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(6).setPreferredWidth(0);
-        
+
     }
-    
+
     void checkinput() {
-        
+
         String str = txtresultado.getText();
         str = str.replaceAll("[^0-9.-]", "");
         txtresultado.setText(str);
-        
+
     }
-    
+
     void inhabilitar() {
-        
+
         pnlregistro.setVisible(false);
         txtidkpi.setVisible(false);
         txtidpersona.setVisible(false);
         txtidresultados.setVisible(false);
-        
+
         btneliminar.setEnabled(false);
         btneditar1.setEnabled(false);
-        
+
         txttrabajador.setEnabled(false);
         txtkpi.setEnabled(false);
-        
+
         txtidpersona.setText("");
         txtidresultados.setText("");
         txtidkpi.setText("");
-        
+
         txtresultado.setText("");
         txtyear.setText("");
         txtkpi.setText("");
         txttrabajador.setText("");
-        
+
     }
-    
+
     void habilitar() {
-        
+
         txtidkpi.setVisible(false);
         txtidpersona.setVisible(false);
         txtidresultados.setVisible(false);
         pnlregistro.setVisible(true);
-        
+
         txtidpersona.setText("");
         txtidresultados.setText("");
         txtidkpi.setText("");
-        
+
         txtresultado.setText("");
         txtyear.setText("");
         txtkpi.setText("");
         txttrabajador.setText("");
     }
-    
+
     void habilitar_btnpr() {
         btneliminar.setEnabled(true);
         btneditar1.setEnabled(true);
     }
-    
-    void mostrar(String buscar,String filtrores) {
+
+    void mostrar(String buscar, String filtrores) {
         try {
             DefaultTableModel modelo;
             fresultados func = new fresultados();
-            modelo = func.mostrar(buscar,filtrores);
+            modelo = func.mostrar(buscar, filtrores);
             tablalistado.setModel(modelo);
             ocultar_columnas();
-            
+
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(rootPane, e);
         }
@@ -143,6 +140,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         pnllistado = new javax.swing.JPanel();
@@ -155,7 +153,6 @@ public class frmresultados extends javax.swing.JInternalFrame {
         btneditar1 = new javax.swing.JButton();
         cbofiltro = new javax.swing.JComboBox<>();
         lblfiltrar = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         pnlregistro = new javax.swing.JPanel();
         txtidpersona = new javax.swing.JTextField();
         txtidresultados = new javax.swing.JTextField();
@@ -194,6 +191,15 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jLabel3.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Resultados");
+        jLabel3.setOpaque(true);
+        jLabel3.setPreferredSize(new java.awt.Dimension(79, 20));
+        jPanel1.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(1181, 511));
@@ -351,15 +357,6 @@ public class frmresultados extends javax.swing.JInternalFrame {
         pnllistadoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btneliminar, btnnuevo});
 
         jPanel7.add(pnllistado, java.awt.BorderLayout.CENTER);
-
-        jLabel3.setBackground(new java.awt.Color(53, 29, 113));
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Resultados");
-        jLabel3.setOpaque(true);
-        jLabel3.setPreferredSize(new java.awt.Dimension(79, 20));
-        jPanel7.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
         jPanel4.add(jPanel7);
 
@@ -641,7 +638,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1212, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -658,32 +655,32 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         // TODO add your handling code here:
-     int fila = tablalistado.getSelectedRow();
+        int fila = tablalistado.getSelectedRow();
 
         txtidresultados.setText(tablalistado.getValueAt(fila, 0).toString());
         if (!txtidresultados.getText().equals("")) {
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar el Resultado", "Confirmar", 2);
-            
+
             if (confirmacion == 0) {
                 vresultados dts = new vresultados();
                 fresultados func = new fresultados();
-                
+
                 dts.setIdresultados(Integer.parseInt(txtidresultados.getText()));
                 func.eliminar(dts);
-                mostrar("",filtropor);
+                mostrar("", filtropor);
                 inhabilitar();
-                
+
             }
-            
+
         }
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
         habilitar();
-        
+
         btnguardar.setIcon(new ImageIcon(frmresultados.class.getResource("/img/guardar.png")));
         accion = "guardar";
-        
+
 
     }//GEN-LAST:event_btnnuevoActionPerformed
 
@@ -709,15 +706,15 @@ public class frmresultados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtkpiActionPerformed
 
     private void btnbuscarkpiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarkpiActionPerformed
-        
+
         if (txtidpersona.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una Persona primero");
             txtidpersona.requestFocus();
             return;
-            
+
         }
         conexion.formsubarea = frmresultados.txtidpersona.getText();
-        
+
         frmvistakpi form = new frmvistakpi();
         form.toFront();
         form.setVisible(true);
@@ -767,58 +764,58 @@ public class frmresultados extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un Trabajador");
             txtidpersona.requestFocus();
             return;
-            
+
         }
         if (txtidkpi.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un KPI");
             txtidkpi.requestFocus();
             return;
-            
+
         }
-        
+
         if (txtresultado.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debe ingresar el Resultado del KPI");
             txtresultado.requestFocus();
             return;
-            
+
         }
         if (txtyear.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debe ingresar el Año");
             txtyear.requestFocus();
             return;
-            
+
         }
-        
+
         vresultados dts = new vresultados();
         fresultados func = new fresultados();
-        
+
         dts.setIdkpi(Integer.parseInt(txtidkpi.getText()));
         dts.setIdpersona(Integer.parseInt(txtidpersona.getText()));
         dts.setResultado_kpi(Double.parseDouble(txtresultado.getText()));
-        
+
         int seleccionado = cbomes.getSelectedIndex();
         dts.setMes((String) cbomes.getItemAt(seleccionado));
-        
+
         dts.setYear(Integer.parseInt(txtyear.getText()));
-        
+
         if (accion.equals("guardar")) {
             if (func.insertar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El Resultado fue registrado satisfactoriamente");
-                mostrar("",filtropor);
+                mostrar("", filtropor);
                 inhabilitar();
                 checkinput();
-                
+
             }
-            
+
         } else if (accion.equals("editar")) {
             dts.setIdresultados(Integer.parseInt(txtidresultados.getText()));
             if (func.editar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El Resultado fue editado satisfactoriamente");
-                mostrar("",filtropor);
+                mostrar("", filtropor);
                 inhabilitar();
                 checkinput();
             }
-            
+
         }
     }//GEN-LAST:event_btnguardarActionPerformed
 
@@ -827,9 +824,9 @@ public class frmresultados extends javax.swing.JInternalFrame {
         habilitar();
         btneliminar.setEnabled(true);
         accion = "editar";
-        
+
         int fila = tablalistado.getSelectedRow();
-        
+
         txtidresultados.setText(tablalistado.getValueAt(fila, 0).toString());
         txtidkpi.setText(tablalistado.getValueAt(fila, 1).toString());
         txtidpersona.setText(tablalistado.getValueAt(fila, 2).toString());
@@ -844,35 +841,33 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
 
-        
-    int seleccionado = cbofiltro.getSelectedIndex();
+        int seleccionado = cbofiltro.getSelectedIndex();
         if (((String) cbofiltro.getItemAt(seleccionado)).equals("Documento")) {
-            filtropor="p.documento";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Nombre")) {
-            filtropor="p.nombre";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("1erApellido")) {
-            filtropor="p.apaterno";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Area")) {
-            filtropor="a.nombre";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("SubArea")) {
-            filtropor="s.nombre";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("KPI")) {
-            filtropor="k.nombre";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Año")) {
-            filtropor="r.year";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Mes")) {
-            filtropor="r.mes";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Resultado")) {
-            filtropor="r.resultado_kpi";
-        }             
-                      
-                     
-         mostrar(txtbuscar.getText(),filtropor);          // TODO add your handling code here:
+            filtropor = "p.documento";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Nombre")) {
+            filtropor = "p.nombre";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("1erApellido")) {
+            filtropor = "p.apaterno";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Area")) {
+            filtropor = "a.nombre";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("SubArea")) {
+            filtropor = "s.nombre";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("KPI")) {
+            filtropor = "k.nombre";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Año")) {
+            filtropor = "r.year";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Mes")) {
+            filtropor = "r.mes";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Resultado")) {
+            filtropor = "r.resultado_kpi";
+        }
+
+        mostrar(txtbuscar.getText(), filtropor);          // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyReleased
 
     private void txtresultadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtresultadoKeyTyped
         char keychar = evt.getKeyChar();
-        
+
         if (Character.isAlphabetic(keychar)) {
             evt.consume();
         }
@@ -885,13 +880,12 @@ public class frmresultados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtresultadoKeyTyped
 
     private void btnupdownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdownloadActionPerformed
-        
+
         this.dispose();
         frmupdownresultados form = new frmupdownresultados();
         form.toFront();
         form.setVisible(true);
-        
-      
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnupdownloadActionPerformed
 
@@ -900,60 +894,52 @@ public class frmresultados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbofiltroItemStateChanged
 
     private void btnanalisis7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisis7ActionPerformed
- INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.removeAll();
         INICIO.pnlmain.revalidate();
         INICIO.pnlmain.repaint();
-        
-        frmanalisisobtpersona formobtpe=new frmanalisisobtpersona();
+
+        frmanalisisobtpersona formobtpe = new frmanalisisobtpersona();
         INICIO.pnlmain.add(formobtpe);
         formobtpe.toFront();
         formobtpe.setVisible(true);
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = formobtpe.getSize();
-        formobtpe.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-            (desktopSize.height- jInternalFrameSize.height)/2); 
-        
+        formobtpe.setSize(INICIO.pnlmain.getSize());
+
         this.dispose();
 
-          
-         if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            
+        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+
             frmanalisisobtpersona.pnlarea.setVisible(false);
             frmanalisisobtpersona.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-            
-     
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            
+
             frmanalisisobtpersona.pnlarea.setVisible(false);
             frmanalisisobtpersona.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-            
+
         }
 
     }//GEN-LAST:event_btnanalisis7ActionPerformed
 
     private void btnanalisis5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisis5ActionPerformed
-INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.removeAll();
         INICIO.pnlmain.revalidate();
         INICIO.pnlmain.repaint();
-         frmanalisiscompleto formcompchart=new frmanalisiscompleto();
+        frmanalisiscompleto formcompchart = new frmanalisiscompleto();
         INICIO.pnlmain.add(formcompchart);
         formcompchart.toFront();
         formcompchart.setVisible(true);
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = formcompchart.getSize();
-        formcompchart.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-            (desktopSize.height- jInternalFrameSize.height)/2);
+        formcompchart.setSize(INICIO.pnlmain.getSize());
         this.dispose();
 
-          if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
             frmanalisiscompleto.pnlarea.setVisible(false);
             frmanalisiscompleto.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-     
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
             frmanalisiscompleto.pnlarea.setVisible(false);
             frmanalisiscompleto.txtnombrearea.setText(INICIO.lblinicioarea.getText());
         }
-        
+
 
     }//GEN-LAST:event_btnanalisis5ActionPerformed
 

@@ -5,7 +5,6 @@
  */
 package UI;
 
-
 import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
@@ -18,14 +17,11 @@ import logica.conexion;
 
 import logica.fanalisis;
 
-
 /**
  *
  * @author crist
  */
 public class frmanalisiscompleto extends javax.swing.JInternalFrame {
-
-   
 
     /**
      * Creates new form frmanalisis
@@ -34,240 +30,221 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         initComponents();
-        mostrar("","","","","","");
+        mostrar("", "", "", "", "", "");
         inhabilitar();
         ocultar_col();
-        conexion.frmabierto=9;               
+        conexion.frmabierto = 9;
         tablaanalisiscompleto.setShowGrid(true);
         tablaanalisiscompleto.setDefaultEditor(Object.class, null);
-        
-             txtyear.getDocument().addDocumentListener(new DocumentListener() {
+
+        txtyear.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
                 ocultar_col();//To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-               ocultar_col();  //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-               ocultar_col(); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
-           txtmes.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-              ocultar_col();  //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
                 ocultar_col();  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                 mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-                 ocultar_col(); //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col(); //To change body of generated methods, choose Tools | Templates.
             }
         });
-        
-        
-         
-        
+        txtmes.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col();  //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col();  //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col(); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+
         txtnombrearea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-               ocultar_col();  //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-              ocultar_col(); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-                ocultar_col(); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
-        
-        
-           txtnombresubarea.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-              ocultar_col();  //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-             mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-             ocultar_col();  //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-               ocultar_col(); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
-           
-                    txtpersonadocumento.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-              ocultar_col(); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-              ocultar_col();  //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText());
-               ocultar_col(); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
-              txtnombrekpi.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText()); 
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
                 ocultar_col();  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText()); 
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col(); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col(); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+
+        txtnombresubarea.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col();  //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
                 ocultar_col();  //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(),txtmes.getText(),txtnombrearea.getText(),txtnombresubarea.getText(),txtpersonadocumento.getText(),txtnombrekpi.getText()); 
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
                 ocultar_col(); //To change body of generated methods, choose Tools | Templates.
             }
         });
-        
-        
-        
+
+        txtpersonadocumento.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col(); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col();  //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col(); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        txtnombrekpi.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col();  //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col();  //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), txtnombrekpi.getText());
+                ocultar_col(); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+
     }
 
-    
-void inhabilitar(){
+    void inhabilitar() {
 
-txtpersonadocumento.setVisible(false);
+        txtpersonadocumento.setVisible(false);
 
-txtnombrearea.setEnabled(false);
-txtnombrekpi.setEnabled(false);
-txtnombresubarea.setEnabled(false);
-txtnombretrabajador.setEnabled(false);
-   txtyear.setEnabled(false);
+        txtnombrearea.setEnabled(false);
+        txtnombrekpi.setEnabled(false);
+        txtnombresubarea.setEnabled(false);
+        txtnombretrabajador.setEnabled(false);
+        txtyear.setEnabled(false);
         txtmes.setEnabled(false);
 
+        txtpersonadocumento.setText("");
+        txtnombrearea.setText("");
+        txtnombrekpi.setText("");
+        txtnombresubarea.setText("");
+        txtnombretrabajador.setText("");
 
+    }
 
-txtpersonadocumento.setText("");
-txtnombrearea.setText("");
-txtnombrekpi.setText("");
-txtnombresubarea.setText("");
-txtnombretrabajador.setText("");
-
-}
-
-void ocultar_col(){
+    void ocultar_col() {
 
         tablaanalisiscompleto.getColumnModel().getColumn(1).setMaxWidth(110);
         tablaanalisiscompleto.getColumnModel().getColumn(1).setMinWidth(110);
         tablaanalisiscompleto.getColumnModel().getColumn(1).setPreferredWidth(110);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(2).setMaxWidth(80);
         tablaanalisiscompleto.getColumnModel().getColumn(2).setMinWidth(80);
         tablaanalisiscompleto.getColumnModel().getColumn(2).setPreferredWidth(80);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(3).setMaxWidth(70);
         tablaanalisiscompleto.getColumnModel().getColumn(3).setMinWidth(70);
         tablaanalisiscompleto.getColumnModel().getColumn(3).setPreferredWidth(70);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(4).setMaxWidth(70);
         tablaanalisiscompleto.getColumnModel().getColumn(4).setMinWidth(70);
         tablaanalisiscompleto.getColumnModel().getColumn(4).setPreferredWidth(70);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(5).setMaxWidth(50);
         tablaanalisiscompleto.getColumnModel().getColumn(5).setMinWidth(50);
         tablaanalisiscompleto.getColumnModel().getColumn(5).setPreferredWidth(50);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(6).setMaxWidth(80);
         tablaanalisiscompleto.getColumnModel().getColumn(6).setMinWidth(80);
         tablaanalisiscompleto.getColumnModel().getColumn(6).setPreferredWidth(80);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(7).setMaxWidth(80);
         tablaanalisiscompleto.getColumnModel().getColumn(7).setMinWidth(80);
         tablaanalisiscompleto.getColumnModel().getColumn(7).setPreferredWidth(80);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(8).setMaxWidth(60);
         tablaanalisiscompleto.getColumnModel().getColumn(8).setMinWidth(60);
         tablaanalisiscompleto.getColumnModel().getColumn(8).setPreferredWidth(60);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(9).setMaxWidth(70);
         tablaanalisiscompleto.getColumnModel().getColumn(9).setMinWidth(70);
         tablaanalisiscompleto.getColumnModel().getColumn(9).setPreferredWidth(70);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(10).setMaxWidth(60);
         tablaanalisiscompleto.getColumnModel().getColumn(10).setMinWidth(60);
         tablaanalisiscompleto.getColumnModel().getColumn(10).setPreferredWidth(60);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(11).setMaxWidth(60);
         tablaanalisiscompleto.getColumnModel().getColumn(11).setMinWidth(60);
         tablaanalisiscompleto.getColumnModel().getColumn(11).setPreferredWidth(60);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(12).setMaxWidth(60);
         tablaanalisiscompleto.getColumnModel().getColumn(12).setMinWidth(60);
         tablaanalisiscompleto.getColumnModel().getColumn(12).setPreferredWidth(60);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(13).setMaxWidth(80);
         tablaanalisiscompleto.getColumnModel().getColumn(13).setMinWidth(80);
         tablaanalisiscompleto.getColumnModel().getColumn(13).setPreferredWidth(80);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(14).setMaxWidth(30);
         tablaanalisiscompleto.getColumnModel().getColumn(14).setMinWidth(30);
         tablaanalisiscompleto.getColumnModel().getColumn(14).setPreferredWidth(30);
-        
+
         tablaanalisiscompleto.getColumnModel().getColumn(0).setMaxWidth(100);
         tablaanalisiscompleto.getColumnModel().getColumn(0).setMinWidth(100);
         tablaanalisiscompleto.getColumnModel().getColumn(0).setPreferredWidth(100);
-        
-       
-  
-        
-        
 
-}
-   
-    
-    
-    
-    
+    }
 
-    void mostrar(String year, String mes, String area, String Subarea,String Trabajador, String KPI) {
+    void mostrar(String year, String mes, String area, String Subarea, String Trabajador, String KPI) {
         try {
             DefaultTableModel modelo;
             fanalisis func = new fanalisis();
-            modelo = func.mostrarcompleto(year, mes, area, Subarea,Trabajador, KPI);
+            modelo = func.mostrarcompleto(year, mes, area, Subarea, Trabajador, KPI);
 
             tablaanalisiscompleto.setModel(modelo);
 
@@ -330,12 +307,15 @@ void ocultar_col(){
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 548));
 
-        jPanel7.setBackground(new java.awt.Color(53, 29, 113));
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new java.awt.BorderLayout());
 
+        jLabel1.setBackground(new java.awt.Color(53, 29, 113));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Resultados Completos");
+        jLabel1.setOpaque(true);
         jLabel1.setPreferredSize(new java.awt.Dimension(158, 20));
         jPanel7.add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
@@ -659,7 +639,7 @@ void ocultar_col(){
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
         );
 
         pack();
@@ -756,17 +736,13 @@ void ocultar_col(){
             return;
 
         }
-        
-        conexion.formsubarea=frmanalisiscompleto.txtnombresubarea.getText();  
 
+        conexion.formsubarea = frmanalisiscompleto.txtnombresubarea.getText();
 
- frmzfiltrotrabajador form = new frmzfiltrotrabajador();
+        frmzfiltrotrabajador form = new frmzfiltrotrabajador();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);   
-
-
-
+        form.setAlwaysOnTop(true);
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trab1ActionPerformed
@@ -782,39 +758,35 @@ void ocultar_col(){
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed
-DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
+    DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
 
     private void ckbenabledtablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckbenabledtablaActionPerformed
 
-if (ckbenabledtabla.isSelected()) {
- 
-    tablaanalisiscompleto.setEnabled(true);
- 
-} else {
- 
-    tablaanalisiscompleto.setEnabled(false);
- 
-}
+        if (ckbenabledtabla.isSelected()) {
 
+            tablaanalisiscompleto.setEnabled(true);
 
+        } else {
 
+            tablaanalisiscompleto.setEnabled(false);
 
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_ckbenabledtablaActionPerformed
 
     private void btnbuscamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscamesActionPerformed
-frmzfiltromes form = new frmzfiltromes();
+        frmzfiltromes form = new frmzfiltromes();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);        // TODO add your handling code here:
+        form.setAlwaysOnTop(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscamesActionPerformed
 
     private void btnbuscayearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscayearActionPerformed
-frmzfiltroyear form = new frmzfiltroyear();
+        frmzfiltroyear form = new frmzfiltroyear();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);         // TODO add your handling code here:
+        form.setAlwaysOnTop(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscayearActionPerformed
 
     /**

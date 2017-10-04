@@ -23,12 +23,12 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
     /**
      * Creates new form frmtrabajador
      */
-    
-    String filtropor="p.documento";
+    String filtropor = "p.documento";
+
     public frmtrabajador() {
-       
+
         initComponents();
-        mostrar("",filtropor);
+        mostrar("", filtropor);
         inhabilitar();
         tablalistado.setVisible(true);
         conexion.frmabierto = 2;
@@ -71,15 +71,11 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         txtidsubarea.setVisible(false);
         txtidpersona.setVisible(false);
         txtidarea.setVisible(false);
-        
-        
 
         txtnombrearea.setEnabled(false);
-       
+
         txtnombresubarea.setEnabled(false);
-       
-      
-        
+
         btneliminar.setEnabled(false);
         btneditar.setEnabled(false);
 
@@ -94,7 +90,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         txttel.setText("");
         txtsalario.setText("");
         txtcargo.setText("");
-       
+
         txtpassword.setText("");
         txtnombrearea.setText("");
 
@@ -105,17 +101,16 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         txtidsubarea.setVisible(false);
         txtidpersona.setVisible(false);
         txtidarea.setVisible(false);
-      pnlregistro.setVisible(true);
+        pnlregistro.setVisible(true);
 
         txtnombrearea.setEnabled(false);
-        
+
         txtnombresubarea.setEnabled(false);
-      
 
         btnguardar.setEnabled(true);
         btncancelar.setEnabled(true);
-   
-txtcargo.setText("");
+
+        txtcargo.setText("");
         txtidpersona.setText("");
         txtidarea.setText("");
         txtidsubarea.setText("");
@@ -132,17 +127,17 @@ txtcargo.setText("");
 
     }
 
-    void habilitar_btnpr(){
-         btneliminar.setEnabled(true);
+    void habilitar_btnpr() {
+        btneliminar.setEnabled(true);
         btneditar.setEnabled(true);
-    
+
     }
-    
-    void mostrar(String buscar,String filtrores) {
+
+    void mostrar(String buscar, String filtrores) {
         try {
             DefaultTableModel modelo;
             ftrabajador func = new ftrabajador();
-            modelo = func.mostrar(buscar,filtrores);
+            modelo = func.mostrar(buscar, filtrores);
             tablalistado.setModel(modelo);
             ocultar_columnas();
 
@@ -163,7 +158,6 @@ txtcargo.setText("");
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         pnllistado = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablalistado = new javax.swing.JTable();
@@ -215,6 +209,7 @@ txtcargo.setText("");
         btnupdownload = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -251,21 +246,13 @@ txtcargo.setText("");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(973, 500));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel7.setOpaque(false);
         jPanel7.setPreferredSize(new java.awt.Dimension(745, 590));
         jPanel7.setLayout(new java.awt.BorderLayout());
-
-        jLabel3.setBackground(new java.awt.Color(53, 29, 113));
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Usuarios");
-        jLabel3.setOpaque(true);
-        jLabel3.setPreferredSize(new java.awt.Dimension(62, 20));
-        jPanel7.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
         pnllistado.setBackground(new java.awt.Color(102, 50, 159));
         pnllistado.setPreferredSize(new java.awt.Dimension(745, 500));
@@ -801,32 +788,32 @@ txtcargo.setText("");
                     .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jPanel5.add(pnlregistro);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
-        );
+        jPanel1.add(jPanel5, java.awt.BorderLayout.CENTER);
+
+        jLabel3.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Usuarios");
+        jLabel3.setOpaque(true);
+        jLabel3.setPreferredSize(new java.awt.Dimension(62, 20));
+        jPanel1.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1005, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, Short.MAX_VALUE)
         );
 
         pack();
@@ -839,7 +826,7 @@ txtcargo.setText("");
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         // TODO add your handling code here:
-     int fila = tablalistado.getSelectedRow();
+        int fila = tablalistado.getSelectedRow();
 
         txtidpersona.setText(tablalistado.getValueAt(fila, 0).toString());
         if (!txtidpersona.getText().equals("")) {
@@ -851,7 +838,7 @@ txtcargo.setText("");
 
                 dts.setIdpersona(Integer.parseInt(txtidpersona.getText()));
                 func.eliminar(dts);
-                mostrar("",filtropor);
+                mostrar("", filtropor);
                 inhabilitar();
 
             }
@@ -861,7 +848,7 @@ txtcargo.setText("");
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
         habilitar();
-        
+
         txtnombre.requestFocus();
         btnguardar.setIcon(new ImageIcon(frmtrabajador.class.getResource("/img/guardar.png")));
         accion = "guardar";
@@ -911,7 +898,7 @@ txtcargo.setText("");
 
     private void btnbuscaareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaareaActionPerformed
         // TODO add your handling code here:
-        
+
         txtidsubarea.setText("");
         txtnombresubarea.setText("");
         frmvistaarea form = new frmvistaarea();
@@ -919,7 +906,7 @@ txtcargo.setText("");
         form.setVisible(true);
         form.setAlwaysOnTop(true);
         form.setLocationRelativeTo(btnbuscaarea);
-       
+
     }//GEN-LAST:event_btnbuscaareaActionPerformed
 
     private void txttelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttelActionPerformed
@@ -959,7 +946,7 @@ txtcargo.setText("");
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
-       inhabilitar();
+        inhabilitar();
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
@@ -1002,14 +989,14 @@ txtcargo.setText("");
             return;
 
         }
-       
+
         if (txtsalario.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debe ingresar el salario");
             txtsalario.requestFocus();
             return;
 
         }
-     
+
         if (txtpassword.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debe ingresar el password");
             txtpassword.requestFocus();
@@ -1039,7 +1026,6 @@ txtcargo.setText("");
         seleccionado = cboacceso.getSelectedIndex();
         dts.setAcceso((String) cboacceso.getItemAt(seleccionado));
 
-       
         dts.setPassword(txtpassword.getText());
 
         seleccionado = cboestado.getSelectedIndex();
@@ -1048,7 +1034,7 @@ txtcargo.setText("");
         if (accion.equals("guardar")) {
             if (func.insertar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El Trabajador fue registrado satisfactoriamente");
-                mostrar("",filtropor);
+                mostrar("", filtropor);
                 inhabilitar();
                 checkinput();
             }
@@ -1057,7 +1043,7 @@ txtcargo.setText("");
             dts.setIdpersona(Integer.parseInt(txtidpersona.getText()));
             if (func.editar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El Trabajador fue editado satisfactoriamente");
-                mostrar("",filtropor);
+                mostrar("", filtropor);
                 inhabilitar();
                 checkinput();
             }
@@ -1072,7 +1058,7 @@ txtcargo.setText("");
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
 
-btnguardar.setIcon(new ImageIcon(frmtrabajador.class.getResource("/img/editar.png")));
+        btnguardar.setIcon(new ImageIcon(frmtrabajador.class.getResource("/img/editar.png")));
         habilitar();
         btneliminar.setEnabled(true);
         accion = "editar";
@@ -1093,17 +1079,14 @@ btnguardar.setIcon(new ImageIcon(frmtrabajador.class.getResource("/img/editar.pn
         txtidarea.setText(tablalistado.getValueAt(fila, 8).toString());
         txtnombrearea.setText(tablalistado.getValueAt(fila, 9).toString());
         txtidsubarea.setText(tablalistado.getValueAt(fila, 10).toString());
-        
+
         txtnombresubarea.setText(tablalistado.getValueAt(fila, 11).toString());
-        
-        
+
         txtcargo.setText(tablalistado.getValueAt(fila, 12).toString());
         txtsalario.setText(tablalistado.getValueAt(fila, 13).toString());
 
         cboacceso.setSelectedItem(tablalistado.getValueAt(fila, 14).toString());
 
-       
-        
         lblpassword.setText("Nuevo Password");
         lblpassword.setForeground(Color.red);
 
@@ -1111,47 +1094,40 @@ btnguardar.setIcon(new ImageIcon(frmtrabajador.class.getResource("/img/editar.pn
 
         checkinput();
 
-
-        
         txtnombre.requestFocus();
-      // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
 
-        
         int seleccionado = cbofiltro.getSelectedIndex();
         if (((String) cbofiltro.getItemAt(seleccionado)).equals("Documento")) {
-            filtropor="p.documento";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Nombre")) {
-            filtropor="p.nombre";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("1erApellido")) {
-            filtropor="p.apaterno";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Area")) {
-            filtropor="a.nombre";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("SubArea")) {
-            filtropor="s.nombre";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("2doApellido")) {
-            filtropor="p.amaterno";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Cargo")) {
-            filtropor="p.cargo";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Salario")) {
-            filtropor="p.salario";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Acceso")) {
-            filtropor="p.acceso";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Estado")) {
-            filtropor="p.estado";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Email")) {
-            filtropor="p.email";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Telefono")) {
-            filtropor="p.telefono";
-        }                             
-     
+            filtropor = "p.documento";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Nombre")) {
+            filtropor = "p.nombre";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("1erApellido")) {
+            filtropor = "p.apaterno";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Area")) {
+            filtropor = "a.nombre";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("SubArea")) {
+            filtropor = "s.nombre";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("2doApellido")) {
+            filtropor = "p.amaterno";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Cargo")) {
+            filtropor = "p.cargo";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Salario")) {
+            filtropor = "p.salario";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Acceso")) {
+            filtropor = "p.acceso";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Estado")) {
+            filtropor = "p.estado";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Email")) {
+            filtropor = "p.email";
+        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Telefono")) {
+            filtropor = "p.telefono";
+        }
 
-
-
-
-        mostrar(txtbuscar.getText(),filtropor);         // TODO add your handling code here:
+        mostrar(txtbuscar.getText(), filtropor);         // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyReleased
 
     private void txtsalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsalarioKeyTyped
@@ -1189,7 +1165,7 @@ btnguardar.setIcon(new ImageIcon(frmtrabajador.class.getResource("/img/editar.pn
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void txtcargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcargoActionPerformed
-txtcargo.transferFocus();        // TODO add your handling code here:
+        txtcargo.transferFocus();        // TODO add your handling code here:
     }//GEN-LAST:event_txtcargoActionPerformed
 
     private void txtcargoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcargoKeyTyped

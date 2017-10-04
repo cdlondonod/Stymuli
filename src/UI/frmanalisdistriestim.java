@@ -108,8 +108,6 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
 
     }
 
- 
-
     void mostrar(String year, String mes, String area, String Subarea, String Trabajador, String KPI) {
         try {
             DefaultTableModel modelo;
@@ -203,8 +201,10 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         jLabel1.setBackground(new java.awt.Color(53, 29, 113));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Distribución de Stymuli");
         jLabel1.setOpaque(true);
+        jLabel1.setPreferredSize(new java.awt.Dimension(161, 20));
         jPanel8.add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel9.setOpaque(false);
@@ -427,7 +427,7 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1220, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1230, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -494,8 +494,7 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         plot.setSectionPaint(10, new Color(145, 123, 188));
         plot.setSectionPaint(11, new Color(174, 67, 145));
         plot.setSectionPaint(12, new Color(131, 8, 28));
-        
-        
+
         final ChartPanel chartPanel = new ChartPanel(chart);
 
         pnlgrafica.setLayout(new java.awt.BorderLayout());

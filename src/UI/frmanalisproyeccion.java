@@ -45,8 +45,6 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         initComponents();
 
-        
-
         mostrar("", "", "", "", "", "");
 
         conexion.frmabierto = 8;
@@ -153,23 +151,24 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
     void ocultar() {
 
         txtpersonadocumento.setVisible(false);
-        
+
         txtnombretrabajador.setEnabled(false);
         txtnombrearea.setEnabled(false);
         txtnombresubarea.setEnabled(false);
         txtyear.setEnabled(false);
         txtmes.setEnabled(false);
-        
-         tablalistproyeccion.getColumnModel().getColumn(1).setMaxWidth(0);
+
+        tablalistproyeccion.getColumnModel().getColumn(1).setMaxWidth(0);
         tablalistproyeccion.getColumnModel().getColumn(1).setMinWidth(0);
         tablalistproyeccion.getColumnModel().getColumn(1).setPreferredWidth(0);
-        
-         tablalistproyeccion.getColumnModel().getColumn(2).setMaxWidth(0);
+
+        tablalistproyeccion.getColumnModel().getColumn(2).setMaxWidth(0);
         tablalistproyeccion.getColumnModel().getColumn(2).setMinWidth(0);
         tablalistproyeccion.getColumnModel().getColumn(2).setPreferredWidth(0);
 
     }
- DecimalFormat numberFormat = new DecimalFormat("#,##0;(#,##0)");
+    DecimalFormat numberFormat = new DecimalFormat("#,##0;(#,##0)");
+
     void mostrar(String year, String mes, String area, String Subarea, String Trabajador, String KPI) {
         try {
             DefaultTableModel modelo;
@@ -182,11 +181,11 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(rootPane, e);
         }
-        
+
         String valorobtenidoreal;
         valorobtenidoreal = numberFormat.format(fanalisis.resultobttotal);
         lblresultadosobtenidos.setText("Resultado Obtenido Total: $ " + valorobtenidoreal);
-       
+
     }
 
     /**
@@ -274,6 +273,7 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
         jLabel1.setBackground(new java.awt.Color(53, 29, 113));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Proyección Stymuli");
         jLabel1.setOpaque(true);
         jLabel1.setPreferredSize(new java.awt.Dimension(132, 20));
@@ -599,7 +599,7 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed
-   
+
 
     private void btnresultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresultadoActionPerformed
 

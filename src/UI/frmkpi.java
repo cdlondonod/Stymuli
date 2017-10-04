@@ -39,44 +39,37 @@ public class frmkpi extends javax.swing.JInternalFrame {
         tablalistado.getColumnModel().getColumn(0).setPreferredWidth(0);
     }
 
-    
-    
     void inhabilitar() {
-  
+
         txtidkpi.setVisible(false);
         pnlregistro.setVisible(false);
-  
+
         btneliminar.setEnabled(false);
         btneditar1.setEnabled(false);
-        
+
         txtidkpi.setText("");
         txtnom_kpi.setText("");
         txtdesc_kpi.setText("");
-                
-        
-        
+
     }
 
     void habilitar() {
-        
+
         txtidkpi.setVisible(false);
         pnlregistro.setVisible(true);
-       txtidkpi.setText("");
+        txtidkpi.setText("");
         txtnom_kpi.setText("");
         txtdesc_kpi.setText("");
 
     }
-    
-    void habilitarbtnprin(){
-        
+
+    void habilitarbtnprin() {
+
         txtidkpi.setVisible(false);
         btneliminar.setEnabled(true);
         btneditar1.setEnabled(true);
-    
-    
-    }
-          
 
+    }
 
     void mostrar(String buscar) {
         try {
@@ -103,9 +96,9 @@ public class frmkpi extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         pnllistado = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablalistado = new javax.swing.JTable();
@@ -128,10 +121,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel3.setLayout(new java.awt.BorderLayout());
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
         jLabel1.setBackground(new java.awt.Color(53, 29, 113));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -141,7 +131,11 @@ public class frmkpi extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setOpaque(true);
         jLabel1.setPreferredSize(new java.awt.Dimension(23, 20));
-        jPanel3.add(jLabel1, java.awt.BorderLayout.PAGE_START);
+        jPanel1.add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
         pnllistado.setBackground(new java.awt.Color(102, 50, 159));
         pnllistado.setPreferredSize(new java.awt.Dimension(260, 400));
@@ -373,24 +367,13 @@ public class frmkpi extends javax.swing.JInternalFrame {
 
         jPanel2.add(jPanel3);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -406,7 +389,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtnom_kpiActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
-       
+
         pnlregistro.setVisible(true);
         txtnom_kpi.requestFocus();
         btnguardar.setIcon(new ImageIcon(frmkpi.class.getResource("/img/guardar.png")));
@@ -440,7 +423,6 @@ public class frmkpi extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "El KPI fue registrado satisfactoriamente");
                 mostrar("");
                 inhabilitar();
-                
 
             }
 
@@ -450,7 +432,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "El KPI fue editado satisfactoriamente");
                 mostrar("");
                 inhabilitar();
-                
+
             }
 
         }
@@ -477,7 +459,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
                 dts.setIdkpi(Integer.parseInt(txtidkpi.getText()));
                 func.eliminar(dts);
                 mostrar("");
-               inhabilitar();
+                inhabilitar();
 
             }
 
@@ -495,7 +477,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void tablalistadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMousePressed
-habilitarbtnprin();        // TODO add your handling code here:
+        habilitarbtnprin();        // TODO add your handling code here:
 
 
     }//GEN-LAST:event_tablalistadoMousePressed
@@ -505,12 +487,12 @@ habilitarbtnprin();        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyPressed
 
     private void btneditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar1ActionPerformed
-        
+
         habilitar();
         pnlregistro.setVisible(true);
         txtnom_kpi.requestFocus();
         btnguardar.setIcon(new ImageIcon(frmkpi.class.getResource("/img/editar.png")));
-      
+
         btneliminar.setEnabled(true);
         accion = "editar";
 
@@ -518,10 +500,6 @@ habilitarbtnprin();        // TODO add your handling code here:
         txtidkpi.setText(tablalistado.getValueAt(fila, 0).toString());
         txtnom_kpi.setText(tablalistado.getValueAt(fila, 1).toString());
         txtdesc_kpi.setText(tablalistado.getValueAt(fila, 2).toString());
-        
-        
-
-
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btneditar1ActionPerformed
@@ -531,7 +509,7 @@ habilitarbtnprin();        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyReleased
 
     private void txtnom_kpiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom_kpiKeyTyped
- char keychar = evt.getKeyChar();
+        char keychar = evt.getKeyChar();
         if (keychar == '_') {
             evt.setKeyChar('-');
         }           // TODO add your handling code here:

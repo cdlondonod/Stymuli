@@ -5,7 +5,6 @@
  */
 package UI;
 
-
 import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
@@ -18,14 +17,11 @@ import logica.conexion;
 
 import logica.fanalisis;
 
-
 /**
  *
  * @author crist
  */
 public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
-
- 
 
     /**
      * Creates new form frmanalisis
@@ -37,93 +33,90 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
         mostrar("", "", "", "", "", "");
         tablalistporpersona.setDefaultEditor(Object.class, null);
         inhabilitar();
-        
+
         conexion.frmabierto = 10;
-        
-        
 
         txtyear.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
- 
-              
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
+
 //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-            mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
-             
-             //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
+
+                //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
                 mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
-             
-                 //To change body of generated methods, choose Tools | Templates.
+
+                //To change body of generated methods, choose Tools | Templates.
             }
         });
         txtmes.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(),"");
-                
-                 //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
+
+                //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
-                
-               //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
+
+                //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
-                 //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
+                //To change body of generated methods, choose Tools | Templates.
             }
         });
 
         txtnombrearea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-               mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(),"");
-                 //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
+                //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-             mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
                 //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-             mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(),"");
-                 //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
+                //To change body of generated methods, choose Tools | Templates.
             }
         });
 
         txtnombresubarea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-              mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
-                   //To change body of generated methods, choose Tools | Templates.
+                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
+                //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
                 mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
-                 //To change body of generated methods, choose Tools | Templates.
+                //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
                 mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
-                 //To change body of generated methods, choose Tools | Templates.
+                //To change body of generated methods, choose Tools | Templates.
             }
         });
 
@@ -137,34 +130,32 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
             @Override
             public void removeUpdate(DocumentEvent e) {
                 mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
-                 //To change body of generated methods, choose Tools | Templates.
+                //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
                 mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), txtpersonadocumento.getText(), "");
-                 //To change body of generated methods, choose Tools | Templates.
+                //To change body of generated methods, choose Tools | Templates.
             }
         });
-   
 
     }
 
     void inhabilitar() {
-       
+
         txtpersonadocumento.setVisible(false);
 
         txtnombrearea.setEnabled(false);
-        
+
         txtnombresubarea.setEnabled(false);
         txtnombretrabajador.setEnabled(false);
         txtyear.setEnabled(false);
         txtmes.setEnabled(false);
 
-        
         txtpersonadocumento.setText("");
         txtnombrearea.setText("");
-      
+
         txtnombresubarea.setText("");
         txtnombretrabajador.setText("");
 
@@ -172,7 +163,6 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
 
     void ocultar_col() {
 
-        
         tablalistporpersona.getColumnModel().getColumn(4).setMaxWidth(0);
         tablalistporpersona.getColumnModel().getColumn(4).setMinWidth(0);
         tablalistporpersona.getColumnModel().getColumn(4).setPreferredWidth(0);
@@ -189,9 +179,8 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(rootPane, e);
         }
-          String valorobtenidoreal;
+        String valorobtenidoreal;
 
-       
         valorobtenidoreal = numberFormat.format(fanalisis.resultobttotal);
         lblresultadosobtenidos.setText("Resultado Obtenido Total: $ " + valorobtenidoreal);
 
@@ -247,7 +236,7 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 548));
 
-        jPanel10.setBackground(new java.awt.Color(53, 29, 113));
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new java.awt.BorderLayout());
 
         jPanel3.setBackground(new java.awt.Color(53, 29, 113));
@@ -276,9 +265,12 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
 
         jPanel10.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
+        jLabel1.setBackground(new java.awt.Color(53, 29, 113));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Obtenido por Persona");
+        jLabel1.setOpaque(true);
         jLabel1.setPreferredSize(new java.awt.Dimension(155, 20));
         jPanel10.add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
@@ -549,7 +541,7 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
         );
 
         pack();
@@ -627,7 +619,7 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
         txtyear.setText("");
         txtnombrearea.setText("");
         txtnombresubarea.setText("");
-     
+
         txtpersonadocumento.setText("");
         txtnombretrabajador.setText("");
 
@@ -636,17 +628,17 @@ public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
     DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
 
     private void btnbuscamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscamesActionPerformed
-frmzfiltromes form = new frmzfiltromes();
+        frmzfiltromes form = new frmzfiltromes();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);         // TODO add your handling code here:
+        form.setAlwaysOnTop(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscamesActionPerformed
 
     private void btnbuscayearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscayearActionPerformed
-frmzfiltroyear form = new frmzfiltroyear();
+        frmzfiltroyear form = new frmzfiltroyear();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop (true);         // TODO add your handling code here:
+        form.setAlwaysOnTop(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscayearActionPerformed
 
     /**

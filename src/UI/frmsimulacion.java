@@ -5,23 +5,19 @@
  */
 package UI;
 
-import static UI.frmmodelo.txtvalor_Obj;
-import datos.vresultados;
-import datos.vtrabajador;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.text.DecimalFormat;
 import javax.swing.DefaultCellEditor;
-import javax.swing.ImageIcon;
+
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import logica.conexion;
-import logica.fresultados;
+
 import logica.fsimulacion;
-import logica.ftrabajador;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -161,6 +157,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
         jLabel1.setBackground(new java.awt.Color(53, 29, 113));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Simulación");
         jLabel1.setOpaque(true);
         jLabel1.setPreferredSize(new java.awt.Dimension(76, 20));

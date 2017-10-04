@@ -55,7 +55,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
     void inhabilitar_area() {
         txtidarea.setVisible(false);
         txtidsubarea.setVisible(false);
-        
+
         pnlregistro_area.setVisible(false);
         btneliminar_area.setEnabled(false);
         btneditar.setEnabled(false);
@@ -63,7 +63,6 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         txtbuscar_area.setText("");
         txtbuscar_area.requestFocus();
         txtnombre_area.setText("");
-        
 
     }
 
@@ -73,16 +72,16 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         pnlregistro_area.setVisible(true);
         txtnombre_area.requestFocus();
 
-         txtbuscar_area.setText("");
+        txtbuscar_area.setText("");
         txtbuscar_area.requestFocus();
         txtnombre_area.setText("");
-        
+
     }
-    
-    void habilitar_btnareapr(){
+
+    void habilitar_btnareapr() {
         btneliminar_area.setEnabled(true);
         btneditar.setEnabled(true);
-    
+
     }
 
     void mostrar_area(String buscar) {
@@ -114,9 +113,9 @@ public class frmareasubar extends javax.swing.JInternalFrame {
 
         txtidarea.setVisible(false);
         txtidsubarea.setVisible(false);
-        
+
         pnlregistro_sub.setVisible(false);
-        
+
         btneliminar_sub.setEnabled(false);
         btneditar1.setEnabled(false);
 
@@ -128,7 +127,6 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         txtidarea.setVisible(false);
         txtidsubarea.setVisible(false);
 
-        
         pnlregistro_sub.setVisible(true);
 
         txtnombre_sub.setText("");
@@ -136,12 +134,12 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         txtnombre_sub.requestFocus();
 
     }
-    
-    void habilitar_btnsubapri(){
-    
+
+    void habilitar_btnsubapri() {
+
         btneliminar_sub.setEnabled(true);
         btneditar1.setEnabled(true);
-    
+
     }
 
     void mostrar_sub(String buscar) {
@@ -204,6 +202,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         txtbuscar_sub = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 102, 0));
         setClosable(true);
@@ -213,9 +212,9 @@ public class frmareasubar extends javax.swing.JInternalFrame {
 
         pnlprincipal.setBackground(new java.awt.Color(255, 255, 255));
         pnlprincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pnlprincipal.setLayout(new java.awt.BorderLayout());
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.BorderLayout());
@@ -275,14 +274,14 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         pnlregistro_areaLayout.setHorizontalGroup(
             pnlregistro_areaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlregistro_areaLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlregistro_areaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_areaLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnguardar_area, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btncancelar_area, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlregistro_areaLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(lblnombrearea)
                         .addGap(6, 6, 6)
                         .addComponent(txtnombre_area)))
@@ -674,16 +673,16 @@ public class frmareasubar extends javax.swing.JInternalFrame {
 
         jPanel5.add(jPanel4);
 
-        javax.swing.GroupLayout pnlprincipalLayout = new javax.swing.GroupLayout(pnlprincipal);
-        pnlprincipal.setLayout(pnlprincipalLayout);
-        pnlprincipalLayout.setHorizontalGroup(
-            pnlprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        pnlprincipalLayout.setVerticalGroup(
-            pnlprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        pnlprincipal.add(jPanel5, java.awt.BorderLayout.CENTER);
+
+        jLabel4.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Creación de Áreas y SubÁreas");
+        jLabel4.setOpaque(true);
+        jLabel4.setPreferredSize(new java.awt.Dimension(32, 20));
+        pnlprincipal.add(jLabel4, java.awt.BorderLayout.PAGE_START);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -709,9 +708,9 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         int fila = tablalistado_area.getSelectedRow();
         txtidarea.setText(tablalistado_area.getValueAt(fila, 0).toString());
         habilitar_btnareapr();
-       pnllistado_sub.setVisible(true);
-       lblsuba.setVisible(true);
-       mostrar_sub("");
+        pnllistado_sub.setVisible(true);
+        lblsuba.setVisible(true);
+        mostrar_sub("");
     }//GEN-LAST:event_tablalistado_areaMousePressed
 
     private void txtbuscar_areaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscar_areaActionPerformed
@@ -762,8 +761,8 @@ public class frmareasubar extends javax.swing.JInternalFrame {
 
     private void tablalistado_subMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistado_subMousePressed
         habilitar_btnsubapri();
-        
-        
+
+
     }//GEN-LAST:event_tablalistado_subMousePressed
 
     private void txtbuscar_subActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscar_subActionPerformed
@@ -798,7 +797,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
 
     private void btnnuevo_subActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevo_subActionPerformed
         habilitar_sub();
-        
+
         txtnombre_sub.requestFocus();
         txtnombre_sub.setText("");
 
@@ -829,8 +828,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "El Área fue registrada satisfactoriamente");
                 mostrar_area("");
                 inhabilitar_area();
-                
-                
+
                 int lastRow = tablalistado_area.convertRowIndexToView(tablalistado_area.getRowCount() - 1);
                 tablalistado_area.setRowSelectionInterval(lastRow, lastRow);
                 pnllistado_sub.setVisible(true);
@@ -907,12 +905,12 @@ public class frmareasubar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnguardar_subActionPerformed
 
     private void btncancelar_subActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelar_subActionPerformed
-        inhabilitar_sub(); 
+        inhabilitar_sub();
         inhabilitar_area();// TODO add your handling code here:
     }//GEN-LAST:event_btncancelar_subActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-    btnguardar_area.setIcon(new ImageIcon(frmareasubar.class.getResource("/img/editar.png")));
+        btnguardar_area.setIcon(new ImageIcon(frmareasubar.class.getResource("/img/editar.png")));
         habilitar_area();
         btneliminar_area.setEnabled(true);
         accion = "editar";
@@ -921,14 +919,12 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         txtidarea.setText(tablalistado_area.getValueAt(fila, 0).toString());
         txtnombre_area.setText(tablalistado_area.getValueAt(fila, 1).toString());
 
-        
-         txtnombre_area.requestFocus();// TODO add your handling code here:
+        txtnombre_area.requestFocus();// TODO add your handling code here:
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btneditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar1ActionPerformed
 
-
-btnguardar_sub.setIcon(new ImageIcon(frmareasubar.class.getResource("/img/editar.png")));
+        btnguardar_sub.setIcon(new ImageIcon(frmareasubar.class.getResource("/img/editar.png")));
         habilitar_sub();
 
         accionsub = "editar";
@@ -937,7 +933,7 @@ btnguardar_sub.setIcon(new ImageIcon(frmareasubar.class.getResource("/img/editar
         txtidsubarea.setText(tablalistado_sub.getValueAt(fila, 0).toString());
 
         txtnombre_sub.setText(tablalistado_sub.getValueAt(fila, 2).toString());
-      
+
         txtnombre_sub.requestFocus();
         // TODO add your handling code here:
     }//GEN-LAST:event_btneditar1ActionPerformed
@@ -1011,6 +1007,7 @@ btnguardar_sub.setIcon(new ImageIcon(frmareasubar.class.getResource("/img/editar
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

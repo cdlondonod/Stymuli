@@ -7,7 +7,7 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridBagLayout;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -422,15 +422,11 @@ public class INICIO extends javax.swing.JFrame {
             pnlmain.add(forma);
             forma.setVisible(true);
             forma.toFront();
-
-            Dimension desktopSize = pnlmain.getSize();
-            Dimension jInternalFrameSize = forma.getSize();
-            forma.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                    (desktopSize.height - jInternalFrameSize.height) / 2);
+            forma.setSize(pnlmain.getSize());
 
         }
 
-         if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+        if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
 
@@ -458,11 +454,8 @@ public class INICIO extends javax.swing.JFrame {
         frmareasubar forms = new frmareasubar();
         pnlmain.add(forms);
         forms.toFront();
-        forms.setVisible(true);         
-      Dimension desktopSize = pnlmain.getSize();
-        Dimension jInternalFrameSize = forms.getSize();
-        forms.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
+        forms.setVisible(true);
+        forms.setSize(pnlmain.getSize());
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnareasActionPerformed
@@ -476,7 +469,7 @@ public class INICIO extends javax.swing.JFrame {
         pnlmain.add(formt);
         formt.toFront();
         formt.setVisible(true);
-       formt.setSize(pnlmain.getSize());
+        formt.setSize(pnlmain.getSize());
 
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
@@ -511,10 +504,7 @@ public class INICIO extends javax.swing.JFrame {
         pnlmain.add(formk);
         formk.toFront();
         formk.setVisible(true);
-        Dimension desktopSize = pnlmain.getSize();
-        Dimension jInternalFrameSize = formk.getSize();
-        formk.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
+        formk.setSize(pnlmain.getSize());
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnkpiActionPerformed
@@ -528,10 +518,7 @@ public class INICIO extends javax.swing.JFrame {
         pnlmain.add(formm);
         formm.toFront();
         formm.setVisible(true);
-        Dimension desktopSize = pnlmain.getSize();
-        Dimension jInternalFrameSize = formm.getSize();
-        formm.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
+        formm.setSize(pnlmain.getSize());
 
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
@@ -575,7 +562,6 @@ public class INICIO extends javax.swing.JFrame {
         formr.toFront();
         formr.setVisible(true);
         formr.setSize(pnlmain.getSize());
-    
 
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
@@ -615,10 +601,7 @@ public class INICIO extends javax.swing.JFrame {
         formsim.toFront();
         formsim.setVisible(true);
         formsim.setSize(pnlmain.getSize());
-        Dimension desktopSize = pnlmain.getSize();
-        Dimension jInternalFrameSize = formsim.getSize();
-        formsim.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);               // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnsimulacActionPerformed
 
     private void btnperfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfilActionPerformed

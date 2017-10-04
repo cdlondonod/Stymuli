@@ -54,16 +54,15 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         txtidmodelo.setVisible(false);
         txtidkpi.setVisible(false);
         txtidobjetivos.setVisible(false);
-        
-        
+
         pnlregistro_stymuli.setVisible(false);
         btneliminar_stymuli.setEnabled(false);
         btneditarsty.setEnabled(false);
-        
+
         txtnombrearea.setEnabled(false);
         txtnombresubarea.setEnabled(false);
         txtnombrekpiestim.setEnabled(false);
-        
+
         txtbuscar_stymuli.setText("");
         txtbuscar_stymuli.requestFocus();
         txtstymuli.setText("");
@@ -89,9 +88,9 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         txtstymuli.requestFocus();
         txtstymuli.setText("");
         txtdescripcion.setText("");
-          txtnombrearea.setText("");
+        txtnombrearea.setText("");
         txtnombresubarea.setText("");
-        
+
         txtnombrekpiestim.setText("");
 
     }
@@ -134,7 +133,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         txtvalor_Obj.setText("");
         txtvalor_pon_Obj.setText("");
         txtvalor_Obj.requestFocus();
-txtnombrekpi_Obj.setText("");
+        txtnombrekpi_Obj.setText("");
     }
 
     void habilitar_btnopri() {
@@ -294,6 +293,7 @@ txtnombrekpi_Obj.setText("");
         lblnombrekpi9 = new javax.swing.JLabel();
         txtnombrekpi_Obj = new javax.swing.JTextField();
         btnbusca_kpi_Obj = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -301,6 +301,7 @@ txtnombrekpi_Obj.setText("");
         setTitle("Modelos");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -605,10 +606,10 @@ txtnombrekpi_Obj.setText("");
         jPanel7.add(lblnombrekpi10);
 
         txtstymuli.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 txtstymuliInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         txtstymuli.addActionListener(new java.awt.event.ActionListener() {
@@ -970,8 +971,7 @@ txtnombrekpi_Obj.setText("");
                         .addGap(18, 18, 18)
                         .addComponent(cbocomparacion_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtvalor_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addComponent(txtvalor_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
                         .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblnombrekpi16)
@@ -981,8 +981,8 @@ txtnombrekpi_Obj.setText("");
                             .addComponent(cbotipo_Obj, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtvalor_pon_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblpondperc)
-                        .addGap(4, 4, 4)))
+                        .addComponent(lblpondperc)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblnombrekpi17)
                     .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
@@ -1001,7 +1001,6 @@ txtnombrekpi_Obj.setText("");
                         .addComponent(lblnombrekpi17)
                         .addComponent(cbocomparacion_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlregistro_ObjLayout.createSequentialGroup()
                         .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1012,7 +1011,7 @@ txtnombrekpi_Obj.setText("");
                             .addComponent(lblvaponderado)
                             .addComponent(txtvalor_pon_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblpondperc))
-                        .addGap(8, 46, Short.MAX_VALUE))
+                        .addGap(8, 64, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_ObjLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(pnlregistro_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1025,16 +1024,16 @@ txtnombrekpi_Obj.setText("");
 
         jPanel5.add(jPanel9);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel1.add(jPanel5, java.awt.BorderLayout.CENTER);
+
+        jLabel3.setBackground(new java.awt.Color(53, 29, 113));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Creación de Modelos");
+        jLabel3.setOpaque(true);
+        jLabel3.setPreferredSize(new java.awt.Dimension(53, 20));
+        jPanel1.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1130,8 +1129,8 @@ txtnombrekpi_Obj.setText("");
 
     private void btnbusca_area_stymActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbusca_area_stymActionPerformed
         // TODO add your handling code here:
-         txtidsubarea.setText("");
-         txtnombresubarea.setText("");
+        txtidsubarea.setText("");
+        txtnombresubarea.setText("");
         frmvistaarea form = new frmvistaarea();
         form.toFront();
         form.setVisible(true);
@@ -1186,12 +1185,12 @@ txtnombrekpi_Obj.setText("");
 
         dts.setIdarea(Integer.parseInt(txtidarea.getText()));
         dts.setIdsubarea(Integer.parseInt(txtidsubarea.getText()));
-        
-        int seleccionado = cbotipo_stymuli.getSelectedIndex();        
+
+        int seleccionado = cbotipo_stymuli.getSelectedIndex();
         if (((String) cbotipo_stymuli.getItemAt(seleccionado)).equals("Otro")) {
-        dts.setTipo_estimulo(txtnombresubarea.getText()+"_"+txtnombrekpiestim.getText());    
-        }else{               
-        dts.setTipo_estimulo((String) cbotipo_stymuli.getItemAt(seleccionado));
+            dts.setTipo_estimulo(txtnombresubarea.getText() + "_" + txtnombrekpiestim.getText());
+        } else {
+            dts.setTipo_estimulo((String) cbotipo_stymuli.getItemAt(seleccionado));
         }
         dts.setEstimulo(Double.parseDouble(txtstymuli.getText()));
         dts.setDescripcion(txtdescripcion.getText());
@@ -1267,18 +1266,18 @@ txtnombrekpi_Obj.setText("");
                 dts.setIdobjetivos(Integer.parseInt(txtidobjetivos.getText()));
                 func.eliminar(dts);
                 mostrar_Obj("");
-                
-                     if (fobjetivos.totalponderado < 100) {
+
+                if (fobjetivos.totalponderado < 100) {
                     JOptionPane.showMessageDialog(rootPane, "El valor ponderado total del modelo, debe ser minimo el 100% del Stymuli a recibir");
                     habilitar_o();
-                   inhabilitar_s();
+                    inhabilitar_s();
                     checkinput();
                     txtvalor_Obj.requestFocus();
                 } else {
-                
-                
-                inhabilitar_o();
-                inhabilitar_s();}
+
+                    inhabilitar_o();
+                    inhabilitar_s();
+                }
 
             }
 
@@ -1315,7 +1314,7 @@ txtnombrekpi_Obj.setText("");
         frmvistakpiobjetivos form = new frmvistakpiobjetivos();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop(true); 
+        form.setAlwaysOnTop(true);
         form.setLocationRelativeTo(btnbusca_kpi_Obj);// TODO add your handling code here:
     }//GEN-LAST:event_btnbusca_kpi_ObjActionPerformed
 
@@ -1355,11 +1354,11 @@ txtnombrekpi_Obj.setText("");
             if (func.insertar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El Objetivo fue registrado satisfactoriamente");
                 mostrar_Obj("");
-                
-                if ( fobjetivos.totalponderado< 100) {
+
+                if (fobjetivos.totalponderado < 100) {
                     JOptionPane.showMessageDialog(rootPane, "El valor ponderado total del modelo, debe ser minimo el 100% del Stymuli a recibir");
                     habilitar_o();
-                  inhabilitar_s();
+                    inhabilitar_s();
                     checkinput();
                     txtvalor_Obj.requestFocus();
                 } else {
@@ -1375,10 +1374,10 @@ txtnombrekpi_Obj.setText("");
                 JOptionPane.showMessageDialog(rootPane, "El Objetivo fue editado satisfactoriamente");
                 mostrar_Obj("");
 
-                   if (fobjetivos.totalponderado < 100) {
+                if (fobjetivos.totalponderado < 100) {
                     JOptionPane.showMessageDialog(rootPane, "El valor ponderado total del modelo, debe ser minimo el 100% del Stymuli a recibir");
                     habilitar_o();
-                   inhabilitar_s();
+                    inhabilitar_s();
                     checkinput();
                     txtvalor_Obj.requestFocus();
                 } else {
@@ -1386,7 +1385,7 @@ txtnombrekpi_Obj.setText("");
                     inhabilitar_o();
                     inhabilitar_s();
                     checkinput();
-                   }
+                }
             }
 
         }
@@ -1418,25 +1417,24 @@ txtnombrekpi_Obj.setText("");
         txtnombrearea.setText(tablalistado_stymuli.getValueAt(fila, 2).toString());
         txtidsubarea.setText(tablalistado_stymuli.getValueAt(fila, 3).toString());
         txtnombresubarea.setText(tablalistado_stymuli.getValueAt(fila, 4).toString());
-        
-        String tipoestim=tablalistado_stymuli.getValueAt(fila, 5).toString();
-        
-        if (tipoestim.indexOf("_")>=0) {
-        pnlkpiestimulo.setVisible(true);
-        String[] parte = tipoestim.split("_");
-        String primera = parte[0];
-        String segunda = parte[1];
-        txtnombrekpiestim.setText(segunda);
-        cbotipo_stymuli.setSelectedItem("Otro");
-        }else{
-        cbotipo_stymuli.setSelectedItem(tablalistado_stymuli.getValueAt(fila, 5).toString());
-       }
-        
+
+        String tipoestim = tablalistado_stymuli.getValueAt(fila, 5).toString();
+
+        if (tipoestim.indexOf("_") >= 0) {
+            pnlkpiestimulo.setVisible(true);
+            String[] parte = tipoestim.split("_");
+            String primera = parte[0];
+            String segunda = parte[1];
+            txtnombrekpiestim.setText(segunda);
+            cbotipo_stymuli.setSelectedItem("Otro");
+        } else {
+            cbotipo_stymuli.setSelectedItem(tablalistado_stymuli.getValueAt(fila, 5).toString());
+        }
+
         txtstymuli.setText(tablalistado_stymuli.getValueAt(fila, 6).toString());
         txtdescripcion.setText(tablalistado_stymuli.getValueAt(fila, 7).toString());
         txtstymuli.requestFocus();
         checkinput();
-        
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btneditarstyActionPerformed
@@ -1518,15 +1516,10 @@ txtnombrekpi_Obj.setText("");
         } else if (((String) cbotipo_stymuli.getItemAt(seleccionado)).equals("Salario")) {
             lblstymuli.setText("%");
             pnlkpiestimulo.setVisible(false);
-        }else if (((String) cbotipo_stymuli.getItemAt(seleccionado)).equals("Otro")) {
+        } else if (((String) cbotipo_stymuli.getItemAt(seleccionado)).equals("Otro")) {
             pnlkpiestimulo.setVisible(true);
             lblstymuli.setText("%");
         }
- 
-
-            
-
-        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_cbotipo_stymuliItemStateChanged
@@ -1572,7 +1565,7 @@ txtnombrekpi_Obj.setText("");
     }//GEN-LAST:event_txtstymuliInputMethodTextChanged
 
     private void btnbusca_kpi_estimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbusca_kpi_estimActionPerformed
-  
+
         conexion.frmabierto = 1;
         frmvistakpiobjetivos form = new frmvistakpiobjetivos();
         form.toFront();
@@ -1640,6 +1633,7 @@ txtnombrekpi_Obj.setText("");
     private javax.swing.JComboBox<String> cbotipo_Obj;
     private javax.swing.JComboBox<String> cbotipo_stymuli;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

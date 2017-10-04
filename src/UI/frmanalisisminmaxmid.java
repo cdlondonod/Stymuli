@@ -5,7 +5,6 @@
  */
 package UI;
 
-
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,7 +25,6 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.MinMaxCategoryRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
-
 
 /**
  *
@@ -136,15 +134,15 @@ public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
         txtnombresubarea.setEnabled(false);
         txtyear.setEnabled(false);
         txtmes.setEnabled(false);
-        
+
         tablaanalisis.getColumnModel().getColumn(0).setMaxWidth(0);
         tablaanalisis.getColumnModel().getColumn(0).setMinWidth(0);
         tablaanalisis.getColumnModel().getColumn(0).setPreferredWidth(0);
-        
+
         tablaanalisis.getColumnModel().getColumn(1).setMaxWidth(0);
         tablaanalisis.getColumnModel().getColumn(1).setMinWidth(0);
         tablaanalisis.getColumnModel().getColumn(1).setPreferredWidth(0);
-        
+
         tablaanalisis.getColumnModel().getColumn(2).setMaxWidth(0);
         tablaanalisis.getColumnModel().getColumn(2).setMinWidth(0);
         tablaanalisis.getColumnModel().getColumn(2).setPreferredWidth(0);
@@ -205,6 +203,7 @@ public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
         jLabel1.setBackground(new java.awt.Color(53, 29, 113));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Mínimo / Máximo / Promedio");
         jLabel1.setOpaque(true);
         jLabel1.setPreferredSize(new java.awt.Dimension(158, 20));

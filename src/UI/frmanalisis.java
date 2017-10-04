@@ -6,15 +6,13 @@
 package UI;
 
 import static UI.INICIO.pnlmain;
-import java.awt.Dimension;
+
 
 /**
  *
  * @author crist
  */
 public class frmanalisis extends javax.swing.JInternalFrame {
-
-   
 
     /**
      * Creates new form frmanalisis
@@ -54,7 +52,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
 
-        jPanel1.setBackground(new java.awt.Color(153, 103, 198));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         btncomparacion.setBackground(new java.awt.Color(53, 29, 113));
@@ -213,7 +211,6 @@ public class frmanalisis extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncomparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomparacionActionPerformed
-      
 
         INICIO.pnlmain.removeAll();
         INICIO.pnlmain.revalidate();
@@ -224,10 +221,6 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         form1chart.toFront();
         form1chart.setVisible(true);
         form1chart.setSize(pnlmain.getSize());
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = form1chart.getSize();
-        form1chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
 
         this.dispose();
 
@@ -249,32 +242,20 @@ public class frmanalisis extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btncomparacionActionPerformed
 
     private void btnevolutivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnevolutivoActionPerformed
-        
-        
+
         INICIO.pnlmain.removeAll();
         INICIO.pnlmain.revalidate();
         INICIO.pnlmain.repaint();
 
-       frmanalisevolutivo form3chart = new frmanalisevolutivo();
+        frmanalisevolutivo form3chart = new frmanalisevolutivo();
         INICIO.pnlmain.add(form3chart);
         form3chart.toFront();
         form3chart.setVisible(true);
         form3chart.setSize(pnlmain.getSize());
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = form3chart.getSize();
-        form3chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
 
         this.dispose();
 
-        /*if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-
-            frmanalisevolutivo.pnlarea.setVisible(false);
-            frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-            frmanalisevolutivo.pnlsubarea.setVisible(false);
-            frmanalisevolutivo.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
-
-        } else */if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
             frmanalisevolutivo.pnlarea.setVisible(false);
             frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
@@ -288,33 +269,20 @@ public class frmanalisis extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnevolutivoActionPerformed
 
     private void btnproyeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproyeccionActionPerformed
-      
+
         INICIO.pnlmain.removeAll();
         INICIO.pnlmain.revalidate();
         INICIO.pnlmain.repaint();
 
-       frmanalisproyeccion form5chart = new frmanalisproyeccion();
+        frmanalisproyeccion form5chart = new frmanalisproyeccion();
         INICIO.pnlmain.add(form5chart);
         form5chart.toFront();
         form5chart.setVisible(true);
         form5chart.setSize(pnlmain.getSize());
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = form5chart.getSize();
-        form5chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
 
         this.dispose();
 
-        /*if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-
-            frmanalisproyeccion.pnlarea.setVisible(false);
-            frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-            frmanalisproyeccion.pnlsubarea.setVisible(false);
-            frmanalisproyeccion.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
-            frmanalisproyeccion.pnltrabajador.setVisible(false);
-            frmanalisproyeccion.txtpersonadocumento.setText(INICIO.lbliniciodocumento.getText());
-
-        }else*/  if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
             frmanalisproyeccion.pnlarea.setVisible(false);
             frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
@@ -328,7 +296,6 @@ public class frmanalisis extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnproyeccionActionPerformed
 
     private void btnfrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrecuenciaActionPerformed
-        
 
         INICIO.pnlmain.removeAll();
         INICIO.pnlmain.revalidate();
@@ -339,10 +306,6 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         form2chart.toFront();
         form2chart.setVisible(true);
         form2chart.setSize(pnlmain.getSize());
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = form2chart.getSize();
-        form2chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
 
         this.dispose();
 
@@ -362,45 +325,35 @@ public class frmanalisis extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnfrecuenciaActionPerformed
 
     private void btndistribucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistribucionActionPerformed
-        
 
         INICIO.pnlmain.removeAll();
         INICIO.pnlmain.revalidate();
         INICIO.pnlmain.repaint();
 
-       frmanalisdistriestim form4chart = new frmanalisdistriestim();
+        frmanalisdistriestim form4chart = new frmanalisdistriestim();
         INICIO.pnlmain.add(form4chart);
         form4chart.toFront();
         form4chart.setVisible(true);
         form4chart.setSize(pnlmain.getSize());
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = form4chart.getSize();
-        form4chart.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
 
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btndistribucionActionPerformed
 
     private void btnmaxminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmaxminActionPerformed
-      
 
         INICIO.pnlmain.removeAll();
         INICIO.pnlmain.revalidate();
         INICIO.pnlmain.repaint();
 
-       frmanalisisminmaxmid form4chartkpi = new frmanalisisminmaxmid();
+        frmanalisisminmaxmid form4chartkpi = new frmanalisisminmaxmid();
         INICIO.pnlmain.add(form4chartkpi);
         form4chartkpi.toFront();
         form4chartkpi.setVisible(true);
         form4chartkpi.setSize(pnlmain.getSize());
-        Dimension desktopSize = INICIO.pnlmain.getSize();
-        Dimension jInternalFrameSize = form4chartkpi.getSize();
-        form4chartkpi.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
 
         this.dispose();
 
- if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
             frmanalisisminmaxmid.pnlarea.setVisible(false);
             frmanalisisminmaxmid.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
@@ -409,11 +362,6 @@ public class frmanalisis extends javax.swing.JInternalFrame {
             frmanalisisminmaxmid.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
         }
-
-
-
-
-
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnmaxminActionPerformed
