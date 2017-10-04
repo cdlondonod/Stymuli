@@ -480,24 +480,30 @@ public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
         Double maxobt = 0.0;
         Double minobt = 0.0;
         Double midobt = 0.0;
-        String fecha = "";
+        
 
         TableModel tm = tablaanalisis.getModel();
 
         for (int j = 0; j < tm.getRowCount(); j++) {
             maxobt = Double.parseDouble(tm.getValueAt(j, 4).toString().replaceAll("[^0-9.-]", ""));
-            fecha = tm.getValueAt(j, 0).toString();
-            dataset.addValue(maxobt, "max", fecha);
+            String fecha = tm.getValueAt(j, 0).toString();
+            String year = fecha.substring(2, 4);
+            String mes = fecha.substring(5, 7);
+            dataset.addValue(maxobt, "max", year+"/"+mes);
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             minobt = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
-            fecha = tm.getValueAt(j, 0).toString();
-            dataset.addValue(minobt, "min", fecha);
+            String fecha = tm.getValueAt(j, 0).toString();
+            String year = fecha.substring(2, 4);
+            String mes = fecha.substring(5, 7);
+            dataset.addValue(minobt, "min", year+"/"+mes);
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             midobt = Double.parseDouble(tm.getValueAt(j, 5).toString().replaceAll("[^0-9.-]", ""));
-            fecha = tm.getValueAt(j, 0).toString();
-            dataset.addValue(midobt, "mid", fecha);
+            String fecha = tm.getValueAt(j, 0).toString();
+            String year = fecha.substring(2, 4);
+            String mes = fecha.substring(5, 7);
+            dataset.addValue(midobt, "mid", year+"/"+mes);
         }
 
         JFreeChart chart = ChartFactory.createBarChart(

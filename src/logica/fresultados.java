@@ -215,7 +215,7 @@ public class fresultados {
 
         try {
 
-            String line = "KPI,CEDULA DEL TRABAJADOR,RESULTADO DEL KPI (NUMEROS DECIMALES SEPARADOS POR PUNTOS),MES (EN EL FORMATO 1_Enero 2_Febrero etc), YEAR ";
+            String line = "KPI,CEDULA DEL TRABAJADOR,RESULTADO DEL KPI (NUMEROS DECIMALES SEPARADOS POR PUNTOS),MES (EN EL FORMATO 01_Enero 02_Febrero 12_Diciembre etc), YEAR ";
             FileWriter fw = new FileWriter(filename + "/TEMPLATE BASE DE DATOS RESULTADOS.csv");
 
             fw.append(line);

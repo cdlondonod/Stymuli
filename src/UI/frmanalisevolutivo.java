@@ -446,8 +446,12 @@ public class frmanalisevolutivo extends javax.swing.JInternalFrame {
 
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double x = Double.parseDouble(tm.getValueAt(j, 2).toString().replaceAll("[^0-9.-]", ""));
-            String y = (tm.getValueAt(j, 0).toString());
-            dataset1.addValue(x, "Resultado Promedio", y);
+            String fecha = tm.getValueAt(j, 0).toString();
+            String year = fecha.substring(2, 4);
+            String mes = fecha.substring(5, 7);
+            
+            
+            dataset1.addValue(x, "Resultado Promedio", year+"/"+mes);
         }
 
         final CategoryItemRenderer renderer = new BarRenderer();

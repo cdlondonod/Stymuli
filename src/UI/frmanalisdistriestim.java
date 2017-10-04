@@ -462,7 +462,10 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
 
         for (int j = 0; j < tm.getRowCount(); j++) {
             Double r = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
-            String are = tm.getValueAt(j, 2).toString();
+            String fecha = tm.getValueAt(j, 0).toString();
+            String year = fecha.substring(2, 4);
+            String mes = fecha.substring(5, 7);
+            String are = tm.getValueAt(j, 2).toString()+" "+year+"/"+mes;
             dataset1.setValue(are, r);
         }
 

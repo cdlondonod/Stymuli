@@ -60,8 +60,8 @@ public class frmperfil extends javax.swing.JInternalFrame {
         proyeccion();
         evolutivodinero();
         frecuenciacumpl();
-        mixmaxavg();
-
+        mixmaxavg();               
+        
     }
 
     DecimalFormat numberFormat = new DecimalFormat("#,##0.0;(#,##0.0)");
@@ -85,6 +85,12 @@ public class frmperfil extends javax.swing.JInternalFrame {
             lblvalorganado.setHorizontalTextPosition(SwingConstants.LEFT);
 
         }
+        
+        btncomparacion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/comparacion.png") + "\">");        
+        btnevolutivo.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/evolutivo.png") + "\">");       
+        btnproyeccion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/proyeccion.png") + "\">");
+        
+        
 
     }
 
@@ -500,31 +506,35 @@ public class frmperfil extends javax.swing.JInternalFrame {
         btnproyeccion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnproyeccion.setForeground(new java.awt.Color(255, 255, 255));
         btnproyeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
-        btnproyeccion.setText("Stymuli Proyectado");
+        btnproyeccion.setText("Mi Stymuli Proyectado");
         btnproyeccion.setToolTipText("Gráfica proyección estímulo obtenido frente a estímulo posible");
         btnproyeccion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnproyeccion.setBorderPainted(false);
         btnproyeccion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnproyeccion.setPreferredSize(new java.awt.Dimension(195, 54));
         btnproyeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnproyeccionActionPerformed(evt);
             }
         });
+        pnlotros.add(btnproyeccion);
 
         btnevolutivo.setBackground(new java.awt.Color(53, 29, 113));
         btnevolutivo.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnevolutivo.setForeground(new java.awt.Color(255, 255, 255));
         btnevolutivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
-        btnevolutivo.setText("Evolutivo Mensual");
+        btnevolutivo.setText("Mi Evolutivo de KPI");
         btnevolutivo.setToolTipText("Gráfica evolutivo mensual");
         btnevolutivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnevolutivo.setBorderPainted(false);
         btnevolutivo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnevolutivo.setPreferredSize(new java.awt.Dimension(195, 54));
         btnevolutivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnevolutivoActionPerformed(evt);
             }
         });
+        pnlotros.add(btnevolutivo);
 
         btncomparacion.setBackground(new java.awt.Color(53, 29, 113));
         btncomparacion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -536,35 +546,13 @@ public class frmperfil extends javax.swing.JInternalFrame {
         btncomparacion.setBorderPainted(false);
         btncomparacion.setFocusPainted(false);
         btncomparacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btncomparacion.setPreferredSize(new java.awt.Dimension(195, 54));
         btncomparacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncomparacionActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout pnlotrosLayout = new javax.swing.GroupLayout(pnlotros);
-        pnlotros.setLayout(pnlotrosLayout);
-        pnlotrosLayout.setHorizontalGroup(
-            pnlotrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlotrosLayout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addGroup(pnlotrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btncomparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnevolutivo, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnproyeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53))
-        );
-        pnlotrosLayout.setVerticalGroup(
-            pnlotrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlotrosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btncomparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnevolutivo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnproyeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
-        );
+        pnlotros.add(btncomparacion);
 
         jPanel6.add(pnlotros);
 

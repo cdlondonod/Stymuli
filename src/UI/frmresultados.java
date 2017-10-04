@@ -489,7 +489,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         lblnombrekpi13.setForeground(new java.awt.Color(255, 255, 255));
         lblnombrekpi13.setText("KPI:");
 
-        cbomes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1_Enero", "2_Febrero", "3_Marzo", "4_Abril", "5_Mayo", "6_Junio", "7_Julio", "8_Agosto", "9_Septiembre", "10_Octubre", "11_Noviembre", "12_Dicimiebre" }));
+        cbomes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01_Enero", "02_Febrero", "03_Marzo", "04_Abril", "05_Mayo", "06_Junio", "07_Julio", "08_Agosto", "09_Septiembre", "10_Octubre", "11_Noviembre", "12_Dicimiebre" }));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);

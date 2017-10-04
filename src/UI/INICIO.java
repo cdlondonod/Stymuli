@@ -201,7 +201,7 @@ public class INICIO extends javax.swing.JFrame {
 
         pnlenclose.add(pnlmain, java.awt.BorderLayout.CENTER);
 
-        pnlmenulistbuttons.setBackground(new java.awt.Color(53, 29, 130));
+        pnlmenulistbuttons.setBackground(new java.awt.Color(53, 40, 113));
         pnlmenulistbuttons.setPreferredSize(new java.awt.Dimension(400, 52));
         java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0);
         flowLayout1.setAlignOnBaseline(true);
