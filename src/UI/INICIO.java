@@ -7,8 +7,12 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Font;
+import javax.swing.Box;
+import javax.swing.JLabel;
 
 import javax.swing.JOptionPane;
+import logica.ftrabajador;
 
 /**
  *
@@ -26,6 +30,13 @@ public class INICIO extends javax.swing.JFrame {
 
         this.setExtendedState(INICIO.MAXIMIZED_BOTH);
         this.setTitle("STYMULI");
+
+        menuBar.add(Box.createHorizontalGlue());
+        JLabel userloged = new javax.swing.JLabel();
+        userloged.setText(ftrabajador.loginnombre + " " + ftrabajador.login1erapellido + " " + ftrabajador.login2doapellido + "     ");
+        Font myFont = new Font("Arial", Font.BOLD, 14);
+        userloged.setFont(myFont);
+        menuBar.add(userloged);
 
     }
 
@@ -86,6 +97,19 @@ public class INICIO extends javax.swing.JFrame {
         btnsimulac = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        mencambus = new javax.swing.JMenuItem();
+        mencerrars = new javax.swing.JMenuItem();
+        menactua = new javax.swing.JMenuItem();
+        menconfig = new javax.swing.JMenuItem();
+        mensalir = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        menbackupdb = new javax.swing.JMenuItem();
+        menrestoredb = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        mensoport = new javax.swing.JMenuItem();
+        menpolipriv = new javax.swing.JMenuItem();
+        meninfoleg = new javax.swing.JMenuItem();
+        menabout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -390,8 +414,65 @@ public class INICIO extends javax.swing.JFrame {
 
         menuBar.setBorder(null);
 
-        jMenu1.setText("jMenu1");
+        jMenu1.setText("Stymuli");
+
+        mencambus.setText("Cambiar de Usuario");
+        jMenu1.add(mencambus);
+
+        mencerrars.setText("Cerrar Sesión");
+        mencerrars.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mencerrarsActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mencerrars);
+
+        menactua.setText("Buscar Actualizaciones");
+        jMenu1.add(menactua);
+
+        menconfig.setText("Configuración");
+        jMenu1.add(menconfig);
+
+        mensalir.setText("Salir");
+        mensalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mensalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mensalir);
+
         menuBar.add(jMenu1);
+
+        jMenu2.setText("Base de Datos");
+
+        menbackupdb.setText("Respaldar Base de Datos");
+        jMenu2.add(menbackupdb);
+
+        menrestoredb.setText("Restaurar Base de Datos");
+        jMenu2.add(menrestoredb);
+
+        menuBar.add(jMenu2);
+
+        jMenu3.setText("Ayuda");
+
+        mensoport.setText("Soporte");
+        jMenu3.add(mensoport);
+
+        menpolipriv.setText("Politicas de Privacidad");
+        menpolipriv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menpoliprivActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menpolipriv);
+
+        meninfoleg.setText("Información Legal");
+        jMenu3.add(meninfoleg);
+
+        menabout.setText("Sobre Stymuli...");
+        jMenu3.add(menabout);
+
+        menuBar.add(jMenu3);
 
         setJMenuBar(menuBar);
 
@@ -576,10 +657,22 @@ public class INICIO extends javax.swing.JFrame {
             frmresultados.cbofiltro.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+            
+            frmresultados.btnproyeccion.setVisible(false);
+            frmresultados.btncomparacion.setVisible(false);
+            frmresultados.btnevolutivo.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            
+             frmresultados.btnproyeccion.setVisible(false);
+            frmresultados.btncomparacion.setVisible(false);
+            frmresultados.btnevolutivo.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            
+             frmresultados.btnproyeccion.setVisible(false);
+            frmresultados.btncomparacion.setVisible(false);
+            frmresultados.btnevolutivo.setVisible(false);
 
         } else {
 
@@ -628,6 +721,24 @@ public class INICIO extends javax.swing.JFrame {
         cliclperfil();     // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
+    private void menpoliprivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menpoliprivActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menpoliprivActionPerformed
+
+    private void mensalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mensalirActionPerformed
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_mensalirActionPerformed
+
+    private void mencerrarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mencerrarsActionPerformed
+
+        this.dispose();
+        frmzzlogin form = new frmzzlogin();
+        form.toFront();
+        form.setVisible(true);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_mencerrarsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -674,6 +785,8 @@ public class INICIO extends javax.swing.JFrame {
     public static javax.swing.JButton btnusuarios;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     public static javax.swing.JLabel lblinicio1erapellido;
     public static javax.swing.JLabel lblinicio2doapellido;
     public static javax.swing.JLabel lblinicioacceso;
@@ -685,6 +798,17 @@ public class INICIO extends javax.swing.JFrame {
     public static javax.swing.JLabel lblinicioidsubarea;
     public static javax.swing.JLabel lblinicionombre;
     public static javax.swing.JLabel lbliniciosubarea;
+    private javax.swing.JMenuItem menabout;
+    private javax.swing.JMenuItem menactua;
+    private javax.swing.JMenuItem menbackupdb;
+    private javax.swing.JMenuItem mencambus;
+    private javax.swing.JMenuItem mencerrars;
+    private javax.swing.JMenuItem menconfig;
+    private javax.swing.JMenuItem meninfoleg;
+    private javax.swing.JMenuItem menpolipriv;
+    private javax.swing.JMenuItem menrestoredb;
+    private javax.swing.JMenuItem mensalir;
+    private javax.swing.JMenuItem mensoport;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JPanel pnlenclose;
     public static javax.swing.JPanel pnlmain;

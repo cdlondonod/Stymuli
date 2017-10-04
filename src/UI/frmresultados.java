@@ -37,6 +37,13 @@ public class frmresultados extends javax.swing.JInternalFrame {
         tablalistado.setDefaultEditor(Object.class, null);
         tablalistado.setShowGrid(true);
         jScrollPane1.getViewport().setBackground(new Color(102, 50, 159));
+        
+        
+        btncomparacion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/comparacion.png") + "\">");        
+        btnevolutivo.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/evolutivo.png") + "\">");       
+        btnproyeccion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/proyeccion.png") + "\">");
+        
+        
     }
     private String accion = "guardar";
 
@@ -178,6 +185,9 @@ public class frmresultados extends javax.swing.JInternalFrame {
         jPanel6 = new javax.swing.JPanel();
         btnanalisis7 = new javax.swing.JButton();
         btnanalisis5 = new javax.swing.JButton();
+        btnproyeccion = new javax.swing.JButton();
+        btnevolutivo = new javax.swing.JButton();
+        btncomparacion = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -632,6 +642,61 @@ public class frmresultados extends javax.swing.JInternalFrame {
         });
         jPanel6.add(btnanalisis5);
 
+        btnproyeccion.setBackground(new java.awt.Color(53, 29, 113));
+        btnproyeccion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnproyeccion.setForeground(new java.awt.Color(255, 255, 255));
+        btnproyeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
+        btnproyeccion.setText("Mi Stymuli Proyectado");
+        btnproyeccion.setToolTipText("Gráfica proyección estímulo obtenido frente a estímulo posible");
+        btnproyeccion.setBorder(null);
+        btnproyeccion.setBorderPainted(false);
+        btnproyeccion.setContentAreaFilled(false);
+        btnproyeccion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnproyeccion.setPreferredSize(new java.awt.Dimension(195, 54));
+        btnproyeccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnproyeccionActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnproyeccion);
+
+        btnevolutivo.setBackground(new java.awt.Color(53, 29, 113));
+        btnevolutivo.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnevolutivo.setForeground(new java.awt.Color(255, 255, 255));
+        btnevolutivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
+        btnevolutivo.setText("Mi Evolutivo de KPI");
+        btnevolutivo.setToolTipText("Gráfica evolutivo mensual");
+        btnevolutivo.setBorder(null);
+        btnevolutivo.setBorderPainted(false);
+        btnevolutivo.setContentAreaFilled(false);
+        btnevolutivo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnevolutivo.setPreferredSize(new java.awt.Dimension(195, 54));
+        btnevolutivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnevolutivoActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnevolutivo);
+
+        btncomparacion.setBackground(new java.awt.Color(53, 29, 113));
+        btncomparacion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btncomparacion.setForeground(new java.awt.Color(255, 255, 255));
+        btncomparacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
+        btncomparacion.setText("Distribucion KPI");
+        btncomparacion.setToolTipText("Gráfica comparación KPI, valor objetivo frente a valor obtenido");
+        btncomparacion.setBorder(null);
+        btncomparacion.setBorderPainted(false);
+        btncomparacion.setContentAreaFilled(false);
+        btncomparacion.setFocusPainted(false);
+        btncomparacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btncomparacion.setPreferredSize(new java.awt.Dimension(195, 54));
+        btncomparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncomparacionActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btncomparacion);
+
         jPanel1.add(jPanel6, java.awt.BorderLayout.PAGE_END);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -943,6 +1008,87 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnanalisis5ActionPerformed
 
+    private void btnproyeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproyeccionActionPerformed
+
+        INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
+
+        frmanalisproyeccion form5chart = new frmanalisproyeccion();
+        INICIO.pnlmain.add(form5chart);
+        form5chart.toFront();
+        form5chart.setVisible(true);
+        form5chart.setSize(INICIO.pnlmain.getSize());
+
+        this.dispose();
+
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+
+            frmanalisproyeccion.pnlarea.setVisible(false);
+            frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+            frmanalisproyeccion.pnlsubarea.setVisible(false);
+            frmanalisproyeccion.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
+            frmanalisproyeccion.pnltrabajador.setVisible(false);
+            frmanalisproyeccion.txtpersonadocumento.setText(INICIO.lbliniciodocumento.getText());
+            frmanalisproyeccion.jPanel2.setVisible(false);
+            frmanalisproyeccion.jPanel10.setBackground(Color.WHITE);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnproyeccionActionPerformed
+
+    private void btnevolutivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnevolutivoActionPerformed
+
+        INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
+
+        frmanalisevolutivo form3chart = new frmanalisevolutivo();
+        INICIO.pnlmain.add(form3chart);
+        form3chart.toFront();
+        form3chart.setVisible(true);
+        form3chart.setSize(INICIO.pnlmain.getSize());
+
+        this.dispose();
+
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+
+            frmanalisevolutivo.pnlarea.setVisible(false);
+            frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+            frmanalisevolutivo.pnlsubarea.setVisible(false);
+            frmanalisevolutivo.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
+            frmanalisevolutivo.jPanel2.setVisible(false);
+            frmanalisevolutivo.jPanel7.setBackground(Color.WHITE);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnevolutivoActionPerformed
+
+    private void btncomparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomparacionActionPerformed
+
+        INICIO.pnlmain.removeAll();
+        INICIO.pnlmain.revalidate();
+        INICIO.pnlmain.repaint();
+
+        frmanalisdistrikpi form1chart = new frmanalisdistrikpi();
+        INICIO.pnlmain.add(form1chart);
+        form1chart.toFront();
+        form1chart.setVisible(true);
+        form1chart.setSize(INICIO.pnlmain.getSize());
+
+        this.dispose();
+
+        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+            frmanalisdistrikpi.pnlarea.setVisible(false);
+            frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+            frmanalisdistrikpi.pnlsubarea.setVisible(false);
+            frmanalisdistrikpi.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
+            frmanalisdistrikpi.jPanel2.setVisible(false);
+            frmanalisdistrikpi.jPanel9.setBackground(Color.WHITE);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btncomparacionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -987,10 +1133,13 @@ public class frmresultados extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnbuscarkpi;
     private javax.swing.JButton btnbuscartrabajador;
     private javax.swing.JButton btncancelar;
+    public static javax.swing.JButton btncomparacion;
     public static javax.swing.JButton btneditar1;
     public static javax.swing.JButton btneliminar;
+    public static javax.swing.JButton btnevolutivo;
     private javax.swing.JButton btnguardar;
     public static javax.swing.JButton btnnuevo;
+    public static javax.swing.JButton btnproyeccion;
     private javax.swing.JButton btnupdownload;
     public static javax.swing.JComboBox<String> cbofiltro;
     private javax.swing.JComboBox<String> cbomes;

@@ -201,6 +201,7 @@ public class frmzzlogin extends javax.swing.JFrame {
                     INICIO.btnmodelos.setVisible(false);
                     INICIO.btnusuarios.setVisible(false);
                      INICIO.btnanalisis.setVisible(false);
+                     INICIO.btnresultados.setText("Histórico");
 
                 } else if (ftrabajador.loginacceso.equals("Administrador")) {
                     INICIO.btnperfil.setVisible(false);
