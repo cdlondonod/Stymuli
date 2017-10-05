@@ -57,7 +57,7 @@ public class fresultados {
                 + "ON s.idsubarea=p.idsubarea INNER JOIN kpi k ON k.idkpi=r.idkpi  "
                 + "where " + filtrores + " like '%" + buscar + "%' "
                 + sSQL2
-                + "order by r.mes,r.year";
+                + "order by s.idsubarea,r.mes,r.year";
 
         try {
             Statement st = cn.createStatement();

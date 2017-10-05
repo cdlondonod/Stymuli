@@ -17,17 +17,19 @@ public class vmodelo {
     private String tipo_estimulo;
     private Double estimulo;
     private String descripcion;
+    private String mes_modelo;
 
     public vmodelo() {
     }
 
-    public vmodelo(int idmodelo, int idarea, int idsubarea, String tipo_estimulo, Double estimulo, String descripcion) {
+    public vmodelo(int idmodelo, int idarea, int idsubarea, String tipo_estimulo, Double estimulo, String descripcion, String mes_modelo) {
         this.idmodelo = idmodelo;
         this.idarea = idarea;
         this.idsubarea = idsubarea;
         this.tipo_estimulo = tipo_estimulo;
         this.estimulo = estimulo;
         this.descripcion = descripcion;
+        this.mes_modelo = mes_modelo;
     }
 
     public int getIdmodelo() {
@@ -77,8 +79,15 @@ public class vmodelo {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
-    
+
+    public String getMes_modelo() {
+        return mes_modelo;
+    }
+
+    public void setMes_modelo(String mes_modelo) {
+        this.mes_modelo = mes_modelo;
+    }
+
+   
     
 }

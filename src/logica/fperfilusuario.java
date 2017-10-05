@@ -34,8 +34,10 @@ public class fperfilusuario {
         if (mes.equals("0")) {
             messtring = "12";
             year = Integer.toString(Integer.parseInt(timeStamp.substring(0, 4)) - 1);
-        } else {
+        } else if (mes.equals("11") || mes.equals("10")) {
             messtring = mes;
+        } else {
+            messtring = "0" + mes;
         }
 
         sSQL = "  SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "

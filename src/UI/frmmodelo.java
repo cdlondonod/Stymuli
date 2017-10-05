@@ -8,6 +8,8 @@ package UI;
 import static UI.frmareasubar.txtidarea;
 import datos.vmodelo;
 import datos.vobjetivos;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.stream.Collector;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -240,6 +242,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         txtidsubarea = new javax.swing.JTextField();
         txtidarea = new javax.swing.JTextField();
         btneditarsty = new javax.swing.JButton();
+        checkmostrar = new javax.swing.JCheckBox();
         pnlregistro_stymuli = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtdescripcion = new javax.swing.JTextArea();
@@ -277,6 +280,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         txtidkpi = new javax.swing.JTextField();
         txtidobjetivos = new javax.swing.JTextField();
         btneditarobj = new javax.swing.JButton();
+        btnmodeloanterior = new javax.swing.JButton();
         lblobjetivos = new javax.swing.JLabel();
         pnlregistro_Obj = new javax.swing.JPanel();
         btncancelar_Obj = new javax.swing.JButton();
@@ -398,6 +402,15 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
+        checkmostrar.setForeground(new java.awt.Color(255, 255, 255));
+        checkmostrar.setText("Mostrar todo");
+        checkmostrar.setOpaque(false);
+        checkmostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkmostrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnllistado_stymuliLayout = new javax.swing.GroupLayout(pnllistado_stymuli);
         pnllistado_stymuli.setLayout(pnllistado_stymuliLayout);
         pnllistado_stymuliLayout.setHorizontalGroup(
@@ -409,16 +422,17 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                         .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblbuscstym)
-                        .addGap(105, 105, 105)
-                        .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 53, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(checkmostrar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistado_stymuliLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(13, 13, 13)
+                        .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnnuevo_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btneditarsty)
@@ -430,22 +444,23 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistado_stymuliLayout.createSequentialGroup()
                 .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(lblbuscstym)
-                        .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnllistado_stymuliLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnllistado_stymuliLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(checkmostrar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btneliminar_stymuli)
                     .addComponent(btneditarsty)
-                    .addComponent(btnnuevo_stymuli))
+                    .addComponent(btnnuevo_stymuli)
+                    .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -606,10 +621,10 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jPanel7.add(lblnombrekpi10);
 
         txtstymuli.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 txtstymuliInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         txtstymuli.addActionListener(new java.awt.event.ActionListener() {
@@ -648,10 +663,10 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                         .addComponent(btnguardar_stymuli)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btncancelar_stymuli))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlregistro_stymuliLayout.createSequentialGroup()
                         .addComponent(lblnombrekpi7)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -660,31 +675,28 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         pnlregistro_stymuliLayout.setVerticalGroup(
             pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_stymuliLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblnombrekpi7))
                 .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_stymuliLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblnombrekpi7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlkpiestimulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(pnlkpiestimulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(3, 3, 3)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnguardar_stymuli, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btncancelar_stymuli, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(10, 10, 10))
+                .addGap(10, 12, Short.MAX_VALUE))
         );
 
         pnlregistro_stymuliLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel3, jPanel4, jPanel6, jPanel7, pnlkpiestimulo});
@@ -792,32 +804,42 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
+        btnmodeloanterior.setBackground(new java.awt.Color(53, 29, 113));
+        btnmodeloanterior.setForeground(new java.awt.Color(255, 255, 255));
+        btnmodeloanterior.setText("Copiar Objetivos mes Anterior");
+        btnmodeloanterior.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnmodeloanterior.setBorderPainted(false);
+        btnmodeloanterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodeloanteriorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnllistado_ObjLayout = new javax.swing.GroupLayout(pnllistado_Obj);
         pnllistado_Obj.setLayout(pnllistado_ObjLayout);
         pnllistado_ObjLayout.setHorizontalGroup(
             pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnllistado_ObjLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnllistado_ObjLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnmodeloanterior, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnnuevo_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btneditarobj)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btneliminar_Obj))
                     .addGroup(pnllistado_ObjLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnllistado_ObjLayout.createSequentialGroup()
-                                .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblbuscarobj)
-                                .addGap(95, 95, 95)
-                                .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
-                                .addComponent(txtidkpi, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE))))
+                        .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblbuscarobj)
+                        .addGap(95, 95, 95)
+                        .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(txtidkpi, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnllistado_ObjLayout.setVerticalGroup(
@@ -833,10 +855,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btneditarobj, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btneliminar_Obj, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnnuevo_Obj, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btneditarobj, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btneliminar_Obj, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnnuevo_Obj, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnmodeloanterior, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1078,7 +1101,6 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     private void btneliminar_stymuliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminar_stymuliActionPerformed
         // TODO add your handling code here:
         int fila = tablalistado_stymuli.getSelectedRow();
-
         txtidmodelo.setText(tablalistado_stymuli.getValueAt(fila, 0).toString());
         if (!txtidmodelo.getText().equals("")) {
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar el Modelo", "Confirmar", 2);
@@ -1194,6 +1216,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         }
         dts.setEstimulo(Double.parseDouble(txtstymuli.getText()));
         dts.setDescripcion(txtdescripcion.getText());
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        String year = timeStamp.substring(0, 4);
+        String mes = timeStamp.substring(4, 6);
+        dts.setMes_modelo(year + mes + txtidsubarea.getText());
 
         if (accion_stymuli.equals("guardar")) {
             if (func.insertar(dts)) {
@@ -1579,6 +1606,42 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbotipo_stymuliActionPerformed
 
+    private void checkmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkmostrarActionPerformed
+        mostrar_stymuli("");
+// TODO add your handling code here:
+    }//GEN-LAST:event_checkmostrarActionPerformed
+public static int modeloactual;
+    private void btnmodeloanteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodeloanteriorActionPerformed
+  
+        try {
+            
+       
+        
+        int fila = tablalistado_stymuli.getSelectedRow();
+        txtidmodelo.setText(tablalistado_stymuli.getValueAt(fila, 0).toString());
+        if (!txtidmodelo.getText().equals("")) {
+            int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Desea Copiar los Objetivos utilizados para esta SubÁrea el Mes anterior?", "Confirmar", 2);
+
+            if (confirmacion == 0) {          
+                fmodelo func = new fmodelo();
+                modeloactual=(Integer.parseInt(txtidmodelo.getText()));                
+                func.copiarobj();
+                mostrar_stymuli("");
+                mostrar_Obj("");
+             
+            }
+
+        }
+        
+         } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, e);
+         
+         }
+        
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnmodeloanteriorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1627,11 +1690,13 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btneliminar_stymuli;
     private javax.swing.JButton btnguardar_Obj;
     private javax.swing.JButton btnguardar_stymuli;
+    private javax.swing.JButton btnmodeloanterior;
     private javax.swing.JButton btnnuevo_Obj;
     private javax.swing.JButton btnnuevo_stymuli;
     private javax.swing.JComboBox<String> cbocomparacion_Obj;
     private javax.swing.JComboBox<String> cbotipo_Obj;
     private javax.swing.JComboBox<String> cbotipo_stymuli;
+    public static javax.swing.JCheckBox checkmostrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

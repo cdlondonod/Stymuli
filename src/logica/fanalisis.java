@@ -29,6 +29,8 @@ public class fanalisis {
     private String sSQL3 = "";
     public static String bigquery = "SUBSTRING_INDEX(m.tipo_estimulo,'_',-1) AS kpiest,"
             + "SUBSTRING_INDEX(m.tipo_estimulo,'_',1) AS subareaest ,"
+            + "SUBSTR(m.mes_modelo,1,4),"
+            + "SUBSTR(m.mes_modelo,5,2),"
             + "@persona:=p.documento,"
             + "@mes:=r.mes,"
             + "@year:=r.year,"
@@ -40,7 +42,8 @@ public class fanalisis {
             + " ELSE "
             + " (((SELECT r.resultado_kpi  FROM resultados r INNER JOIN persona p ON r.idpersona=p.idpersona  "
             + "INNER JOIN area a ON a.idarea=p.idarea  INNER JOIN subarea s ON s.idsubarea=p.idsubarea   "
-            + "INNER JOIN modelo m ON m.idsubarea=p.idsubarea AND m.idarea=p.idarea  INNER JOIN objetivos o "
+            + "INNER JOIN modelo m ON r.year=SUBSTR(m.mes_modelo,1,4) AND SUBSTR(r.mes,1,2)=SUBSTR(m.mes_modelo,5,2) AND m.idsubarea=p.idsubarea AND m.idarea=p.idarea "
+            + "  INNER JOIN objetivos o "
             + "ON m.idmodelo=o.idmodelo  INNER JOIN kpi k ON r.idkpi=o.idkpi AND k.idkpi=r.idkpi   "
             + "WHERE subareaest=s.nombre AND kpiest=k.nombre AND @persona=p.documento AND @mes=r.mes "
             + "AND @year=r.year)*m.estimulo)/100)"
@@ -78,7 +81,8 @@ public class fanalisis {
             + " ELSE "
             + " (((SELECT r.resultado_kpi  FROM resultados r INNER JOIN persona p ON r.idpersona=p.idpersona  "
             + "INNER JOIN area a ON a.idarea=p.idarea  INNER JOIN subarea s ON s.idsubarea=p.idsubarea   "
-            + "INNER JOIN modelo m ON m.idsubarea=p.idsubarea AND m.idarea=p.idarea  INNER JOIN objetivos o "
+            + "INNER JOIN modelo m ON r.year=SUBSTR(m.mes_modelo,1,4) AND SUBSTR(r.mes,1,2)=SUBSTR(m.mes_modelo,5,2) AND m.idsubarea=p.idsubarea AND m.idarea=p.idarea "
+            + "  INNER JOIN objetivos o "
             + "ON m.idmodelo=o.idmodelo  INNER JOIN kpi k ON r.idkpi=o.idkpi AND k.idkpi=r.idkpi   "
             + "WHERE subareaest=s.nombre AND kpiest=k.nombre AND @persona=p.documento AND @mes=r.mes "
             + "AND @year=r.year)*m.estimulo)/100)"
@@ -94,7 +98,8 @@ public class fanalisis {
             + " ELSE "
             + " (((SELECT r.resultado_kpi  FROM resultados r INNER JOIN persona p ON r.idpersona=p.idpersona  "
             + "INNER JOIN area a ON a.idarea=p.idarea  INNER JOIN subarea s ON s.idsubarea=p.idsubarea   "
-            + "INNER JOIN modelo m ON m.idsubarea=p.idsubarea AND m.idarea=p.idarea  INNER JOIN objetivos o "
+            + "INNER JOIN modelo m ON r.year=SUBSTR(m.mes_modelo,1,4) AND SUBSTR(r.mes,1,2)=SUBSTR(m.mes_modelo,5,2) AND m.idsubarea=p.idsubarea AND m.idarea=p.idarea "
+            + "  INNER JOIN objetivos o "
             + "ON m.idmodelo=o.idmodelo  INNER JOIN kpi k ON r.idkpi=o.idkpi AND k.idkpi=r.idkpi   "
             + "WHERE subareaest=s.nombre AND kpiest=k.nombre AND @persona=p.documento AND @mes=r.mes "
             + "AND @year=r.year)*m.estimulo)/100)"
@@ -110,7 +115,8 @@ public class fanalisis {
             + " ELSE "
             + " (((SELECT r.resultado_kpi  FROM resultados r INNER JOIN persona p ON r.idpersona=p.idpersona  "
             + "INNER JOIN area a ON a.idarea=p.idarea  INNER JOIN subarea s ON s.idsubarea=p.idsubarea   "
-            + "INNER JOIN modelo m ON m.idsubarea=p.idsubarea AND m.idarea=p.idarea  INNER JOIN objetivos o "
+            + "INNER JOIN modelo m ON r.year=SUBSTR(m.mes_modelo,1,4) AND SUBSTR(r.mes,1,2)=SUBSTR(m.mes_modelo,5,2) AND m.idsubarea=p.idsubarea AND m.idarea=p.idarea "
+            + "  INNER JOIN objetivos o "
             + "ON m.idmodelo=o.idmodelo  INNER JOIN kpi k ON r.idkpi=o.idkpi AND k.idkpi=r.idkpi   "
             + "WHERE subareaest=s.nombre AND kpiest=k.nombre AND @persona=p.documento AND @mes=r.mes "
             + "AND @year=r.year)*m.estimulo)/100)"
@@ -134,9 +140,13 @@ public class fanalisis {
             + " THEN 0"
             + " ELSE 1"
             + " END) as habilita "
-            + "FROM resultados r INNER JOIN persona p ON r.idpersona=p.idpersona INNER JOIN area a ON a.idarea=p.idarea "
-            + "INNER JOIN subarea s ON s.idsubarea=p.idsubarea INNER JOIN modelo m ON m.idsubarea=p.idsubarea "
-            + "AND m.idarea=p.idarea INNER JOIN objetivos o ON m.idmodelo=o.idmodelo INNER JOIN kpi k ON r.idkpi=o.idkpi "
+            + "FROM resultados r "
+            + "INNER JOIN persona p ON r.idpersona=p.idpersona "
+            + "INNER JOIN area a ON a.idarea=p.idarea "
+            + "INNER JOIN subarea s ON s.idsubarea=p.idsubarea "
+            + "INNER JOIN modelo m ON r.year=SUBSTR(m.mes_modelo,1,4) AND SUBSTR(r.mes,1,2)=SUBSTR(m.mes_modelo,5,2) AND m.idsubarea=p.idsubarea AND m.idarea=p.idarea "
+            + "INNER JOIN objetivos o ON m.idmodelo=o.idmodelo "
+            + "INNER JOIN kpi k ON r.idkpi=o.idkpi "
             + "AND k.idkpi=r.idkpi";
 
     Double cumpmayor;
@@ -283,7 +293,7 @@ public class fanalisis {
         if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
             sSQL2 = " AND ta.idarea=" + INICIO.lblinicioidarea.getText() + " ";
         }
-        
+
         sSQL3 = "  SELECT ta.area,ta.subarea,AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + " (IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
                 + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
