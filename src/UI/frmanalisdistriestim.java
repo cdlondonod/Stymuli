@@ -511,27 +511,21 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
                 true,
                 false);
 
-        PiePlot plot = (PiePlot) chart.getPlot();
-        chart.getTitle().setPaint(Color.WHITE);
-        plot.setSimpleLabels(false);
-        PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
-                "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0;(#,##0)"), new DecimalFormat("0%"));
-        plot.setLabelGenerator(gen);
-        plot.setBackgroundPaint(Color.WHITE);
-        chart.setBackgroundPaint(new Color(53, 29, 113));
-        plot.setSectionPaint(1, new Color(121, 152, 40));
-        plot.setSectionPaint(0, new Color(20, 18, 58));
-        plot.setSectionPaint(2, new Color(75, 85, 128));
-        plot.setSectionPaint(3, new Color(88, 12, 59));
-        plot.setSectionPaint(4, new Color(160, 64, 78));
-        plot.setSectionPaint(5, new Color(183, 205, 81));
-        plot.setSectionPaint(6, new Color(74, 84, 18));
-        plot.setSectionPaint(7, new Color(116, 30, 38));
-        plot.setSectionPaint(8, new Color(31, 13, 38));
-        plot.setSectionPaint(9, new Color(167, 228, 223));
-        plot.setSectionPaint(10, new Color(145, 123, 188));
-        plot.setSectionPaint(11, new Color(174, 67, 145));
-        plot.setSectionPaint(12, new Color(131, 8, 28));
+         chart.getTitle().setPaint(new Color(75,16,160));
+            PiePlot plot = (PiePlot) chart.getPlot();
+            PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
+                    "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%"));
+            plot.setLabelGenerator(gen);
+            plot.setLabelOutlinePaint(null);
+            plot.setLabelShadowPaint(null);
+            plot.setLabelBackgroundPaint(null);
+            plot.setLabelPaint(new Color(75,16,160));
+            plot.setBackgroundPaint(Color.WHITE);           
+            plot.setOutlineVisible(false);
+            chart.setBackgroundPaint(Color.WHITE);
+            plot.setSectionPaint(0, new Color(20, 173, 23));
+            plot.setSectionPaint(1, new Color(101, 54, 193));
+ 
 
         final ChartPanel chartPanel = new ChartPanel(chart);
 

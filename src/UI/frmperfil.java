@@ -204,7 +204,7 @@ public class frmperfil extends javax.swing.JInternalFrame {
             renderer.setItemLabelsVisible(true);
             renderer.setSeriesPaint(0, new Color(20, 173, 23));
             renderer.setSeriesPaint(1, new Color(238, 238, 221));
-            renderer.setBaseItemLabelsVisible(true);
+           
             final CategoryPlot plot = new CategoryPlot();
             plot.setBackgroundPaint(Color.WHITE);
             plot.setForegroundAlpha(0.8f);

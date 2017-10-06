@@ -7,6 +7,7 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
 
@@ -25,6 +26,10 @@ import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.block.BlockBorder;
+import org.jfree.chart.labels.ItemLabelAnchor;
+import org.jfree.chart.labels.ItemLabelPosition;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.DatasetRenderingOrder;
@@ -37,6 +42,7 @@ import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.data.category.CategoryDataset;
 
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.ui.TextAnchor;
 
 /**
  *
@@ -705,19 +711,19 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
 
         final CategoryItemRenderer renderer = new AreaRenderer();
 
-        //    renderer.setLabelGenerator(generator);
-        renderer.setItemLabelsVisible(true);
-
-        renderer.setBaseItemLabelsVisible(true);
-        renderer.setBaseItemLabelPaint(Color.GREEN);
-
-        renderer.setSeriesPaint(0, new Color(121, 152, 40));
+        renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator("{2}", new DecimalFormat("#,##0;(#,##0)"), new DecimalFormat("0%")));
+            renderer.setItemLabelPaint(new Color(75,16,160));
+            renderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.HALF_ASCENT_CENTER));
+            renderer.setItemLabelsVisible(true);
+            renderer.setSeriesPaint(0, new Color(20, 173, 23));
+            renderer.setBaseItemLabelsVisible(true);
 
         final CategoryPlot plot = new CategoryPlot();
         plot.setBackgroundPaint(Color.WHITE);
         plot.setForegroundAlpha(0.8f);
         plot.setRangeGridlinesVisible(true);
-        plot.setRangeGridlinePaint(Color.BLACK);
+         plot.setRangeGridlinePaint(Color.WHITE);
+          
 
         plot.setDataset(dataset1);
         plot.setRenderer(renderer);
@@ -734,14 +740,16 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
 
         plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
         final JFreeChart chart = new JFreeChart(plot);
-        chart.setBackgroundPaint(new Color(53, 29, 113));
+        chart.setBackgroundPaint(Color.WHITE);
         chart.setTitle("Frecuencia de Cumplimiento " + txtnombrearea.getText() + " " + txtnombresubarea.getText() + " " + txtnombrekpi.getText());
-        chart.getTitle().setPaint(Color.WHITE);
+        chart.getTitle().setPaint(new Color(75,16,160));
 
-        plot.getDomainAxis().setTickLabelPaint(Color.WHITE);
-        plot.getRangeAxis().setTickLabelPaint(Color.WHITE);
-        plot.getRangeAxis().setLabelPaint(Color.WHITE);
-        plot.getDomainAxis().setLabelPaint(Color.WHITE);
+       chart.getLegend().setFrame(BlockBorder.NONE);
+            plot.getDomainAxis().setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis().setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis().setLabelPaint(new Color(75,16,160));
+            plot.getDomainAxis().setLabelPaint(new Color(75,16,160));
+            plot.setOutlineVisible(false);
 
         final ChartPanel chartPanel = new ChartPanel(chart);
 

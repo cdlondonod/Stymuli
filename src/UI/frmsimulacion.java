@@ -745,16 +745,21 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
                 true,
                 false);
 
-        PiePlot plot = (PiePlot) chart.getPlot();
-
-        PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
-                "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%"));
-        plot.setLabelGenerator(gen);
-        plot.setBackgroundPaint(Color.WHITE);
-        chart.getTitle().setPaint(Color.WHITE);
-        chart.setBackgroundPaint(new Color(53, 29, 113));
-        plot.setSectionPaint(1, new Color(121, 152, 40));
-        plot.setSectionPaint(0, Color.WHITE);
+         chart.getTitle().setPaint(new Color(75,16,160));
+            PiePlot plot = (PiePlot) chart.getPlot();
+            PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
+                    "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%"));
+            plot.setLabelGenerator(gen);
+            plot.setLabelOutlinePaint(null);
+            plot.setLabelShadowPaint(null);
+            plot.setLabelBackgroundPaint(null);
+            plot.setLabelPaint(new Color(75,16,160));
+            plot.setBackgroundPaint(Color.WHITE);
+            // plot.setSimpleLabels(true);
+            plot.setOutlineVisible(false);
+            chart.setBackgroundPaint(Color.WHITE);
+            plot.setSectionPaint(0, new Color(20, 173, 23));
+            plot.setSectionPaint(1, new Color(101, 54, 193));
         final ChartPanel chartPanel = new ChartPanel(chart);
         pnlgrafica.setLayout(new java.awt.BorderLayout());
         pnlgrafica.add(chartPanel, BorderLayout.CENTER);

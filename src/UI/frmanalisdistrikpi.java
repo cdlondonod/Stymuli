@@ -25,6 +25,7 @@ import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.DatasetRenderingOrder;
 import org.jfree.chart.plot.PlotOrientation;
@@ -622,7 +623,7 @@ public class frmanalisdistrikpi extends javax.swing.JInternalFrame {
         //    renderer.setLabelGenerator(generator);
         renderer.setItemLabelsVisible(true);
 
-        renderer.setSeriesPaint(0, new Color(49, 95, 118));
+        renderer.setSeriesPaint(0, new Color(75, 16, 160));
 
         final CategoryPlot plot = new CategoryPlot();
         plot.setBackgroundPaint(Color.WHITE);
@@ -642,26 +643,30 @@ public class frmanalisdistrikpi extends javax.swing.JInternalFrame {
 
         final CategoryItemRenderer renderer2 = new LineAndShapeRenderer();
 
-        renderer2.setSeriesPaint(0, new Color(121, 152, 40));
+        renderer2.setSeriesPaint(0, new Color(20, 173, 23));
 
         plot.setDataset(1, dataset2);
         plot.setRenderer(1, renderer2);
 
         final ValueAxis rangeAxis2 = new NumberAxis("Resultado");
         plot.setRangeAxis(1, rangeAxis2);
-
+       
+        plot.setRangeGridlinePaint(Color.WHITE);
         plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
 
         plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
         final JFreeChart chart = new JFreeChart(plot);
-        chart.setBackgroundPaint(new Color(53, 29, 113));
+        chart.setBackgroundPaint(Color.WHITE);
         chart.setTitle("Valor Objetivo vs Resultados en " + txtnombrearea.getText() + ", " + txtnombresubarea.getText() + ", " + txtnombrekpi.getText());
-        chart.getTitle().setPaint(Color.WHITE);
-
-        plot.getDomainAxis().setTickLabelPaint(Color.WHITE);
-        plot.getRangeAxis().setTickLabelPaint(Color.WHITE);
-        plot.getRangeAxis().setLabelPaint(Color.WHITE);
-        plot.getDomainAxis().setLabelPaint(Color.WHITE);
+       chart.getTitle().setPaint(new Color(75,16,160));
+            chart.getLegend().setFrame(BlockBorder.NONE);
+            plot.getDomainAxis().setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis(0).setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis(0).setLabelPaint(new Color(75,16,160));
+              plot.getRangeAxis(1).setTickLabelPaint(new Color(75,16,160));
+            plot.getRangeAxis(1).setLabelPaint(new Color(75,16,160));
+            plot.getDomainAxis().setLabelPaint(new Color(75,16,160));
+            plot.setOutlineVisible(false);
 
         final ChartPanel chartPanel = new ChartPanel(chart);
 

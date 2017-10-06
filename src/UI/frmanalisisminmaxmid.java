@@ -21,7 +21,10 @@ import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.block.BlockBorder;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.DatasetRenderingOrder;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.MinMaxCategoryRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -495,7 +498,6 @@ public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
         Double maxobt = 0.0;
         Double minobt = 0.0;
         Double midobt = 0.0;
-        
 
         TableModel tm = tablaanalisis.getModel();
 
@@ -504,21 +506,21 @@ public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
             String fecha = tm.getValueAt(j, 0).toString();
             String year = fecha.substring(2, 4);
             String mes = fecha.substring(5, 7);
-            dataset.addValue(maxobt, "max", year+"/"+mes);
+            dataset.addValue(maxobt, "max", year + "/" + mes);
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             minobt = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
             String fecha = tm.getValueAt(j, 0).toString();
             String year = fecha.substring(2, 4);
             String mes = fecha.substring(5, 7);
-            dataset.addValue(minobt, "min", year+"/"+mes);
+            dataset.addValue(minobt, "min", year + "/" + mes);
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
             midobt = Double.parseDouble(tm.getValueAt(j, 5).toString().replaceAll("[^0-9.-]", ""));
             String fecha = tm.getValueAt(j, 0).toString();
             String year = fecha.substring(2, 4);
             String mes = fecha.substring(5, 7);
-            dataset.addValue(midobt, "mid", year+"/"+mes);
+            dataset.addValue(midobt, "mid", year + "/" + mes);
         }
 
         JFreeChart chart = ChartFactory.createBarChart(
@@ -539,26 +541,29 @@ public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
         plot.setRenderer(renderer);
         ChartUtilities.applyCurrentTheme(chart);
 
+        renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator());
+        renderer.setItemLabelPaint(new Color(75, 16, 160));
         renderer.setItemLabelsVisible(true);
-        renderer.setBaseItemLabelsVisible(true);
-        renderer.setBaseItemLabelPaint(Color.GREEN);
-        renderer.setSeriesPaint(0, new Color(121, 152, 40));
+        renderer.setSeriesPaint(1, new Color(255, 5, 5));
         renderer.setSeriesStroke(1, new BasicStroke(4));
-        renderer.setSeriesStroke(0, new BasicStroke(4));
+        renderer.setSeriesPaint(2, new Color(255, 151, 5));
         renderer.setSeriesStroke(2, new BasicStroke(4));
-        plot.setBackgroundPaint(Color.WHITE);
-        plot.setForegroundAlpha(0.8f);
+        renderer.setSeriesPaint(0, new Color(5, 255, 22));
+        renderer.setSeriesStroke(0, new BasicStroke(4));
+        plot.setOrientation(PlotOrientation.VERTICAL);
         plot.setRangeGridlinesVisible(true);
-        plot.setRangeGridlinePaint(Color.BLACK);
+        plot.setDomainGridlinesVisible(true);
+        plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
         plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
-        chart.setBackgroundPaint(new Color(53, 29, 113));
+        chart.setBackgroundPaint(Color.WHITE);
         chart.setTitle("Max/Min/Mid " + txtnombrearea.getText() + " " + txtnombresubarea.getText());
-        chart.getTitle().setPaint(Color.WHITE);
-
-        plot.getDomainAxis().setTickLabelPaint(Color.WHITE);
-        plot.getRangeAxis().setTickLabelPaint(Color.WHITE);
-        plot.getRangeAxis().setLabelPaint(Color.WHITE);
-        plot.getDomainAxis().setLabelPaint(Color.WHITE);
+        chart.getTitle().setPaint(new Color(75, 16, 160));
+        chart.getLegend().setFrame(BlockBorder.NONE);
+        plot.getDomainAxis().setTickLabelPaint(new Color(75, 16, 160));
+        plot.getRangeAxis().setTickLabelPaint(new Color(75, 16, 160));
+        plot.getRangeAxis().setLabelPaint(new Color(75, 16, 160));
+        plot.getDomainAxis().setLabelPaint(new Color(75, 16, 160));
+        plot.setOutlineVisible(false);
 
         final ChartPanel chartPanel = new ChartPanel(chart);
 
