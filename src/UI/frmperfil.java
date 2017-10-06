@@ -374,15 +374,15 @@ public class frmperfil extends javax.swing.JInternalFrame {
         lblnombre.setForeground(new java.awt.Color(75, 16, 160));
         lblnombre.setText("nombre");
 
-        lblcargo.setFont(new java.awt.Font("Arial", 3, 15)); // NOI18N
+        lblcargo.setFont(new java.awt.Font("Arial", 2, 15)); // NOI18N
         lblcargo.setForeground(new java.awt.Color(75, 16, 160));
         lblcargo.setText("cargo");
 
-        lblarea.setFont(new java.awt.Font("Arial", 3, 15)); // NOI18N
+        lblarea.setFont(new java.awt.Font("Arial", 2, 15)); // NOI18N
         lblarea.setForeground(new java.awt.Color(75, 16, 160));
         lblarea.setText("area");
 
-        lblsubarea.setFont(new java.awt.Font("Arial", 3, 15)); // NOI18N
+        lblsubarea.setFont(new java.awt.Font("Arial", 2, 15)); // NOI18N
         lblsubarea.setForeground(new java.awt.Color(75, 16, 160));
         lblsubarea.setText("subarea");
 

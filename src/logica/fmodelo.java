@@ -150,23 +150,11 @@ public class fmodelo {
 
     public boolean copiarobj() {
 
-        String timeStamp2 = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        String year2 = timeStamp2.substring(0, 4);
-        String mes2 = Integer.toString(Integer.parseInt(timeStamp2.substring(4, 6)) - 1);
-        String messtring2;
-        if (mes2.equals("0")) {
-            messtring2 = "12";
-            year2 = Integer.toString(Integer.parseInt(timeStamp2.substring(0, 4)) - 1);
-        } else if (mes2.equals("11") || mes2.equals("10")) {
-            messtring2 = mes2;
-        } else {
-            messtring2 = "0" + mes2;
-        }
         sSQL6 = "SET @area=(SELECT idarea FROM modelo WHERE idmodelo=" + frmmodelo.modeloactual + ")";
         sSQL7 = "SET @subarea=(SELECT idsubarea FROM modelo  WHERE idmodelo=" + frmmodelo.modeloactual + ")";
         sSQL8 = "SET @idmodelo=(SELECT m.idmodelo FROM modelo m  WHERE "
-                + "SUBSTR(m.mes_modelo,1,4)=" + year2 + " AND "
-                + "SUBSTR(m.mes_modelo,5,2)=" + messtring2 + " AND "
+                + "SUBSTR(m.mes_modelo,1,4)=" + frmmodelo.fechamodeloyear + " AND "
+                + "SUBSTR(m.mes_modelo,5,2)=" + frmmodelo.fechamodelomes + " AND "
                 + "m.idarea=@area AND "
                 + "m.idsubarea=@subarea)";
         sSQL = "CREATE TEMPORARY TABLE temporary_table AS SELECT * FROM objetivos WHERE idmodelo=@idmodelo";

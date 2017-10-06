@@ -252,7 +252,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/analisis.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="M&#xe1;xmimos y M&#xed;nimos"/>
+                <Property name="text" type="java.lang.String" value="Maximos y Minimos"/>
                 <Property name="toolTipText" type="java.lang.String" value="M&#xe1;ximo, M&#xed;nimo y media de valores obtenidos"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">

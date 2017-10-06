@@ -268,6 +268,10 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         lblnombrekpi10 = new javax.swing.JLabel();
         txtstymuli = new javax.swing.JTextField();
         lblstymuli = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        lblnombrearea1 = new javax.swing.JLabel();
+        datemes = new com.toedter.calendar.JMonthChooser();
+        dateyear = new com.toedter.calendar.JYearChooser();
         jLabel1 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         pnllistado_Obj = new javax.swing.JPanel();
@@ -472,6 +476,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         pnlregistro_stymuli.setBackground(new java.awt.Color(255, 255, 255));
         pnlregistro_stymuli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
         pnlregistro_stymuli.setForeground(new java.awt.Color(153, 153, 153));
+        pnlregistro_stymuli.setPreferredSize(new java.awt.Dimension(476, 200));
 
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -602,10 +607,9 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
         lblnombrekpi11.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         lblnombrekpi11.setForeground(new java.awt.Color(75, 16, 160));
-        lblnombrekpi11.setText("Tipo de Symuli:");
+        lblnombrekpi11.setText("Tipo de Stymuli:");
         lblnombrekpi11.setPreferredSize(new java.awt.Dimension(83, 14));
         jPanel6.add(lblnombrekpi11);
-        lblnombrekpi11.getAccessibleContext().setAccessibleName("Tipo de Stymuli:");
 
         cbotipo_stymuli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cbotipo_stymuli.setForeground(new java.awt.Color(75, 16, 160));
@@ -655,29 +659,49 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         lblstymuli.setText("$");
         jPanel7.add(lblstymuli);
 
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setLayout(new javax.swing.BoxLayout(jPanel10, javax.swing.BoxLayout.LINE_AXIS));
+
+        lblnombrearea1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrearea1.setForeground(new java.awt.Color(75, 16, 160));
+        lblnombrearea1.setText("Fecha:");
+        lblnombrearea1.setMinimumSize(new java.awt.Dimension(32, 10));
+        lblnombrearea1.setPreferredSize(new java.awt.Dimension(83, 10));
+        jPanel10.add(lblnombrearea1);
+
+        datemes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        datemes.setOpaque(false);
+        jPanel10.add(datemes);
+
+        dateyear.setPreferredSize(new java.awt.Dimension(58, 20));
+        jPanel10.add(dateyear);
+
         javax.swing.GroupLayout pnlregistro_stymuliLayout = new javax.swing.GroupLayout(pnlregistro_stymuli);
         pnlregistro_stymuli.setLayout(pnlregistro_stymuliLayout);
         pnlregistro_stymuliLayout.setHorizontalGroup(
             pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlkpiestimulo, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
                 .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(39, 39, 39)
+                        .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                            .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
+                                .addComponent(lblnombrekpi7)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnguardar_stymuli)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btncancelar_stymuli))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlregistro_stymuliLayout.createSequentialGroup()
-                        .addComponent(lblnombrekpi7)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btncancelar_stymuli)))
                 .addContainerGap())
         );
 
@@ -685,13 +709,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
         pnlregistro_stymuliLayout.setVerticalGroup(
             pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlregistro_stymuliLayout.createSequentialGroup()
+            .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblnombrekpi7))
                 .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -701,13 +723,16 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlkpiestimulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlregistro_stymuliLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblnombrekpi7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlregistro_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnguardar_stymuli, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btncancelar_stymuli, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(10, 12, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pnlregistro_stymuliLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel3, jPanel4, jPanel6, jPanel7, pnlkpiestimulo});
@@ -1091,7 +1116,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
         );
 
         pack();
@@ -1242,10 +1267,15 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         dts.setEstimulo(Double.parseDouble(txtstymuli.getText()));
         dts.setDescripcion(txtdescripcion.getText());
 
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        String year = timeStamp.substring(0, 4);
-        String mes = timeStamp.substring(4, 6);
-        dts.setMes_modelo(year + mes + txtidsubarea.getText());
+        String year = Integer.toString(dateyear.getYear());
+        String mes = Integer.toString(datemes.getMonth() + 1);
+        String messtring;
+        if (mes.equals("10") || mes.equals("11") || mes.equals("12")) {
+            messtring = mes;
+        } else {
+            messtring = "0" + mes;
+        }
+        dts.setMes_modelo(year + messtring + txtidsubarea.getText());
 
         if (accion_stymuli.equals("guardar")) {
             if (func.insertar(dts)) {
@@ -1485,6 +1515,15 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
         txtstymuli.setText(tablalistado_stymuli.getValueAt(fila, 6).toString());
         txtdescripcion.setText(tablalistado_stymuli.getValueAt(fila, 7).toString());
+
+        String mesyear = tablalistado_stymuli.getValueAt(fila, 8).toString();
+        String years = mesyear.substring(0, 4);
+        String mess = mesyear.substring(5, 7);
+        int mes = Integer.parseInt(mess) - 1;
+        int year = Integer.parseInt(years);
+        datemes.setMonth(mes);
+        dateyear.setYear(year);
+
         txtstymuli.requestFocus();
         checkinput();
 
@@ -1635,35 +1674,47 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         mostrar_stymuli("");
 // TODO add your handling code here:
     }//GEN-LAST:event_checkmostrarActionPerformed
-public static int modeloactual;
+    public static int modeloactual;
+    public static String fechamodeloyear;
+    public static String fechamodelomes;
     private void btnmodeloanteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodeloanteriorActionPerformed
-  
-        try {
-            
-       
-        
-        int fila = tablalistado_stymuli.getSelectedRow();
-        txtidmodelo.setText(tablalistado_stymuli.getValueAt(fila, 0).toString());
-        if (!txtidmodelo.getText().equals("")) {
-            int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Desea Copiar los Objetivos utilizados para esta SubÁrea el Mes anterior?", "Confirmar", 2);
 
-            if (confirmacion == 0) {          
-                fmodelo func = new fmodelo();
-                modeloactual=(Integer.parseInt(txtidmodelo.getText()));                
-                func.copiarobj();
-                mostrar_stymuli("");
-                mostrar_Obj("");
-             
+        try {
+
+            int fila = tablalistado_stymuli.getSelectedRow();
+            txtidmodelo.setText(tablalistado_stymuli.getValueAt(fila, 0).toString());
+            String fechavalida = tablalistado_stymuli.getValueAt(fila, 8).toString();
+            String mesmodelo = Integer.toString(Integer.parseInt(fechavalida.substring(5, 7)) - 1);
+            fechamodeloyear = fechavalida.substring(0, 4);
+
+            if (mesmodelo.equals("0")) {
+                fechamodelomes = "12";
+                fechamodeloyear = Integer.toString(Integer.parseInt(fechavalida.substring(0, 4)) - 1);
+            } else if (mesmodelo.equals("11") || mesmodelo.equals("10")) {
+                fechamodelomes = mesmodelo;
+            } else {
+                fechamodelomes = "0" + mesmodelo;
+            }
+         
+            if (!txtidmodelo.getText().equals("")) {
+                int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Desea Copiar los Objetivos utilizados para esta SubÁrea el Mes anterior?", "Confirmar", 2);
+
+                if (confirmacion == 0) {
+                    fmodelo func = new fmodelo();
+                    modeloactual = (Integer.parseInt(txtidmodelo.getText()));
+                    func.copiarobj();
+                    mostrar_stymuli("");
+                    mostrar_Obj("");
+
+                }
+
             }
 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+
         }
-        
-         } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, e);
-         
-         }
-        
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnmodeloanteriorActionPerformed
 
@@ -1722,10 +1773,13 @@ public static int modeloactual;
     private javax.swing.JComboBox<String> cbotipo_Obj;
     private javax.swing.JComboBox<String> cbotipo_stymuli;
     public static javax.swing.JCheckBox checkmostrar;
+    private com.toedter.calendar.JMonthChooser datemes;
+    private com.toedter.calendar.JYearChooser dateyear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1740,6 +1794,7 @@ public static int modeloactual;
     public static javax.swing.JLabel lblbuscarobj;
     public static javax.swing.JLabel lblbuscstym;
     public static javax.swing.JLabel lblnombrearea;
+    public static javax.swing.JLabel lblnombrearea1;
     private javax.swing.JLabel lblnombrekpi10;
     private javax.swing.JLabel lblnombrekpi11;
     private javax.swing.JLabel lblnombrekpi12;

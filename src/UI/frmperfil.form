@@ -144,7 +144,7 @@
                 <Component class="javax.swing.JLabel" name="lblcargo">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="15" style="3"/>
+                      <Font name="Arial" size="15" style="2"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="a0" green="10" red="4b" type="rgb"/>
@@ -155,7 +155,7 @@
                 <Component class="javax.swing.JLabel" name="lblarea">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="15" style="3"/>
+                      <Font name="Arial" size="15" style="2"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="a0" green="10" red="4b" type="rgb"/>
@@ -166,7 +166,7 @@
                 <Component class="javax.swing.JLabel" name="lblsubarea">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="15" style="3"/>
+                      <Font name="Arial" size="15" style="2"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="a0" green="10" red="4b" type="rgb"/>

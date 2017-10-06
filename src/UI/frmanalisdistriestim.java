@@ -158,6 +158,7 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         lblnombrekpi6 = new javax.swing.JLabel();
         txtnombrearea = new javax.swing.JTextField();
         btnbuscaarea = new javax.swing.JButton();
+        checkagrupado = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablalistporpersona = new javax.swing.JTable();
@@ -335,20 +336,27 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         });
         jPanel7.add(btnbuscaarea);
 
+        checkagrupado.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        checkagrupado.setForeground(new java.awt.Color(75, 16, 160));
+        checkagrupado.setText("Mostrar Agrupado por Área");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btnclearselec)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                        .addComponent(btnresultado)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnresultado))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(checkagrupado)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -360,7 +368,9 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(checkagrupado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnresultado)
                     .addComponent(btnclearselec))
@@ -437,7 +447,7 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -448,7 +458,7 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
         );
 
         pack();
@@ -477,19 +487,27 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
 
         TableModel tm = tablalistporpersona.getModel();
 
-        for (int j = 0; j < tm.getRowCount(); j++) {
-            Double r = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
-            String fecha = tm.getValueAt(j, 0).toString();
-            String year = fecha.substring(2, 4);
-            String mes = fecha.substring(5, 7);
-            String are = tm.getValueAt(j, 2).toString()+" "+year+"/"+mes;
-            dataset1.setValue(are, r);
+        if (checkagrupado.isSelected()) {
+            //por area
+            for (int j = 0; j < tm.getRowCount(); j++) {
+                Double r = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
+                String are = tm.getValueAt(j, 1).toString();
+                dataset1.setValue(are, r);
+            }
+        } else {
+            //por subarea
+            for (int j = 0; j < tm.getRowCount(); j++) {
+                Double r = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
+                String are = tm.getValueAt(j, 2).toString();
+                dataset1.setValue(are, r);
+            }
+
         }
 
         JFreeChart chart = ChartFactory.createPieChart(
-                "Distribución " + txtnombrearea.getText(), // chart title 
-                dataset1, // data    
-                true, // include legend   
+                "Distribución " + txtnombrearea.getText(),
+                dataset1,
+                true,
                 true,
                 false);
 
@@ -723,6 +741,7 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnbuscayear;
     private javax.swing.JButton btnclearselec;
     private javax.swing.JButton btnresultado;
+    private javax.swing.JCheckBox checkagrupado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

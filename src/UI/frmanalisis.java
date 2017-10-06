@@ -181,7 +181,7 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         btnmaxmin.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
         btnmaxmin.setForeground(new java.awt.Color(75, 16, 160));
         btnmaxmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analisis.png"))); // NOI18N
-        btnmaxmin.setText("Máxmimos y Mínimos");
+        btnmaxmin.setText("Maximos y Minimos");
         btnmaxmin.setToolTipText("Máximo, Mínimo y media de valores obtenidos");
         btnmaxmin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnmaxmin.setBorderPainted(false);

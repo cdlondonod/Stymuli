@@ -32,6 +32,9 @@ public class pruebafecha extends javax.swing.JFrame {
     private void initComponents() {
 
         jToggleButton1 = new javax.swing.JToggleButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jYearChooser1 = new com.toedter.calendar.JYearChooser();
+        jMonthChooser1 = new com.toedter.calendar.JMonthChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,21 +45,39 @@ public class pruebafecha extends javax.swing.JFrame {
             }
         });
 
+        jMonthChooser1.setOpaque(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jToggleButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jToggleButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jMonthChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jYearChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(40, 40, 40)
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
                 .addComponent(jToggleButton1)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jMonthChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jYearChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         pack();
@@ -64,20 +85,8 @@ public class pruebafecha extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
 
-String timeStamp2 = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        String year2 = timeStamp2.substring(0, 4);
-        String mes2 = Integer.toString(Integer.parseInt(timeStamp2.substring(4, 6)) - 1);
-        String messtring2;
-         if (mes2.equals("0")) {
-            messtring2 = "12";
-            year2 = Integer.toString(Integer.parseInt(timeStamp2.substring(0, 4)) - 1);
-        } else if (mes2.equals("11")||mes2.equals("10")) {
-            messtring2 =  mes2;
-        }else
-        {
-           messtring2 = "0"+mes2;
-        }
-         JOptionPane.showMessageDialog(null, messtring2+" "+mes2+" "+year2);
+
+         JOptionPane.showMessageDialog(null,jMonthChooser1.getMonth()+" /---"+jYearChooser1.getYear());
 
 
 
@@ -125,6 +134,9 @@ String timeStamp2 = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getI
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JMonthChooser jMonthChooser1;
     private javax.swing.JToggleButton jToggleButton1;
+    private com.toedter.calendar.JYearChooser jYearChooser1;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,7 +8,7 @@ package UI;
 import datos.vresultados;
 
 import java.awt.Color;
-import java.awt.Dimension;
+
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -96,7 +96,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         txtidkpi.setText("");
 
         txtresultado.setText("");
-        txtyear.setText("");
+      
         txtkpi.setText("");
         txttrabajador.setText("");
 
@@ -114,7 +114,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         txtidkpi.setText("");
 
         txtresultado.setText("");
-        txtyear.setText("");
+  
         txtkpi.setText("");
         txttrabajador.setText("");
     }
@@ -171,17 +171,17 @@ public class frmresultados extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         txttrabajador = new javax.swing.JTextField();
         btnbuscartrabajador = new javax.swing.JButton();
-        txtyear = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         txtkpi = new javax.swing.JTextField();
         btnbuscarkpi = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
-        lblnombrekpi3 = new javax.swing.JLabel();
-        lblnombrekpi9 = new javax.swing.JLabel();
         txtresultado = new javax.swing.JTextField();
         btnupdownload = new javax.swing.JButton();
         lblnombrekpi13 = new javax.swing.JLabel();
-        cbomes = new javax.swing.JComboBox<>();
+        jPanel10 = new javax.swing.JPanel();
+        lblnombrearea1 = new javax.swing.JLabel();
+        datemes = new com.toedter.calendar.JMonthChooser();
+        dateyear = new com.toedter.calendar.JYearChooser();
         jPanel6 = new javax.swing.JPanel();
         btnanalisis7 = new javax.swing.JButton();
         btnanalisis5 = new javax.swing.JButton();
@@ -425,12 +425,6 @@ public class frmresultados extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnbuscartrabajador);
 
-        txtyear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtyearActionPerformed(evt);
-            }
-        });
-
         jPanel3.setBackground(new java.awt.Color(153, 103, 198));
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
@@ -469,14 +463,6 @@ public class frmresultados extends javax.swing.JInternalFrame {
             }
         });
 
-        lblnombrekpi3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        lblnombrekpi3.setForeground(new java.awt.Color(75, 16, 160));
-        lblnombrekpi3.setText("Mes:");
-
-        lblnombrekpi9.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        lblnombrekpi9.setForeground(new java.awt.Color(75, 16, 160));
-        lblnombrekpi9.setText("Año:");
-
         txtresultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtresultadoActionPerformed(evt);
@@ -505,9 +491,21 @@ public class frmresultados extends javax.swing.JInternalFrame {
         lblnombrekpi13.setForeground(new java.awt.Color(75, 16, 160));
         lblnombrekpi13.setText("KPI:");
 
-        cbomes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        cbomes.setForeground(new java.awt.Color(75, 16, 160));
-        cbomes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01_Enero", "02_Febrero", "03_Marzo", "04_Abril", "05_Mayo", "06_Junio", "07_Julio", "08_Agosto", "09_Septiembre", "10_Octubre", "11_Noviembre", "12_Dicimiebre" }));
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setLayout(new javax.swing.BoxLayout(jPanel10, javax.swing.BoxLayout.LINE_AXIS));
+
+        lblnombrearea1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrearea1.setForeground(new java.awt.Color(75, 16, 160));
+        lblnombrearea1.setText("Fecha:");
+        lblnombrearea1.setMinimumSize(new java.awt.Dimension(32, 10));
+        lblnombrearea1.setPreferredSize(new java.awt.Dimension(50, 10));
+        jPanel10.add(lblnombrearea1);
+
+        datemes.setOpaque(false);
+        jPanel10.add(datemes);
+
+        dateyear.setPreferredSize(new java.awt.Dimension(58, 20));
+        jPanel10.add(dateyear);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -523,27 +521,21 @@ public class frmresultados extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnguardar))
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblnombrekpi9)
-                                    .addComponent(lblnombrekpi3)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblnombrekpi6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblnombrekpi13, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblnombrekpi7, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(lblnombrekpi6, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblnombrekpi13, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblnombrekpi7, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtyear, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbomes, javax.swing.GroupLayout.Alignment.LEADING, 0, 125, Short.MAX_VALUE)))))
+                            .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)))
         );
 
         jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel2, jPanel3});
@@ -566,20 +558,17 @@ public class frmresultados extends javax.swing.JInternalFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblnombrekpi7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblnombrekpi3)
-                    .addComponent(cbomes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblnombrekpi9)
-                    .addComponent(txtyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnguardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnupdownload, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(128, 128, 128)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(111, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout pnlregistroLayout = new javax.swing.GroupLayout(pnlregistro);
@@ -809,11 +798,6 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnbuscartrabajadorActionPerformed
 
-    private void txtyearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtyearActionPerformed
-        // TODO add your handling code here:
-        txtyear.transferFocus();
-    }//GEN-LAST:event_txtyearActionPerformed
-
     private void txtresultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtresultadoActionPerformed
         // TODO add your handling code here:
         txtresultado.transferFocus();
@@ -852,24 +836,49 @@ public class frmresultados extends javax.swing.JInternalFrame {
             return;
 
         }
-        if (txtyear.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar el Año");
-            txtyear.requestFocus();
-            return;
-
-        }
-
+     
         vresultados dts = new vresultados();
         fresultados func = new fresultados();
 
         dts.setIdkpi(Integer.parseInt(txtidkpi.getText()));
         dts.setIdpersona(Integer.parseInt(txtidpersona.getText()));
         dts.setResultado_kpi(Double.parseDouble(txtresultado.getText()));
-
-        int seleccionado = cbomes.getSelectedIndex();
-        dts.setMes((String) cbomes.getItemAt(seleccionado));
-
-        dts.setYear(Integer.parseInt(txtyear.getText()));
+        
+        
+         
+        int mes = datemes.getMonth() + 1;
+        String messtring="";
+        
+        switch(mes){
+        case 1: messtring="01_Enero";
+        break;
+        case 2: messtring="02_Febrero";
+        break;
+        case 3: messtring="03_Marzo";
+        break;
+        case 4: messtring="04_Abril";
+        break;
+        case 5: messtring="05_Mayo";
+        break;
+        case 6: messtring="06_Junio";
+        break;
+        case 7: messtring="07_Julio";
+        break;
+        case 8: messtring="08_Agosto";
+        break;
+        case 9: messtring="09_Septiembre";
+        break;
+        case 10: messtring="10_Octubre";
+        break;
+        case 11: messtring="11_Noviembre";
+        break;
+        case 12: messtring="12_Diciembre";
+        break;   
+              
+        }                  
+        
+        dts.setMes(messtring);
+        dts.setYear(dateyear.getYear());
 
         if (accion.equals("guardar")) {
             if (func.insertar(dts)) {
@@ -906,8 +915,17 @@ public class frmresultados extends javax.swing.JInternalFrame {
         txttrabajador.setText(tablalistado.getValueAt(fila, 3).toString());
         txtkpi.setText(tablalistado.getValueAt(fila, 8).toString());
         txtresultado.setText(tablalistado.getValueAt(fila, 9).toString());
-        cbomes.setSelectedItem(tablalistado.getValueAt(fila, 10).toString());
-        txtyear.setText(tablalistado.getValueAt(fila, 11).toString());
+        
+   
+        String years = tablalistado.getValueAt(fila, 11).toString();
+        String messcompleto = tablalistado.getValueAt(fila, 10).toString();
+        String mess=messcompleto.substring(0,2);
+        int mes = Integer.parseInt(mess)-1;
+        int year = Integer.parseInt(years);
+        datemes.setMonth(mes);
+        dateyear.setYear(year);       
+                       
+        
         checkinput();
         checkinput();// TODO add your handling code here:
     }//GEN-LAST:event_btneditar1ActionPerformed
@@ -1150,9 +1168,11 @@ public class frmresultados extends javax.swing.JInternalFrame {
     public static javax.swing.JButton btnproyeccion;
     private javax.swing.JButton btnupdownload;
     public static javax.swing.JComboBox<String> cbofiltro;
-    private javax.swing.JComboBox<String> cbomes;
+    private com.toedter.calendar.JMonthChooser datemes;
+    private com.toedter.calendar.JYearChooser dateyear;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1162,11 +1182,10 @@ public class frmresultados extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lblbuscar;
     public static javax.swing.JLabel lblfiltrar;
+    public static javax.swing.JLabel lblnombrearea1;
     private javax.swing.JLabel lblnombrekpi13;
-    private javax.swing.JLabel lblnombrekpi3;
     private javax.swing.JLabel lblnombrekpi6;
     private javax.swing.JLabel lblnombrekpi7;
-    private javax.swing.JLabel lblnombrekpi9;
     private javax.swing.JPanel pnllistado;
     private javax.swing.JPanel pnlregistro;
     private javax.swing.JTable tablalistado;
@@ -1177,6 +1196,5 @@ public class frmresultados extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField txtkpi;
     private javax.swing.JTextField txtresultado;
     public static javax.swing.JTextField txttrabajador;
-    private javax.swing.JTextField txtyear;
     // End of variables declaration//GEN-END:variables
 }

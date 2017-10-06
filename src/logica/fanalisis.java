@@ -294,7 +294,9 @@ public class fanalisis {
             sSQL2 = " AND ta.idarea=" + INICIO.lblinicioidarea.getText() + " ";
         }
 
-        sSQL3 = "  SELECT ta.area,ta.subarea,AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+        sSQL3 = "  SELECT ta.area,ta.subarea,AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,"
+                + "ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,"
+                + "tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + " (IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
                 + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
                 + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
@@ -359,8 +361,9 @@ public class fanalisis {
         }
         sSQL = "SELECT a.nombre,s.nombre,k.nombre, AVG(r.resultado_kpi) AS kpimed,r.mes,r.year "
                 + "FROM resultados r INNER JOIN persona p ON r.idpersona=p.idpersona INNER JOIN area a "
-                + "ON a.idarea=p.idarea INNER JOIN subarea s ON s.idsubarea=p.idsubarea INNER JOIN modelo m "
-                + "ON m.idsubarea=p.idsubarea AND m.idarea=p.idarea INNER JOIN objetivos o ON m.idmodelo=o.idmodelo "
+                + "ON a.idarea=p.idarea INNER JOIN subarea s ON s.idsubarea=p.idsubarea "
+                + " INNER JOIN modelo m ON r.year=SUBSTR(m.mes_modelo,1,4) AND SUBSTR(r.mes,1,2)=SUBSTR(m.mes_modelo,5,2) AND m.idsubarea=p.idsubarea AND m.idarea=p.idarea "
+                + " INNER JOIN objetivos o ON m.idmodelo=o.idmodelo "
                 + "INNER JOIN kpi k ON r.idkpi=o.idkpi AND k.idkpi=r.idkpi "
                 + "WHERE "
                 + " a.nombre LIKE '%" + area + "%'"
@@ -394,15 +397,18 @@ public class fanalisis {
         if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
             sSQL2 = " AND tbcompfiltrada.idarea=" + INICIO.lblinicioidarea.getText() + " ";
         }
-        sSQL3 = " SELECT  tbcompfiltrada.area,tbcompfiltrada.idarea,tbcompfiltrada.subarea,SUM(tbcompfiltrada.obtreal)AS obtsubarea,"
+        sSQL3 = " SELECT  tbcompfiltrada.area,tbcompfiltrada.idarea,tbcompfiltrada.subarea,SUM(tbcompfiltrada.obtreal)"
+                + "AS obtsubarea,"
                 + "tbcompfiltrada.year,tbcompfiltrada.mes\n"
                 + " \n"
-                + " FROM  ( SELECT tbcomp.documento,tbcomp.idarea,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+                + " FROM  ( SELECT tbcomp.documento,tbcomp.idarea,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,"
+                + "(SUM(obtiene))AS sumob, "
                 + "(IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
                 + "AS obtreal,tbcomp.year,tbcomp.mes ,tbcomp.area, tbcomp.kpi,tbcomp.subarea FROM       \n"
-                + " (SELECT p.nombre,p.apaterno,p.documento,r.mes,r.year,a.idarea AS idarea,a.nombre AS area,k.nombre AS kpi,s.nombre AS subarea, "
+                + " (SELECT p.nombre,p.apaterno,p.documento,r.mes,r.year,a.idarea AS idarea,a.nombre AS area,k.nombre AS"
+                + " kpi,s.nombre AS subarea, "
                 + bigquery
-                + " )AS tbcomp GROUP BY tbcomp.documento)AS tbcompfiltrada  "
+                + " )AS tbcomp GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year)AS tbcompfiltrada  "
                 + " WHERE "
                 + " tbcompfiltrada.year LIKE '%" + year + "%'"
                 + " AND tbcompfiltrada.mes LIKE '%" + mes + "%'"
@@ -411,8 +417,10 @@ public class fanalisis {
                 + " AND tbcompfiltrada.documento LIKE '%" + Trabajador + "%'"
                 + " AND tbcompfiltrada.kpi LIKE '%" + KPI + "%'"
                 + sSQL2
-                + "GROUP BY tbcompfiltrada.subarea,tbcompfiltrada.mes,tbcompfiltrada.year"
-                + " ORDER BY tbcompfiltrada.subarea,tbcompfiltrada.apaterno,tbcompfiltrada.nombre,tbcompfiltrada.kpi,tbcompfiltrada.year,tbcompfiltrada.mes";
+                + "GROUP BY tbcompfiltrada.subarea"
+                //,tbcompfiltrada.mes,tbcompfiltrada.year .para filtrar por fecha si no funciona aun.
+                + " ORDER BY tbcompfiltrada.subarea,tbcompfiltrada.apaterno,tbcompfiltrada.nombre,tbcompfiltrada.kpi,"
+                + "tbcompfiltrada.year,tbcompfiltrada.mes";
 
         resultobttotal = 0.0;
         try {
