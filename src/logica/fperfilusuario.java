@@ -181,6 +181,61 @@ public class fperfilusuario {
         }
     }
 
+    public DefaultCategoryDataset cumplimientokpiant() {
+
+        if (mes.equals("0")) {
+            messtring = "12";
+            year = Integer.toString(Integer.parseInt(timeStamp.substring(0, 4)) - 1);
+        } else if (mes.equals("11") || mes.equals("10")) {
+            messtring = mes;
+        } else {
+            messtring = "0" + mes;
+        }
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        sSQL = " SELECT p.nombre,p.apaterno,p.documento,p.salario,a.nombre AS area,s.nombre AS subarea,"
+                + "m.tipo_estimulo,m.estimulo,"
+                + "k.nombre AS kpi, r.resultado_kpi,o.comparacion,o.valor_objetivo,o.tipo_objetivo,"
+                + "o.valor_ponderado,r.mes,r.year, p.idpersona,"
+                + fanalisis.bigquery
+                + " WHERE "
+                + " r.year LIKE '%" + year + "%'"
+                + " AND r.mes LIKE '%" + messtring + "%'"
+                + " AND p.idpersona=" + INICIO.lblinicioidpersona.getText() + " "
+                + " ORDER BY r.year,r.mes";
+        Double cump;
+        Double maxcump;
+        String kpiante = "";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+
+            while (rs.next()) {
+                if (rs.getString("cumplimiento") != null) {
+                    cump = Double.parseDouble(rs.getString("cumplimiento"))/100;
+                } else {
+                    cump = 0.0;
+                }
+                if (cump >= 1.00) {
+                    maxcump = 0.00;
+                } else {
+                    maxcump = 1.00 - cump;
+                }
+                kpiante = rs.getString("kpi");
+
+                dataset.addValue(cump, "Alcanzaste!!", kpiante);
+                dataset.addValue(maxcump, "Te falto", kpiante);
+
+            }
+
+            return dataset;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+
     public DefaultCategoryDataset mixmaxavg() {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
@@ -259,7 +314,7 @@ public class fperfilusuario {
                 String shortmes = completemes.substring(0, 6);
 
                 fecha = shortyear + "/ " + shortmes;
-                
+
                 dataset.addValue(tumid, "Tu Med", fecha);
             }
 

@@ -8,6 +8,7 @@ package UI;
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -21,6 +22,7 @@ import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
@@ -540,6 +542,9 @@ public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
         renderer.setDrawLines(false);
         plot.setRenderer(renderer);
         ChartUtilities.applyCurrentTheme(chart);
+         NumberAxis rangefor = new NumberAxis("");
+            rangefor.setNumberFormatOverride(new DecimalFormat("$"+"#,##0;(#,##0)"));                        
+            plot.setRangeAxis(rangefor);
 
         renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator());
         renderer.setItemLabelPaint(new Color(75, 16, 160));
