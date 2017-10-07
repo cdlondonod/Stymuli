@@ -98,7 +98,6 @@ public class INICIO extends javax.swing.JFrame {
         btnsimulac = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        mencambus = new javax.swing.JMenuItem();
         mencerrars = new javax.swing.JMenuItem();
         menactua = new javax.swing.JMenuItem();
         menconfig = new javax.swing.JMenuItem();
@@ -425,10 +424,7 @@ public class INICIO extends javax.swing.JFrame {
 
         jMenu1.setText("Stymuli");
 
-        mencambus.setText("Cambiar de Usuario");
-        jMenu1.add(mencambus);
-
-        mencerrars.setText("Cerrar Sesión");
+        mencerrars.setText("Cambiar Usuario");
         mencerrars.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mencerrarsActionPerformed(evt);
@@ -440,6 +436,11 @@ public class INICIO extends javax.swing.JFrame {
         jMenu1.add(menactua);
 
         menconfig.setText("Configuración");
+        menconfig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menconfigActionPerformed(evt);
+            }
+        });
         jMenu1.add(menconfig);
 
         mensalir.setText("Salir");
@@ -748,6 +749,16 @@ public class INICIO extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_mencerrarsActionPerformed
 
+    private void menconfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menconfigActionPerformed
+     
+        frmconfiguracion form = new frmconfiguracion();
+        form.toFront();
+        form.setVisible(true);
+        form.setAlwaysOnTop(true);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_menconfigActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -811,7 +822,6 @@ public class INICIO extends javax.swing.JFrame {
     private javax.swing.JMenuItem menabout;
     private javax.swing.JMenuItem menactua;
     private javax.swing.JMenuItem menbackupdb;
-    private javax.swing.JMenuItem mencambus;
     private javax.swing.JMenuItem mencerrars;
     private javax.swing.JMenuItem menconfig;
     private javax.swing.JMenuItem meninfoleg;
