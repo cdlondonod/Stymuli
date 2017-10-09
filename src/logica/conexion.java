@@ -18,11 +18,11 @@ public class conexion {
 
     static public String formsubarea;
     static public int frmabierto;
-
-    public String db = "db_stymuli";
-    public String url = "jdbc:mysql://127.0.0.1/" + db;
-    public String user = "root";
-    public String pass = "";
+    fconfiguration con = new fconfiguration();
+    public String db = con.GetProp("database");
+    public String url = "jdbc:mysql://"+con.GetProp("ipdatabase")+"/" + db;
+    public String user = con.GetProp("userdatabase");
+    public String pass = con.GetProp("passworddatabase");
 
     public conexion() {
     }

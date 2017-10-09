@@ -6,7 +6,9 @@
 package UI;
 
 import datos.vtrabajador;
+import java.io.File;
 import javax.swing.JOptionPane;
+import logica.fconfiguration;
 import logica.ftrabajador;
 import static logica.ftrabajador.dbpasswordexist;
 
@@ -16,12 +18,25 @@ import static logica.ftrabajador.dbpasswordexist;
  */
 public class frmconfiguracion extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmconfiguracion
-     */
+    fconfiguration con = new fconfiguration();
+
     public frmconfiguracion() {
         initComponents();
         this.setLocationRelativeTo(null);
+
+        File f = new File("config.txt");//revisa que el archivo config existe ya
+        if (f.exists() && !f.isDirectory()) {
+            defaultvalues();
+        }
+
+    }
+
+    void defaultvalues() {
+
+        txtnomdb.setText(con.GetProp("database"));
+        txtipdb.setText(con.GetProp("ipdatabase"));
+        txtuserdb.setText(con.GetProp("userdatabase"));
+        txtpassdb.setText(con.GetProp("passworddatabase"));
 
     }
 
@@ -46,6 +61,15 @@ public class frmconfiguracion extends javax.swing.JFrame {
         btncancelar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         pnlgeneral = new javax.swing.JPanel();
+        pnldbconect = new javax.swing.JPanel();
+        txtipdb = new javax.swing.JTextField();
+        txtpassdb = new javax.swing.JPasswordField();
+        txtnomdb = new javax.swing.JTextField();
+        txtuserdb = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         pnlcuent = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -133,6 +157,11 @@ public class frmconfiguracion extends javax.swing.JFrame {
         btndefault.setMaximumSize(new java.awt.Dimension(140, 26));
         btndefault.setMinimumSize(new java.awt.Dimension(140, 26));
         btndefault.setPreferredSize(new java.awt.Dimension(140, 26));
+        btndefault.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndefaultActionPerformed(evt);
+            }
+        });
 
         btnaceptar.setBackground(new java.awt.Color(255, 255, 255));
         btnaceptar.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
@@ -171,7 +200,7 @@ public class frmconfiguracion extends javax.swing.JFrame {
             .addGroup(pnlbtnLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btndefault, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addComponent(btnaceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,17 +220,112 @@ public class frmconfiguracion extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.CardLayout());
 
-        pnlgeneral.setBackground(new java.awt.Color(153, 153, 255));
+        pnlgeneral.setBackground(new java.awt.Color(255, 255, 255));
+
+        pnldbconect.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtipdb.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtipdb.setForeground(new java.awt.Color(75, 16, 160));
+
+        txtpassdb.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtpassdb.setForeground(new java.awt.Color(75, 16, 160));
+        txtpassdb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtpassdbActionPerformed(evt);
+            }
+        });
+
+        txtnomdb.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtnomdb.setForeground(new java.awt.Color(75, 16, 160));
+
+        txtuserdb.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtuserdb.setForeground(new java.awt.Color(75, 16, 160));
+
+        jLabel5.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(75, 16, 160));
+        jLabel5.setText("IP Base de Datos:");
+
+        jLabel6.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(75, 16, 160));
+        jLabel6.setText("Password Base de Datos:");
+        jLabel6.setToolTipText("");
+
+        jLabel7.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(75, 16, 160));
+        jLabel7.setText("Usuario Base de Datos:");
+        jLabel7.setToolTipText("");
+
+        jLabel4.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(75, 16, 160));
+        jLabel4.setText("Nombre Base de Datos:");
+
+        javax.swing.GroupLayout pnldbconectLayout = new javax.swing.GroupLayout(pnldbconect);
+        pnldbconect.setLayout(pnldbconectLayout);
+        pnldbconectLayout.setHorizontalGroup(
+            pnldbconectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnldbconectLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnldbconectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6))
+                .addGap(16, 16, 16)
+                .addGroup(pnldbconectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtnomdb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                    .addComponent(txtipdb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtuserdb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtpassdb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        pnldbconectLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel4, jLabel5, jLabel6, jLabel7, txtipdb, txtnomdb, txtpassdb, txtuserdb});
+
+        pnldbconectLayout.setVerticalGroup(
+            pnldbconectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnldbconectLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnldbconectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnomdb))
+                .addGap(6, 6, 6)
+                .addGroup(pnldbconectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtipdb, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnldbconectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtuserdb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnldbconectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtpassdb, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        pnldbconectLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel4, txtnomdb});
+
+        pnldbconectLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel7, txtuserdb});
+
+        pnldbconectLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel6, txtpassdb});
+
+        pnldbconectLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel5, txtipdb});
 
         javax.swing.GroupLayout pnlgeneralLayout = new javax.swing.GroupLayout(pnlgeneral);
         pnlgeneral.setLayout(pnlgeneralLayout);
         pnlgeneralLayout.setHorizontalGroup(
             pnlgeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pnlgeneralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnldbconect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlgeneralLayout.setVerticalGroup(
             pnlgeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 369, Short.MAX_VALUE)
+            .addGroup(pnlgeneralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnldbconect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         jPanel3.add(pnlgeneral, "card1");
@@ -246,7 +370,7 @@ public class frmconfiguracion extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtpassnu1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         pnlcuentLayout.setVerticalGroup(
             pnlcuentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,10 +517,35 @@ public class frmconfiguracion extends javax.swing.JFrame {
                 }
             }//termina cambio de password
 
+            //inicia cambio de config file, conexion db
+            if (!txtnomdb.getText().equals("") && !txtuserdb.getText().equals("") && !txtipdb.getText().equals("")) {
+
+                con.SaveProp("database", txtnomdb.getText());
+                con.SaveProp("userdatabase", txtuserdb.getText());
+                con.SaveProp("ipdatabase", txtipdb.getText());
+                con.SaveProp("passworddatabase", txtpassdb.getText());
+
+                this.dispose();
+
+            } else if (txtnomdb.getText().equals("") || txtuserdb.getText().equals("") || txtipdb.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Debe Ingresar Todos los Datos para establecer la conexion a la Base de Datos");
+            }//termina cambio de config file, conexion db
+
         }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnaceptarActionPerformed
+
+    private void txtpassdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpassdbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpassdbActionPerformed
+
+    private void btndefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndefaultActionPerformed
+        File f = new File("config.txt");//revisa que el archivo config existe ya
+        if (f.exists() && !f.isDirectory()) {
+            defaultvalues();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btndefaultActionPerformed
 
     /**
      * @param args the command line arguments
@@ -436,23 +585,32 @@ public class frmconfiguracion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaceptar;
     private javax.swing.JButton btncancelar;
-    private javax.swing.JButton btncuenta;
+    public static javax.swing.JButton btncuenta;
     private javax.swing.JButton btndefault;
     private javax.swing.JButton btngenera;
-    private javax.swing.JButton btninter;
+    public static javax.swing.JButton btninter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel pnlbtn;
     private javax.swing.JPanel pnlcardla;
     private javax.swing.JPanel pnlcuent;
+    public static javax.swing.JPanel pnldbconect;
     private javax.swing.JPanel pnlgeneral;
     private javax.swing.JPanel pnlinterfaz;
+    private javax.swing.JTextField txtipdb;
+    private javax.swing.JTextField txtnomdb;
     private javax.swing.JPasswordField txtpassant;
+    private javax.swing.JPasswordField txtpassdb;
     private javax.swing.JPasswordField txtpassnu;
     private javax.swing.JPasswordField txtpassnu1;
+    private javax.swing.JTextField txtuserdb;
     // End of variables declaration//GEN-END:variables
 }

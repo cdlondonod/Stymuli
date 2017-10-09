@@ -7,6 +7,7 @@ package UI;
 
 import datos.vtrabajador;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
 import javax.swing.JOptionPane;
 import logica.ftrabajador;
 import static logica.ftrabajador.dbpasswordexist;
@@ -24,7 +25,7 @@ public class frmzzlogin extends javax.swing.JFrame {
         initComponents();
         txtusuario.requestFocus();
         this.setLocationRelativeTo(null);
-        this.setAlwaysOnTop(rootPaneCheckingEnabled);
+
         rootPane.setDefaultButton(btningresar);
 
     }
@@ -48,6 +49,7 @@ public class frmzzlogin extends javax.swing.JFrame {
         btningresar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnconfiguration = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btncancelar = new javax.swing.JButton();
 
@@ -93,11 +95,20 @@ public class frmzzlogin extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isotipo-1-fondo-transparente91x77.png"))); // NOI18N
 
+        btnconfiguration.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/configuration.png"))); // NOI18N
+        btnconfiguration.setBorder(null);
+        btnconfiguration.setBorderPainted(false);
+        btnconfiguration.setContentAreaFilled(false);
+        btnconfiguration.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnconfigurationActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,9 +118,10 @@ public class frmzzlogin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtusuario)
                     .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(btnconfiguration, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -117,10 +129,11 @@ public class frmzzlogin extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(119, 119, 119))))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
@@ -134,7 +147,9 @@ public class frmzzlogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnconfiguration)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -200,91 +215,107 @@ public class frmzzlogin extends javax.swing.JFrame {
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
 
-        try {
+        File f = new File("config.txt");//revisa que el archivo config existe ya
+        if (f.exists() && !f.isDirectory()) {
 
-            ftrabajador func = new ftrabajador();
-            vtrabajador dts = new vtrabajador();
+            try {
 
-            dts.setDocumento(txtusuario.getText());
-            dts.setPassword(txtpassword.getText());
+                ftrabajador func = new ftrabajador();
+                vtrabajador dts = new vtrabajador();
 
-            if (func.login(txtusuario.getText(), txtpassword.getText())) {
+                dts.setDocumento(txtusuario.getText());
+                dts.setPassword(txtpassword.getText());
 
-                this.dispose();
-                INICIO form = new INICIO();
-                form.toFront();
-                form.setVisible(true);
-                form.setExtendedState(INICIO.MAXIMIZED_BOTH);
+                if (func.login(txtusuario.getText(), txtpassword.getText())) {
 
-                if (ftrabajador.loginacceso.equals("Trabajador")) {
-                    INICIO.btnareas.setVisible(false);
-                    INICIO.btnkpi.setVisible(false);
-                    INICIO.btnmodelos.setVisible(false);
-                    INICIO.btnusuarios.setVisible(false);
-                     INICIO.btnanalisis.setVisible(false);
-                     INICIO.btnresultados.setText("Historico");
+                    this.dispose();
+                    INICIO form = new INICIO();
+                    form.toFront();
+                    form.setVisible(true);
+                    form.setExtendedState(INICIO.MAXIMIZED_BOTH);
 
-                } else if (ftrabajador.loginacceso.equals("Administrador")) {
-                    INICIO.btnperfil.setVisible(false);
+                    if (ftrabajador.loginacceso.equals("Trabajador")) {
+                        INICIO.btnareas.setVisible(false);
+                        INICIO.btnkpi.setVisible(false);
+                        INICIO.btnmodelos.setVisible(false);
+                        INICIO.btnusuarios.setVisible(false);
+                        INICIO.btnanalisis.setVisible(false);
+                        INICIO.btnresultados.setText("Historico");
 
-                } else if (ftrabajador.loginacceso.equals("Jefe de Area")) {
-                    INICIO.btnareas.setVisible(false);
-                    INICIO.btnperfil.setVisible(false);
+                    } else if (ftrabajador.loginacceso.equals("Administrador")) {
+                        INICIO.btnperfil.setVisible(false);
 
-                } else if (ftrabajador.loginacceso.equals("Jefe de Subarea")) {
-                    INICIO.btnareas.setVisible(false);
-                    INICIO.btnperfil.setVisible(false);
+                    } else if (ftrabajador.loginacceso.equals("Jefe de Area")) {
+                        INICIO.btnareas.setVisible(false);
+                        INICIO.btnperfil.setVisible(false);
+
+                    } else if (ftrabajador.loginacceso.equals("Jefe de Subarea")) {
+                        INICIO.btnareas.setVisible(false);
+                        INICIO.btnperfil.setVisible(false);
+
+                    } else {
+                        INICIO.btnareas.setVisible(false);
+                        INICIO.btnkpi.setVisible(false);
+                        INICIO.btnmodelos.setVisible(false);
+                        INICIO.btnusuarios.setVisible(false);
+                        INICIO.btnperfil.setVisible(false);
+                        INICIO.btnresultados.setVisible(false);
+                        INICIO.btnsimulac.setVisible(false);
+                        INICIO.btnanalisis.setVisible(false);
+
+                        JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
+                                + "Por favor comuniquese con el administrador");
+
+                    }
+
+                    INICIO.lblinicioidpersona.setText(ftrabajador.loginidpersona);
+                    INICIO.lblinicionombre.setText(ftrabajador.loginnombre);
+                    INICIO.lblinicio1erapellido.setText(ftrabajador.login1erapellido);
+                    INICIO.lblinicio2doapellido.setText(ftrabajador.login2doapellido);
+                    INICIO.lbliniciodocumento.setText(txtusuario.getText());
+                    INICIO.lblinicioemail.setText(ftrabajador.loginemail);
+                    INICIO.lblinicioidarea.setText(ftrabajador.loginidarea);
+                    INICIO.lblinicioarea.setText(ftrabajador.loginarea);
+                    INICIO.lblinicioidsubarea.setText(ftrabajador.loginidsubarea);
+                    INICIO.lbliniciosubarea.setText(ftrabajador.loginsubarea);
+                    INICIO.lblinicioacceso.setText(ftrabajador.loginacceso);
 
                 } else {
-                    INICIO.btnareas.setVisible(false);
-                    INICIO.btnkpi.setVisible(false);
-                    INICIO.btnmodelos.setVisible(false);
-                    INICIO.btnusuarios.setVisible(false);
-                    INICIO.btnperfil.setVisible(false);
-                    INICIO.btnresultados.setVisible(false);
-                    INICIO.btnsimulac.setVisible(false);
-                    INICIO.btnanalisis.setVisible(false);
-
-                    JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
-                            + "Por favor comuniquese con el administrador");
-
+                    JOptionPane.showMessageDialog(rootPane, "Contraseña incorrecta", "Acceso al Sistema", JOptionPane.ERROR_MESSAGE);
                 }
 
-                INICIO.lblinicioidpersona.setText(ftrabajador.loginidpersona);
-                INICIO.lblinicionombre.setText(ftrabajador.loginnombre);
-                INICIO.lblinicio1erapellido.setText(ftrabajador.login1erapellido);
-                INICIO.lblinicio2doapellido.setText(ftrabajador.login2doapellido);
-                INICIO.lbliniciodocumento.setText(txtusuario.getText());
-                INICIO.lblinicioemail.setText(ftrabajador.loginemail);
-                INICIO.lblinicioidarea.setText(ftrabajador.loginidarea);
-                INICIO.lblinicioarea.setText(ftrabajador.loginarea);
-                INICIO.lblinicioidsubarea.setText(ftrabajador.loginidsubarea);
-                INICIO.lbliniciosubarea.setText(ftrabajador.loginsubarea);
-                INICIO.lblinicioacceso.setText(ftrabajador.loginacceso);
+            } catch (Exception e) {
+                if (dbpasswordexist.equals("existe")) {
+                    JOptionPane.showMessageDialog(rootPane, "Primer Acceso al Sistema, cree una nueva contraseña");
+                    this.dispose();
+                    frmzzcrearpass form = new frmzzcrearpass();
+                    form.toFront();
+                    form.setVisible(true);
+                    form.txtdocumento.setText(txtusuario.getText());
 
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Contraseña incorrecta", "Acceso al Sistema", JOptionPane.ERROR_MESSAGE);
+                } else if (dbpasswordexist.equals("na")) {
+                    JOptionPane.showMessageDialog(rootPane, "El Usuario no Existe", "Acceso al Sistema", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Acceso Denegado", "Acceso al Sistema", JOptionPane.ERROR_MESSAGE);
+                }
             }
 
-        } catch (Exception e) {
-            if (dbpasswordexist.equals("existe")) {
-                JOptionPane.showMessageDialog(rootPane, "Primer Acceso al Sistema, cree una nueva contraseña");
-                this.dispose();
-                frmzzcrearpass form = new frmzzcrearpass();
-                form.toFront();
-                form.setVisible(true);
-                form.txtdocumento.setText(txtusuario.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe Especificar cual es la base de Datos a Usar");
+            btnconfiguration.doClick();
+        }//revisa si config existe
 
-            } else if (dbpasswordexist.equals("na")) {
-                JOptionPane.showMessageDialog(rootPane, "El Usuario no Existe", "Acceso al Sistema", JOptionPane.ERROR_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Acceso Denegado", "Acceso al Sistema", JOptionPane.ERROR_MESSAGE);
-            }
-        }
 
-        // System.out.println(dbpasswordexist);
-        // TODO add your handling code here:
     }//GEN-LAST:event_btningresarActionPerformed
+
+    private void btnconfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconfigurationActionPerformed
+        frmconfiguracion form = new frmconfiguracion();
+        form.toFront();
+        form.setVisible(true);
+
+        form.btncuenta.setVisible(false);
+        form.btninter.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnconfigurationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,6 +354,7 @@ public class frmzzlogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncancelar;
+    private javax.swing.JButton btnconfiguration;
     private javax.swing.JButton btningresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

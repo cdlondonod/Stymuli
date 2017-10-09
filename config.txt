@@ -1,0 +1,5 @@
+#Mon Oct 09 09:30:21 COT 2017
+ipdatabase=Z+fj+62oRdmaOQEyCndSPw\=\=
+database=bvUYKue4EOoss7bBiouDQA\=\=
+userdatabase=Wz8gvD7s9Skl8un0iNCmZg\=\=
+passworddatabase=SHD+UVuKh8PLGc7Qs7/OzA\=\=

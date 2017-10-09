@@ -755,6 +755,10 @@ public class INICIO extends javax.swing.JFrame {
         form.toFront();
         form.setVisible(true);
         form.setAlwaysOnTop(true);
+        
+        if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
+                 frmconfiguracion.pnldbconect.setVisible(false);
+        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_menconfigActionPerformed
