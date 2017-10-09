@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -34,7 +35,9 @@ public class fconfiguration {
             String valueencrip = encrypt(valuec);
             
             prop.setProperty(title, valueencrip);
-            prop.store(new FileOutputStream("config.txt"), null);
+            /*File file = new File("conf\\config.txt");
+            file.getParentFile().mkdirs();*/
+            prop.store(new FileOutputStream("conf\\config.txt"), null);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -47,7 +50,7 @@ public class fconfiguration {
         String valuedecr = "";
         try {
             
-            prop.load(new FileInputStream("config.txt"));
+            prop.load(new FileInputStream("conf\\config.txt"));
             value = prop.getProperty(title);
 
             valuedecr = decrypt(value);

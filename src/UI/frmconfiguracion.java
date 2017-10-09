@@ -24,7 +24,7 @@ public class frmconfiguracion extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
 
-        File f = new File("config.txt");//revisa que el archivo config existe ya
+        File f = new File("conf\\config.txt");//revisa que el archivo config existe ya
         if (f.exists() && !f.isDirectory()) {
             defaultvalues();
         }
