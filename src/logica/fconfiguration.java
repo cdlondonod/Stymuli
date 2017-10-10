@@ -35,8 +35,7 @@ public class fconfiguration {
             String valueencrip = encrypt(valuec);
             
             prop.setProperty(title, valueencrip);
-            /*File file = new File("conf\\config.txt");
-            file.getParentFile().mkdirs();*/
+           
             prop.store(new FileOutputStream("conf\\config.txt"), null);
 
         } catch (Exception e) {
