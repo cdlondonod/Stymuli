@@ -5,26 +5,25 @@
  */
 package UI;
 
-import static UI.frmareasubar.txtidarea;
 import datos.vmodelo;
 import datos.vobjetivos;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.stream.Collector;
+
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.conexion;
+import logica.fconfiguration;
 
 import logica.fmodelo;
 import logica.fobjetivos;
-import logica.fsubarea;
 
 /**
  *
  * @author crist
  */
 public class frmmodelo extends javax.swing.JInternalFrame {
+
+    fconfiguration con = new fconfiguration();
 
     /**
      * Creates new form frmmodelo
@@ -157,22 +156,6 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         tablalistado_stymuli.getColumnModel().getColumn(3).setMaxWidth(0);
         tablalistado_stymuli.getColumnModel().getColumn(3).setMinWidth(0);
         tablalistado_stymuli.getColumnModel().getColumn(3).setPreferredWidth(0);
-    }
-
-    void checkinput() {
-
-        String str = txtstymuli.getText();
-        str = str.replaceAll("[^0-9.-]", "");
-        txtstymuli.setText(str);
-
-        String str1 = txtvalor_Obj.getText();
-        str1 = str1.replaceAll("[^0-9.-]", "");
-        txtvalor_Obj.setText(str1);
-
-        String str2 = txtvalor_pon_Obj.getText();
-        str2 = str2.replaceAll("[^0-9.-]", "");
-        txtvalor_pon_Obj.setText(str2);
-
     }
 
     void mostrar_stymuli(String buscar) {
@@ -1264,7 +1247,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         } else {
             dts.setTipo_estimulo((String) cbotipo_stymuli.getItemAt(seleccionado));
         }
-        dts.setEstimulo(Double.parseDouble(txtstymuli.getText()));
+        dts.setEstimulo(con.DBnumberFormatInput(txtstymuli.getText()));
         dts.setDescripcion(txtdescripcion.getText());
 
         String year = Integer.toString(dateyear.getYear());
@@ -1282,7 +1265,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "El Modelo fue registrado satisfactoriamente");
                 mostrar_stymuli("");
                 inhabilitar_s();
-                checkinput();
+             
 
                 int lastRow = tablalistado_stymuli.convertRowIndexToView(tablalistado_stymuli.getRowCount() - 1);
                 tablalistado_stymuli.setRowSelectionInterval(lastRow, lastRow);
@@ -1305,7 +1288,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                 mostrar_stymuli("");
                 inhabilitar_o();
                 inhabilitar_s();
-                checkinput();
+           
             }
 
         }
@@ -1353,7 +1336,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(rootPane, "El valor ponderado total del modelo, debe ser minimo el 100% del Stymuli a recibir");
                     habilitar_o();
                     inhabilitar_s();
-                    checkinput();
+                 
                     txtvalor_Obj.requestFocus();
                 } else {
 
@@ -1424,12 +1407,12 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         int seleccionado = cbocomparacion_Obj.getSelectedIndex();
         dts.setComparacion((String) cbocomparacion_Obj.getItemAt(seleccionado));
 
-        dts.setValor_objetivo(Double.parseDouble(txtvalor_Obj.getText()));
+        dts.setValor_objetivo(con.DBnumberFormatInput(txtvalor_Obj.getText()));
         seleccionado = cbotipo_Obj.getSelectedIndex();
         dts.setTipo_objetivo((String) cbotipo_Obj.getItemAt(seleccionado));
 
         if (txtvalor_pon_Obj.getText().length() != 0) {
-            dts.setValor_ponderado(Double.parseDouble(txtvalor_pon_Obj.getText()));
+            dts.setValor_ponderado(con.DBnumberFormatInput(txtvalor_pon_Obj.getText()));
         }
 
         if (accion_Obj.equals("guardar")) {
@@ -1441,12 +1424,12 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(rootPane, "El valor ponderado total del modelo, debe ser minimo el 100% del Stymuli a recibir");
                     habilitar_o();
                     inhabilitar_s();
-                    checkinput();
+            
                     txtvalor_Obj.requestFocus();
                 } else {
                     inhabilitar_o();
                     inhabilitar_s();
-                    checkinput();
+               
                 }
             }
 
@@ -1460,13 +1443,13 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(rootPane, "El valor ponderado total del modelo, debe ser minimo el 100% del Stymuli a recibir");
                     habilitar_o();
                     inhabilitar_s();
-                    checkinput();
+           
                     txtvalor_Obj.requestFocus();
                 } else {
 
                     inhabilitar_o();
                     inhabilitar_s();
-                    checkinput();
+              
                 }
             }
 
@@ -1525,7 +1508,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         dateyear.setYear(year);
 
         txtstymuli.requestFocus();
-        checkinput();
+  
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btneditarstyActionPerformed
@@ -1552,7 +1535,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         cbotipo_Obj.setSelectedItem(tablalistado_Obj.getValueAt(fila, 6).toString());
 
         txtvalor_pon_Obj.setText(tablalistado_Obj.getValueAt(fila, 7).toString());
-        checkinput();
+      
 
         pnlregistro_Obj.setVisible(true);
         // TODO add your handling code here:
@@ -1567,34 +1550,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtbuscar_ObjKeyReleased
 
     private void txtvalor_ObjKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalor_ObjKeyTyped
-        char keychar = evt.getKeyChar();
-
-        if (Character.isAlphabetic(keychar)) {
-            evt.consume();
-        }
-        if (keychar == ',') {
-            evt.setKeyChar('.');
-        }
-        if (keychar == '%' || keychar == '$') {
-            evt.consume();
-        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_txtvalor_ObjKeyTyped
 
     private void txtvalor_pon_ObjKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalor_pon_ObjKeyTyped
-        char keychar = evt.getKeyChar();
-
-        if (Character.isAlphabetic(keychar)) {
-            evt.consume();
-        }
-        if (keychar == ',') {
-            evt.setKeyChar('.');
-        }
-        if (keychar == '%' || keychar == '$') {
-            evt.consume();
-        }
-
         // TODO add your handling code here:
     }//GEN-LAST:event_txtvalor_pon_ObjKeyTyped
 
@@ -1633,17 +1593,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbotipo_ObjItemStateChanged
 
     private void txtstymuliKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtstymuliKeyTyped
-        char keychar = evt.getKeyChar();
 
-        if (Character.isAlphabetic(keychar)) {
-            evt.consume();
-        }
-        if (keychar == ',') {
-            evt.setKeyChar('.');
-        }
-        if (keychar == '%' || keychar == '$') {
-            evt.consume();
-        }
     }//GEN-LAST:event_txtstymuliKeyTyped
 
     private void txtstymuliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstymuliActionPerformed
@@ -1695,7 +1645,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             } else {
                 fechamodelomes = "0" + mesmodelo;
             }
-         
+
             if (!txtidmodelo.getText().equals("")) {
                 int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Desea Copiar los Objetivos utilizados para esta SubÁrea el Mes anterior?", "Confirmar", 2);
 

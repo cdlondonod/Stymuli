@@ -12,7 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.DecimalFormat;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +24,8 @@ import org.mindrot.jbcrypt.BCrypt;
  */
 public class ftrabajador {
 
+    fconfiguration con = new fconfiguration();
+
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
@@ -32,8 +34,6 @@ public class ftrabajador {
     private String sSQL4 = "";
     public Integer rows;
     private static int workload = 12;
-    
-    DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
 
     public DefaultTableModel mostrar(String buscar, String filtrores) {
         DefaultTableModel modelo;
@@ -43,12 +43,12 @@ public class ftrabajador {
         String[] registro = new String[16];
 
         modelo = new DefaultTableModel(null, titulos);
-        
+
         if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            sSQL2=" AND a.idarea="+INICIO.lblinicioidarea.getText()+" ";
-            
+            sSQL2 = " AND a.idarea=" + INICIO.lblinicioidarea.getText() + " ";
+
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            sSQL2=" AND a.idarea="+INICIO.lblinicioidarea.getText()+" AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' "; 
+            sSQL2 = " AND a.idarea=" + INICIO.lblinicioidarea.getText() + " AND s.nombre like '%" + INICIO.lbliniciosubarea.getText() + "%' ";
         }
 
         sSQL = " SELECT p.idpersona,p.nombre,p.apaterno,p.amaterno,p.tipo_documento,p.documento,"
@@ -78,7 +78,7 @@ public class ftrabajador {
                 registro[10] = rs.getString("p.idsubarea");
                 registro[11] = rs.getString("s.nombre");
                 registro[12] = rs.getString("p.cargo");
-                registro[13] = "$" + numberFormat.format(Double.parseDouble(rs.getString("p.salario")));
+                registro[13] = "$" + con.numberFormatDisplay(Double.parseDouble(rs.getString("p.salario")));
                 registro[14] = rs.getString("p.acceso");
                 registro[15] = rs.getString("p.estado");
                 modelo.addRow(registro);
@@ -112,6 +112,7 @@ public class ftrabajador {
             pst.setInt(8, dts.getIdarea());
             pst.setInt(9, dts.getIdsubarea());
             pst.setString(10, dts.getCargo());
+
             pst.setDouble(11, dts.getSalario());
             pst.setString(12, dts.getAcceso());
 
@@ -251,8 +252,8 @@ public class ftrabajador {
         loginidsubarea = "";
         loginsubarea = "";
         loginacceso = "";
-        logincargo="";
-        
+        logincargo = "";
+
         String dbpassword = "";
         boolean password_verified = false;
 
@@ -280,7 +281,7 @@ public class ftrabajador {
                 loginidsubarea = (rs.getString("p.idsubarea"));
                 loginsubarea = (rs.getString("s.nombre"));
                 loginacceso = (rs.getString("p.acceso"));
-                logincargo=(rs.getString("p.cargo"));
+                logincargo = (rs.getString("p.cargo"));
 
             }
         } catch (Exception e) {

@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import logica.conexion;
+import logica.fconfiguration;
 
 import logica.fsimulacion;
 
@@ -32,6 +33,8 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author crist
  */
 public class frmsimulacion extends javax.swing.JInternalFrame {
+
+    fconfiguration con = new fconfiguration();
 
     /**
      * Creates new form frmtrabajador
@@ -58,7 +61,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
     }
 
     void ocultar_columnas() {
-        tablakpires.getColumnModel().getColumn(0).setMaxWidth(0);
+        /* tablakpires.getColumnModel().getColumn(0).setMaxWidth(0);
         tablakpires.getColumnModel().getColumn(0).setMinWidth(0);
         tablakpires.getColumnModel().getColumn(0).setPreferredWidth(0);
 
@@ -76,7 +79,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
         tablamodelo.getColumnModel().getColumn(1).setMaxWidth(0);
         tablamodelo.getColumnModel().getColumn(1).setMinWidth(0);
-        tablamodelo.getColumnModel().getColumn(1).setPreferredWidth(0);
+        tablamodelo.getColumnModel().getColumn(1).setPreferredWidth(0);*/
 
     }
 
@@ -419,7 +422,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
         }
 
         Double estimulo = 0.0;
-        DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
+
         DefaultTableModel model = (DefaultTableModel) tablasim.getModel();
         model.setRowCount(0);
 
@@ -432,11 +435,11 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
                 String data2;
                 String data1 = tmk.getValueAt(x, 1).toString();
 
-                if (tmk.getValueAt(x, 2).toString().replaceAll("[^0-9.-]", "").length() == 0) {
+                if (con.DBnumberFormatInput(tmk.getValueAt(x, 2).toString()).toString().length() == 0) {
                     JOptionPane.showMessageDialog(null, "Debe especificar un resultado");
                     return;
                 } else {
-                    data2 = tmk.getValueAt(x, 2).toString().replaceAll("[^0-9.-]", "");
+                    data2 = con.numberFormatDisplay(con.DBnumberFormatInput(tmk.getValueAt(x, 2).toString()));
                 }
 
                 int rowkpi = 0;
@@ -452,7 +455,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
                 String data4 = tm.getValueAt(rowkpi, 6).toString();
                 String habilitador = tm.getValueAt(rowkpi, 3).toString();
                 if (tm.getValueAt(rowkpi, 0).toString().equals("Salario") || tm.getValueAt(rowkpi, 0).toString().equals("Bono")) {
-                    estimulo = Double.parseDouble(tm.getValueAt(rowkpi, 1).toString().replaceAll("[^0-9.-]", ""));
+                    estimulo = con.DBnumberFormatInput(tm.getValueAt(rowkpi, 1).toString());
                 } else {
                     String split = tm.getValueAt(rowkpi, 0).toString();
                     String[] parts = split.split("_");
@@ -463,23 +466,23 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
                         for (int j = 0; j < tmk.getColumnCount(); j++) {
                             if (tablakpires.getModel().getValueAt(i, j).equals(part2)) {
 
-                                estimulo = Double.parseDouble(tablakpires.getModel().getValueAt(i, 2).toString())
-                                        * Double.parseDouble(tm.getValueAt(rowkpi, 1).toString().replaceAll("[^0-9.-]", ""));
+                                estimulo = con.DBnumberFormatInput(tablakpires.getModel().getValueAt(i, 2).toString())
+                                        * con.DBnumberFormatInput(tm.getValueAt(rowkpi, 1).toString());
                             }
                         }
                     }
 
                 }
 
-                Double ponderado = Double.parseDouble(tm.getValueAt(rowkpi, 4).toString().replaceAll("[^0-9.-]", ""));
+                Double ponderado = con.DBnumberFormatInput(tm.getValueAt(rowkpi, 4).toString());
                 String data5 = "";
                 String data6 = "";
                 Double resob = estimulo * (ponderado / 100);
-                String obtenido = numberFormat.format(resob);
+                String obtenido = con.numberFormatDisplay(Double.parseDouble(resob.toString()));
 
                 if (data3.equals("Mayor/Igual")) {
 
-                    if (Double.parseDouble(data2) >= Double.parseDouble(data4)) {
+                    if (con.DBnumberFormatInput(data2) >= con.DBnumberFormatInput(data4)) {
 
                         if (habilitador.equals("Pon.")) {
 
@@ -504,7 +507,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
                 } else if (data3.equals("Menor/Igual")) {
 
-                    if (Double.parseDouble(data2) <= Double.parseDouble(data4)) {
+                    if (con.DBnumberFormatInput(data2) <= con.DBnumberFormatInput(data4)) {
 
                         if (habilitador.equals("Pon.")) {
                             data5 = "$" + ((obtenido));
@@ -528,7 +531,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
                 } else if (data3.equals("Igual")) {
 
-                    if (Double.parseDouble(data2) == Double.parseDouble(data4)) {
+                    if (con.DBnumberFormatInput(data2) == con.DBnumberFormatInput(data4)) {
 
                         if (habilitador.equals("Pon.")) {
                             data5 = "$" + ((obtenido));
@@ -554,7 +557,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
                 if (data3.equals("Mayor/Igual")) {
 
-                    if (Double.parseDouble(data2) >= Double.parseDouble(data4)) {
+                    if (con.DBnumberFormatInput(data2) >= con.DBnumberFormatInput(data4)) {
 
                         if (habilitador.equals("Pon.")) {
                             data5 = "$" + ((obtenido));
@@ -578,7 +581,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
                 } else if (data3.equals("Menor/Igual")) {
 
-                    if (Double.parseDouble(data2) <= Double.parseDouble(data4)) {
+                    if (con.DBnumberFormatInput(data2) <= con.DBnumberFormatInput(data4)) {
 
                         if (habilitador.equals("Pon.")) {
                             data5 = "$" + ((obtenido));
@@ -602,7 +605,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
                 } else if (data3.equals("Igual")) {
 
-                    if (Double.parseDouble(data2) == Double.parseDouble(data4)) {
+                    if (con.DBnumberFormatInput(data2) == con.DBnumberFormatInput(data4)) {
 
                         if (habilitador.equals("Pon.")) {
                             data5 = "$" + ((obtenido));
@@ -628,7 +631,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
                 if (data3.equals("Mayor/Igual")) {
 
-                    if (Double.parseDouble(data2) >= Double.parseDouble(data4)) {
+                    if (con.DBnumberFormatInput(data2) >= con.DBnumberFormatInput(data4)) {
 
                         if (habilitador.equals("Pon.")) {
                             data5 = "$" + ((obtenido));
@@ -652,7 +655,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
                 } else if (data3.equals("Menor/Igual")) {
 
-                    if (Double.parseDouble(data2) <= Double.parseDouble(data4)) {
+                    if (con.DBnumberFormatInput(data2) <= con.DBnumberFormatInput(data4)) {
 
                         if (habilitador.equals("Pon.")) {
                             data5 = "$" + ((obtenido));
@@ -676,7 +679,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
                 } else if (data3.equals("Igual")) {
 
-                    if (Double.parseDouble(data2) == Double.parseDouble(data4)) {
+                    if (con.DBnumberFormatInput(data2) == con.DBnumberFormatInput(data4)) {
 
                         if (habilitador.equals("Pon.")) {
                             data5 = "$" + ((obtenido));
@@ -716,11 +719,11 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
         Double cant = 0.0;
         Double obtreal;
         for (int j = 0; j < model.getRowCount(); j++) {
-            Double p = Double.parseDouble(model.getValueAt(j, 4).toString().replaceAll("[^0-9.-]", ""));
+            Double p = con.DBnumberFormatInput(model.getValueAt(j, 4).toString());
             sumpos = sumpos + p;
         }
         for (int j = 0; j < model.getRowCount(); j++) {
-            Double p = Double.parseDouble(model.getValueAt(j, 5).toString().replaceAll("[^0-9.-]", ""));
+            Double p = con.DBnumberFormatInput(model.getValueAt(j, 5).toString());
             habilita = habilita + p;
             cant = (double) j + 1;
         }
@@ -745,21 +748,21 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
                 true,
                 false);
 
-         chart.getTitle().setPaint(new Color(75,16,160));
-            PiePlot plot = (PiePlot) chart.getPlot();
-            PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
-                    "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%"));
-            plot.setLabelGenerator(gen);
-            plot.setLabelOutlinePaint(null);
-            plot.setLabelShadowPaint(null);
-            plot.setLabelBackgroundPaint(null);
-            plot.setLabelPaint(new Color(75,16,160));
-            plot.setBackgroundPaint(Color.WHITE);
-            // plot.setSimpleLabels(true);
-            plot.setOutlineVisible(false);
-            chart.setBackgroundPaint(Color.WHITE);
-            plot.setSectionPaint(0, new Color(20, 173, 23));
-            plot.setSectionPaint(1, new Color(101, 54, 193));
+        chart.getTitle().setPaint(new Color(75, 16, 160));
+        PiePlot plot = (PiePlot) chart.getPlot();
+        PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
+                "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%"));
+        plot.setLabelGenerator(gen);
+        plot.setLabelOutlinePaint(null);
+        plot.setLabelShadowPaint(null);
+        plot.setLabelBackgroundPaint(null);
+        plot.setLabelPaint(new Color(75, 16, 160));
+        plot.setBackgroundPaint(Color.WHITE);
+        // plot.setSimpleLabels(true);
+        plot.setOutlineVisible(false);
+        chart.setBackgroundPaint(Color.WHITE);
+        plot.setSectionPaint(0, new Color(20, 173, 23));
+        plot.setSectionPaint(1, new Color(101, 54, 193));
         final ChartPanel chartPanel = new ChartPanel(chart);
         pnlgrafica.setLayout(new java.awt.BorderLayout());
         pnlgrafica.add(chartPanel, BorderLayout.CENTER);

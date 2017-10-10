@@ -10,9 +10,10 @@ import java.sql.Connection;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.DecimalFormat;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,12 +22,13 @@ import javax.swing.table.DefaultTableModel;
  * @author crist
  */
 public class fsimulacion {
+    
+    fconfiguration con=new fconfiguration();
 
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
-    public Double obtenidopersonasim;
-    DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
+    public Double obtenidopersonasim;     
     private String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
     private String year = timeStamp.substring(0, 4);
     private String mes = timeStamp.substring(4, 6);
@@ -67,29 +69,29 @@ public class fsimulacion {
 
                 registro[0] = rs.getString("m.tipo_estimulo");
                 if (tipom.equals("Salario")) {
-                    String text = numberFormat.format((sal * (est / 100)));
+                    String text = con.numberFormatDisplay((sal * (est / 100)));
                     registro[1] = "$" + text;
 
                 } else if (tipom.equals("Bono")) {
-                    String text = numberFormat.format(est);
+                    String text = con.numberFormatDisplay(est);
                     registro[1] = "$" + text;
 
                 } else {
 
-                    registro[1] = numberFormat.format(est / 100);
+                    registro[1] = con.numberFormatDisplay(est / 100);
 
                 }
 
                 registro[2] = rs.getString("k.nombre");
                 registro[5] = rs.getString("o.comparacion");
-                registro[6] = rs.getString("o.valor_objetivo");
+                registro[6] = con.numberFormatDisplay(Double.parseDouble(rs.getString("o.valor_objetivo")));
 
                 if (tipoo.equals("Habilitador")) {
                     registro[3] = "Hab.";
                 } else {
                     registro[3] = "Pon.";
                 }
-                registro[4] = rs.getString("o.valor_ponderado") + "%";
+                registro[4] = con.numberFormatDisplay(Double.parseDouble(rs.getString("o.valor_ponderado"))) + "%";
 
                 modelo.addRow(registro);
 

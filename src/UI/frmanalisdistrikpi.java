@@ -5,12 +5,11 @@
  */
 package UI;
 
-import datos.vGraficas;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import javax.swing.JFrame;
+
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
@@ -18,7 +17,8 @@ import javax.swing.table.TableModel;
 import logica.conexion;
 
 import logica.fanalisis;
-import logica.fsubarea;
+import logica.fconfiguration;
+
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
@@ -29,11 +29,10 @@ import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.DatasetRenderingOrder;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer;
+
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.ui.RefineryUtilities;
 
 /**
  *
@@ -41,6 +40,7 @@ import org.jfree.ui.RefineryUtilities;
  */
 public class frmanalisdistrikpi extends javax.swing.JInternalFrame {
 
+    fconfiguration con= new fconfiguration();
     /**
      * Creates new form frmanalisis
      */
@@ -606,14 +606,14 @@ public class frmanalisdistrikpi extends javax.swing.JInternalFrame {
         TableModel tm = tablaanalisis.getModel();
 
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double r = Double.parseDouble(tm.getValueAt(j, 10).toString().replaceAll("[^0-9.-]", ""));
+            Double r = con.DBnumberFormatInput(tm.getValueAt(j, 10).toString());
             int row = j;
             String d = Integer.toString(row);
             dataset1.addValue(r, "Valor Objetivo", d);
         }
 
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double r = Double.parseDouble(tm.getValueAt(j, 8).toString().replaceAll("[^0-9.-]", ""));
+            Double r = con.DBnumberFormatInput(tm.getValueAt(j, 8).toString());
             int row = j;
             String d = Integer.toString(row);
             dataset2.addValue(r, "Valor Resultado", d);
@@ -650,7 +650,7 @@ public class frmanalisdistrikpi extends javax.swing.JInternalFrame {
 
         final ValueAxis rangeAxis2 = new NumberAxis("Resultado");
         plot.setRangeAxis(1, rangeAxis2);
-       
+
         plot.setRangeGridlinePaint(Color.WHITE);
         plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
 
@@ -658,15 +658,15 @@ public class frmanalisdistrikpi extends javax.swing.JInternalFrame {
         final JFreeChart chart = new JFreeChart(plot);
         chart.setBackgroundPaint(Color.WHITE);
         chart.setTitle("Valor Objetivo vs Resultados en " + txtnombrearea.getText() + ", " + txtnombresubarea.getText() + ", " + txtnombrekpi.getText());
-       chart.getTitle().setPaint(new Color(75,16,160));
-            chart.getLegend().setFrame(BlockBorder.NONE);
-            plot.getDomainAxis().setTickLabelPaint(new Color(75,16,160));
-            plot.getRangeAxis(0).setTickLabelPaint(new Color(75,16,160));
-            plot.getRangeAxis(0).setLabelPaint(new Color(75,16,160));
-              plot.getRangeAxis(1).setTickLabelPaint(new Color(75,16,160));
-            plot.getRangeAxis(1).setLabelPaint(new Color(75,16,160));
-            plot.getDomainAxis().setLabelPaint(new Color(75,16,160));
-            plot.setOutlineVisible(false);
+        chart.getTitle().setPaint(new Color(75, 16, 160));
+        chart.getLegend().setFrame(BlockBorder.NONE);
+        plot.getDomainAxis().setTickLabelPaint(new Color(75, 16, 160));
+        plot.getRangeAxis(0).setTickLabelPaint(new Color(75, 16, 160));
+        plot.getRangeAxis(0).setLabelPaint(new Color(75, 16, 160));
+        plot.getRangeAxis(1).setTickLabelPaint(new Color(75, 16, 160));
+        plot.getRangeAxis(1).setLabelPaint(new Color(75, 16, 160));
+        plot.getDomainAxis().setLabelPaint(new Color(75, 16, 160));
+        plot.setOutlineVisible(false);
 
         final ChartPanel chartPanel = new ChartPanel(chart);
 

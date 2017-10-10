@@ -9,9 +9,11 @@ import datos.vtrabajador;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 import javax.swing.table.DefaultTableModel;
 import logica.conexion;
-import logica.fsubarea;
+import logica.fconfiguration;
+
 import logica.ftrabajador;
 
 /**
@@ -20,10 +22,8 @@ import logica.ftrabajador;
  */
 public class frmtrabajador extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form frmtrabajador
-     */
     String filtropor = "p.documento";
+    fconfiguration con = new fconfiguration();
 
     public frmtrabajador() {
 
@@ -53,14 +53,6 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         tablalistado.getColumnModel().getColumn(10).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(10).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(10).setPreferredWidth(0);
-
-    }
-
-    void checkinput() {
-
-        String str = txtsalario.getText();
-        str = str.replaceAll("[^0-9.-]", "");
-        txtsalario.setText(str);
 
     }
 
@@ -928,11 +920,6 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         txttel.transferFocus();
     }//GEN-LAST:event_txttelActionPerformed
 
-    private void txtsalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsalarioActionPerformed
-        // TODO add your handling code here:
-        txtsalario.transferFocus();
-    }//GEN-LAST:event_txtsalarioActionPerformed
-
     private void txtnombreareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreareaActionPerformed
         // TODO add your handling code here:
 
@@ -959,7 +946,8 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtapaternoActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-        // TODO add your handling code here:
+
+// TODO add your handling code here:
         inhabilitar();
     }//GEN-LAST:event_btncancelarActionPerformed
 
@@ -1034,7 +1022,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         dts.setDocumento(txtdocumento.getText());
         dts.setEmail(txtemail.getText());
         dts.setTel(txttel.getText());
-        dts.setSalario(Double.parseDouble(txtsalario.getText()));
+        dts.setSalario(con.DBnumberFormatInput(txtsalario.getText()));
         dts.setCargo(txtcargo.getText());
 
         seleccionado = cboacceso.getSelectedIndex();
@@ -1050,7 +1038,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "El Trabajador fue registrado satisfactoriamente");
                 mostrar("", filtropor);
                 inhabilitar();
-                checkinput();
+              
             }
 
         } else if (accion.equals("editar")) {
@@ -1059,7 +1047,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "El Trabajador fue editado satisfactoriamente");
                 mostrar("", filtropor);
                 inhabilitar();
-                checkinput();
+              
             }
 
         }
@@ -1106,8 +1094,6 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
 
         cboestado.setSelectedItem(tablalistado.getValueAt(fila, 15).toString());
 
-        checkinput();
-
         txtnombre.requestFocus();
         // TODO add your handling code here:
     }//GEN-LAST:event_btneditarActionPerformed
@@ -1144,21 +1130,6 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         mostrar(txtbuscar.getText(), filtropor);         // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyReleased
 
-    private void txtsalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsalarioKeyTyped
-        char keychar = evt.getKeyChar();
-
-        if (Character.isAlphabetic(keychar)) {
-            evt.consume();
-        }
-        if (keychar == ',') {
-            evt.setKeyChar('.');
-        }
-        if (keychar == '%' || keychar == '$') {
-            evt.consume();
-        }
-// TODO add your handling code here:
-    }//GEN-LAST:event_txtsalarioKeyTyped
-
     private void btnupdownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdownloadActionPerformed
 
         this.dispose();
@@ -1190,6 +1161,15 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         txtpassword.transferFocus();
     }//GEN-LAST:event_txtpasswordActionPerformed
+
+    private void txtsalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsalarioKeyTyped
+
+    }//GEN-LAST:event_txtsalarioKeyTyped
+
+    private void txtsalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsalarioActionPerformed
+        // TODO add your handling code here:
+        txtsalario.transferFocus();
+    }//GEN-LAST:event_txtsalarioActionPerformed
 
     /**
      * @param args the command line arguments

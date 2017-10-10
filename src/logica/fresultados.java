@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
 import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  * @author crist
  */
 public class fresultados {
-
+fconfiguration con=new fconfiguration();
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
@@ -30,6 +31,7 @@ public class fresultados {
     private String sSQL3 = "";
     private String sSQL4 = "";
     public Integer rows;
+
 
     public DefaultTableModel mostrar(String buscar, String filtrores) {
         DefaultTableModel modelo;
@@ -73,7 +75,7 @@ public class fresultados {
                 registro[6] = rs.getString("s.idsubarea");
                 registro[7] = rs.getString("s.nombre");
                 registro[8] = rs.getString("k.nombre");
-                registro[9] = rs.getString("r.resultado_kpi");
+                registro[9] = con.numberFormatDisplay(Double.parseDouble(rs.getString("r.resultado_kpi")));
                 registro[10] = rs.getString("r.mes");
                 registro[11] = rs.getString("r.year");
 

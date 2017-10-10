@@ -13,9 +13,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.DecimalFormat;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -39,7 +40,7 @@ public class fmodelo {
     private String year = timeStamp.substring(0, 4);
     private String mes = timeStamp.substring(4, 6);
 
-    DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
+    fconfiguration con = new fconfiguration();
 
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
@@ -91,15 +92,15 @@ public class fmodelo {
                 registro[5] = rs.getString("m.tipo_estimulo");
                 if (tipom.equals("Salario")) {
 
-                    registro[6] = rs.getString("m.estimulo") + "%";
+                    registro[6] = con.numberFormatDisplay(Double.parseDouble(rs.getString("m.estimulo"))) + "%";
 
                 } else if (tipom.equals("Bono")) {
 
-                    registro[6] = "$" + numberFormat.format(Double.parseDouble(rs.getString("m.estimulo")));
+                    registro[6] = "$" + con.numberFormatDisplay(Double.parseDouble(rs.getString("m.estimulo")));
 
                 } else {
 
-                    registro[6] = rs.getString("m.estimulo") + "%";
+                    registro[6] = con.numberFormatDisplay(Double.parseDouble(rs.getString("m.estimulo"))) + "%";
 
                 }
 

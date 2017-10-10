@@ -10,6 +10,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.Key;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
 import java.util.Properties;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -25,7 +28,7 @@ public class fconfiguration {
 
     public static Properties prop = new Properties();
 
-    String valueencr;   
+    String valueencr;
 
     public void SaveProp(String title, String value) {
 
@@ -33,9 +36,9 @@ public class fconfiguration {
 
             String valuec = value;
             String valueencrip = encrypt(valuec);
-            
+
             prop.setProperty(title, valueencrip);
-           
+
             prop.store(new FileOutputStream("conf\\config.txt"), null);
 
         } catch (Exception e) {
@@ -48,7 +51,7 @@ public class fconfiguration {
         String value = "";
         String valuedecr = "";
         try {
-            
+
             prop.load(new FileInputStream("conf\\config.txt"));
             value = prop.getProperty(title);
 
@@ -90,6 +93,33 @@ public class fconfiguration {
     private static Key generateKey() throws Exception {
         Key key = new SecretKeySpec(keyValue, ALGO);
         return key;
+    }
+
+    public String numberFormatDisplay(Double value) {
+
+        Locale fmtLocale = Locale.getDefault(Locale.Category.FORMAT);
+        NumberFormat formated = NumberFormat.getInstance(fmtLocale);
+        formated.setMaximumFractionDigits(2);
+        String local_number = formated.format(value);
+
+        return local_number;
+    }
+
+    public Double DBnumberFormatInput(String value) {
+        Double local_number = 0.0;
+        try {
+            Locale fmtLocale = Locale.getDefault(Locale.Category.FORMAT);
+            NumberFormat formated = NumberFormat.getInstance(fmtLocale);
+            formated.setMaximumFractionDigits(2);
+            String numericalv = value.replaceAll("[^0-9,.-]", "");
+            local_number = formated.parse(numericalv).doubleValue();
+
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "No es Posible Identificar el Número" + e);
+            return null;
+        }
+
+        return local_number;
     }
 
 }

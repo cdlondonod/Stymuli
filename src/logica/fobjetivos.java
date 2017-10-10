@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author crist
  */
 public class fobjetivos {
-
+fconfiguration con=new fconfiguration();
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
@@ -52,9 +52,9 @@ public class fobjetivos {
                 registro[2] = rs.getString("idkpi");
                 registro[3] = rs.getString("k.nombre");
                 registro[4] = rs.getString("comparacion");
-                registro[5] = rs.getString("valor_objetivo");
+                registro[5] = con.numberFormatDisplay(Double.parseDouble(rs.getString("valor_objetivo")));
                 registro[6] = rs.getString("tipo_objetivo");
-                registro[7] = rs.getString("valor_ponderado") + "%";
+                registro[7] = con.numberFormatDisplay(Double.parseDouble(rs.getString("valor_ponderado"))) + "%";
 
                 if (rs.getString("tipo_objetivo").toString().equals("Ponderado")) {
                     totalponderado = totalponderado + rs.getDouble("valor_ponderado");

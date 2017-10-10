@@ -10,7 +10,6 @@ import java.sql.Connection;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
 
@@ -152,7 +151,7 @@ public class fanalisis {
     Double cumpmayor;
     Double cumpmenor;
     Double otroest = 0.0;
-    DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
+    fconfiguration con = new fconfiguration();
 
     public DefaultTableModel mostrarcompleto(String year, String mes, String area, String Subarea, String Trabajador, String KPI) {
         DefaultTableModel modelo;
@@ -192,24 +191,24 @@ public class fanalisis {
                 registro[5] = rs.getString("m.tipo_estimulo");
 
                 if (rs.getString("estimulokpi") != null) {
-                    registro[6] = "$" + numberFormat.format(Double.parseDouble(rs.getString("estimulokpi")));
+                    registro[6] = "$" + con.numberFormatDisplay(Double.parseDouble(rs.getString("estimulokpi")));
                 } else {
                     registro[6] = "$0.0";
                 }
 
                 registro[7] = rs.getString("k.nombre");
-                registro[8] = rs.getString("r.resultado_kpi");
+                registro[8] = con.numberFormatDisplay(Double.parseDouble(rs.getString("r.resultado_kpi")));
                 registro[9] = rs.getString("o.comparacion");
-                registro[10] = rs.getString("o.valor_objetivo");
-                registro[11] = numberFormat.format(Double.parseDouble(rs.getString("o.valor_ponderado"))) + "%";
+                registro[10] = con.numberFormatDisplay(Double.parseDouble(rs.getString("o.valor_objetivo")));
+                registro[11] = con.numberFormatDisplay(Double.parseDouble(rs.getString("o.valor_ponderado"))) + "%";
 
                 if (rs.getString("cumplimiento") != null) {
-                    registro[12] = numberFormat.format(Double.parseDouble(rs.getString("cumplimiento"))) + "%";
+                    registro[12] = con.numberFormatDisplay(Double.parseDouble(rs.getString("cumplimiento"))) + "%";
                 } else {
                     registro[12] = "0.0%";
                 }
 
-                registro[13] = "$" + numberFormat.format(Double.parseDouble(rs.getString("obtiene")));
+                registro[13] = "$" + con.numberFormatDisplay(Double.parseDouble(rs.getString("obtiene")));
                 registro[14] = rs.getString("habilita");
 
                 registro[0] = rs.getString("r.year") + " " + rs.getString("r.mes");
@@ -266,11 +265,11 @@ public class fanalisis {
 
                 registro[1] = rs.getString("apaterno") + ", " + rs.getString("nombre");
                 registro[2] = rs.getString("documento");
-                registro[3] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("obtreal")));
+                registro[3] = "$ " + con.numberFormatDisplay(Double.parseDouble(rs.getString("obtreal")));
                 registro[0] = rs.getString("year") + " " + rs.getString("mes");
 
                 if (rs.getString("estimulokpi") != null) {
-                    registro[4] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("estimulokpi")));
+                    registro[4] = "$ " + con.numberFormatDisplay(Double.parseDouble(rs.getString("estimulokpi")));
                 } else {
                     registro[4] = "$0.0";
                 }
@@ -323,17 +322,17 @@ public class fanalisis {
                 registro[0] = rs.getString("ta.year") + " " + rs.getString("ta.mes");
 
                 if (rs.getString("minobt") != null) {
-                    registro[3] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("minobt")));
+                    registro[3] = "$ " + con.numberFormatDisplay(Double.parseDouble(rs.getString("minobt")));
                 } else {
                     registro[3] = "$0.0";
                 }
                 if (rs.getString("maxobt") != null) {
-                    registro[4] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("maxobt")));
+                    registro[4] = "$ " + con.numberFormatDisplay(Double.parseDouble(rs.getString("maxobt")));
                 } else {
                     registro[4] = "$0.0";
                 }
                 if (rs.getString("midobt") != null) {
-                    registro[5] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("midobt")));
+                    registro[5] = "$ " + con.numberFormatDisplay(Double.parseDouble(rs.getString("midobt")));
                 } else {
                     registro[5] = "$0.0";
                 }
@@ -378,7 +377,7 @@ public class fanalisis {
             while (rs.next()) {
 
                 registro[1] = rs.getString("k.nombre");
-                registro[2] = rs.getString("kpimed");
+                registro[2] = con.numberFormatDisplay(Double.parseDouble(rs.getString("kpimed")));
                 registro[0] = rs.getString("r.year") + " " + rs.getString("r.mes");
                 modelo.addRow(registro);
             }
@@ -429,7 +428,7 @@ public class fanalisis {
             while (rs.next()) {
                 registro[1] = rs.getString("tbcompfiltrada.area");
                 registro[2] = rs.getString("tbcompfiltrada.subarea");
-                registro[3] = "$ " + numberFormat.format(Double.parseDouble(rs.getString("obtsubarea")));
+                registro[3] = "$ " + con.numberFormatDisplay(Double.parseDouble(rs.getString("obtsubarea")));
                 registro[0] = rs.getString("tbcompfiltrada.year") + " " + rs.getString("tbcompfiltrada.mes");
                 modelo.addRow(registro);
                 resultobttotal = resultobttotal + Double.parseDouble(rs.getString("obtsubarea"));

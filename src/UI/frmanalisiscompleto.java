@@ -16,13 +16,14 @@ import javax.swing.table.DefaultTableModel;
 import logica.conexion;
 
 import logica.fanalisis;
+import logica.fconfiguration;
 
 /**
  *
  * @author crist
  */
 public class frmanalisiscompleto extends javax.swing.JInternalFrame {
-
+fconfiguration con=new fconfiguration();
     /**
      * Creates new form frmanalisis
      */
@@ -767,7 +768,7 @@ public class frmanalisiscompleto extends javax.swing.JInternalFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed
-    DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
+    
 
     private void ckbenabledtablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckbenabledtablaActionPerformed
 

@@ -19,6 +19,7 @@ import javax.swing.table.TableModel;
 import logica.conexion;
 
 import logica.fanalisis;
+import logica.fconfiguration;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -32,7 +33,7 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author crist
  */
 public class frmanalisdistriestim extends javax.swing.JInternalFrame {
-
+ fconfiguration con = new fconfiguration();
     /**
      * Creates new form frmanalisis
      */
@@ -122,7 +123,7 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         }
         String valorobtenidoreal;
 
-        valorobtenidoreal = numberFormat.format(fanalisis.resultobttotal);
+        valorobtenidoreal = con.numberFormatDisplay(fanalisis.resultobttotal);
         lblresultadosobtenidos.setText("Resultado Obtenido Total: $ " + valorobtenidoreal);
 
     }
@@ -479,7 +480,7 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed
-    DecimalFormat numberFormat = new DecimalFormat("#,##0;(#,##0)");
+    
 
     private void btnresultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresultadoActionPerformed
 
@@ -490,14 +491,14 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         if (checkagrupado.isSelected()) {
             //por area
             for (int j = 0; j < tm.getRowCount(); j++) {
-                Double r = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
+                Double r = con.DBnumberFormatInput(tm.getValueAt(j, 3).toString());
                 String are = tm.getValueAt(j, 1).toString();
                 dataset1.setValue(are, r);
             }
         } else {
             //por subarea
             for (int j = 0; j < tm.getRowCount(); j++) {
-                Double r = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
+                Double r = con.DBnumberFormatInput(tm.getValueAt(j, 3).toString());
                 String are = tm.getValueAt(j, 2).toString();
                 dataset1.setValue(are, r);
             }

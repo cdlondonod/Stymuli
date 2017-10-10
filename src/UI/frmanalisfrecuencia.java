@@ -18,6 +18,7 @@ import javax.swing.table.TableModel;
 import logica.conexion;
 
 import logica.fanalisis;
+import logica.fconfiguration;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -36,10 +37,7 @@ import org.jfree.chart.plot.DatasetRenderingOrder;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.AreaRenderer;
 
-import org.jfree.chart.renderer.category.BarRenderer;
-
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
-import org.jfree.data.category.CategoryDataset;
 
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.TextAnchor;
@@ -49,6 +47,8 @@ import org.jfree.ui.TextAnchor;
  * @author crist
  */
 public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
+
+    fconfiguration con = new fconfiguration();
 
     /**
      * Creates new form frmanalisis
@@ -631,67 +631,67 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         Double y10 = 0.0;
         Double y11 = 0.0;
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre <= 19.99) {
                 y1++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre > 19.99 && fre <= 29.99) {
                 y2++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre > 29.99 && fre <= 39.99) {
                 y3++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre > 39.99 && fre <= 49.99) {
                 y4++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre > 49.99 && fre <= 59.99) {
                 y5++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre > 59.99 && fre <= 69.99) {
                 y6++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre > 69.99 && fre <= 79.99) {
                 y7++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre > 79.99 && fre <= 89.99) {
                 y8++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre > 89.99 && fre <= 99.99) {
                 y9++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre > 99.99 && fre <= 119.99) {
                 y10++;
             }
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double fre = Double.parseDouble(tm.getValueAt(j, 12).toString().replaceAll("[^0-9.-]", ""));
+            Double fre = con.DBnumberFormatInput(tm.getValueAt(j, 12).toString());
             if (fre > 119.99) {
                 y11++;
             }
@@ -712,18 +712,17 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         final CategoryItemRenderer renderer = new AreaRenderer();
 
         renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator("{2}", new DecimalFormat("#,##0;(#,##0)"), new DecimalFormat("0%")));
-            renderer.setItemLabelPaint(new Color(75,16,160));
-            renderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.HALF_ASCENT_CENTER));
-            renderer.setItemLabelsVisible(true);
-            renderer.setSeriesPaint(0, new Color(20, 173, 23));
-            renderer.setBaseItemLabelsVisible(true);
+        renderer.setItemLabelPaint(new Color(75, 16, 160));
+        renderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.HALF_ASCENT_CENTER));
+        renderer.setItemLabelsVisible(true);
+        renderer.setSeriesPaint(0, new Color(20, 173, 23));
+        renderer.setBaseItemLabelsVisible(true);
 
         final CategoryPlot plot = new CategoryPlot();
         plot.setBackgroundPaint(Color.WHITE);
         plot.setForegroundAlpha(0.8f);
         plot.setRangeGridlinesVisible(true);
-         plot.setRangeGridlinePaint(Color.WHITE);
-          
+        plot.setRangeGridlinePaint(Color.WHITE);
 
         plot.setDataset(dataset1);
         plot.setRenderer(renderer);
@@ -742,14 +741,14 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         final JFreeChart chart = new JFreeChart(plot);
         chart.setBackgroundPaint(Color.WHITE);
         chart.setTitle("Frecuencia de Cumplimiento " + txtnombrearea.getText() + " " + txtnombresubarea.getText() + " " + txtnombrekpi.getText());
-        chart.getTitle().setPaint(new Color(75,16,160));
+        chart.getTitle().setPaint(new Color(75, 16, 160));
 
-       chart.getLegend().setFrame(BlockBorder.NONE);
-            plot.getDomainAxis().setTickLabelPaint(new Color(75,16,160));
-            plot.getRangeAxis().setTickLabelPaint(new Color(75,16,160));
-            plot.getRangeAxis().setLabelPaint(new Color(75,16,160));
-            plot.getDomainAxis().setLabelPaint(new Color(75,16,160));
-            plot.setOutlineVisible(false);
+        chart.getLegend().setFrame(BlockBorder.NONE);
+        plot.getDomainAxis().setTickLabelPaint(new Color(75, 16, 160));
+        plot.getRangeAxis().setTickLabelPaint(new Color(75, 16, 160));
+        plot.getRangeAxis().setLabelPaint(new Color(75, 16, 160));
+        plot.getDomainAxis().setLabelPaint(new Color(75, 16, 160));
+        plot.setOutlineVisible(false);
 
         final ChartPanel chartPanel = new ChartPanel(chart);
 

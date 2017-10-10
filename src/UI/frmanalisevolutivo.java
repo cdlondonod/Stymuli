@@ -18,6 +18,7 @@ import javax.swing.table.TableModel;
 import logica.conexion;
 
 import logica.fanalisis;
+import logica.fconfiguration;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -45,7 +46,7 @@ import org.jfree.ui.TextAnchor;
  * @author crist
  */
 public class frmanalisevolutivo extends javax.swing.JInternalFrame {
-
+fconfiguration con = new fconfiguration();
     /**
      * Creates new form frmanalisis
      */
@@ -464,7 +465,7 @@ public class frmanalisevolutivo extends javax.swing.JInternalFrame {
         TableModel tm = tablaanalisis.getModel();
 
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double x = Double.parseDouble(tm.getValueAt(j, 2).toString().replaceAll("[^0-9.-]", ""));
+            Double x = con.DBnumberFormatInput(tm.getValueAt(j, 2).toString());
             String fecha = tm.getValueAt(j, 0).toString();
             String year = fecha.substring(2, 4);
             String mes = fecha.substring(5, 7);

@@ -5,9 +5,10 @@ import java.sql.Connection;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.DecimalFormat;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import javax.swing.JOptionPane;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
@@ -17,12 +18,14 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author crist
  */
 public class fperfilusuario {
+    
+    fconfiguration con=new fconfiguration();
 
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
     private String sSQL2 = "";
-    DecimalFormat numberFormat = new DecimalFormat("#,##0.00;(#,##0.00)");
+   
     String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
     String year = timeStamp.substring(0, 4);
     String mes = Integer.toString(Integer.parseInt(timeStamp.substring(4, 6)) - 1);

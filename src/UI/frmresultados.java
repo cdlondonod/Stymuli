@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.conexion;
+import logica.fconfiguration;
 import logica.fresultados;
 
 /**
@@ -20,7 +21,7 @@ import logica.fresultados;
  * @author crist
  */
 public class frmresultados extends javax.swing.JInternalFrame {
-
+fconfiguration con=new fconfiguration();
     /**
      * Creates new form frmtrabajador
      */
@@ -70,13 +71,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
     }
 
-    void checkinput() {
-
-        String str = txtresultado.getText();
-        str = str.replaceAll("[^0-9.-]", "");
-        txtresultado.setText(str);
-
-    }
+   
 
     void inhabilitar() {
 
@@ -842,7 +837,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
         dts.setIdkpi(Integer.parseInt(txtidkpi.getText()));
         dts.setIdpersona(Integer.parseInt(txtidpersona.getText()));
-        dts.setResultado_kpi(Double.parseDouble(txtresultado.getText()));
+        dts.setResultado_kpi(con.DBnumberFormatInput(txtresultado.getText()));
         
         
          
@@ -885,7 +880,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "El Resultado fue registrado satisfactoriamente");
                 mostrar("", filtropor);
                 inhabilitar();
-                checkinput();
+           
 
             }
 
@@ -895,7 +890,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "El Resultado fue editado satisfactoriamente");
                 mostrar("", filtropor);
                 inhabilitar();
-                checkinput();
+  
             }
 
         }
@@ -925,9 +920,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
         datemes.setMonth(mes);
         dateyear.setYear(year);       
                        
-        
-        checkinput();
-        checkinput();// TODO add your handling code here:
+    
     }//GEN-LAST:event_btneditar1ActionPerformed
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
@@ -957,17 +950,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtbuscarKeyReleased
 
     private void txtresultadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtresultadoKeyTyped
-        char keychar = evt.getKeyChar();
-
-        if (Character.isAlphabetic(keychar)) {
-            evt.consume();
-        }
-        if (keychar == ',') {
-            evt.setKeyChar('.');
-        }
-        if (keychar == '%' || keychar == '$') {
-            evt.consume();
-        }// TODO add your handling code here:
+       
     }//GEN-LAST:event_txtresultadoKeyTyped
 
     private void btnupdownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdownloadActionPerformed

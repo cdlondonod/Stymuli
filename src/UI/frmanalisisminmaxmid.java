@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import logica.conexion;
 import logica.fanalisis;
+import logica.fconfiguration;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtilities;
@@ -36,7 +37,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author crist
  */
 public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
-
+fconfiguration con=new fconfiguration();
     /**
      * Creates new form frmanalisis
      */
@@ -504,21 +505,21 @@ public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
         TableModel tm = tablaanalisis.getModel();
 
         for (int j = 0; j < tm.getRowCount(); j++) {
-            maxobt = Double.parseDouble(tm.getValueAt(j, 4).toString().replaceAll("[^0-9.-]", ""));
+            maxobt = con.DBnumberFormatInput(tm.getValueAt(j, 4).toString());
             String fecha = tm.getValueAt(j, 0).toString();
             String year = fecha.substring(2, 4);
             String mes = fecha.substring(5, 7);
             dataset.addValue(maxobt, "max", year + "/" + mes);
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            minobt = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
+            minobt = con.DBnumberFormatInput(tm.getValueAt(j, 3).toString());
             String fecha = tm.getValueAt(j, 0).toString();
             String year = fecha.substring(2, 4);
             String mes = fecha.substring(5, 7);
             dataset.addValue(minobt, "min", year + "/" + mes);
         }
         for (int j = 0; j < tm.getRowCount(); j++) {
-            midobt = Double.parseDouble(tm.getValueAt(j, 5).toString().replaceAll("[^0-9.-]", ""));
+            midobt = con.DBnumberFormatInput(tm.getValueAt(j, 5).toString());
             String fecha = tm.getValueAt(j, 0).toString();
             String year = fecha.substring(2, 4);
             String mes = fecha.substring(5, 7);

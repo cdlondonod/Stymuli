@@ -19,6 +19,7 @@ import javax.swing.table.TableModel;
 import logica.conexion;
 
 import logica.fanalisis;
+import logica.fconfiguration;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -36,7 +37,7 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author crist
  */
 public class frmanalisproyeccion extends javax.swing.JInternalFrame {
-
+fconfiguration con=new fconfiguration();
     /**
      * Creates new form frmanalisis
      */
@@ -167,7 +168,7 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
         tablalistproyeccion.getColumnModel().getColumn(2).setPreferredWidth(0);
 
     }
-    DecimalFormat numberFormat = new DecimalFormat("#,##0;(#,##0)");
+    
 
     void mostrar(String year, String mes, String area, String Subarea, String Trabajador, String KPI) {
         try {
@@ -183,7 +184,7 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
         }
 
         String valorobtenidoreal;
-        valorobtenidoreal = numberFormat.format(fanalisis.resultobttotal);
+        valorobtenidoreal = con.numberFormatDisplay(fanalisis.resultobttotal);
         lblresultadosobtenidos.setText("Resultado Obtenido Total: $ " + valorobtenidoreal);
 
     }
@@ -632,15 +633,15 @@ public class frmanalisproyeccion extends javax.swing.JInternalFrame {
         DefaultPieDataset dataset1 = new DefaultPieDataset();
 
         for (int j = 0; j < tm.getRowCount(); j++) {
-            Double r = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
-            Double p = Double.parseDouble(tm.getValueAt(j, 4).toString().replaceAll("[^0-9.-]", ""));
+            Double r = con.DBnumberFormatInput(tm.getValueAt(j, 3).toString());
+            Double p = con.DBnumberFormatInput(tm.getValueAt(j, 4).toString());
             sumpos = sumpos + p - r;
             dataset1.setValue("No Obtenido", sumpos);
         }
 
         for (int j = 0; j < tm.getRowCount(); j++) {
 
-            Double r = Double.parseDouble(tm.getValueAt(j, 3).toString().replaceAll("[^0-9.-]", ""));
+            Double r = con.DBnumberFormatInput(tm.getValueAt(j, 3).toString());
             sumres = sumres + r;
             dataset1.setValue("Obtenido", sumres);
         }
