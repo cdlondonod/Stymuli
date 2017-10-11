@@ -6,6 +6,7 @@
 package logica;
 
 import UI.INICIO;
+import UI.frmupdownresultados;
 import datos.vresultados;
 
 import java.io.FileWriter;
@@ -23,7 +24,8 @@ import javax.swing.table.DefaultTableModel;
  * @author crist
  */
 public class fresultados {
-fconfiguration con=new fconfiguration();
+
+    fconfiguration con = new fconfiguration();
     private conexion mysql = new conexion();
     private Connection cn = mysql.conectar();
     private String sSQL = "";
@@ -31,7 +33,6 @@ fconfiguration con=new fconfiguration();
     private String sSQL3 = "";
     private String sSQL4 = "";
     public Integer rows;
-
 
     public DefaultTableModel mostrar(String buscar, String filtrores) {
         DefaultTableModel modelo;
@@ -41,17 +42,16 @@ fconfiguration con=new fconfiguration();
         String[] registro = new String[12];
 
         modelo = new DefaultTableModel(null, titulos);
-        
-         if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            sSQL2=" AND a.idarea="+INICIO.lblinicioidarea.getText()+" ";
-            
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            sSQL2=" AND a.idarea="+INICIO.lblinicioidarea.getText()+" AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' ";
-            
-        }else if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-            sSQL2=" AND a.idarea="+INICIO.lblinicioidarea.getText()+" AND s.nombre like '%"+INICIO.lbliniciosubarea.getText()+"%' AND p.documento="+INICIO.lbliniciodocumento.getText()+" ";
-        }
 
+        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+            sSQL2 = " AND a.idarea=" + INICIO.lblinicioidarea.getText() + " ";
+
+        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+            sSQL2 = " AND a.idarea=" + INICIO.lblinicioidarea.getText() + " AND s.nombre like '%" + INICIO.lbliniciosubarea.getText() + "%' ";
+
+        } else if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+            sSQL2 = " AND a.idarea=" + INICIO.lblinicioidarea.getText() + " AND s.nombre like '%" + INICIO.lbliniciosubarea.getText() + "%' AND p.documento=" + INICIO.lbliniciodocumento.getText() + " ";
+        }
 
         sSQL = "SELECT r.idresultados,r.idkpi,r.idpersona,r.mes,r.year,p.documento,p.apaterno,p.nombre, "
                 + "a.nombre,s.nombre,k.nombre,r.resultado_kpi,a.idarea,s.idsubarea FROM resultados r INNER JOIN persona p "
@@ -176,10 +176,20 @@ fconfiguration con=new fconfiguration();
 
         sSQL = "CREATE TEMPORARY TABLE tempresultados (kpi VARCHAR(45),	documento VARCHAR(45),	"
                 + "resultado_kpi VARCHAR(45),	mes VARCHAR(45),	year VARCHAR(45))";
-        sSQL2 = "LOAD DATA LOCAL INFILE '" + filename + "' INTO TABLE tempresultados "
-                + "FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"'\n"
-                + "LINES TERMINATED BY '\n';";
 
+        if (frmupdownresultados.radcommadot.isSelected()) {
+
+            sSQL2 = "LOAD DATA LOCAL INFILE '" + filename + "' INTO TABLE tempresultados "
+                    + "FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"'"
+                    + "LINES TERMINATED BY '\n'";
+        } else if (frmupdownresultados.radsemicoloncoma.isSelected()) {
+
+            sSQL2 = "LOAD DATA LOCAL INFILE '" + filename + "' INTO TABLE tempresultados "
+                    + " FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '\"'"
+                    + " LINES TERMINATED BY '\n'"
+                    + " (@var1,@var2,@var3,@var4,@var5)"
+                    + " SET kpi=@var1,documento=@var2,resultado_kpi = REPLACE(@var3, ',', '.'),mes=@var4,year=@var5";
+        }
         sSQL3 = "insert into resultados (idkpi,idpersona,resultado_kpi,mes,year)\n"
                 + "SELECT k.idkpi,p.idpersona,te.resultado_kpi,te.mes,te.year FROM tempresultados te INNER JOIN kpi k ON k.nombre=te.kpi INNER JOIN persona p ON p.documento=te.documento ";
 
@@ -214,10 +224,15 @@ fconfiguration con=new fconfiguration();
     }
 
     public void download(String filename) {
-
+        String line = "";
         try {
+            if (frmupdownresultados.radcommadot.isSelected()) {
+                line = "KPI,CEDULA DEL TRABAJADOR,RESULTADO DEL KPI,MES (EN EL FORMATO 01_Enero 02_Febrero 12_Diciembre etc), YEAR ";
+            } else if (frmupdownresultados.radsemicoloncoma.isSelected()) {
+                line = "KPI;CEDULA DEL TRABAJADOR;RESULTADO DEL KPI;MES (EN EL FORMATO 01_Enero 02_Febrero 12_Diciembre etc); YEAR ";
 
-            String line = "KPI,CEDULA DEL TRABAJADOR,RESULTADO DEL KPI (NUMEROS DECIMALES SEPARADOS POR PUNTOS),MES (EN EL FORMATO 01_Enero 02_Febrero 12_Diciembre etc), YEAR ";
+            }
+
             FileWriter fw = new FileWriter(filename + "/TEMPLATE BASE DE DATOS RESULTADOS.csv");
 
             fw.append(line);

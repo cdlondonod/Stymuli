@@ -5,15 +5,15 @@
  */
 package UI;
 
-import static UI.INICIO.escritorio;
-import java.awt.Dimension;
+
 import java.io.File;
+import javax.swing.ButtonGroup;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import logica.fresultados;
 
-import logica.ftrabajador;
+
 
 /**
  *
@@ -27,6 +27,10 @@ public class frmupdownresultados extends javax.swing.JFrame {
     public frmupdownresultados() {
         initComponents();
          this.setLocationRelativeTo(null);
+         ButtonGroup csvtipe=new ButtonGroup();
+         csvtipe.add(radsemicoloncoma);
+         csvtipe.add(radcommadot);
+         
     }
 
     /**
@@ -42,12 +46,16 @@ public class frmupdownresultados extends javax.swing.JFrame {
         btncancelar = new javax.swing.JButton();
         btndownload = new javax.swing.JButton();
         btnupload = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        radcommadot = new javax.swing.JRadioButton();
+        radsemicoloncoma = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(75, 16, 160));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
 
         btncancelar.setBackground(new java.awt.Color(0, 51, 0));
         btncancelar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -87,36 +95,81 @@ public class frmupdownresultados extends javax.swing.JFrame {
             }
         });
 
+        jPanel2.setOpaque(false);
+
+        radcommadot.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        radcommadot.setForeground(new java.awt.Color(75, 16, 160));
+        radcommadot.setText("CSV decimales delimitados por punto \".\"");
+        radcommadot.setOpaque(false);
+
+        radsemicoloncoma.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        radsemicoloncoma.setForeground(new java.awt.Color(75, 16, 160));
+        radsemicoloncoma.setSelected(true);
+        radsemicoloncoma.setText("CSV decimales delimitados por coma \",\"");
+        radsemicoloncoma.setOpaque(false);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(radcommadot)
+                    .addComponent(radsemicoloncoma))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(radsemicoloncoma)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radcommadot)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btncancelar)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnupload)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btndownload)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btncancelar)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btnupload, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btndownload, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btndownload, btnupload});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(btncancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btndownload)
-                    .addComponent(btnupload))
-                .addGap(0, 8, Short.MAX_VALUE))
+                    .addComponent(btnupload)
+                    .addComponent(btndownload))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btndownload, btnupload});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,5 +301,8 @@ if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
     private javax.swing.JButton btndownload;
     private javax.swing.JButton btnupload;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    public static javax.swing.JRadioButton radcommadot;
+    public static javax.swing.JRadioButton radsemicoloncoma;
     // End of variables declaration//GEN-END:variables
 }

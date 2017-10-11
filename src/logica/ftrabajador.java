@@ -6,6 +6,7 @@
 package logica;
 
 import UI.INICIO;
+import UI.frmupdowntrabajador;
 import datos.vtrabajador;
 import java.io.FileWriter;
 import java.sql.Connection;
@@ -307,10 +308,22 @@ public class ftrabajador {
                 + "email VARCHAR(45),	tel VARCHAR(45),	nombrear VARCHAR(45),	nombresuba VARCHAR(45),	"
                 + "cargo VARCHAR(45),salario DECIMAL(10,2),"
                 + "acceso VARCHAR(45),	password VARCHAR(45),	estado VARCHAR(45))";
-        sSQL2 = "LOAD DATA LOCAL INFILE '" + filename + "' INTO TABLE tempempleados "
-                + "FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"'\n"
-                + "LINES TERMINATED BY '\n';";
 
+        if (frmupdowntrabajador.radcommadot.isSelected()) {
+
+            sSQL2 = "LOAD DATA LOCAL INFILE '" + filename + "' INTO TABLE tempempleados "
+                    + "FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"'"
+                    + "LINES TERMINATED BY '\n'";
+        } else if (frmupdowntrabajador.radsemicoloncoma.isSelected()) {
+
+            sSQL2 = "LOAD DATA LOCAL INFILE '" + filename + "' "
+                    + "INTO TABLE tempempleados FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '\"' "
+                    + "LINES TERMINATED BY '\n' "
+                    + "(@var1,@var2,@var3,@var4,@var5,@var6,@var7,@var8,@var9,@var10,@var11,@var12,@var13,@var14) "
+                    + "SET nombre=@var1,apaterno=@var2,amaterno=@var3,tipo_documento=@var4,documento=@var5, "
+                    + "email=@var6,tel=@var7,nombrear=@var8,nombresuba=@var9,cargo=@var10,salario=REPLACE(@var11, ',', '.'), "
+                    + "acceso=@var12,password=@var13,estado=@var14";
+        }
         sSQL3 = "insert into persona (nombre,apaterno,amaterno,tipo_documento,documento,email,tel,idarea,idsubarea,cargo,salario,acceso,password,estado)\n"
                 + "SELECT te.nombre,te.apaterno,te.amaterno,te.tipo_documento,te.documento,te.email,te.tel,a.idarea,s.idsubarea,te.cargo,te.salario,te.acceso,\n"
                 + "te.password,te.estado FROM tempempleados te INNER JOIN area a ON a.nombre=te.nombrear INNER JOIN subarea s ON s.nombre=te.nombresuba ";
@@ -346,10 +359,10 @@ public class ftrabajador {
     }
 
     public void download(String filename) {
-
+String line ="";
         try {
-
-            String line = "NOMBRE,APELLIDO PATERNO,APELLIDO MATERNO,TIPO DE DOCUMENTO(Cedula de Ciudadania"
+if (frmupdowntrabajador.radcommadot.isSelected()) {
+             line = "NOMBRE,PRIMER APELLIDO,SEGUNDO APELLIDO,TIPO DE DOCUMENTO(Cedula de Ciudadania"
                     + "Cedula de Extranjeria"
                     + "Tarjeta de identidad"
                     + "NIT),NUMERO DE DOCUMENTO,EMAIL,TELEFONO,AREA,SUBAREA,CARGO,SALARIO,"
@@ -358,6 +371,19 @@ public class ftrabajador {
                     + "Jefe de Area"
                     + "Jefe de Subarea),"
                     + "PASSWORD(Dejar en blanco!!),ESTADO(Activo Inactivo)";
+             } else if (frmupdowntrabajador.radsemicoloncoma.isSelected()) {
+             line = "NOMBRE;PRIMER APELLIDO;SEGUNDO APELLIDO;TIPO DE DOCUMENTO(Cedula de Ciudadania"
+                    + "Cedula de Extranjeria"
+                    + "Tarjeta de identidad"
+                    + "NIT);NUMERO DE DOCUMENTO;EMAIL;TELEFONO;AREA;SUBAREA;CARGO;SALARIO;"
+                    + "PERMISOS DE ACCESO(Trabajador"
+                    + "Administrador"
+                    + "Jefe de Area"
+                    + "Jefe de Subarea);"
+                    + "PASSWORD(Dejar en blanco!!);ESTADO(Activo Inactivo)";
+             
+             }
+            
             FileWriter fw = new FileWriter(filename + "/TEMPLATE BASE DE DATOS TRABAJADORES.csv");
 
             fw.append(line);
