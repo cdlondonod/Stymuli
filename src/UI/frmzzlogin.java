@@ -6,8 +6,13 @@
 package UI;
 
 import datos.vtrabajador;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import logica.ftrabajador;
 import static logica.ftrabajador.dbpasswordexist;
@@ -23,12 +28,15 @@ public class frmzzlogin extends javax.swing.JFrame {
      */
     public frmzzlogin() {
         initComponents();
+        setIcon();
         txtusuario.requestFocus();
         this.setLocationRelativeTo(null);
 
         rootPane.setDefaultButton(btningresar);
 
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,6 +63,11 @@ public class frmzzlogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(75, 16, 160));
 
@@ -232,6 +245,7 @@ public class frmzzlogin extends javax.swing.JFrame {
                     form.toFront();
                     form.setVisible(true);
                     form.setExtendedState(INICIO.MAXIMIZED_BOTH);
+                    form.setIconImage(Toolkit.getDefaultToolkit().getImage("/img/editar.png"));
 
                     if (ftrabajador.loginacceso.equals("Trabajador")) {
                         INICIO.btnareas.setVisible(false);
@@ -316,6 +330,10 @@ public class frmzzlogin extends javax.swing.JFrame {
         form.btninter.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_btnconfigurationActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        setIcon();        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -366,4 +384,13 @@ public class frmzzlogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtpassword;
     private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
+ private void setIcon() {
+        if (SystemTray.isSupported()) {
+            SystemTray tray = SystemTray.getSystemTray();
+            Dimension trayIconSize = tray.getTrayIconSize();
+            this.setIconImage(new ImageIcon(getClass().getResource("/img/iconodeapp.png")).getImage().getScaledInstance(trayIconSize.width, trayIconSize.height, Image.SCALE_SMOOTH));
+        }
+    }
+
+
 }

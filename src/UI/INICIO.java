@@ -7,8 +7,14 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.SystemTray;
+
+
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import javax.swing.JOptionPane;
@@ -25,7 +31,7 @@ public class INICIO extends javax.swing.JFrame {
      */
     public INICIO() {
         initComponents();
-
+        setIcon();
         hidelbl();
 
         this.setExtendedState(INICIO.MAXIMIZED_BOTH);
@@ -667,20 +673,20 @@ public class INICIO extends javax.swing.JFrame {
             frmresultados.cbofiltro.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
-            
+
             frmresultados.btnproyeccion.setVisible(false);
             frmresultados.btncomparacion.setVisible(false);
             frmresultados.btnevolutivo.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            
-             frmresultados.btnproyeccion.setVisible(false);
+
+            frmresultados.btnproyeccion.setVisible(false);
             frmresultados.btncomparacion.setVisible(false);
             frmresultados.btnevolutivo.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            
-             frmresultados.btnproyeccion.setVisible(false);
+
+            frmresultados.btnproyeccion.setVisible(false);
             frmresultados.btncomparacion.setVisible(false);
             frmresultados.btnevolutivo.setVisible(false);
 
@@ -728,7 +734,8 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        cliclperfil();     // TODO add your handling code here:
+        cliclperfil();
+        setIcon();// TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
     private void menpoliprivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menpoliprivActionPerformed
@@ -750,14 +757,14 @@ public class INICIO extends javax.swing.JFrame {
     }//GEN-LAST:event_mencerrarsActionPerformed
 
     private void menconfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menconfigActionPerformed
-     
+
         frmconfiguracion form = new frmconfiguracion();
         form.toFront();
         form.setVisible(true);
         form.setAlwaysOnTop(true);
-        
+
         if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
-                 frmconfiguracion.pnldbconect.setVisible(false);
+            frmconfiguracion.pnldbconect.setVisible(false);
         }
 
 // TODO add your handling code here:
@@ -838,5 +845,14 @@ public class INICIO extends javax.swing.JFrame {
     public static javax.swing.JPanel pnlmain;
     private javax.swing.JPanel pnlmenulistbuttons;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        if (SystemTray.isSupported()) {
+            SystemTray tray = SystemTray.getSystemTray();
+            Dimension trayIconSize = tray.getTrayIconSize();
+            this.setIconImage(new ImageIcon(getClass().getResource("/img/iconodeapp.png")).getImage().getScaledInstance(trayIconSize.width, trayIconSize.height, Image.SCALE_SMOOTH));
+        }
+
+    }
 
 }
