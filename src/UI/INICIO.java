@@ -619,11 +619,13 @@ public class INICIO extends javax.swing.JFrame {
             frmtrabajador.btneditar.setVisible(false);
             frmtrabajador.btneliminar.setVisible(false);
             frmtrabajador.btnnuevo.setVisible(false);
+            frmtrabajador.btneliminarbulk.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
             frmtrabajador.btneditar.setVisible(false);
             frmtrabajador.btneliminar.setVisible(false);
             frmtrabajador.btnnuevo.setVisible(false);
+            frmtrabajador.btneliminarbulk.setVisible(false);
 
         } else {
 
@@ -714,6 +716,7 @@ public class INICIO extends javax.swing.JFrame {
             frmresultados.btneliminar.setVisible(false);
             frmresultados.txtbuscar.setVisible(false);
             frmresultados.cbofiltro.setVisible(false);
+            frmresultados.btneliminarbulk.setVisible(false);
 
         } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 

@@ -7,6 +7,8 @@ package UI;
 
 import datos.vmodelo;
 import datos.vobjetivos;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -33,7 +35,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         initComponents();
         inhabilitar_s();
         inhabilitar_o();
-        mostrar_stymuli("");
+        mostrar_stymuli("", messty(), yearsty());
         pnllistado_Obj.setVisible(false);
         lblobjetivos.setVisible(false);
         conexion.frmabierto = 3;
@@ -44,6 +46,39 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         tablalistado_Obj.setShowGrid(true);
         tablalistado_stymuli.setShowGrid(true);
+
+        datemesfiltro.addPropertyChangeListener("month", new PropertyChangeListener() {
+
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                mostrar_stymuli("", messty(), yearsty()); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+
+        dateyearfiltro.addPropertyChangeListener("year", new PropertyChangeListener() {
+
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                mostrar_stymuli("", messty(), yearsty()); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+
+    }
+
+    private String messty() {
+        String mes = Integer.toString(datemesfiltro.getMonth() + 1);
+        String messtring;
+        if (mes.equals("10") || mes.equals("11") || mes.equals("12")) {
+            messtring = mes;
+        } else {
+            messtring = "0" + mes;
+        }
+        return messtring;
+    }
+
+    private String yearsty() {
+        String year = Integer.toString(dateyearfiltro.getYear());
+        return year;
     }
 
     private String accion_stymuli = "guardar";
@@ -158,11 +193,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         tablalistado_stymuli.getColumnModel().getColumn(3).setPreferredWidth(0);
     }
 
-    void mostrar_stymuli(String buscar) {
+    void mostrar_stymuli(String buscar, String mes, String year) {
         try {
             DefaultTableModel modelo;
             fmodelo func = new fmodelo();
-            modelo = func.mostrar(buscar);
+            modelo = func.mostrar(buscar, mes, year);
 
             tablalistado_stymuli.setModel(modelo);
             ocultar_columnas_stymuli();
@@ -226,6 +261,10 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         txtidarea = new javax.swing.JTextField();
         btneditarsty = new javax.swing.JButton();
         checkmostrar = new javax.swing.JCheckBox();
+        jPanel11 = new javax.swing.JPanel();
+        lblnombrearea2 = new javax.swing.JLabel();
+        datemesfiltro = new com.toedter.calendar.JMonthChooser();
+        dateyearfiltro = new com.toedter.calendar.JYearChooser();
         pnlregistro_stymuli = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtdescripcion = new javax.swing.JTextArea();
@@ -291,6 +330,23 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
         setTitle("Modelos");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -401,6 +457,24 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setOpaque(false);
+        jPanel11.setLayout(new javax.swing.BoxLayout(jPanel11, javax.swing.BoxLayout.LINE_AXIS));
+
+        lblnombrearea2.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblnombrearea2.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombrearea2.setText("Filtrar Por:");
+        lblnombrearea2.setMinimumSize(new java.awt.Dimension(32, 10));
+        lblnombrearea2.setPreferredSize(new java.awt.Dimension(83, 10));
+        jPanel11.add(lblnombrearea2);
+
+        datemesfiltro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        datemesfiltro.setOpaque(false);
+        jPanel11.add(datemesfiltro);
+
+        dateyearfiltro.setPreferredSize(new java.awt.Dimension(58, 20));
+        jPanel11.add(dateyearfiltro);
+
         javax.swing.GroupLayout pnllistado_stymuliLayout = new javax.swing.GroupLayout(pnllistado_stymuli);
         pnllistado_stymuli.setLayout(pnllistado_stymuliLayout);
         pnllistado_stymuliLayout.setHorizontalGroup(
@@ -412,16 +486,17 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                         .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblbuscstym)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(checkmostrar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistado_stymuliLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnnuevo_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -439,18 +514,20 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnllistado_stymuliLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(checkmostrar))
+                    .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(checkmostrar)
+                        .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btneliminar_stymuli)
-                    .addComponent(btneditarsty)
-                    .addComponent(btnnuevo_stymuli)
-                    .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btneliminar_stymuli)
+                        .addComponent(btneditarsty)
+                        .addComponent(btnnuevo_stymuli))
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -619,10 +696,10 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jPanel7.add(lblnombrekpi10);
 
         txtstymuli.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 txtstymuliInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         txtstymuli.addActionListener(new java.awt.event.ActionListener() {
@@ -1144,7 +1221,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
                 dts.setIdmodelo(Integer.parseInt(txtidmodelo.getText()));
                 func.eliminar(dts);
-                mostrar_stymuli("");
+                mostrar_stymuli("", messty(), yearsty());
                 mostrar_Obj("");
                 inhabilitar_o();
                 inhabilitar_s();
@@ -1263,9 +1340,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         if (accion_stymuli.equals("guardar")) {
             if (func.insertar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El Modelo fue registrado satisfactoriamente");
-                mostrar_stymuli("");
+                mostrar_stymuli("", messty(), yearsty());
                 inhabilitar_s();
-             
 
                 int lastRow = tablalistado_stymuli.convertRowIndexToView(tablalistado_stymuli.getRowCount() - 1);
                 tablalistado_stymuli.setRowSelectionInterval(lastRow, lastRow);
@@ -1285,10 +1361,10 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             dts.setIdmodelo(Integer.parseInt(txtidmodelo.getText()));
             if (func.editar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El Modelo fue editado satisfactoriamente");
-                mostrar_stymuli("");
+                mostrar_stymuli("", messty(), yearsty());
                 inhabilitar_o();
                 inhabilitar_s();
-           
+
             }
 
         }
@@ -1336,7 +1412,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(rootPane, "El valor ponderado total del modelo, debe ser minimo el 100% del Stymuli a recibir");
                     habilitar_o();
                     inhabilitar_s();
-                 
+
                     txtvalor_Obj.requestFocus();
                 } else {
 
@@ -1424,12 +1500,12 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(rootPane, "El valor ponderado total del modelo, debe ser minimo el 100% del Stymuli a recibir");
                     habilitar_o();
                     inhabilitar_s();
-            
+
                     txtvalor_Obj.requestFocus();
                 } else {
                     inhabilitar_o();
                     inhabilitar_s();
-               
+
                 }
             }
 
@@ -1443,13 +1519,13 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(rootPane, "El valor ponderado total del modelo, debe ser minimo el 100% del Stymuli a recibir");
                     habilitar_o();
                     inhabilitar_s();
-           
+
                     txtvalor_Obj.requestFocus();
                 } else {
 
                     inhabilitar_o();
                     inhabilitar_s();
-              
+
                 }
             }
 
@@ -1508,7 +1584,6 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         dateyear.setYear(year);
 
         txtstymuli.requestFocus();
-  
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btneditarstyActionPerformed
@@ -1535,14 +1610,13 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         cbotipo_Obj.setSelectedItem(tablalistado_Obj.getValueAt(fila, 6).toString());
 
         txtvalor_pon_Obj.setText(tablalistado_Obj.getValueAt(fila, 7).toString());
-      
 
         pnlregistro_Obj.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btneditarobjActionPerformed
 
     private void txtbuscar_stymuliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscar_stymuliKeyReleased
-        mostrar_stymuli(txtbuscar_stymuli.getText());        // TODO add your handling code here:
+        mostrar_stymuli(txtbuscar_stymuli.getText(), messty(), yearsty());        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscar_stymuliKeyReleased
 
     private void txtbuscar_ObjKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscar_ObjKeyReleased
@@ -1621,7 +1695,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbotipo_stymuliActionPerformed
 
     private void checkmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkmostrarActionPerformed
-        mostrar_stymuli("");
+        mostrar_stymuli("", messty(), yearsty());
 // TODO add your handling code here:
     }//GEN-LAST:event_checkmostrarActionPerformed
     public static int modeloactual;
@@ -1653,7 +1727,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     fmodelo func = new fmodelo();
                     modeloactual = (Integer.parseInt(txtidmodelo.getText()));
                     func.copiarobj();
-                    mostrar_stymuli("");
+                    mostrar_stymuli("", messty(), yearsty());
                     mostrar_Obj("");
 
                 }
@@ -1667,6 +1741,10 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnmodeloanteriorActionPerformed
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formInternalFrameOpened
 
     /**
      * @param args the command line arguments
@@ -1724,12 +1802,15 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbotipo_stymuli;
     public static javax.swing.JCheckBox checkmostrar;
     private com.toedter.calendar.JMonthChooser datemes;
+    private com.toedter.calendar.JMonthChooser datemesfiltro;
     private com.toedter.calendar.JYearChooser dateyear;
+    private com.toedter.calendar.JYearChooser dateyearfiltro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1745,6 +1826,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     public static javax.swing.JLabel lblbuscstym;
     public static javax.swing.JLabel lblnombrearea;
     public static javax.swing.JLabel lblnombrearea1;
+    public static javax.swing.JLabel lblnombrearea2;
     private javax.swing.JLabel lblnombrekpi10;
     private javax.swing.JLabel lblnombrekpi11;
     private javax.swing.JLabel lblnombrekpi12;

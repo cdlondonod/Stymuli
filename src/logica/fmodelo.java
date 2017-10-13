@@ -36,13 +36,11 @@ public class fmodelo {
     private String sSQL6 = "";
     private String sSQL7 = "";
     private String sSQL8 = "";
-    private String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-    private String year = timeStamp.substring(0, 4);
-    private String mes = timeStamp.substring(4, 6);
+   
 
     fconfiguration con = new fconfiguration();
 
-    public DefaultTableModel mostrar(String buscar) {
+    public DefaultTableModel mostrar(String buscar,String mes,String year) {
         DefaultTableModel modelo;
 
         String[] titulos = {"ID", "IDarea", "Área", "IDsubarea", "SubÁrea", "Tipo Bolsa", "Stymuli", "Descripción", "Fecha Valida"};

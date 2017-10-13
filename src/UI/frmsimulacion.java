@@ -61,7 +61,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
     }
 
     void ocultar_columnas() {
-        /* tablakpires.getColumnModel().getColumn(0).setMaxWidth(0);
+   tablakpires.getColumnModel().getColumn(0).setMaxWidth(0);
         tablakpires.getColumnModel().getColumn(0).setMinWidth(0);
         tablakpires.getColumnModel().getColumn(0).setPreferredWidth(0);
 
@@ -79,7 +79,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
         tablamodelo.getColumnModel().getColumn(1).setMaxWidth(0);
         tablamodelo.getColumnModel().getColumn(1).setMinWidth(0);
-        tablamodelo.getColumnModel().getColumn(1).setPreferredWidth(0);*/
+        tablamodelo.getColumnModel().getColumn(1).setPreferredWidth(0);
 
     }
 

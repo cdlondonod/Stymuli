@@ -99,6 +99,8 @@ public class frmzzdeletebulk extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fecha Inicial", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(75, 16, 160))); // NOI18N
         jPanel2.setOpaque(false);
 
+        dateinicial.setForeground(new java.awt.Color(75, 16, 160));
+        dateinicial.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         dateinicial.setOpaque(false);
 
         jPanel3.setOpaque(false);
@@ -113,10 +115,14 @@ public class frmzzdeletebulk extends javax.swing.JInternalFrame {
         lblnombrearea4.setPreferredSize(new java.awt.Dimension(50, 10));
         jPanel3.add(lblnombrearea4);
 
-        cbohorain.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        cbohorain.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        cbohorain.setForeground(new java.awt.Color(75, 16, 160));
+        cbohorain.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
         cbohorain.setOpaque(false);
         jPanel3.add(cbohorain);
 
+        cbominin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        cbominin.setForeground(new java.awt.Color(75, 16, 160));
         cbominin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
         cbominin.setOpaque(false);
         jPanel3.add(cbominin);
@@ -152,7 +158,9 @@ public class frmzzdeletebulk extends javax.swing.JInternalFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fecha Final", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(75, 16, 160))); // NOI18N
         jPanel4.setOpaque(false);
 
+        datefinal.setForeground(new java.awt.Color(75, 16, 160));
         datefinal.setFocusable(false);
+        datefinal.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         datefinal.setOpaque(false);
 
         jPanel6.setOpaque(false);
@@ -166,10 +174,14 @@ public class frmzzdeletebulk extends javax.swing.JInternalFrame {
         lblnombrearea5.setPreferredSize(new java.awt.Dimension(50, 10));
         jPanel6.add(lblnombrearea5);
 
-        cbohorafn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        cbohorafn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        cbohorafn.setForeground(new java.awt.Color(75, 16, 160));
+        cbohorafn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
         cbohorafn.setOpaque(false);
         jPanel6.add(cbohorafn);
 
+        cbominfn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        cbominfn.setForeground(new java.awt.Color(75, 16, 160));
         cbominfn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
         cbominfn.setOpaque(false);
         jPanel6.add(cbominfn);

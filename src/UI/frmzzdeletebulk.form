@@ -154,6 +154,12 @@
                   <SubComponents>
                     <Component class="com.toedter.calendar.JDateChooser" name="dateinicial">
                       <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="a0" green="10" red="4b" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial" size="14" style="0"/>
+                        </Property>
                         <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                     </Component>
@@ -190,32 +196,38 @@
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cbohorain">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="14" style="0"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="a0" green="10" red="4b" type="rgb"/>
+                            </Property>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="24">
-                                <StringItem index="0" value="00"/>
-                                <StringItem index="1" value="01"/>
-                                <StringItem index="2" value="02"/>
-                                <StringItem index="3" value="03"/>
-                                <StringItem index="4" value="04"/>
-                                <StringItem index="5" value="05"/>
-                                <StringItem index="6" value="06"/>
-                                <StringItem index="7" value="07"/>
-                                <StringItem index="8" value="08"/>
-                                <StringItem index="9" value="09"/>
-                                <StringItem index="10" value="10"/>
-                                <StringItem index="11" value="11"/>
-                                <StringItem index="12" value="12"/>
-                                <StringItem index="13" value="13"/>
-                                <StringItem index="14" value="14"/>
-                                <StringItem index="15" value="15"/>
-                                <StringItem index="16" value="16"/>
-                                <StringItem index="17" value="17"/>
-                                <StringItem index="18" value="18"/>
-                                <StringItem index="19" value="19"/>
-                                <StringItem index="20" value="20"/>
-                                <StringItem index="21" value="21"/>
-                                <StringItem index="22" value="22"/>
-                                <StringItem index="23" value="23"/>
+                                <StringItem index="0" value="01"/>
+                                <StringItem index="1" value="02"/>
+                                <StringItem index="2" value="03"/>
+                                <StringItem index="3" value="04"/>
+                                <StringItem index="4" value="05"/>
+                                <StringItem index="5" value="06"/>
+                                <StringItem index="6" value="07"/>
+                                <StringItem index="7" value="08"/>
+                                <StringItem index="8" value="09"/>
+                                <StringItem index="9" value="10"/>
+                                <StringItem index="10" value="11"/>
+                                <StringItem index="11" value="12"/>
+                                <StringItem index="12" value="13"/>
+                                <StringItem index="13" value="14"/>
+                                <StringItem index="14" value="15"/>
+                                <StringItem index="15" value="16"/>
+                                <StringItem index="16" value="17"/>
+                                <StringItem index="17" value="18"/>
+                                <StringItem index="18" value="19"/>
+                                <StringItem index="19" value="20"/>
+                                <StringItem index="20" value="21"/>
+                                <StringItem index="21" value="22"/>
+                                <StringItem index="22" value="23"/>
+                                <StringItem index="23" value="00"/>
                               </StringArray>
                             </Property>
                             <Property name="opaque" type="boolean" value="false"/>
@@ -226,6 +238,12 @@
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cbominin">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="14" style="0"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="a0" green="10" red="4b" type="rgb"/>
+                            </Property>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="4">
                                 <StringItem index="0" value="00"/>
@@ -292,7 +310,13 @@
                   <SubComponents>
                     <Component class="com.toedter.calendar.JDateChooser" name="datefinal">
                       <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="a0" green="10" red="4b" type="rgb"/>
+                        </Property>
                         <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial" size="14" style="0"/>
+                        </Property>
                         <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                     </Component>
@@ -328,32 +352,38 @@
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cbohorafn">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="14" style="0"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="a0" green="10" red="4b" type="rgb"/>
+                            </Property>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="24">
-                                <StringItem index="0" value="00"/>
-                                <StringItem index="1" value="01"/>
-                                <StringItem index="2" value="02"/>
-                                <StringItem index="3" value="03"/>
-                                <StringItem index="4" value="04"/>
-                                <StringItem index="5" value="05"/>
-                                <StringItem index="6" value="06"/>
-                                <StringItem index="7" value="07"/>
-                                <StringItem index="8" value="08"/>
-                                <StringItem index="9" value="09"/>
-                                <StringItem index="10" value="10"/>
-                                <StringItem index="11" value="11"/>
-                                <StringItem index="12" value="12"/>
-                                <StringItem index="13" value="13"/>
-                                <StringItem index="14" value="14"/>
-                                <StringItem index="15" value="15"/>
-                                <StringItem index="16" value="16"/>
-                                <StringItem index="17" value="17"/>
-                                <StringItem index="18" value="18"/>
-                                <StringItem index="19" value="19"/>
-                                <StringItem index="20" value="20"/>
-                                <StringItem index="21" value="21"/>
-                                <StringItem index="22" value="22"/>
-                                <StringItem index="23" value="23"/>
+                                <StringItem index="0" value="01"/>
+                                <StringItem index="1" value="02"/>
+                                <StringItem index="2" value="03"/>
+                                <StringItem index="3" value="04"/>
+                                <StringItem index="4" value="05"/>
+                                <StringItem index="5" value="06"/>
+                                <StringItem index="6" value="07"/>
+                                <StringItem index="7" value="08"/>
+                                <StringItem index="8" value="09"/>
+                                <StringItem index="9" value="10"/>
+                                <StringItem index="10" value="11"/>
+                                <StringItem index="11" value="12"/>
+                                <StringItem index="12" value="13"/>
+                                <StringItem index="13" value="14"/>
+                                <StringItem index="14" value="15"/>
+                                <StringItem index="15" value="16"/>
+                                <StringItem index="16" value="17"/>
+                                <StringItem index="17" value="18"/>
+                                <StringItem index="18" value="19"/>
+                                <StringItem index="19" value="20"/>
+                                <StringItem index="20" value="21"/>
+                                <StringItem index="21" value="22"/>
+                                <StringItem index="22" value="23"/>
+                                <StringItem index="23" value="00"/>
                               </StringArray>
                             </Property>
                             <Property name="opaque" type="boolean" value="false"/>
@@ -364,6 +394,12 @@
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cbominfn">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="14" style="0"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="a0" green="10" red="4b" type="rgb"/>
+                            </Property>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="4">
                                 <StringItem index="0" value="00"/>
