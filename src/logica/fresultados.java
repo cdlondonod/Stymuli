@@ -92,8 +92,8 @@ public class fresultados {
     }
 
     public boolean insertar(vresultados dts) {
-        sSQL = "insert into resultados (idkpi,idpersona,resultado_kpi,mes,year)"
-                + "values(?,?,?,?,?)";
+        sSQL = "insert into resultados (idkpi,idpersona,resultado_kpi,mes,year,idpersonaupdated)"
+                + "values(?,?,?,?,?,?)";
 
         try {
 
@@ -103,6 +103,7 @@ public class fresultados {
             pst.setDouble(3, dts.getResultado_kpi());
             pst.setString(4, dts.getMes());
             pst.setInt(5, dts.getYear());
+            pst.setInt(6, Integer.parseInt(INICIO.lblinicioidpersona.getText()));
 
             int n = pst.executeUpdate();
 
@@ -120,7 +121,7 @@ public class fresultados {
     }
 
     public boolean editar(vresultados dts) {
-        sSQL = "update resultados set idkpi=?,idpersona=?,resultado_kpi=?,mes=?,year=?"
+        sSQL = "update resultados set idkpi=?,idpersona=?,resultado_kpi=?,mes=?,year=?,idpersonaupdated=?"
                 + " where idresultados=?";
 
         try {
@@ -131,7 +132,9 @@ public class fresultados {
             pst.setString(4, dts.getMes());
             pst.setInt(5, dts.getYear());
 
-            pst.setInt(6, dts.getIdresultados());
+            pst.setInt(6, Integer.parseInt(INICIO.lblinicioidpersona.getText()));
+
+            pst.setInt(7, dts.getIdresultados());
 
             int n = pst.executeUpdate();
 
@@ -190,8 +193,9 @@ public class fresultados {
                     + " (@var1,@var2,@var3,@var4,@var5)"
                     + " SET kpi=@var1,documento=@var2,resultado_kpi = REPLACE(@var3, ',', '.'),mes=@var4,year=@var5";
         }
-        sSQL3 = "insert into resultados (idkpi,idpersona,resultado_kpi,mes,year)\n"
-                + "SELECT k.idkpi,p.idpersona,te.resultado_kpi,te.mes,te.year FROM tempresultados te INNER JOIN kpi k ON k.nombre=te.kpi INNER JOIN persona p ON p.documento=te.documento ";
+        sSQL3 = "insert into resultados (idkpi,idpersona,resultado_kpi,mes,year,idpersonaupdated)\n"
+                + "SELECT k.idkpi,p.idpersona,te.resultado_kpi,te.mes,te.year," + Integer.parseInt(INICIO.lblinicioidpersona.getText())
+                + " FROM tempresultados te INNER JOIN kpi k ON k.nombre=te.kpi INNER JOIN persona p ON p.documento=te.documento ";
 
         sSQL4 = "DROP TABLE tempresultados";
 

@@ -17,17 +17,19 @@ public class vresultados {
     private Double resultado_kpi;
     private String mes;
     private int year;
+    private int idpersonaupdatedr;
 
     public vresultados() {
     }
 
-    public vresultados(int idresultados, int idkpi, int idpersona, Double resultado_kpi, String mes, int year) {
+    public vresultados(int idresultados, int idkpi, int idpersona, Double resultado_kpi, String mes, int year, int idpersonaupdatedr) {
         this.idresultados = idresultados;
         this.idkpi = idkpi;
         this.idpersona = idpersona;
         this.resultado_kpi = resultado_kpi;
         this.mes = mes;
         this.year = year;
+        this.idpersonaupdatedr = idpersonaupdatedr;
     }
 
     public int getIdresultados() {
@@ -78,5 +80,14 @@ public class vresultados {
         this.year = year;
     }
 
+    public int getIdpersonaupdatedr() {
+        return idpersonaupdatedr;
+    }
+
+    public void setIdpersonaupdatedr(int idpersonaupdatedr) {
+        this.idpersonaupdatedr = idpersonaupdatedr;
+    }
+
+   
     
 }

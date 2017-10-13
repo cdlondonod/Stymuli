@@ -70,6 +70,9 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         btncomparacion.setBorderPainted(false);
         btncomparacion.setFocusPainted(false);
         btncomparacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btncomparacion.setMaximumSize(new java.awt.Dimension(280, 54));
+        btncomparacion.setMinimumSize(new java.awt.Dimension(280, 54));
+        btncomparacion.setPreferredSize(new java.awt.Dimension(280, 54));
         btncomparacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncomparacionActionPerformed(evt);
@@ -78,8 +81,6 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 104;
-        gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
         jPanel1.add(btncomparacion, gridBagConstraints);
@@ -93,6 +94,9 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         btnevolutivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnevolutivo.setBorderPainted(false);
         btnevolutivo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnevolutivo.setMaximumSize(new java.awt.Dimension(280, 54));
+        btnevolutivo.setMinimumSize(new java.awt.Dimension(280, 54));
+        btnevolutivo.setPreferredSize(new java.awt.Dimension(280, 54));
         btnevolutivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnevolutivoActionPerformed(evt);
@@ -101,8 +105,6 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 75;
-        gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
         jPanel1.add(btnevolutivo, gridBagConstraints);
@@ -116,6 +118,9 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         btnproyeccion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnproyeccion.setBorderPainted(false);
         btnproyeccion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnproyeccion.setMaximumSize(new java.awt.Dimension(280, 54));
+        btnproyeccion.setMinimumSize(new java.awt.Dimension(280, 54));
+        btnproyeccion.setPreferredSize(new java.awt.Dimension(280, 54));
         btnproyeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnproyeccionActionPerformed(evt);
@@ -125,8 +130,6 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 62;
-        gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 7, 0, 0);
         jPanel1.add(btnproyeccion, gridBagConstraints);
@@ -140,6 +143,9 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         btnfrecuencia.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnfrecuencia.setBorderPainted(false);
         btnfrecuencia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnfrecuencia.setMaximumSize(new java.awt.Dimension(280, 54));
+        btnfrecuencia.setMinimumSize(new java.awt.Dimension(280, 54));
+        btnfrecuencia.setPreferredSize(new java.awt.Dimension(280, 54));
         btnfrecuencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfrecuenciaActionPerformed(evt);
@@ -148,8 +154,6 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 6, 0, 0);
         jPanel1.add(btnfrecuencia, gridBagConstraints);
@@ -163,6 +167,9 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         btndistribucion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btndistribucion.setBorderPainted(false);
         btndistribucion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btndistribucion.setMaximumSize(new java.awt.Dimension(280, 54));
+        btndistribucion.setMinimumSize(new java.awt.Dimension(280, 54));
+        btndistribucion.setPreferredSize(new java.awt.Dimension(280, 54));
         btndistribucion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btndistribucionActionPerformed(evt);
@@ -171,8 +178,6 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 69;
-        gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
         jPanel1.add(btndistribucion, gridBagConstraints);
@@ -186,6 +191,9 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         btnmaxmin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnmaxmin.setBorderPainted(false);
         btnmaxmin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnmaxmin.setMaximumSize(new java.awt.Dimension(280, 54));
+        btnmaxmin.setMinimumSize(new java.awt.Dimension(280, 54));
+        btnmaxmin.setPreferredSize(new java.awt.Dimension(280, 54));
         btnmaxmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmaxminActionPerformed(evt);
@@ -195,10 +203,8 @@ public class frmanalisis extends javax.swing.JInternalFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 43;
-        gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 9, 0, 15);
+        gridBagConstraints.insets = new java.awt.Insets(11, 9, 0, 0);
         jPanel1.add(btnmaxmin, gridBagConstraints);
 
         jPanel2.add(jPanel1, java.awt.BorderLayout.CENTER);

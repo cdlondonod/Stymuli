@@ -20,7 +20,7 @@ public class conexion {
     static public int frmabierto;
     fconfiguration con = new fconfiguration();
     public String db = con.GetProp("database");
-    public String url = "jdbc:mysql://"+con.GetProp("ipdatabase")+"/" + db;
+    public String dbip = "jdbc:mysql://"+con.GetProp("ipdatabase")+"/" + db;
     public String user = con.GetProp("userdatabase");
     public String pass = con.GetProp("passworddatabase");
 
@@ -31,7 +31,7 @@ public class conexion {
         Connection link = null;
         try {
             Class.forName("org.gjt.mm.mysql.Driver");
-            link = DriverManager.getConnection(this.url, this.user, this.pass);
+            link = DriverManager.getConnection(this.dbip, this.user, this.pass);
 
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showConfirmDialog(null, e);

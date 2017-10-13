@@ -254,6 +254,7 @@ public class frmzzlogin extends javax.swing.JFrame {
                         INICIO.btnusuarios.setVisible(false);
                         INICIO.btnanalisis.setVisible(false);
                         INICIO.btnresultados.setText("Historico");
+                        INICIO.menudatabase.setVisible(false);
 
                     } else if (ftrabajador.loginacceso.equals("Administrador")) {
                         INICIO.btnperfil.setVisible(false);
@@ -261,10 +262,12 @@ public class frmzzlogin extends javax.swing.JFrame {
                     } else if (ftrabajador.loginacceso.equals("Jefe de Area")) {
                         INICIO.btnareas.setVisible(false);
                         INICIO.btnperfil.setVisible(false);
+                        INICIO.menudatabase.setVisible(false);
 
                     } else if (ftrabajador.loginacceso.equals("Jefe de Subarea")) {
                         INICIO.btnareas.setVisible(false);
                         INICIO.btnperfil.setVisible(false);
+                        INICIO.menudatabase.setVisible(false);
 
                     } else {
                         INICIO.btnareas.setVisible(false);
@@ -275,6 +278,8 @@ public class frmzzlogin extends javax.swing.JFrame {
                         INICIO.btnresultados.setVisible(false);
                         INICIO.btnsimulac.setVisible(false);
                         INICIO.btnanalisis.setVisible(false);
+                        INICIO.menudatabase.setVisible(false);
+                        INICIO.menuappconf.setVisible(false);
 
                         JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
                                 + "Por favor comuniquese con el administrador");

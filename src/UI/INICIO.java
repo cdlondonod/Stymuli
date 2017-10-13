@@ -12,7 +12,6 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.SystemTray;
 
-
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -103,15 +102,16 @@ public class INICIO extends javax.swing.JFrame {
         btnareas = new javax.swing.JButton();
         btnsimulac = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menuappconf = new javax.swing.JMenu();
         mencerrars = new javax.swing.JMenuItem();
         menactua = new javax.swing.JMenuItem();
         menconfig = new javax.swing.JMenuItem();
         mensalir = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menudatabase = new javax.swing.JMenu();
         menbackupdb = new javax.swing.JMenuItem();
         menrestoredb = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        menudeletedb = new javax.swing.JMenuItem();
+        menuhelp = new javax.swing.JMenu();
         mensoport = new javax.swing.JMenuItem();
         menpolipriv = new javax.swing.JMenuItem();
         meninfoleg = new javax.swing.JMenuItem();
@@ -428,67 +428,115 @@ public class INICIO extends javax.swing.JFrame {
 
         menuBar.setBorder(null);
 
-        jMenu1.setText("Stymuli");
+        menuappconf.setBackground(new java.awt.Color(255, 255, 255));
+        menuappconf.setForeground(new java.awt.Color(75, 16, 160));
+        menuappconf.setText("Stymuli");
 
+        mencerrars.setBackground(new java.awt.Color(255, 255, 255));
+        mencerrars.setForeground(new java.awt.Color(75, 16, 160));
         mencerrars.setText("Cambiar Usuario");
         mencerrars.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mencerrarsActionPerformed(evt);
             }
         });
-        jMenu1.add(mencerrars);
+        menuappconf.add(mencerrars);
 
+        menactua.setBackground(new java.awt.Color(255, 255, 255));
+        menactua.setForeground(new java.awt.Color(75, 16, 160));
         menactua.setText("Buscar Actualizaciones");
-        jMenu1.add(menactua);
+        menuappconf.add(menactua);
 
+        menconfig.setBackground(new java.awt.Color(255, 255, 255));
+        menconfig.setForeground(new java.awt.Color(75, 16, 160));
         menconfig.setText("Configuración");
         menconfig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menconfigActionPerformed(evt);
             }
         });
-        jMenu1.add(menconfig);
+        menuappconf.add(menconfig);
 
+        mensalir.setBackground(new java.awt.Color(255, 255, 255));
+        mensalir.setForeground(new java.awt.Color(75, 16, 160));
         mensalir.setText("Salir");
         mensalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mensalirActionPerformed(evt);
             }
         });
-        jMenu1.add(mensalir);
+        menuappconf.add(mensalir);
 
-        menuBar.add(jMenu1);
+        menuBar.add(menuappconf);
 
-        jMenu2.setText("Base de Datos");
+        menudatabase.setBackground(new java.awt.Color(255, 255, 255));
+        menudatabase.setForeground(new java.awt.Color(75, 16, 160));
+        menudatabase.setText("Base de Datos");
 
-        menbackupdb.setText("Respaldar Base de Datos");
-        jMenu2.add(menbackupdb);
+        menbackupdb.setBackground(new java.awt.Color(255, 255, 255));
+        menbackupdb.setForeground(new java.awt.Color(75, 16, 160));
+        menbackupdb.setText("Exportar Tabla Base de Datos");
+        menbackupdb.setActionCommand("");
+        menbackupdb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menbackupdbActionPerformed(evt);
+            }
+        });
+        menudatabase.add(menbackupdb);
 
-        menrestoredb.setText("Restaurar Base de Datos");
-        jMenu2.add(menrestoredb);
+        menrestoredb.setBackground(new java.awt.Color(255, 255, 255));
+        menrestoredb.setForeground(new java.awt.Color(75, 16, 160));
+        menrestoredb.setText("Importar Tabla a Base de Datos");
+        menrestoredb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menrestoredbActionPerformed(evt);
+            }
+        });
+        menudatabase.add(menrestoredb);
 
-        menuBar.add(jMenu2);
+        menudeletedb.setBackground(new java.awt.Color(255, 255, 255));
+        menudeletedb.setForeground(new java.awt.Color(75, 16, 160));
+        menudeletedb.setText("Eliminar Tabla Base de Datos");
+        menudeletedb.setActionCommand("");
+        menudeletedb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menudeletedbActionPerformed(evt);
+            }
+        });
+        menudatabase.add(menudeletedb);
 
-        jMenu3.setText("Ayuda");
+        menuBar.add(menudatabase);
 
+        menuhelp.setBackground(new java.awt.Color(255, 255, 255));
+        menuhelp.setForeground(new java.awt.Color(75, 16, 160));
+        menuhelp.setText("Ayuda");
+
+        mensoport.setBackground(new java.awt.Color(255, 255, 255));
+        mensoport.setForeground(new java.awt.Color(75, 16, 160));
         mensoport.setText("Soporte");
-        jMenu3.add(mensoport);
+        menuhelp.add(mensoport);
 
+        menpolipriv.setBackground(new java.awt.Color(255, 255, 255));
+        menpolipriv.setForeground(new java.awt.Color(75, 16, 160));
         menpolipriv.setText("Politicas de Privacidad");
         menpolipriv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menpoliprivActionPerformed(evt);
             }
         });
-        jMenu3.add(menpolipriv);
+        menuhelp.add(menpolipriv);
 
+        meninfoleg.setBackground(new java.awt.Color(255, 255, 255));
+        meninfoleg.setForeground(new java.awt.Color(75, 16, 160));
         meninfoleg.setText("Información Legal");
-        jMenu3.add(meninfoleg);
+        menuhelp.add(meninfoleg);
 
+        menabout.setBackground(new java.awt.Color(255, 255, 255));
+        menabout.setForeground(new java.awt.Color(75, 16, 160));
         menabout.setText("Sobre Stymuli...");
-        jMenu3.add(menabout);
+        menuhelp.add(menabout);
 
-        menuBar.add(jMenu3);
+        menuBar.add(menuhelp);
 
         setJMenuBar(menuBar);
 
@@ -512,16 +560,11 @@ public class INICIO extends javax.swing.JFrame {
         pnlmain.removeAll();
         pnlmain.revalidate();
         pnlmain.repaint();
-
         frmanalisis forma = new frmanalisis();
-
-        if (!forma.isVisible()) {
-            pnlmain.add(forma);
-            forma.setVisible(true);
-            forma.toFront();
-            forma.setSize(pnlmain.getSize());
-
-        }
+        pnlmain.add(forma);
+        forma.setVisible(true);
+        forma.toFront();
+        forma.setSize(pnlmain.getSize());
 
         if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
@@ -761,7 +804,6 @@ public class INICIO extends javax.swing.JFrame {
         frmconfiguracion form = new frmconfiguracion();
         form.toFront();
         form.setVisible(true);
-        form.setAlwaysOnTop(true);
 
         if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
             frmconfiguracion.pnldbconect.setVisible(false);
@@ -769,6 +811,60 @@ public class INICIO extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_menconfigActionPerformed
+
+    private void menbackupdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menbackupdbActionPerformed
+        pnlmain.removeAll();
+        pnlmain.revalidate();
+        pnlmain.repaint();
+        frmzzdatabase form = new frmzzdatabase();
+        pnlmain.add(form, BorderLayout.CENTER);
+        form.toFront();
+        form.setVisible(true);
+        form.setSize(pnlmain.getSize());
+        form.btneliminardb.setVisible(false);
+        form.btnimportardb.setVisible(false);
+        form.lbladverten.setVisible(false);
+        form.lblchosse.setText("Escoja La tabla que desea Exportar:");
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_menbackupdbActionPerformed
+
+    private void menrestoredbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menrestoredbActionPerformed
+        pnlmain.removeAll();
+        pnlmain.revalidate();
+        pnlmain.repaint();
+        frmzzdatabase form = new frmzzdatabase();
+        pnlmain.add(form, BorderLayout.CENTER);
+        form.toFront();
+        form.setVisible(true);
+        form.setSize(pnlmain.getSize());
+        form.btneliminardb.setVisible(false);
+        form.btnexportardb.setVisible(false);
+        form.lbladverten.setVisible(false);
+        form.lblchosse.setText("Escoja La tabla a la que desea Importar:");
+// TODO add your handling code here:
+    }//GEN-LAST:event_menrestoredbActionPerformed
+
+    private void menudeletedbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menudeletedbActionPerformed
+        int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta Seguro que desea Eliminar "
+                + "Permanentemente datos de alguna Tabla?", "Confirmar", 2, JOptionPane.WARNING_MESSAGE);
+
+        if (confirmacion == 0) {
+            pnlmain.removeAll();
+            pnlmain.revalidate();
+            pnlmain.repaint();
+            frmzzdatabase form = new frmzzdatabase();
+            pnlmain.add(form, BorderLayout.CENTER);
+            form.toFront();
+            form.setVisible(true);
+            form.setSize(pnlmain.getSize());
+            form.btnexportardb.setVisible(false);
+            form.btnimportardb.setVisible(false);
+            form.lblchosse.setText("Escoja La tabla que desea Eliminar:");
+
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menudeletedbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -816,9 +912,6 @@ public class INICIO extends javax.swing.JFrame {
     public static javax.swing.JButton btnusuarios;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     public static javax.swing.JLabel lblinicio1erapellido;
     public static javax.swing.JLabel lblinicio2doapellido;
     public static javax.swing.JLabel lblinicioacceso;
@@ -841,6 +934,10 @@ public class INICIO extends javax.swing.JFrame {
     private javax.swing.JMenuItem mensalir;
     private javax.swing.JMenuItem mensoport;
     private javax.swing.JMenuBar menuBar;
+    public static javax.swing.JMenu menuappconf;
+    public static javax.swing.JMenu menudatabase;
+    private javax.swing.JMenuItem menudeletedb;
+    private javax.swing.JMenu menuhelp;
     private javax.swing.JPanel pnlenclose;
     public static javax.swing.JPanel pnlmain;
     private javax.swing.JPanel pnlmenulistbuttons;

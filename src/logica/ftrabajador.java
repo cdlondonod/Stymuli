@@ -95,8 +95,8 @@ public class ftrabajador {
     }
 
     public boolean insertar(vtrabajador dts) {
-        sSQL = "insert into persona (nombre,apaterno,amaterno,tipo_documento,documento,email,tel,idarea,idsubarea,cargo,salario,acceso,password,estado)"
-                + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        sSQL = "insert into persona (nombre,apaterno,amaterno,tipo_documento,documento,email,tel,idarea,idsubarea,cargo,salario,acceso,password,estado,idpersonaupdated)"
+                + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
 
@@ -121,6 +121,7 @@ public class ftrabajador {
             String hashed_password = BCrypt.hashpw(dts.getPassword(), salt);
             pst.setString(13, hashed_password);
             pst.setString(14, dts.getEstado());
+            pst.setInt(15, Integer.parseInt(INICIO.lblinicioidpersona.getText()));
 
             int n = pst.executeUpdate();
 
@@ -140,7 +141,8 @@ public class ftrabajador {
 
     public boolean editar(vtrabajador dts) {
         sSQL = "update persona set nombre=?,apaterno=?,amaterno=?,tipo_documento=?,documento=?,"
-                + " email=?,tel=?,idarea=?,idsubarea=?,cargo=?,salario=?,acceso=?,password=?,estado=? where idpersona=?";
+                + " email=?,tel=?,idarea=?,idsubarea=?,cargo=?,salario=?,acceso=?,password=?,estado=?,idpersonaupdated=?"
+                + " where idpersona=?";
 
         try {
             PreparedStatement pst = cn.prepareStatement(sSQL);
@@ -163,8 +165,8 @@ public class ftrabajador {
             String hashed_password = BCrypt.hashpw(dts.getPassword(), salt);
             pst.setString(13, hashed_password);
             pst.setString(14, dts.getEstado());
-
-            pst.setInt(15, dts.getIdpersona());
+            pst.setInt(15, Integer.parseInt(INICIO.lblinicioidpersona.getText()));
+            pst.setInt(16, dts.getIdpersona());
 
             int n = pst.executeUpdate();
 
@@ -324,9 +326,10 @@ public class ftrabajador {
                     + "email=@var6,tel=@var7,nombrear=@var8,nombresuba=@var9,cargo=@var10,salario=REPLACE(@var11, ',', '.'), "
                     + "acceso=@var12,password=@var13,estado=@var14";
         }
-        sSQL3 = "insert into persona (nombre,apaterno,amaterno,tipo_documento,documento,email,tel,idarea,idsubarea,cargo,salario,acceso,password,estado)\n"
+        sSQL3 = "insert into persona (nombre,apaterno,amaterno,tipo_documento,documento,email,tel,idarea,idsubarea,cargo,salario,acceso,password,estado,idpersonaupdated)\n"
                 + "SELECT te.nombre,te.apaterno,te.amaterno,te.tipo_documento,te.documento,te.email,te.tel,a.idarea,s.idsubarea,te.cargo,te.salario,te.acceso,\n"
-                + "te.password,te.estado FROM tempempleados te INNER JOIN area a ON a.nombre=te.nombrear INNER JOIN subarea s ON s.nombre=te.nombresuba ";
+                + "te.password,te.estado,"+ Integer.parseInt(INICIO.lblinicioidpersona.getText())
+                +" FROM tempempleados te INNER JOIN area a ON a.nombre=te.nombrear INNER JOIN subarea s ON s.nombre=te.nombresuba ";
 
         sSQL4 = "DROP TABLE tempempleados";
 

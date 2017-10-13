@@ -13,6 +13,7 @@ public class vtrabajador extends vpersona {
     
     private int idarea;
     private int idsubarea;
+    private int idpersonaupdatedt;
     private Double salario;
     private String acceso;
 
@@ -20,29 +21,17 @@ public class vtrabajador extends vpersona {
     private String estado;
     private String  cargo;
 
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
-    public vtrabajador(String cargo) {
-        this.cargo = cargo;
-    }
-
     public vtrabajador() {
     }
 
-    public vtrabajador(int idarea, int idsubarea, Double salario, String acceso, String password, String estado) {
+    public vtrabajador(int idarea, int idsubarea, int idpersonaupdatedt, Double salario, String password, String estado, String cargo) {
         this.idarea = idarea;
         this.idsubarea = idsubarea;
+        this.idpersonaupdatedt = idpersonaupdatedt;
         this.salario = salario;
-        this.acceso = acceso;
-   
         this.password = password;
         this.estado = estado;
+        this.cargo = cargo;
     }
 
     public int getIdarea() {
@@ -61,6 +50,14 @@ public class vtrabajador extends vpersona {
         this.idsubarea = idsubarea;
     }
 
+    public int getIdpersonaupdatedt() {
+        return idpersonaupdatedt;
+    }
+
+    public void setIdpersonaupdatedt(int idpersonaupdatedt) {
+        this.idpersonaupdatedt = idpersonaupdatedt;
+    }
+
     public Double getSalario() {
         return salario;
     }
@@ -77,9 +74,6 @@ public class vtrabajador extends vpersona {
         this.acceso = acceso;
     }
 
-  
-
-
     public String getPassword() {
         return password;
     }
@@ -95,6 +89,15 @@ public class vtrabajador extends vpersona {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
     
     
     

@@ -5,15 +5,12 @@
  */
 package UI;
 
-
 import java.io.File;
 import javax.swing.ButtonGroup;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import logica.fresultados;
-
-
 
 /**
  *
@@ -26,11 +23,11 @@ public class frmupdownresultados extends javax.swing.JFrame {
      */
     public frmupdownresultados() {
         initComponents();
-         this.setLocationRelativeTo(null);
-         ButtonGroup csvtipe=new ButtonGroup();
-         csvtipe.add(radsemicoloncoma);
-         csvtipe.add(radcommadot);
-         
+        this.setLocationRelativeTo(null);
+        ButtonGroup csvtipe = new ButtonGroup();
+        csvtipe.add(radsemicoloncoma);
+        csvtipe.add(radcommadot);
+
     }
 
     /**
@@ -182,78 +179,68 @@ public class frmupdownresultados extends javax.swing.JFrame {
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btncancelarActionPerformed
-private String path;
+    private String path;
     private void btnuploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnuploadActionPerformed
 
-        
         JFileChooser chooser = new JFileChooser();
-    FileNameExtensionFilter filter = new FileNameExtensionFilter(
-        "csv files", "csv");    
-chooser.setCurrentDirectory(new File  
-(System.getProperty("user.home") ));
-chooser.setDialogTitle("Upload Base de Datos Trabajadores");
-chooser.setVisible(true);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "csv files", "csv");
+        chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        chooser.setDialogTitle("Upload Base de Datos Trabajadores");
+        chooser.setVisible(true);
 
-chooser.setAcceptAllFileFilterUsed(false);
-chooser.setFileFilter(filter);
-if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-    
-    path=chooser.getSelectedFile().toString();
-    path=path.replaceAll("\\\\", "\\/");
-    
-    fresultados cargar=new fresultados();
-        cargar.load(path);
-        
-        if (cargar.rows>0) {
-        JOptionPane.showMessageDialog(rootPane, "La base de datos fue Actualizada");
-        this.dispose();
-        
-        
-    }else{
-        JOptionPane.showMessageDialog(rootPane, "No se pudo actualizar la base de datos, por favor verifique que el archivo que selecciono tiene el formato correcto CSV UTF8.");
-        this.dispose();
-        
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.setFileFilter(filter);
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+
+            path = chooser.getSelectedFile().toString();
+            path = path.replaceAll("\\\\", "\\/");
+
+            fresultados cargar = new fresultados();
+            cargar.load(path);
+
+            if (cargar.rows > 0) {
+                JOptionPane.showMessageDialog(rootPane, "La base de datos fue Actualizada");
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "No se pudo actualizar la base de datos, por favor verifique que el archivo que selecciono tiene el formato correcto CSV UTF8.");
+                this.dispose();
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "No se selecciono archivo");
+
         }
-  
-} else {
-  JOptionPane.showMessageDialog(rootPane, "No se selecciono archivo");
-  
-}        
-       
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnuploadActionPerformed
-private String path2;
+    private String path2;
     private void btndownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndownloadActionPerformed
 
-JFileChooser chooser = new JFileChooser();
-    FileNameExtensionFilter filter = new FileNameExtensionFilter(
-        "csv files", "csv");    
-chooser.setCurrentDirectory(new File  
-(System.getProperty("user.home") ));
-chooser.setDialogTitle("Descargar Template de Base de datos de Resultados");
-chooser.setVisible(true);
-chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-chooser.setAcceptAllFileFilterUsed(false);
-chooser.setFileFilter(filter);
-if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-    fresultados descarga=new fresultados();
-    
-        
-    path2=chooser.getSelectedFile().toString();
-    descarga.download(path2);
-    
-         JOptionPane.showMessageDialog(rootPane, "El Template de la base de datos Resultados fue guardado exitosamente, "
-                 + "Recuerde que antes de volverlo a Cargar debe guardar como un archivo CSV UTF8");
-         this.dispose();
-        
-  
-} else {
-  JOptionPane.showMessageDialog(rootPane, "No se selecciono un lugar para guardar el formato");
-}
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "csv files", "csv");
+        chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        chooser.setDialogTitle("Descargar Template de Base de datos de Resultados");
+        chooser.setVisible(true);
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.setFileFilter(filter);
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            fresultados descarga = new fresultados();
 
+            path2 = chooser.getSelectedFile().toString();
+            descarga.download(path2);
 
+            JOptionPane.showMessageDialog(rootPane, "El Template de la base de datos Resultados fue guardado exitosamente, "
+                    + "Recuerde que antes de volverlo a Cargar debe guardar como un archivo CSV UTF8");
+            this.dispose();
 
-
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "No se selecciono un lugar para guardar el formato");
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btndownloadActionPerformed

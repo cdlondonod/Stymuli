@@ -15,13 +15,15 @@ import javax.swing.table.DefaultTableModel;
 import logica.conexion;
 import logica.fconfiguration;
 import logica.fresultados;
+import logica.fsqloperations;
 
 /**
  *
  * @author crist
  */
 public class frmresultados extends javax.swing.JInternalFrame {
-fconfiguration con=new fconfiguration();
+
+    fconfiguration con = new fconfiguration();
     /**
      * Creates new form frmtrabajador
      */
@@ -38,13 +40,11 @@ fconfiguration con=new fconfiguration();
         tablalistado.setDefaultEditor(Object.class, null);
         tablalistado.setShowGrid(true);
         jScrollPane1.getViewport().setBackground(new Color(101, 54, 193));
-        
-        
-        btncomparacion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/comparacion.png") + "\">");        
-        btnevolutivo.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/evolutivo.png") + "\">");       
+
+        btncomparacion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/comparacion.png") + "\">");
+        btnevolutivo.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/evolutivo.png") + "\">");
         btnproyeccion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/proyeccion.png") + "\">");
-        
-        
+
     }
     private String accion = "guardar";
 
@@ -71,8 +71,6 @@ fconfiguration con=new fconfiguration();
 
     }
 
-   
-
     void inhabilitar() {
 
         pnlregistro.setVisible(false);
@@ -91,7 +89,7 @@ fconfiguration con=new fconfiguration();
         txtidkpi.setText("");
 
         txtresultado.setText("");
-      
+
         txtkpi.setText("");
         txttrabajador.setText("");
 
@@ -109,7 +107,7 @@ fconfiguration con=new fconfiguration();
         txtidkpi.setText("");
 
         txtresultado.setText("");
-  
+
         txtkpi.setText("");
         txttrabajador.setText("");
     }
@@ -155,6 +153,7 @@ fconfiguration con=new fconfiguration();
         btneditar1 = new javax.swing.JButton();
         cbofiltro = new javax.swing.JComboBox<>();
         lblfiltrar = new javax.swing.JLabel();
+        btneliminarbulk = new javax.swing.JButton();
         pnlregistro = new javax.swing.JPanel();
         txtidpersona = new javax.swing.JTextField();
         txtidresultados = new javax.swing.JTextField();
@@ -312,6 +311,20 @@ fconfiguration con=new fconfiguration();
         lblfiltrar.setForeground(new java.awt.Color(255, 255, 255));
         lblfiltrar.setText("Filtrar por:");
 
+        btneliminarbulk.setBackground(new java.awt.Color(153, 51, 0));
+        btneliminarbulk.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btneliminarbulk.setForeground(new java.awt.Color(255, 255, 255));
+        btneliminarbulk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminarmultiples.png"))); // NOI18N
+        btneliminarbulk.setToolTipText("Eliminar Multiples Filas de la Tabla entre fechas seleccionadas");
+        btneliminarbulk.setBorder(null);
+        btneliminarbulk.setBorderPainted(false);
+        btneliminarbulk.setContentAreaFilled(false);
+        btneliminarbulk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarbulkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnllistadoLayout = new javax.swing.GroupLayout(pnllistado);
         pnllistado.setLayout(pnllistadoLayout);
         pnllistadoLayout.setHorizontalGroup(
@@ -330,7 +343,8 @@ fconfiguration con=new fconfiguration();
                         .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistadoLayout.createSequentialGroup()
-                        .addGap(0, 772, Short.MAX_VALUE)
+                        .addComponent(btneliminarbulk)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btneditar1)
@@ -349,13 +363,18 @@ fconfiguration con=new fconfiguration();
                         .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblfiltrar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                 .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btneditar1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistadoLayout.createSequentialGroup()
-                        .addComponent(btneliminar)
-                        .addContainerGap())))
+                    .addGroup(pnllistadoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btneditar1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistadoLayout.createSequentialGroup()
+                                .addComponent(btneliminar)
+                                .addContainerGap())))
+                    .addGroup(pnllistadoLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(btneliminarbulk))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistadoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnnuevo)
@@ -831,47 +850,57 @@ fconfiguration con=new fconfiguration();
             return;
 
         }
-     
+
         vresultados dts = new vresultados();
         fresultados func = new fresultados();
 
         dts.setIdkpi(Integer.parseInt(txtidkpi.getText()));
         dts.setIdpersona(Integer.parseInt(txtidpersona.getText()));
         dts.setResultado_kpi(con.DBnumberFormatInput(txtresultado.getText()));
-        
-        
-         
+
         int mes = datemes.getMonth() + 1;
-        String messtring="";
-        
-        switch(mes){
-        case 1: messtring="01_Enero";
-        break;
-        case 2: messtring="02_Febrero";
-        break;
-        case 3: messtring="03_Marzo";
-        break;
-        case 4: messtring="04_Abril";
-        break;
-        case 5: messtring="05_Mayo";
-        break;
-        case 6: messtring="06_Junio";
-        break;
-        case 7: messtring="07_Julio";
-        break;
-        case 8: messtring="08_Agosto";
-        break;
-        case 9: messtring="09_Septiembre";
-        break;
-        case 10: messtring="10_Octubre";
-        break;
-        case 11: messtring="11_Noviembre";
-        break;
-        case 12: messtring="12_Diciembre";
-        break;   
-              
-        }                  
-        
+        String messtring = "";
+
+        switch (mes) {
+            case 1:
+                messtring = "01_Enero";
+                break;
+            case 2:
+                messtring = "02_Febrero";
+                break;
+            case 3:
+                messtring = "03_Marzo";
+                break;
+            case 4:
+                messtring = "04_Abril";
+                break;
+            case 5:
+                messtring = "05_Mayo";
+                break;
+            case 6:
+                messtring = "06_Junio";
+                break;
+            case 7:
+                messtring = "07_Julio";
+                break;
+            case 8:
+                messtring = "08_Agosto";
+                break;
+            case 9:
+                messtring = "09_Septiembre";
+                break;
+            case 10:
+                messtring = "10_Octubre";
+                break;
+            case 11:
+                messtring = "11_Noviembre";
+                break;
+            case 12:
+                messtring = "12_Diciembre";
+                break;
+
+        }
+
         dts.setMes(messtring);
         dts.setYear(dateyear.getYear());
 
@@ -880,7 +909,6 @@ fconfiguration con=new fconfiguration();
                 JOptionPane.showMessageDialog(rootPane, "El Resultado fue registrado satisfactoriamente");
                 mostrar("", filtropor);
                 inhabilitar();
-           
 
             }
 
@@ -890,7 +918,7 @@ fconfiguration con=new fconfiguration();
                 JOptionPane.showMessageDialog(rootPane, "El Resultado fue editado satisfactoriamente");
                 mostrar("", filtropor);
                 inhabilitar();
-  
+
             }
 
         }
@@ -910,17 +938,16 @@ fconfiguration con=new fconfiguration();
         txttrabajador.setText(tablalistado.getValueAt(fila, 3).toString());
         txtkpi.setText(tablalistado.getValueAt(fila, 8).toString());
         txtresultado.setText(tablalistado.getValueAt(fila, 9).toString());
-        
-   
+
         String years = tablalistado.getValueAt(fila, 11).toString();
         String messcompleto = tablalistado.getValueAt(fila, 10).toString();
-        String mess=messcompleto.substring(0,2);
-        int mes = Integer.parseInt(mess)-1;
+        String mess = messcompleto.substring(0, 2);
+        int mes = Integer.parseInt(mess) - 1;
         int year = Integer.parseInt(years);
         datemes.setMonth(mes);
-        dateyear.setYear(year);       
-                       
-    
+        dateyear.setYear(year);
+
+
     }//GEN-LAST:event_btneditar1ActionPerformed
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
@@ -950,7 +977,7 @@ fconfiguration con=new fconfiguration();
     }//GEN-LAST:event_txtbuscarKeyReleased
 
     private void txtresultadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtresultadoKeyTyped
-       
+
     }//GEN-LAST:event_txtresultadoKeyTyped
 
     private void btnupdownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdownloadActionPerformed
@@ -1098,6 +1125,26 @@ fconfiguration con=new fconfiguration();
         // TODO add your handling code here:
     }//GEN-LAST:event_btncomparacionActionPerformed
 
+    private void btneliminarbulkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarbulkActionPerformed
+        int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar Multiples Datos de la Tabla?", "Confirmar", 2,JOptionPane.WARNING_MESSAGE);
+
+        if (confirmacion == 0) {
+            INICIO.pnlmain.removeAll();
+            INICIO.pnlmain.revalidate();
+            INICIO.pnlmain.repaint();
+            frmzzdeletebulk forma = new frmzzdeletebulk();
+            INICIO.pnlmain.add(forma);
+            forma.setVisible(true);
+            forma.toFront();
+            forma.setSize(INICIO.pnlmain.getSize());
+            forma.lbltitulo.setText("Borrar datos de Tabla Resultados entre Fechas");
+            fsqloperations.tablaerrasebulk = "resultados";
+
+        }
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btneliminarbulkActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1145,6 +1192,7 @@ fconfiguration con=new fconfiguration();
     public static javax.swing.JButton btncomparacion;
     public static javax.swing.JButton btneditar1;
     public static javax.swing.JButton btneliminar;
+    public static javax.swing.JButton btneliminarbulk;
     public static javax.swing.JButton btnevolutivo;
     private javax.swing.JButton btnguardar;
     public static javax.swing.JButton btnnuevo;

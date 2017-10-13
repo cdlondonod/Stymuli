@@ -33,12 +33,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" pref="1034" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="1" pref="1177" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="591" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="622" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -101,12 +101,13 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="btneliminarbulk" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane1" pref="900" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane1" pref="721" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="txtbuscar" min="-2" pref="132" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
@@ -139,7 +140,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="469" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btneliminarbulk" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -359,6 +363,34 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JButton" name="btneliminarbulk">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="33" red="99" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial" size="11" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/eliminarmultiples.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Eliminar Multiples Filas de la Tabla entre fechas seleccionadas"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="null"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminarbulkActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -384,21 +416,17 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="58" pref="58" max="-2" attributes="0"/>
-                                  <Component id="txtidpersona" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtidsubarea" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtidarea" min="-2" pref="34" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace min="58" pref="58" max="-2" attributes="0"/>
+                          <Component id="txtidpersona" min="-2" pref="34" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="txtidsubarea" min="-2" pref="34" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtidarea" min="-2" pref="34" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -444,61 +472,55 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lblnombrekpi" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblnombrekpi1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblnombrekpi2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblnombrekpi3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblnombrekpi4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblnombrekpi5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblnombrekpi12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblnombrekpi6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblnombrekpi13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblnombrekpi7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblpassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblnombrekpi11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txtapaterno" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="txtnombre" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="txtamaterno" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="cbotipo_documento" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="txtdocumento" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="txtemail" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="txttel" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="txtsalario" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="txtpassword" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="cboestado" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="jPanel2" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  <Component id="jPanel3" linkSize="7" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="lblnombrekpi14" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="txtcargo" min="-2" pref="108" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="lblnombrekpi3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblpassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblnombrekpi6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtsalario" linkSize="7" alignment="1" pref="108" max="32767" attributes="0"/>
+                                  <Component id="txtcargo" linkSize="7" alignment="1" pref="108" max="32767" attributes="0"/>
+                                  <Component id="cbotipo_documento" linkSize="7" alignment="1" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="txtpassword" linkSize="7" alignment="1" pref="108" max="32767" attributes="0"/>
+                                  <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtamaterno" linkSize="7" alignment="1" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="cboacceso" linkSize="7" alignment="1" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="jPanel3" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txttel" linkSize="7" alignment="1" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="txtnombre" linkSize="7" alignment="1" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="cboestado" linkSize="7" alignment="1" pref="108" max="32767" attributes="0"/>
+                                  <Component id="txtemail" linkSize="7" alignment="1" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="txtapaterno" linkSize="7" alignment="1" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="txtdocumento" linkSize="7" alignment="1" min="-2" pref="108" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <Component id="lblnombrekpi8" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                                       <Component id="btnupdownload" min="-2" pref="87" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                       <Component id="btncancelar" min="-2" pref="43" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnguardar" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblnombrekpi8" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="cboacceso" linkSize="7" min="-2" pref="108" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -552,7 +574,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtcargo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtcargo" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblnombrekpi14" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -560,12 +582,12 @@
                                   <Component id="txtsalario" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblnombrekpi7" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblnombrekpi8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cboacceso" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblnombrekpi8" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cboacceso" linkSize="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblpassword" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtpassword" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -575,15 +597,12 @@
                                   <Component id="lblnombrekpi11" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cboestado" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="29" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnupdownload" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
-                                      <Component id="btncancelar" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="btnguardar" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="btnguardar" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="btncancelar" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="btnupdownload" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
