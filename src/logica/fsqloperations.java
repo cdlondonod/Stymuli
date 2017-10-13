@@ -63,31 +63,37 @@ public class fsqloperations {
     }
 
     public static String tablaerrasebulk;
+
     public boolean eliminarenbulk(String fechaini, String fechafin) {
         if (tablaerrasebulk.equals("persona")) {
-            sSQL = "select * from persona p "
-                    + "WHERE p.idpersonaupdated=" + INICIO.lblinicioidpersona.toString()
-                    + " AND p.timestamp BETWEEN '" + fechaini + "' AND '" + fechafin + "'";
+            sSQL = "delete from persona "
+                    + "WHERE idpersonaupdated=" + INICIO.lblinicioidpersona.getText()
+                    + " AND timestamp BETWEEN '" + fechaini + "' AND '" + fechafin + "'";
 
         } else if (tablaerrasebulk.equals("resultados")) {
-            sSQL = "select * from resultados r "
-                    + "WHERE r.idpersonaupdated=" + INICIO.lblinicioidpersona.toString()
-                    + " AND r.timestamp BETWEEN '" + fechaini + "' AND '" + fechafin + "'";
+            sSQL = "delete from resultados "
+                    + "WHERE idpersonaupdated=" + INICIO.lblinicioidpersona.getText()
+                    + " AND timestamp BETWEEN '" + fechaini + "' AND '" + fechafin + "'";
         }
         try {
+            
             PreparedStatement pst = cn.prepareStatement(sSQL);
-            int n = pst.executeUpdate();
+          
+           int n = pst.executeUpdate();
+
             if (n != 0) {
+
                 return true;
+
             } else {
                 return false;
             }
+
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+
         }
     }
-    
-    
 
 }

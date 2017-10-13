@@ -328,8 +328,28 @@ public class frmzzdeletebulk extends javax.swing.JInternalFrame {
                 + " agregados por usted,<br> entre " + fechaini + " y " + fechafin + " ?</html>", "Confirmar", 2, JOptionPane.WARNING_MESSAGE);
 
         if (confirmacion == 0) {
+
             fsqloperations func = new fsqloperations();
-            func.eliminarenbulk(fechaini, fechafin);
+
+            if (fsqloperations.tablaerrasebulk.equals("persona")) {
+                if (func.eliminarenbulk(fechaini, fechafin)) {
+                    JOptionPane.showMessageDialog(rootPane, "<html>Los Datos entre " + fechaini + " y " + fechafin
+                            + "<br> de la Tabla " + fsqloperations.tablaerrasebulk
+                            + "<br> Fueron Eliminados Exitosamente.</html>");
+                    this.dispose();
+                    INICIO.btnusuarios.doClick();
+                }
+
+            } else if (fsqloperations.tablaerrasebulk.equals("resultados")) {
+                if (func.eliminarenbulk(fechaini, fechafin)) {
+                    JOptionPane.showMessageDialog(rootPane, "<html>Los Datos entre " + fechaini + " y " + fechafin
+                            + "<br> de la Tabla " + fsqloperations.tablaerrasebulk
+                            + "<br> Fueron Eliminados Exitosamente.</html>");
+                    this.dispose();
+                    INICIO.btnresultados.doClick();
+                }
+
+            }
 
         }
 // TODO add your handling code here:
