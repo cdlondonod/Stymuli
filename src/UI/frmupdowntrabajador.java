@@ -28,9 +28,7 @@ public class frmupdowntrabajador extends javax.swing.JFrame {
         initComponents();
          this.setLocationRelativeTo(null);
          
-          ButtonGroup csvtipe=new ButtonGroup();
-         csvtipe.add(radsemicoloncoma);
-         csvtipe.add(radcommadot);
+   
     }
 
     /**
@@ -46,9 +44,6 @@ public class frmupdowntrabajador extends javax.swing.JFrame {
         btncancelar = new javax.swing.JButton();
         btndownload = new javax.swing.JButton();
         btnupload = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        radcommadot = new javax.swing.JRadioButton();
-        radsemicoloncoma = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -95,40 +90,6 @@ public class frmupdowntrabajador extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setOpaque(false);
-
-        radcommadot.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        radcommadot.setForeground(new java.awt.Color(75, 16, 160));
-        radcommadot.setText("CSV decimales delimitados por punto \".\"");
-        radcommadot.setOpaque(false);
-
-        radsemicoloncoma.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        radsemicoloncoma.setForeground(new java.awt.Color(75, 16, 160));
-        radsemicoloncoma.setSelected(true);
-        radsemicoloncoma.setText("CSV decimales delimitados por coma \",\"");
-        radsemicoloncoma.setOpaque(false);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(radcommadot)
-                    .addComponent(radsemicoloncoma))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(radsemicoloncoma)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radcommadot)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -139,10 +100,8 @@ public class frmupdowntrabajador extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btncancelar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnupload, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btnupload, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 143, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -160,8 +119,7 @@ public class frmupdowntrabajador extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnupload)
                     .addComponent(btndownload))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btndownload, btnupload});
@@ -300,8 +258,5 @@ if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
     private javax.swing.JButton btndownload;
     private javax.swing.JButton btnupload;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    public static javax.swing.JRadioButton radcommadot;
-    public static javax.swing.JRadioButton radsemicoloncoma;
     // End of variables declaration//GEN-END:variables
 }

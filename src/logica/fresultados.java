@@ -180,12 +180,12 @@ public class fresultados {
         sSQL = "CREATE TEMPORARY TABLE tempresultados (kpi VARCHAR(45),	documento VARCHAR(45),	"
                 + "resultado_kpi VARCHAR(45),	mes VARCHAR(45),	year VARCHAR(45))";
 
-        if (frmupdownresultados.radcommadot.isSelected()) {
+        if (con.GetProp("separadordec").equals(".")) {
 
             sSQL2 = "LOAD DATA LOCAL INFILE '" + filename + "' INTO TABLE tempresultados "
                     + "FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"'"
                     + "LINES TERMINATED BY '\n'";
-        } else if (frmupdownresultados.radsemicoloncoma.isSelected()) {
+        } else if (con.GetProp("separadordec").equals(",")) {
 
             sSQL2 = "LOAD DATA LOCAL INFILE '" + filename + "' INTO TABLE tempresultados "
                     + " FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '\"'"
@@ -230,9 +230,9 @@ public class fresultados {
     public void download(String filename) {
         String line = "";
         try {
-            if (frmupdownresultados.radcommadot.isSelected()) {
+            if (con.GetProp("separadordec").equals(".")) {
                 line = "KPI,CEDULA DEL TRABAJADOR,RESULTADO DEL KPI,MES (EN EL FORMATO 01_Enero 02_Febrero 12_Diciembre etc), YEAR ";
-            } else if (frmupdownresultados.radsemicoloncoma.isSelected()) {
+            } else if (con.GetProp("separadordec").equals(",")) {
                 line = "KPI;CEDULA DEL TRABAJADOR;RESULTADO DEL KPI;MES (EN EL FORMATO 01_Enero 02_Febrero 12_Diciembre etc); YEAR ";
 
             }

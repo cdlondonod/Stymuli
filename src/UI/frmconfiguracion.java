@@ -6,6 +6,7 @@
 package UI;
 
 import datos.vtrabajador;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import javax.swing.JOptionPane;
 import logica.fconfiguration;
@@ -37,7 +38,7 @@ public class frmconfiguracion extends javax.swing.JFrame {
         txtipdb.setText(con.GetProp("ipdatabase"));
         txtuserdb.setText(con.GetProp("userdatabase"));
         txtpassdb.setText(con.GetProp("passworddatabase"));
-
+        cbodecimal.setSelectedItem(con.GetProp("separadordec"));
     }
 
     /**
@@ -70,6 +71,9 @@ public class frmconfiguracion extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        cbodecimal = new javax.swing.JComboBox<>();
         pnlcuent = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -311,13 +315,49 @@ public class frmconfiguracion extends javax.swing.JFrame {
 
         pnldbconectLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel5, txtipdb});
 
+        jPanel2.setOpaque(false);
+
+        jLabel8.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(75, 16, 160));
+        jLabel8.setText("Separador Decimales:");
+        jLabel8.setToolTipText("");
+
+        cbodecimal.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        cbodecimal.setForeground(new java.awt.Color(75, 16, 160));
+        cbodecimal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ",", "." }));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(47, 47, 47)
+                .addComponent(cbodecimal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbodecimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cbodecimal, jLabel8});
+
         javax.swing.GroupLayout pnlgeneralLayout = new javax.swing.GroupLayout(pnlgeneral);
         pnlgeneral.setLayout(pnlgeneralLayout);
         pnlgeneralLayout.setHorizontalGroup(
             pnlgeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlgeneralLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnldbconect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlgeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnldbconect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlgeneralLayout.setVerticalGroup(
@@ -325,7 +365,9 @@ public class frmconfiguracion extends javax.swing.JFrame {
             .addGroup(pnlgeneralLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnldbconect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         jPanel3.add(pnlgeneral, "card1");
@@ -387,7 +429,7 @@ public class frmconfiguracion extends javax.swing.JFrame {
                 .addGroup(pnlcuentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtpassnu1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
 
         pnlcuentLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, txtpassnu});
@@ -408,7 +450,7 @@ public class frmconfiguracion extends javax.swing.JFrame {
         );
         pnlinterfazLayout.setVerticalGroup(
             pnlinterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 369, Short.MAX_VALUE)
+            .addGap(0, 373, Short.MAX_VALUE)
         );
 
         jPanel3.add(pnlinterfaz, "card3");
@@ -524,6 +566,7 @@ public class frmconfiguracion extends javax.swing.JFrame {
                 con.SaveProp("userdatabase", txtuserdb.getText());
                 con.SaveProp("ipdatabase", txtipdb.getText());
                 con.SaveProp("passworddatabase", txtpassdb.getText());
+                con.SaveProp("separadordec", cbodecimal.getSelectedItem().toString());
 
                 this.dispose();
 
@@ -589,6 +632,7 @@ public class frmconfiguracion extends javax.swing.JFrame {
     private javax.swing.JButton btndefault;
     private javax.swing.JButton btngenera;
     public static javax.swing.JButton btninter;
+    private javax.swing.JComboBox<String> cbodecimal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -596,7 +640,9 @@ public class frmconfiguracion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel pnlbtn;

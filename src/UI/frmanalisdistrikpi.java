@@ -635,7 +635,7 @@ public class frmanalisdistrikpi extends javax.swing.JInternalFrame {
         plot.setRenderer(renderer);
 
         plot.setDomainAxis(new CategoryAxis("C/Trabajadores"));
-        plot.setRangeAxis(new NumberAxis("Objetivo"));
+        plot.setRangeAxis(new NumberAxis("Resultado"));
         plot.getDomainAxis().setVisible(false);
         plot.setOrientation(PlotOrientation.VERTICAL);
         plot.setRangeGridlinesVisible(true);
@@ -648,7 +648,7 @@ public class frmanalisdistrikpi extends javax.swing.JInternalFrame {
         plot.setDataset(1, dataset2);
         plot.setRenderer(1, renderer2);
 
-        final ValueAxis rangeAxis2 = new NumberAxis("Resultado");
+        final ValueAxis rangeAxis2 = new NumberAxis("Objetivo");
         plot.setRangeAxis(1, rangeAxis2);
 
         plot.setRangeGridlinePaint(Color.WHITE);

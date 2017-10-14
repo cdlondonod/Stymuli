@@ -109,7 +109,6 @@ public class INICIO extends javax.swing.JFrame {
         mensalir = new javax.swing.JMenuItem();
         menudatabase = new javax.swing.JMenu();
         menbackupdb = new javax.swing.JMenuItem();
-        menrestoredb = new javax.swing.JMenuItem();
         menudeletedb = new javax.swing.JMenuItem();
         menuhelp = new javax.swing.JMenu();
         mensoport = new javax.swing.JMenuItem();
@@ -484,16 +483,6 @@ public class INICIO extends javax.swing.JFrame {
         });
         menudatabase.add(menbackupdb);
 
-        menrestoredb.setBackground(new java.awt.Color(255, 255, 255));
-        menrestoredb.setForeground(new java.awt.Color(75, 16, 160));
-        menrestoredb.setText("Importar Tabla a Base de Datos");
-        menrestoredb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menrestoredbActionPerformed(evt);
-            }
-        });
-        menudatabase.add(menrestoredb);
-
         menudeletedb.setBackground(new java.awt.Color(255, 255, 255));
         menudeletedb.setForeground(new java.awt.Color(75, 16, 160));
         menudeletedb.setText("Eliminar Tabla Base de Datos");
@@ -832,22 +821,6 @@ public class INICIO extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_menbackupdbActionPerformed
 
-    private void menrestoredbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menrestoredbActionPerformed
-        pnlmain.removeAll();
-        pnlmain.revalidate();
-        pnlmain.repaint();
-        frmzzdatabase form = new frmzzdatabase();
-        pnlmain.add(form, BorderLayout.CENTER);
-        form.toFront();
-        form.setVisible(true);
-        form.setSize(pnlmain.getSize());
-        form.btneliminardb.setVisible(false);
-        form.btnexportardb.setVisible(false);
-        form.lbladverten.setVisible(false);
-        form.lblchosse.setText("Escoja La tabla a la que desea Importar:");
-// TODO add your handling code here:
-    }//GEN-LAST:event_menrestoredbActionPerformed
-
     private void menudeletedbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menudeletedbActionPerformed
         int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta Seguro que desea Eliminar "
                 + "Permanentemente datos de alguna Tabla?", "Confirmar", 2, JOptionPane.WARNING_MESSAGE);
@@ -933,7 +906,6 @@ public class INICIO extends javax.swing.JFrame {
     private javax.swing.JMenuItem menconfig;
     private javax.swing.JMenuItem meninfoleg;
     private javax.swing.JMenuItem menpolipriv;
-    private javax.swing.JMenuItem menrestoredb;
     private javax.swing.JMenuItem mensalir;
     private javax.swing.JMenuItem mensoport;
     private javax.swing.JMenuBar menuBar;

@@ -311,12 +311,12 @@ public class ftrabajador {
                 + "cargo VARCHAR(45),salario DECIMAL(10,2),"
                 + "acceso VARCHAR(45),	password VARCHAR(45),	estado VARCHAR(45))";
 
-        if (frmupdowntrabajador.radcommadot.isSelected()) {
+        if (con.GetProp("separadordec").equals(".")) {
 
             sSQL2 = "LOAD DATA LOCAL INFILE '" + filename + "' INTO TABLE tempempleados "
                     + "FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"'"
                     + "LINES TERMINATED BY '\n'";
-        } else if (frmupdowntrabajador.radsemicoloncoma.isSelected()) {
+        } else if (con.GetProp("separadordec").equals(",")) {
 
             sSQL2 = "LOAD DATA LOCAL INFILE '" + filename + "' "
                     + "INTO TABLE tempempleados FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '\"' "
@@ -364,7 +364,7 @@ public class ftrabajador {
     public void download(String filename) {
 String line ="";
         try {
-if (frmupdowntrabajador.radcommadot.isSelected()) {
+if (con.GetProp("separadordec").equals(".")) {
              line = "NOMBRE,PRIMER APELLIDO,SEGUNDO APELLIDO,TIPO DE DOCUMENTO(Cedula de Ciudadania"
                     + "Cedula de Extranjeria"
                     + "Tarjeta de identidad"
@@ -374,7 +374,7 @@ if (frmupdowntrabajador.radcommadot.isSelected()) {
                     + "Jefe de Area"
                     + "Jefe de Subarea),"
                     + "PASSWORD(Dejar en blanco!!),ESTADO(Activo Inactivo)";
-             } else if (frmupdowntrabajador.radsemicoloncoma.isSelected()) {
+             } else if (con.GetProp("separadordec").equals(",")) {
              line = "NOMBRE;PRIMER APELLIDO;SEGUNDO APELLIDO;TIPO DE DOCUMENTO(Cedula de Ciudadania"
                     + "Cedula de Extranjeria"
                     + "Tarjeta de identidad"
