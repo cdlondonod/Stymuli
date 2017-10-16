@@ -43,9 +43,9 @@ public class fperfilusuario {
             messtring = "0" + mes;
         }
 
-        sSQL = "  SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+        sSQL = "  SELECT tbcomp.documento,tbcomp.nombre,ANY_VALUE(tbcomp.estimulokpi) as estimulogr,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + "(IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
-                + "AS obtreal,tbcomp.idpersona,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
+                + "AS obtreal,tbcomp.idpersona,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, ANY_VALUE(tbcomp.kpi) AS kpigrou,tbcomp.subarea FROM   "
                 + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
                 + "AS subarea,   "
                 + fanalisis.bigquery
@@ -68,8 +68,8 @@ public class fperfilusuario {
                 } else {
                     valueob = 0.0;
                 }
-                if (rs.getString("obtreal") != null && rs.getString("estimulokpi") != null) {
-                    valuenoob = Double.parseDouble(rs.getString("estimulokpi"))
+                if (rs.getString("obtreal") != null && rs.getString("estimulogr") != null) {
+                    valuenoob = Double.parseDouble(rs.getString("estimulogr"))
                             - Double.parseDouble(rs.getString("obtreal"));
                 } else {
                     valuenoob = 0.0;
@@ -90,9 +90,9 @@ public class fperfilusuario {
     public DefaultCategoryDataset evolutivodinero() {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        sSQL = "  SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+        sSQL = "  SELECT tbcomp.documento,tbcomp.nombre,ANY_VALUE(tbcomp.estimulokpi) as estimulogr,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + "(IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
-                + "AS obtreal,tbcomp.idpersona,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
+                + "AS obtreal,tbcomp.idpersona,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, ANY_VALUE(tbcomp.kpi) AS kpigrou,tbcomp.subarea FROM   "
                 + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
                 + "AS subarea,   "
                 + fanalisis.bigquery
@@ -114,8 +114,8 @@ public class fperfilusuario {
                 } else {
                     valueob = 0.0;
                 }
-                if (rs.getString("obtreal") != null && rs.getString("estimulokpi") != null) {
-                    valuenoob = Double.parseDouble(rs.getString("estimulokpi"))
+                if (rs.getString("obtreal") != null && rs.getString("estimulogr") != null) {
+                    valuenoob = Double.parseDouble(rs.getString("estimulogr"))
                             - Double.parseDouble(rs.getString("obtreal"));
                 } else {
                     valuenoob = 0.0;
@@ -242,9 +242,11 @@ public class fperfilusuario {
     public DefaultCategoryDataset mixmaxavg() {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        sSQL = "  SELECT AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+        sSQL = "  SELECT AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) "
+                + "AS minobt,ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,"
+                + "ANY_VALUE(tbcomp.estimulokpi) as estimulogr,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + " (IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
-                + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
+                + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, ANY_VALUE(tbcomp.kpi) AS kpigrou,tbcomp.subarea FROM   "
                 + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
                 + " AS subarea, s.idsubarea, "
                 + fanalisis.bigquery
@@ -253,9 +255,11 @@ public class fperfilusuario {
                 + " WHERE ta.idsubarea=" + INICIO.lblinicioidsubarea.getText()
                 + " GROUP BY ta.mes,ta.year"
                 + " ORDER BY ta.year,ta.mes";
-        sSQL2 = "  SELECT AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+        sSQL2 = "  SELECT AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,"
+                + "ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,"
+                + "ANY_VALUE(tbcomp.estimulokpi) AS estimulogr,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + " (IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
-                + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
+                + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, ANY_VALUE(tbcomp.kpi) AS kpigrou,tbcomp.subarea FROM   "
                 + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
                 + " AS subarea, s.idsubarea, "
                 + fanalisis.bigquery

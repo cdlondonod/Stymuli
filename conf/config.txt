@@ -1,6 +1,6 @@
-#Sat Oct 14 08:34:53 COT 2017
+#Mon Oct 16 13:39:29 COT 2017
 separadordec=fBhBwQ/hrkiy+ft9BtVsrg\=\=
-ipdatabase=Z+fj+62oRdmaOQEyCndSPw\=\=
+ipdatabase=23V6uIxwbmHROG0MrzRPio/wxAymgMCLnxXvrzKJBM4\=
 database=bvUYKue4EOoss7bBiouDQA\=\=
 userdatabase=Wz8gvD7s9Skl8un0iNCmZg\=\=
-passworddatabase=SHD+UVuKh8PLGc7Qs7/OzA\=\=
+passworddatabase=POMQVM9IV04uco5L7yLhA5Jo+3HSlonPSL69yAaH4zQ\=

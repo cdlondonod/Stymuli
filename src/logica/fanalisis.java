@@ -238,9 +238,9 @@ public class fanalisis {
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
             sSQL = " AND tbcomp.idpersona=" + INICIO.lblinicioidpersona.getText() + " ";
         }
-        sSQL3 = "  SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
+        sSQL3 = "  SELECT tbcomp.documento,tbcomp.nombre,ANY_VALUE(tbcomp.estimulokpi) as estimulogroup,tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + "(IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
-                + "AS obtreal,tbcomp.idpersona,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   \n"
+                + "AS obtreal,tbcomp.idpersona,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, ANY_VALUE(tbcomp.kpi),tbcomp.subarea FROM   \n"
                 + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
                 + "AS subarea,   \n"
                 + bigquery
@@ -254,7 +254,7 @@ public class fanalisis {
                 + " AND tbcomp.kpi LIKE '%" + KPI + "%'"
                 + sSQL2 + sSQL
                 + " GROUP BY tbcomp.documento,tbcomp.mes,tbcomp.year"
-                + " ORDER BY tbcomp.subarea,tbcomp.apaterno,tbcomp.nombre,tbcomp.kpi,tbcomp.year,tbcomp.mes";
+                + " ORDER BY tbcomp.subarea,tbcomp.apaterno,tbcomp.nombre,tbcomp.year,tbcomp.mes";
 
         resultobttotal = 0.0;
 
@@ -268,8 +268,8 @@ public class fanalisis {
                 registro[3] = "$ " + con.numberFormatDisplay(Double.parseDouble(rs.getString("obtreal")));
                 registro[0] = rs.getString("year") + " " + rs.getString("mes");
 
-                if (rs.getString("estimulokpi") != null) {
-                    registro[4] = "$ " + con.numberFormatDisplay(Double.parseDouble(rs.getString("estimulokpi")));
+                if (rs.getString("estimulogroup") != null) {
+                    registro[4] = "$ " + con.numberFormatDisplay(Double.parseDouble(rs.getString("estimulogroup")));
                 } else {
                     registro[4] = "$0.0";
                 }
@@ -293,11 +293,11 @@ public class fanalisis {
             sSQL2 = " AND ta.idarea=" + INICIO.lblinicioidarea.getText() + " ";
         }
 
-        sSQL3 = "  SELECT ta.area,ta.subarea,AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,"
-                + "ta.mes,ta.year,ta.idsubarea FROM (SELECT tbcomp.documento,tbcomp.nombre,tbcomp.estimulokpi,"
+        sSQL3 = "  SELECT ANY_VALUE(ta.area) as areagro,ANY_VALUE(ta.subarea) as subareagro,AVG(ta.obtreal) AS midobt,MAX(ta.obtreal) AS maxobt,MIN(NULLIF(ta.obtreal,0)) AS minobt,"
+                + "ta.mes,ta.year,ANY_VALUE(ta.idsubarea) FROM (SELECT tbcomp.documento,tbcomp.nombre,ANY_VALUE(tbcomp.estimulokpi),"
                 + "tbcomp.apaterno,(SUM(obtiene))AS sumob, "
                 + " (IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
-                + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, tbcomp.kpi,tbcomp.subarea FROM   "
+                + " AS obtreal,tbcomp.idpersona,tbcomp.idsubarea,tbcomp.year,tbcomp.mes ,tbcomp.area,tbcomp.idarea, ANY_VALUE(tbcomp.kpi),tbcomp.subarea FROM   "
                 + " (SELECT p.nombre,p.apaterno,p.idpersona,p.documento,r.mes,r.year,a.idarea as idarea,a.nombre AS area,k.nombre AS kpi,s.nombre "
                 + " AS subarea, s.idsubarea, "
                 + fanalisis.bigquery
@@ -317,8 +317,8 @@ public class fanalisis {
             ResultSet rs = st.executeQuery(sSQL3);
             while (rs.next()) {
 
-                registro[1] = rs.getString("ta.area");
-                registro[2] = rs.getString("ta.subarea");
+                registro[1] = rs.getString("areagro");
+                registro[2] = rs.getString("subareagro");
                 registro[0] = rs.getString("ta.year") + " " + rs.getString("ta.mes");
 
                 if (rs.getString("minobt") != null) {
@@ -358,7 +358,7 @@ public class fanalisis {
         if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
             sSQL3 = " AND p.idpersona=" + INICIO.lblinicioidpersona.getText() + " ";
         }
-        sSQL = "SELECT a.nombre,s.nombre,k.nombre, AVG(r.resultado_kpi) AS kpimed,r.mes,r.year "
+        sSQL = "SELECT ANY_VALUE(a.nombre) as areagr,ANY_VALUE(s.nombre) as subareagr,k.nombre, AVG(r.resultado_kpi) AS kpimed,r.mes,r.year "
                 + "FROM resultados r INNER JOIN persona p ON r.idpersona=p.idpersona INNER JOIN area a "
                 + "ON a.idarea=p.idarea INNER JOIN subarea s ON s.idsubarea=p.idsubarea "
                 + " INNER JOIN modelo m ON r.year=SUBSTR(m.mes_modelo,1,4) AND SUBSTR(r.mes,1,2)=SUBSTR(m.mes_modelo,5,2) AND m.idsubarea=p.idsubarea AND m.idarea=p.idarea "
@@ -370,7 +370,7 @@ public class fanalisis {
                 + " AND k.nombre LIKE '%" + KPI + "%'"
                 + sSQL2 + sSQL3
                 + "GROUP BY k.nombre,r.mes,r.year "
-                + " ORDER BY s.nombre,r.year,r.mes ";
+                + " ORDER BY r.year,r.mes ";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sSQL);
@@ -396,14 +396,14 @@ public class fanalisis {
         if (!INICIO.lblinicioacceso.getText().equals("Administrador")) {
             sSQL2 = " AND tbcompfiltrada.idarea=" + INICIO.lblinicioidarea.getText() + " ";
         }
-        sSQL3 = " SELECT  tbcompfiltrada.area,tbcompfiltrada.idarea,tbcompfiltrada.subarea,SUM(tbcompfiltrada.obtreal)"
+        sSQL3 = " SELECT  ANY_VALUE(tbcompfiltrada.area) as areagr,ANY_VALUE(tbcompfiltrada.idarea),tbcompfiltrada.subarea,SUM(tbcompfiltrada.obtreal)"
                 + "AS obtsubarea,"
-                + "tbcompfiltrada.year,tbcompfiltrada.mes\n"
+                + " ANY_VALUE(tbcompfiltrada.year) as yeargr, ANY_VALUE(tbcompfiltrada.mes) as mesgr\n"
                 + " \n"
-                + " FROM  ( SELECT tbcomp.documento,tbcomp.idarea,tbcomp.nombre,tbcomp.estimulokpi,tbcomp.apaterno,"
+                + " FROM  ( SELECT tbcomp.documento,tbcomp.idarea,tbcomp.nombre,ANY_VALUE(tbcomp.estimulokpi),tbcomp.apaterno,"
                 + "(SUM(obtiene))AS sumob, "
                 + "(IF((COUNT(habilita)-SUM(habilita))=0,1,0))AS habs,(SUM(obtiene)* IF((COUNT(habilita)-SUM(habilita))=0,1,0))"
-                + "AS obtreal,tbcomp.year,tbcomp.mes ,tbcomp.area, tbcomp.kpi,tbcomp.subarea FROM       \n"
+                + "AS obtreal,tbcomp.year,tbcomp.mes ,tbcomp.area, ANY_VALUE(tbcomp.kpi) as kpigro,tbcomp.subarea FROM       \n"
                 + " (SELECT p.nombre,p.apaterno,p.documento,r.mes,r.year,a.idarea AS idarea,a.nombre AS area,k.nombre AS"
                 + " kpi,s.nombre AS subarea, "
                 + bigquery
@@ -414,22 +414,22 @@ public class fanalisis {
                 + " AND tbcompfiltrada.area LIKE '%" + area + "%'"
                 + " AND tbcompfiltrada.subarea LIKE '%" + Subarea + "%'"
                 + " AND tbcompfiltrada.documento LIKE '%" + Trabajador + "%'"
-                + " AND tbcompfiltrada.kpi LIKE '%" + KPI + "%'"
+                + " AND tbcompfiltrada.kpigro LIKE '%" + KPI + "%'"
                 + sSQL2
                 + "GROUP BY tbcompfiltrada.subarea"
                 //,tbcompfiltrada.mes,tbcompfiltrada.year .para filtrar por fecha si no funciona aun.
-                + " ORDER BY tbcompfiltrada.subarea,tbcompfiltrada.apaterno,tbcompfiltrada.nombre,tbcompfiltrada.kpi,"
-                + "tbcompfiltrada.year,tbcompfiltrada.mes";
+                + " ORDER BY tbcompfiltrada.subarea,tbcompfiltrada.kpigro,"
+                + "yeargr,mesgr";
 
         resultobttotal = 0.0;
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sSQL3);
             while (rs.next()) {
-                registro[1] = rs.getString("tbcompfiltrada.area");
+                registro[1] = rs.getString("areagr");
                 registro[2] = rs.getString("tbcompfiltrada.subarea");
                 registro[3] = "$ " + con.numberFormatDisplay(Double.parseDouble(rs.getString("obtsubarea")));
-                registro[0] = rs.getString("tbcompfiltrada.year") + " " + rs.getString("tbcompfiltrada.mes");
+                registro[0] = rs.getString("yeargr") + " " + rs.getString("mesgr");
                 modelo.addRow(registro);
                 resultobttotal = resultobttotal + Double.parseDouble(rs.getString("obtsubarea"));
             }

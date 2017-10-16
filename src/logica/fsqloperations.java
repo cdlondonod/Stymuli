@@ -46,7 +46,6 @@ public class fsqloperations {
 
     public void exportarDB(String tabla, String filename) {
         Statement st;
-
         switch (tabla) {
             case "resultados":
                 sSQL2 = "SELECT 'ID Resultados', 'ID KPI', 'ID Persona' , 'Resultado de KPI' , 'Mes' , 'Año' , 'Ultima Modificación' , 'ID Persona que modifico'"
@@ -76,7 +75,6 @@ public class fsqloperations {
                 sSQL2 = "SELECT 'ID SubArea', 'ID Area', 'Nombre Subarea'  , 'Ultima Modificación' "
                         + " UNION ALL ";
                 break;
-
         }
         if (con.GetProp("separadordec").equals(".")) {
             sSQL = sSQL2 + " SELECT * into OUTFILE  '" + filename + ".csv"

@@ -52,15 +52,16 @@ public class frmconfiguracion extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        btninter = new javax.swing.JButton();
         btngenera = new javax.swing.JButton();
         btncuenta = new javax.swing.JButton();
-        btninter = new javax.swing.JButton();
         pnlcardla = new javax.swing.JPanel();
         pnlbtn = new javax.swing.JPanel();
         btndefault = new javax.swing.JButton();
         btnaceptar = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        pnlinterfaz = new javax.swing.JPanel();
         pnlgeneral = new javax.swing.JPanel();
         pnldbconect = new javax.swing.JPanel();
         txtipdb = new javax.swing.JTextField();
@@ -75,13 +76,13 @@ public class frmconfiguracion extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         cbodecimal = new javax.swing.JComboBox<>();
         pnlcuent = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtpassant = new javax.swing.JPasswordField();
         txtpassnu = new javax.swing.JPasswordField();
+        txtpassant = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtpassnu1 = new javax.swing.JPasswordField();
-        pnlinterfaz = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -96,6 +97,22 @@ public class frmconfiguracion extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.PAGE_AXIS));
+
+        btninter.setBackground(new java.awt.Color(255, 255, 255));
+        btninter.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        btninter.setForeground(new java.awt.Color(75, 16, 160));
+        btninter.setText("Interfaz");
+        btninter.setBorder(null);
+        btninter.setContentAreaFilled(false);
+        btninter.setMaximumSize(new java.awt.Dimension(102, 26));
+        btninter.setMinimumSize(new java.awt.Dimension(102, 26));
+        btninter.setPreferredSize(new java.awt.Dimension(102, 26));
+        btninter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btninterActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btninter);
 
         btngenera.setBackground(new java.awt.Color(255, 255, 255));
         btngenera.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
@@ -128,22 +145,6 @@ public class frmconfiguracion extends javax.swing.JFrame {
             }
         });
         jPanel5.add(btncuenta);
-
-        btninter.setBackground(new java.awt.Color(255, 255, 255));
-        btninter.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
-        btninter.setForeground(new java.awt.Color(75, 16, 160));
-        btninter.setText("Interfaz");
-        btninter.setBorder(null);
-        btninter.setContentAreaFilled(false);
-        btninter.setMaximumSize(new java.awt.Dimension(102, 26));
-        btninter.setMinimumSize(new java.awt.Dimension(102, 26));
-        btninter.setPreferredSize(new java.awt.Dimension(102, 26));
-        btninter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btninterActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btninter);
 
         pnlcardla.setBackground(new java.awt.Color(255, 255, 255));
         pnlcardla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(101, 54, 193)));
@@ -223,6 +224,21 @@ public class frmconfiguracion extends javax.swing.JFrame {
         pnlcardla.add(pnlbtn, java.awt.BorderLayout.PAGE_END);
 
         jPanel3.setLayout(new java.awt.CardLayout());
+
+        pnlinterfaz.setBackground(new java.awt.Color(204, 255, 204));
+
+        javax.swing.GroupLayout pnlinterfazLayout = new javax.swing.GroupLayout(pnlinterfaz);
+        pnlinterfaz.setLayout(pnlinterfazLayout);
+        pnlinterfazLayout.setHorizontalGroup(
+            pnlinterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pnlinterfazLayout.setVerticalGroup(
+            pnlinterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 373, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(pnlinterfaz, "card3");
 
         pnlgeneral.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -374,13 +390,12 @@ public class frmconfiguracion extends javax.swing.JFrame {
 
         pnlcuent.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modificar Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12), new java.awt.Color(75, 16, 160))); // NOI18N
+        jPanel4.setOpaque(false);
+
         jLabel1.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(75, 16, 160));
         jLabel1.setText("Nuevo Password:");
-
-        jLabel2.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(75, 16, 160));
-        jLabel2.setText("Antiguo Password:");
 
         txtpassant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,10 +403,59 @@ public class frmconfiguracion extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(75, 16, 160));
+        jLabel2.setText("Antiguo Password:");
+
         jLabel3.setFont(new java.awt.Font("abeatbyKai", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(75, 16, 160));
         jLabel3.setText("Confirmar Password:");
         jLabel3.setToolTipText("");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtpassnu, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtpassant, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtpassnu1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtpassant)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtpassnu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtpassnu1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, txtpassnu});
+
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel2, txtpassant});
+
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel3, txtpassnu1});
 
         javax.swing.GroupLayout pnlcuentLayout = new javax.swing.GroupLayout(pnlcuent);
         pnlcuent.setLayout(pnlcuentLayout);
@@ -399,61 +463,18 @@ public class frmconfiguracion extends javax.swing.JFrame {
             pnlcuentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlcuentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlcuentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlcuentLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtpassnu, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlcuentLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtpassant, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlcuentLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtpassnu1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         pnlcuentLayout.setVerticalGroup(
             pnlcuentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlcuentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlcuentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtpassant)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlcuentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtpassnu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlcuentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtpassnu1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(200, Short.MAX_VALUE))
         );
-
-        pnlcuentLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, txtpassnu});
-
-        pnlcuentLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel2, txtpassant});
-
-        pnlcuentLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel3, txtpassnu1});
 
         jPanel3.add(pnlcuent, "Card2");
-
-        pnlinterfaz.setBackground(new java.awt.Color(204, 255, 204));
-
-        javax.swing.GroupLayout pnlinterfazLayout = new javax.swing.GroupLayout(pnlinterfaz);
-        pnlinterfaz.setLayout(pnlinterfazLayout);
-        pnlinterfazLayout.setHorizontalGroup(
-            pnlinterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        pnlinterfazLayout.setVerticalGroup(
-            pnlinterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 373, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(pnlinterfaz, "card3");
 
         pnlcardla.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -644,6 +665,7 @@ public class frmconfiguracion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel pnlbtn;
     private javax.swing.JPanel pnlcardla;
