@@ -8,6 +8,7 @@ package UI;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.text.DecimalFormat;
+import java.util.Objects;
 import javax.swing.DefaultCellEditor;
 
 import javax.swing.JOptionPane;
@@ -480,7 +481,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
                 Double resob = estimulo * (ponderado / 100);
                 String obtenido = con.numberFormatDisplay(Double.parseDouble(resob.toString()));
 
-                if (data3.equals("Mayor/Igual")) {
+               /*if (data3.equals("Mayor/Igual")) {
 
                     if (con.DBnumberFormatInput(data2) >= con.DBnumberFormatInput(data4)) {
 
@@ -627,7 +628,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
                     }
 
-                }
+                }*/
 
                 if (data3.equals("Mayor/Igual")) {
 
@@ -679,7 +680,7 @@ public class frmsimulacion extends javax.swing.JInternalFrame {
 
                 } else if (data3.equals("Igual")) {
 
-                    if (con.DBnumberFormatInput(data2) == con.DBnumberFormatInput(data4)) {
+                    if (Objects.equals(con.DBnumberFormatInput(data2), con.DBnumberFormatInput(data4))) {
 
                         if (habilitador.equals("Pon.")) {
                             data5 = "$" + ((obtenido));

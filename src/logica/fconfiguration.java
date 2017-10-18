@@ -5,10 +5,13 @@
  */
 package logica;
 
-import java.io.File;
+import UI.INICIO;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.Toolkit;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.security.Key;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -16,7 +19,11 @@ import java.util.Locale;
 import java.util.Properties;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -120,6 +127,34 @@ public class fconfiguration {
         }
 
         return local_number;
+    }
+
+    JDialog loadingsc;
+
+    public void loadingscreen() {
+        loadingsc = new JDialog();
+        loadingsc.setLayout(new GridBagLayout());
+        ImageIcon icon = new ImageIcon(fconfiguration.class.getResource("/img/loadinggif.gif"));
+        JLabel label = new JLabel(icon);
+        loadingsc.add(label);
+        //loadingsc.setSize(Toolkit.getDefaultToolkit().getScreenSize());      
+        loadingsc.setSize(INICIO.escritorio.getSize());
+        loadingsc.setResizable(false);
+        loadingsc.setModal(false);
+        loadingsc.setUndecorated(true);
+        loadingsc.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        loadingsc.setLocationRelativeTo(INICIO.escritorio);
+        loadingsc.setVisible(true);
+        loadingsc.setBackground(new Color(30, 30, 30, 50));
+        //loadingsc.setBackground(new Color(75, 16, 160, 50));
+        loadingsc.validate();
+        loadingsc.repaint();
+        
+
+    }
+
+    public void hideloading() {
+        loadingsc.dispose();
     }
 
 }

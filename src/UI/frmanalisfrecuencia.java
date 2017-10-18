@@ -612,8 +612,6 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
 
     private void btngraficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngraficarActionPerformed
 
-        fanalisis func = new fanalisis();
-
         ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
 
         DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();

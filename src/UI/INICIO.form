@@ -275,16 +275,16 @@
                               <Component id="lblinicioidpersona" min="-2" max="-2" attributes="0"/>
                               <Component id="lblinicionombre" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblinicio1erapellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblinicio2doapellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbliniciodocumento" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblinicioemail" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblinicioidarea" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblinicioarea" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblinicioidsubarea" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lbliniciosubarea" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblinicioacceso" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblinicio2doapellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbliniciodocumento" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="1289" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="1274" max="32767" attributes="0"/>

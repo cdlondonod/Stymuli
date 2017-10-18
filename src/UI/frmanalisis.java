@@ -6,13 +6,16 @@
 package UI;
 
 import static UI.INICIO.pnlmain;
-
+import javax.swing.SwingWorker;
+import logica.fconfiguration;
 
 /**
  *
  * @author crist
  */
 public class frmanalisis extends javax.swing.JInternalFrame {
+
+    fconfiguration con = new fconfiguration();
 
     /**
      * Creates new form frmanalisis
@@ -230,158 +233,190 @@ public class frmanalisis extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncomparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomparacionActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
 
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
+                frmanalisdistrikpi form1chart = new frmanalisdistrikpi();
 
-        frmanalisdistrikpi form1chart = new frmanalisdistrikpi();
-        INICIO.pnlmain.add(form1chart);
-        form1chart.toFront();
-        form1chart.setVisible(true);
-        form1chart.setSize(pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
-        this.dispose();
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
 
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+                    frmanalisdistrikpi.pnlarea.setVisible(false);
+                    frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
 
-            frmanalisdistrikpi.pnlarea.setVisible(false);
-            frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+                    frmanalisdistrikpi.pnlarea.setVisible(false);
+                    frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-
-            frmanalisdistrikpi.pnlarea.setVisible(false);
-            frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-
-        }
-
+                }
+                INICIO.pnlmain.add(form1chart);
+                form1chart.toFront();
+                form1chart.setVisible(true);
+                form1chart.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btncomparacionActionPerformed
 
     private void btnevolutivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnevolutivoActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
 
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
+                frmanalisevolutivo form3chart = new frmanalisevolutivo();
 
-        frmanalisevolutivo form3chart = new frmanalisevolutivo();
-        INICIO.pnlmain.add(form3chart);
-        form3chart.toFront();
-        form3chart.setVisible(true);
-        form3chart.setSize(pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                    frmanalisevolutivo.pnlarea.setVisible(false);
+                    frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        this.dispose();
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+                    frmanalisevolutivo.pnlarea.setVisible(false);
+                    frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            frmanalisevolutivo.pnlarea.setVisible(false);
-            frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            frmanalisevolutivo.pnlarea.setVisible(false);
-            frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-
-        }
-
+                }
+                INICIO.pnlmain.add(form3chart);
+                form3chart.toFront();
+                form3chart.setVisible(true);
+                form3chart.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnevolutivoActionPerformed
 
     private void btnproyeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproyeccionActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
 
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
+                frmanalisproyeccion form5chart = new frmanalisproyeccion();
 
-        frmanalisproyeccion form5chart = new frmanalisproyeccion();
-        INICIO.pnlmain.add(form5chart);
-        form5chart.toFront();
-        form5chart.setVisible(true);
-        form5chart.setSize(pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                    frmanalisproyeccion.pnlarea.setVisible(false);
+                    frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        this.dispose();
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+                    frmanalisproyeccion.pnlarea.setVisible(false);
+                    frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            frmanalisproyeccion.pnlarea.setVisible(false);
-            frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            frmanalisproyeccion.pnlarea.setVisible(false);
-            frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-
-        }
-
+                }
+                INICIO.pnlmain.add(form5chart);
+                form5chart.toFront();
+                form5chart.setVisible(true);
+                form5chart.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnproyeccionActionPerformed
 
     private void btnfrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrecuenciaActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
 
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
+                frmanalisfrecuencia form2chart = new frmanalisfrecuencia();
 
-        frmanalisfrecuencia form2chart = new frmanalisfrecuencia();
-        INICIO.pnlmain.add(form2chart);
-        form2chart.toFront();
-        form2chart.setVisible(true);
-        form2chart.setSize(pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
-        this.dispose();
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                    frmanalisfrecuencia.pnlarea.setVisible(false);
+                    frmanalisfrecuencia.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+                    frmanalisfrecuencia.pnlarea.setVisible(false);
+                    frmanalisfrecuencia.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            frmanalisfrecuencia.pnlarea.setVisible(false);
-            frmanalisfrecuencia.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            frmanalisfrecuencia.pnlarea.setVisible(false);
-            frmanalisfrecuencia.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-
-        }
-
+                }
+                INICIO.pnlmain.add(form2chart);
+                form2chart.toFront();
+                form2chart.setVisible(true);
+                form2chart.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnfrecuenciaActionPerformed
 
     private void btndistribucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistribucionActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
 
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
+                frmanalisdistriestim form4chart = new frmanalisdistriestim();
+                INICIO.pnlmain.add(form4chart);
+                form4chart.toFront();
+                form4chart.setVisible(true);
+                form4chart.setSize(pnlmain.getSize());
 
-        frmanalisdistriestim form4chart = new frmanalisdistriestim();
-        INICIO.pnlmain.add(form4chart);
-        form4chart.toFront();
-        form4chart.setVisible(true);
-        form4chart.setSize(pnlmain.getSize());
-
-        this.dispose();// TODO add your handling code here:
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();// TODO add your handling code here:
     }//GEN-LAST:event_btndistribucionActionPerformed
 
     private void btnmaxminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmaxminActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
 
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
+                frmanalisisminmaxmid form4chartkpi = new frmanalisisminmaxmid();
 
-        frmanalisisminmaxmid form4chartkpi = new frmanalisisminmaxmid();
-        INICIO.pnlmain.add(form4chartkpi);
-        form4chartkpi.toFront();
-        form4chartkpi.setVisible(true);
-        form4chartkpi.setSize(pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                    frmanalisisminmaxmid.pnlarea.setVisible(false);
+                    frmanalisisminmaxmid.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        this.dispose();
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+                    frmanalisisminmaxmid.pnlarea.setVisible(false);
+                    frmanalisisminmaxmid.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            frmanalisisminmaxmid.pnlarea.setVisible(false);
-            frmanalisisminmaxmid.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            frmanalisisminmaxmid.pnlarea.setVisible(false);
-            frmanalisisminmaxmid.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-
-        }
-
+                }
+                INICIO.pnlmain.add(form4chartkpi);
+                form4chartkpi.toFront();
+                form4chartkpi.setVisible(true);
+                form4chartkpi.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnmaxminActionPerformed
 

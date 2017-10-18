@@ -17,6 +17,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
+import logica.fconfiguration;
 import logica.ftrabajador;
 
 /**
@@ -24,6 +26,8 @@ import logica.ftrabajador;
  * @author crist
  */
 public class INICIO extends javax.swing.JFrame {
+
+    fconfiguration con = new fconfiguration();
 
     /**
      * Creates new form INICIO
@@ -192,15 +196,15 @@ public class INICIO extends javax.swing.JFrame {
                     .addComponent(lblinicioidpersona)
                     .addComponent(lblinicionombre)
                     .addComponent(lblinicio1erapellido)
-                    .addComponent(lblinicio2doapellido)
-                    .addComponent(lbliniciodocumento)
                     .addComponent(lblinicioemail)
                     .addComponent(lblinicioidarea)
                     .addComponent(lblinicioarea)
                     .addComponent(lblinicioidsubarea)
                     .addComponent(lbliniciosubarea)
-                    .addComponent(lblinicioacceso))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblinicioacceso)
+                    .addComponent(lblinicio2doapellido)
+                    .addComponent(lbliniciodocumento))
+                .addContainerGap(1289, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlmainLayout.createSequentialGroup()
                 .addContainerGap(1274, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -545,223 +549,282 @@ public class INICIO extends javax.swing.JFrame {
 
 
     private void btnanalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisisActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                pnlmain.removeAll();
+                pnlmain.revalidate();
+                pnlmain.repaint();
+                frmanalisis forma = new frmanalisis();
 
-        pnlmain.removeAll();
-        pnlmain.revalidate();
-        pnlmain.repaint();
-        frmanalisis forma = new frmanalisis();
-        pnlmain.add(forma);
-        forma.setVisible(true);
-        forma.toFront();
-        forma.setSize(pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
-        if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                    frmanalisis.btndistribucion.setVisible(false);
 
-            frmanalisis.btndistribucion.setVisible(false);
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+                    frmanalisis.btndistribucion.setVisible(false);
 
-            frmanalisis.btndistribucion.setVisible(false);
+                } else {
 
-        } else {
-
-            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
-                    + "Por favor comuniquese con el administrador");
-        }
-
+                    JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
+                            + "Por favor comuniquese con el administrador");
+                }
+                pnlmain.add(forma);
+                forma.setVisible(true);
+                forma.toFront();
+                forma.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnanalisisActionPerformed
 
 
     private void btnareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnareasActionPerformed
-
-        pnlmain.removeAll();
-        pnlmain.revalidate();
-        pnlmain.repaint();
-        frmareasubar forms = new frmareasubar();
-        pnlmain.add(forms);
-        forms.toFront();
-        forms.setVisible(true);
-        forms.setSize(pnlmain.getSize());
-
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                pnlmain.removeAll();
+                pnlmain.revalidate();
+                pnlmain.repaint();
+                frmareasubar forms = new frmareasubar();
+                pnlmain.add(forms);
+                forms.toFront();
+                forms.setVisible(true);
+                forms.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnareasActionPerformed
 
     private void btnusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnusuariosActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                pnlmain.removeAll();
+                pnlmain.revalidate();
+                pnlmain.repaint();
+                frmtrabajador formt = new frmtrabajador();
 
-        pnlmain.removeAll();
-        pnlmain.revalidate();
-        pnlmain.repaint();
-        frmtrabajador formt = new frmtrabajador();
-        pnlmain.add(formt);
-        formt.toFront();
-        formt.setVisible(true);
-        formt.setSize(pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+                } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                    frmtrabajador.btneditar.setVisible(false);
+                    frmtrabajador.btneliminar.setVisible(false);
+                    frmtrabajador.btnnuevo.setVisible(false);
+                    frmtrabajador.btneliminarbulk.setVisible(false);
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            frmtrabajador.btneditar.setVisible(false);
-            frmtrabajador.btneliminar.setVisible(false);
-            frmtrabajador.btnnuevo.setVisible(false);
-            frmtrabajador.btneliminarbulk.setVisible(false);
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+                    frmtrabajador.btneditar.setVisible(false);
+                    frmtrabajador.btneliminar.setVisible(false);
+                    frmtrabajador.btnnuevo.setVisible(false);
+                    frmtrabajador.btneliminarbulk.setVisible(false);
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            frmtrabajador.btneditar.setVisible(false);
-            frmtrabajador.btneliminar.setVisible(false);
-            frmtrabajador.btnnuevo.setVisible(false);
-            frmtrabajador.btneliminarbulk.setVisible(false);
+                } else {
 
-        } else {
-
-            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
-                    + "Por favor comuniquese con el administrador");
-        }
-
+                    JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
+                            + "Por favor comuniquese con el administrador");
+                }
+                pnlmain.add(formt);
+                formt.toFront();
+                formt.setVisible(true);
+                formt.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnusuariosActionPerformed
 
     private void btnkpiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkpiActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                pnlmain.removeAll();
+                pnlmain.revalidate();
+                pnlmain.repaint();
 
-        pnlmain.removeAll();
-        pnlmain.revalidate();
-        pnlmain.repaint();
-
-        frmkpi formk = new frmkpi();
-        pnlmain.add(formk);
-        formk.toFront();
-        formk.setVisible(true);
-        formk.setSize(pnlmain.getSize());
-
+                frmkpi formk = new frmkpi();
+                pnlmain.add(formk);
+                formk.toFront();
+                formk.setVisible(true);
+                formk.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnkpiActionPerformed
 
     private void btnmodelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodelosActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                pnlmain.removeAll();
+                pnlmain.revalidate();
+                pnlmain.repaint();
+                frmmodelo formm = new frmmodelo();
 
-        pnlmain.removeAll();
-        pnlmain.revalidate();
-        pnlmain.repaint();
-        frmmodelo formm = new frmmodelo();
-        pnlmain.add(formm);
-        formm.toFront();
-        formm.setVisible(true);
-        formm.setSize(pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+                } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                    frmmodelo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+                    frmmodelo.txtnombrearea.setVisible(false);
+                    frmmodelo.lblnombrearea.setVisible(false);
+                    frmmodelo.txtidarea.setText(INICIO.lblinicioidarea.getText());
+                    frmmodelo.btnbusca_area_stym.setVisible(false);
 
-            frmmodelo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-            frmmodelo.txtnombrearea.setVisible(false);
-            frmmodelo.lblnombrearea.setVisible(false);
-            frmmodelo.txtidarea.setText(INICIO.lblinicioidarea.getText());
-            frmmodelo.btnbusca_area_stym.setVisible(false);
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+                    frmmodelo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+                    frmmodelo.txtnombrearea.setVisible(false);
+                    frmmodelo.lblnombrearea.setVisible(false);
+                    frmmodelo.txtidarea.setText(INICIO.lblinicioidarea.getText());
+                    frmmodelo.btnbusca_area_stym.setVisible(false);
+                    frmmodelo.txtbuscar_stymuli.setVisible(false);
+                    frmmodelo.lblbuscstym.setVisible(false);
 
-            frmmodelo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-            frmmodelo.txtnombrearea.setVisible(false);
-            frmmodelo.lblnombrearea.setVisible(false);
-            frmmodelo.txtidarea.setText(INICIO.lblinicioidarea.getText());
-            frmmodelo.btnbusca_area_stym.setVisible(false);
-            frmmodelo.txtbuscar_stymuli.setVisible(false);
-            frmmodelo.lblbuscstym.setVisible(false);
+                } else {
 
-        } else {
-
-            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
-                    + "Por favor comuniquese con el administrador");
-        }
-
+                    JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
+                            + "Por favor comuniquese con el administrador");
+                }
+                pnlmain.add(formm);
+                formm.toFront();
+                formm.setVisible(true);
+                formm.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnmodelosActionPerformed
 
     private void btnresultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresultadosActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                pnlmain.removeAll();
+                pnlmain.revalidate();
+                pnlmain.repaint();
 
-        pnlmain.removeAll();
-        pnlmain.revalidate();
-        pnlmain.repaint();
+                frmresultados formr = new frmresultados();
 
-        frmresultados formr = new frmresultados();
-        pnlmain.add(formr);
-        formr.toFront();
-        formr.setVisible(true);
-        formr.setSize(pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+                    frmresultados.lblbuscar.setVisible(false);
+                    frmresultados.lblfiltrar.setVisible(false);
+                    frmresultados.btnanalisis5.setVisible(false);
+                    frmresultados.btnanalisis7.setVisible(false);
+                    frmresultados.btneditar1.setVisible(false);
+                    frmresultados.btnnuevo.setVisible(false);
+                    frmresultados.btneliminar.setVisible(false);
+                    frmresultados.txtbuscar.setVisible(false);
+                    frmresultados.cbofiltro.setVisible(false);
+                    frmresultados.btneliminarbulk.setVisible(false);
 
-            frmresultados.lblbuscar.setVisible(false);
-            frmresultados.lblfiltrar.setVisible(false);
-            frmresultados.btnanalisis5.setVisible(false);
-            frmresultados.btnanalisis7.setVisible(false);
-            frmresultados.btneditar1.setVisible(false);
-            frmresultados.btnnuevo.setVisible(false);
-            frmresultados.btneliminar.setVisible(false);
-            frmresultados.txtbuscar.setVisible(false);
-            frmresultados.cbofiltro.setVisible(false);
-            frmresultados.btneliminarbulk.setVisible(false);
+                } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Administrador")) {
+                    frmresultados.btnproyeccion.setVisible(false);
+                    frmresultados.btncomparacion.setVisible(false);
+                    frmresultados.btnevolutivo.setVisible(false);
 
-            frmresultados.btnproyeccion.setVisible(false);
-            frmresultados.btncomparacion.setVisible(false);
-            frmresultados.btnevolutivo.setVisible(false);
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                    frmresultados.btnproyeccion.setVisible(false);
+                    frmresultados.btncomparacion.setVisible(false);
+                    frmresultados.btnevolutivo.setVisible(false);
 
-            frmresultados.btnproyeccion.setVisible(false);
-            frmresultados.btncomparacion.setVisible(false);
-            frmresultados.btnevolutivo.setVisible(false);
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+                    frmresultados.btnproyeccion.setVisible(false);
+                    frmresultados.btncomparacion.setVisible(false);
+                    frmresultados.btnevolutivo.setVisible(false);
 
-            frmresultados.btnproyeccion.setVisible(false);
-            frmresultados.btncomparacion.setVisible(false);
-            frmresultados.btnevolutivo.setVisible(false);
+                } else {
 
-        } else {
+                    JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
+                            + "Por favor comuniquese con el administrador");
+                }
+                pnlmain.add(formr);
+                formr.toFront();
+                formr.setVisible(true);
+                formr.setSize(pnlmain.getSize());
 
-            JOptionPane.showMessageDialog(null, "No tiene un perfil válido Asignado, "
-                    + "Por favor comuniquese con el administrador");
-        }
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnresultadosActionPerformed
 
     private void btnsimulacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsimulacActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                pnlmain.removeAll();
+                pnlmain.revalidate();
+                pnlmain.repaint();
 
-        pnlmain.removeAll();
-        pnlmain.revalidate();
-        pnlmain.repaint();
-
-        frmsimulacion formsim = new frmsimulacion();
-        pnlmain.add(formsim);
-        formsim.toFront();
-        formsim.setVisible(true);
-        formsim.setSize(pnlmain.getSize());
+                frmsimulacion formsim = new frmsimulacion();
+                pnlmain.add(formsim);
+                formsim.toFront();
+                formsim.setVisible(true);
+                formsim.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsimulacActionPerformed
 
     private void btnperfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfilActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                pnlmain.removeAll();
+                pnlmain.revalidate();
+                pnlmain.repaint();
 
-        pnlmain.removeAll();
-        pnlmain.revalidate();
-        pnlmain.repaint();
+                frmperfil formpe = new frmperfil();
 
-        frmperfil formpe = new frmperfil();
+                pnlmain.add(formpe, BorderLayout.CENTER);
+                formpe.toFront();
+                formpe.setVisible(true);
+                formpe.setSize(pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
-        pnlmain.add(formpe, BorderLayout.CENTER);
-        formpe.toFront();
-        formpe.setVisible(true);
-        formpe.setSize(pnlmain.getSize());
-
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnperfilActionPerformed
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus

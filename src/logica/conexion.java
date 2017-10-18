@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package logica;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -39,5 +39,5 @@ public class conexion {
         }
         return link;
     }
-
+    
 }

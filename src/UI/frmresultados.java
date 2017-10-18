@@ -11,6 +11,7 @@ import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import logica.conexion;
 import logica.fconfiguration;
@@ -752,6 +753,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
+
         habilitar();
 
         btnguardar.setIcon(new ImageIcon(frmresultados.class.getResource("/img/guardar.png")));
@@ -995,138 +997,167 @@ public class frmresultados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbofiltroItemStateChanged
 
     private void btnanalisis7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisis7ActionPerformed
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
 
-        frmanalisisobtpersona formobtpe = new frmanalisisobtpersona();
-        INICIO.pnlmain.add(formobtpe);
-        formobtpe.toFront();
-        formobtpe.setVisible(true);
-        formobtpe.setSize(INICIO.pnlmain.getSize());
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
 
-        this.dispose();
+                frmanalisisobtpersona formobtpe = new frmanalisisobtpersona();
 
-        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
 
-            frmanalisisobtpersona.pnlarea.setVisible(false);
-            frmanalisisobtpersona.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+                    frmanalisisobtpersona.pnlarea.setVisible(false);
+                    frmanalisisobtpersona.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
 
-            frmanalisisobtpersona.pnlarea.setVisible(false);
-            frmanalisisobtpersona.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+                    frmanalisisobtpersona.pnlarea.setVisible(false);
+                    frmanalisisobtpersona.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        }
-
+                }
+                INICIO.pnlmain.add(formobtpe);
+                formobtpe.toFront();
+                formobtpe.setVisible(true);
+                formobtpe.setSize(INICIO.pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
     }//GEN-LAST:event_btnanalisis7ActionPerformed
 
     private void btnanalisis5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalisis5ActionPerformed
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
-        frmanalisiscompleto formcompchart = new frmanalisiscompleto();
-        INICIO.pnlmain.add(formcompchart);
-        formcompchart.toFront();
-        formcompchart.setVisible(true);
-        formcompchart.setSize(INICIO.pnlmain.getSize());
-        this.dispose();
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
+                frmanalisiscompleto formcompchart = new frmanalisiscompleto();
 
-        if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
-            frmanalisiscompleto.pnlarea.setVisible(false);
-            frmanalisiscompleto.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+                if (INICIO.lblinicioacceso.getText().equals("Jefe de Area")) {
+                    frmanalisiscompleto.pnlarea.setVisible(false);
+                    frmanalisiscompleto.txtnombrearea.setText(INICIO.lblinicioarea.getText());
 
-        } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
-            frmanalisiscompleto.pnlarea.setVisible(false);
-            frmanalisiscompleto.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-        }
-
-
+                } else if (INICIO.lblinicioacceso.getText().equals("Jefe de Subarea")) {
+                    frmanalisiscompleto.pnlarea.setVisible(false);
+                    frmanalisiscompleto.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+                }
+                INICIO.pnlmain.add(formcompchart);
+                formcompchart.toFront();
+                formcompchart.setVisible(true);
+                formcompchart.setSize(INICIO.pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
     }//GEN-LAST:event_btnanalisis5ActionPerformed
 
     private void btnproyeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproyeccionActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
 
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
+                frmanalisproyeccion form5chart = new frmanalisproyeccion();
 
-        frmanalisproyeccion form5chart = new frmanalisproyeccion();
-        INICIO.pnlmain.add(form5chart);
-        form5chart.toFront();
-        form5chart.setVisible(true);
-        form5chart.setSize(INICIO.pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
-        this.dispose();
-
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-
-            frmanalisproyeccion.pnlarea.setVisible(false);
-            frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-            frmanalisproyeccion.pnlsubarea.setVisible(false);
-            frmanalisproyeccion.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
-            frmanalisproyeccion.pnltrabajador.setVisible(false);
-            frmanalisproyeccion.txtpersonadocumento.setText(INICIO.lbliniciodocumento.getText());
-            frmanalisproyeccion.jPanel2.setVisible(false);
-            frmanalisproyeccion.jPanel10.setBackground(Color.WHITE);
-        }
-
+                    frmanalisproyeccion.pnlarea.setVisible(false);
+                    frmanalisproyeccion.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+                    frmanalisproyeccion.pnlsubarea.setVisible(false);
+                    frmanalisproyeccion.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
+                    frmanalisproyeccion.pnltrabajador.setVisible(false);
+                    frmanalisproyeccion.txtpersonadocumento.setText(INICIO.lbliniciodocumento.getText());
+                    frmanalisproyeccion.jPanel2.setVisible(false);
+                    frmanalisproyeccion.jPanel10.setBackground(Color.WHITE);
+                }
+                INICIO.pnlmain.add(form5chart);
+                form5chart.toFront();
+                form5chart.setVisible(true);
+                form5chart.setSize(INICIO.pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnproyeccionActionPerformed
 
     private void btnevolutivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnevolutivoActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
 
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
+                frmanalisevolutivo form3chart = new frmanalisevolutivo();
+                
 
-        frmanalisevolutivo form3chart = new frmanalisevolutivo();
-        INICIO.pnlmain.add(form3chart);
-        form3chart.toFront();
-        form3chart.setVisible(true);
-        form3chart.setSize(INICIO.pnlmain.getSize());
+                if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
-        this.dispose();
-
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-
-            frmanalisevolutivo.pnlarea.setVisible(false);
-            frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-            frmanalisevolutivo.pnlsubarea.setVisible(false);
-            frmanalisevolutivo.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
-            frmanalisevolutivo.jPanel2.setVisible(false);
-            frmanalisevolutivo.jPanel7.setBackground(Color.WHITE);
-        }
-
+                    frmanalisevolutivo.pnlarea.setVisible(false);
+                    frmanalisevolutivo.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+                    frmanalisevolutivo.pnlsubarea.setVisible(false);
+                    frmanalisevolutivo.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
+                    frmanalisevolutivo.jPanel2.setVisible(false);
+                    frmanalisevolutivo.jPanel7.setBackground(Color.WHITE);
+                }INICIO.pnlmain.add(form3chart);
+                form3chart.toFront();
+                form3chart.setVisible(true);
+                form3chart.setSize(INICIO.pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnevolutivoActionPerformed
 
     private void btncomparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomparacionActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                INICIO.pnlmain.removeAll();
+                INICIO.pnlmain.revalidate();
+                INICIO.pnlmain.repaint();
 
-        INICIO.pnlmain.removeAll();
-        INICIO.pnlmain.revalidate();
-        INICIO.pnlmain.repaint();
+                frmanalisdistrikpi form1chart = new frmanalisdistrikpi();
 
-        frmanalisdistrikpi form1chart = new frmanalisdistrikpi();
-        INICIO.pnlmain.add(form1chart);
-        form1chart.toFront();
-        form1chart.setVisible(true);
-        form1chart.setSize(INICIO.pnlmain.getSize());
-
-        this.dispose();
-
-        if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
-            frmanalisdistrikpi.pnlarea.setVisible(false);
-            frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
-            frmanalisdistrikpi.pnlsubarea.setVisible(false);
-            frmanalisdistrikpi.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
-            frmanalisdistrikpi.jPanel2.setVisible(false);
-            frmanalisdistrikpi.jPanel9.setBackground(Color.WHITE);
-        }
+                if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
+                    frmanalisdistrikpi.pnlarea.setVisible(false);
+                    frmanalisdistrikpi.txtnombrearea.setText(INICIO.lblinicioarea.getText());
+                    frmanalisdistrikpi.pnlsubarea.setVisible(false);
+                    frmanalisdistrikpi.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
+                    frmanalisdistrikpi.jPanel2.setVisible(false);
+                    frmanalisdistrikpi.jPanel9.setBackground(Color.WHITE);
+                }
+                INICIO.pnlmain.add(form1chart);
+                form1chart.toFront();
+                form1chart.setVisible(true);
+                form1chart.setSize(INICIO.pnlmain.getSize());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btncomparacionActionPerformed
 
     private void btneliminarbulkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarbulkActionPerformed
-        int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar Multiples Datos de la Tabla?", "Confirmar", 2,JOptionPane.WARNING_MESSAGE);
+        int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar Multiples Datos de la Tabla?", "Confirmar", 2, JOptionPane.WARNING_MESSAGE);
 
         if (confirmacion == 0) {
             INICIO.pnlmain.removeAll();
