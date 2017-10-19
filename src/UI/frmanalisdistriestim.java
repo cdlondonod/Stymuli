@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -33,7 +34,9 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author crist
  */
 public class frmanalisdistriestim extends javax.swing.JInternalFrame {
- fconfiguration con = new fconfiguration();
+
+    fconfiguration con = new fconfiguration();
+
     /**
      * Creates new form frmanalisis
      */
@@ -340,6 +343,11 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         checkagrupado.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         checkagrupado.setForeground(new java.awt.Color(75, 16, 160));
         checkagrupado.setText("Mostrar Agrupado por Área");
+        checkagrupado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkagrupadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -459,7 +467,7 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
         );
 
         pack();
@@ -474,13 +482,23 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtyearActionPerformed
 
     private void btnclearselecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearselecActionPerformed
-        txtmes.setText("");
-        txtyear.setText("");
-        txtnombrearea.setText("");
 
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                txtmes.setText("");
+                txtyear.setText("");
+                txtnombrearea.setText("");
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed
-    
+
 
     private void btnresultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresultadoActionPerformed
 
@@ -512,21 +530,20 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
                 true,
                 false);
 
-         chart.getTitle().setPaint(new Color(75,16,160));
-            PiePlot plot = (PiePlot) chart.getPlot();
-            PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
-                    "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%"));
-            plot.setLabelGenerator(gen);
-            plot.setLabelOutlinePaint(null);
-            plot.setLabelShadowPaint(null);
-            plot.setLabelBackgroundPaint(null);
-            plot.setLabelPaint(new Color(75,16,160));
-            plot.setBackgroundPaint(Color.WHITE);           
-            plot.setOutlineVisible(false);
-            chart.setBackgroundPaint(Color.WHITE);
-            plot.setSectionPaint(0, new Color(20, 173, 23));
-            plot.setSectionPaint(1, new Color(101, 54, 193));
- 
+        chart.getTitle().setPaint(new Color(75, 16, 160));
+        PiePlot plot = (PiePlot) chart.getPlot();
+        PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
+                "{0}: {1} ({2})", new DecimalFormat("$" + "#,##0.0;(#,##0.0)"), new DecimalFormat("0%"));
+        plot.setLabelGenerator(gen);
+        plot.setLabelOutlinePaint(null);
+        plot.setLabelShadowPaint(null);
+        plot.setLabelBackgroundPaint(null);
+        plot.setLabelPaint(new Color(75, 16, 160));
+        plot.setBackgroundPaint(Color.WHITE);
+        plot.setOutlineVisible(false);
+        chart.setBackgroundPaint(Color.WHITE);
+        plot.setSectionPaint(0, new Color(20, 173, 23));
+        plot.setSectionPaint(1, new Color(101, 54, 193));
 
         final ChartPanel chartPanel = new ChartPanel(chart);
 
@@ -542,10 +559,21 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
     private void btnbuscaareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaareaActionPerformed
         // TODO add your handling code here:
 
-        frmzfiltroarea form = new frmzfiltroarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                frmzfiltroarea form = new frmzfiltroarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
     }//GEN-LAST:event_btnbuscaareaActionPerformed
 
     private void txtnombreareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreareaActionPerformed
@@ -555,18 +583,43 @@ public class frmanalisdistriestim extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtnombreareaActionPerformed
 
     private void btnbuscamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscamesActionPerformed
-        frmzfiltromes form = new frmzfiltromes();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);          // TODO add your handling code here:
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                frmzfiltromes form = new frmzfiltromes();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();        // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscamesActionPerformed
 
     private void btnbuscayearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscayearActionPerformed
-        frmzfiltroyear form = new frmzfiltroyear();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);         // TODO add your handling code here:
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                frmzfiltroyear form = new frmzfiltroyear();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();      // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscayearActionPerformed
+
+    private void checkagrupadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkagrupadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkagrupadoActionPerformed
 
     /**
      * @param args the command line arguments

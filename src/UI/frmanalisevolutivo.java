@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -46,7 +47,9 @@ import org.jfree.ui.TextAnchor;
  * @author crist
  */
 public class frmanalisevolutivo extends javax.swing.JInternalFrame {
-fconfiguration con = new fconfiguration();
+
+    fconfiguration con = new fconfiguration();
+
     /**
      * Creates new form frmanalisis
      */
@@ -469,24 +472,22 @@ fconfiguration con = new fconfiguration();
             String fecha = tm.getValueAt(j, 0).toString();
             String year = fecha.substring(2, 4);
             String mes = fecha.substring(5, 7);
-            
-            
-            dataset1.addValue(x, "Resultado Promedio", year+"/"+mes);
+
+            dataset1.addValue(x, "Resultado Promedio", year + "/" + mes);
         }
 
         final CategoryItemRenderer renderer = new BarRenderer();
         renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator("{2}", new DecimalFormat("#,##0.00;(#,##0.00)"), new DecimalFormat("0%")));
-            renderer.setItemLabelPaint(new Color(75,16,160));
-            renderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.HALF_ASCENT_CENTER));
-            renderer.setItemLabelsVisible(true);
-            renderer.setSeriesPaint(0, new Color(20, 173, 23));    
+        renderer.setItemLabelPaint(new Color(75, 16, 160));
+        renderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.HALF_ASCENT_CENTER));
+        renderer.setItemLabelsVisible(true);
+        renderer.setSeriesPaint(0, new Color(20, 173, 23));
 
-    
         final CategoryPlot plot = new CategoryPlot();
         plot.setBackgroundPaint(Color.WHITE);
         plot.setForegroundAlpha(0.8f);
         plot.setRangeGridlinesVisible(true);
-      plot.setRangeGridlinePaint(Color.WHITE);
+        plot.setRangeGridlinePaint(Color.WHITE);
 
         plot.setDataset(dataset1);
         plot.setRenderer(renderer);
@@ -504,13 +505,13 @@ fconfiguration con = new fconfiguration();
         final JFreeChart chart = new JFreeChart(plot);
         chart.setBackgroundPaint(Color.WHITE);
         chart.setTitle("Evolutivo " + txtnombrearea.getText() + ", " + txtnombresubarea.getText() + ", " + txtnombrekpi.getText());
-         chart.getTitle().setPaint(new Color(75,16,160));
-            chart.getLegend().setFrame(BlockBorder.NONE);
-            plot.getDomainAxis().setTickLabelPaint(new Color(75,16,160));
-            plot.getRangeAxis().setTickLabelPaint(new Color(75,16,160));
-            plot.getRangeAxis().setLabelPaint(new Color(75,16,160));
-            plot.getDomainAxis().setLabelPaint(new Color(75,16,160));
-            plot.setOutlineVisible(false);
+        chart.getTitle().setPaint(new Color(75, 16, 160));
+        chart.getLegend().setFrame(BlockBorder.NONE);
+        plot.getDomainAxis().setTickLabelPaint(new Color(75, 16, 160));
+        plot.getRangeAxis().setTickLabelPaint(new Color(75, 16, 160));
+        plot.getRangeAxis().setLabelPaint(new Color(75, 16, 160));
+        plot.getDomainAxis().setLabelPaint(new Color(75, 16, 160));
+        plot.setOutlineVisible(false);
 
         final ChartPanel chartPanel = new ChartPanel(chart);
 
@@ -530,12 +531,22 @@ fconfiguration con = new fconfiguration();
     }//GEN-LAST:event_txtnombreareaActionPerformed
 
     private void btnbuscaareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaareaActionPerformed
-        // TODO add your handling code here:
 
-        frmzfiltroarea form = new frmzfiltroarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                // TODO add your handling code here:
+
+                frmzfiltroarea form = new frmzfiltroarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
     }//GEN-LAST:event_btnbuscaareaActionPerformed
 
     private void txtnombresubareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombresubareaActionPerformed
@@ -550,11 +561,21 @@ fconfiguration con = new fconfiguration();
             return;
 
         }
-        conexion.formsubarea = frmanalisevolutivo.txtnombrearea.getText();
-        frmzfiltrosubarea form = new frmzfiltrosubarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                conexion.formsubarea = frmanalisevolutivo.txtnombrearea.getText();
+                frmzfiltrosubarea form = new frmzfiltrosubarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trabActionPerformed
@@ -571,12 +592,22 @@ fconfiguration con = new fconfiguration();
             return;
 
         }
-        conexion.formsubarea = frmanalisevolutivo.txtnombresubarea.getText();
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
 
-        frmzfiltrokpi form = new frmzfiltrokpi();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+                conexion.formsubarea = frmanalisevolutivo.txtnombresubarea.getText();
+
+                frmzfiltrokpi form = new frmzfiltrokpi();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbusca_kpi_ObjActionPerformed
 
@@ -586,9 +617,19 @@ fconfiguration con = new fconfiguration();
 
     private void btnclearselecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearselecActionPerformed
 
-        txtnombrearea.setText("");
-        txtnombresubarea.setText("");
-        txtnombrekpi.setText("");
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                txtnombrearea.setText("");
+                txtnombresubarea.setText("");
+                txtnombrekpi.setText("");
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed

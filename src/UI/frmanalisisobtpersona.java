@@ -8,6 +8,7 @@ package UI;
 import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -23,7 +24,9 @@ import logica.fconfiguration;
  * @author crist
  */
 public class frmanalisisobtpersona extends javax.swing.JInternalFrame {
-fconfiguration con = new fconfiguration();
+
+    fconfiguration con = new fconfiguration();
+
     /**
      * Creates new form frmanalisis
      */
@@ -34,7 +37,7 @@ fconfiguration con = new fconfiguration();
         mostrar("", "", "", "", "", "");
         tablalistporpersona.setDefaultEditor(Object.class, null);
         inhabilitar();
-tablalistporpersona.setShowGrid(true);
+        tablalistporpersona.setShowGrid(true);
         conexion.frmabierto = 10;
 
         txtyear.getDocument().addDocumentListener(new DocumentListener() {
@@ -563,12 +566,23 @@ tablalistporpersona.setShowGrid(true);
     }//GEN-LAST:event_txtnombreareaActionPerformed
 
     private void btnbuscaareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaareaActionPerformed
-        // TODO add your handling code here:
 
-        frmzfiltroarea form = new frmzfiltroarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                // TODO add your handling code here:
+                frmzfiltroarea form = new frmzfiltroarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
     }//GEN-LAST:event_btnbuscaareaActionPerformed
 
     private void txtnombresubareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombresubareaActionPerformed
@@ -583,11 +597,22 @@ tablalistporpersona.setShowGrid(true);
             return;
 
         }
-        conexion.formsubarea = frmanalisisobtpersona.txtnombrearea.getText();
-        frmzfiltrosubarea form = new frmzfiltrosubarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                conexion.formsubarea = frmanalisisobtpersona.txtnombrearea.getText();
+                frmzfiltrosubarea form = new frmzfiltrosubarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trabActionPerformed
@@ -612,42 +637,83 @@ tablalistporpersona.setShowGrid(true);
             return;
 
         }
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
 
-        conexion.formsubarea = frmanalisisobtpersona.txtnombresubarea.getText();
+                conexion.formsubarea = frmanalisisobtpersona.txtnombresubarea.getText();
 
-        frmzfiltrotrabajador form = new frmzfiltrotrabajador();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+                frmzfiltrotrabajador form = new frmzfiltrotrabajador();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trab1ActionPerformed
 
     private void btnclearselecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearselecActionPerformed
-        txtmes.setText("");
-        txtyear.setText("");
-        txtnombrearea.setText("");
-        txtnombresubarea.setText("");
 
-        txtpersonadocumento.setText("");
-        txtnombretrabajador.setText("");
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                txtmes.setText("");
+                txtyear.setText("");
+                txtnombrearea.setText("");
+                txtnombresubarea.setText("");
+
+                txtpersonadocumento.setText("");
+                txtnombretrabajador.setText("");
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed
-    
+
 
     private void btnbuscamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscamesActionPerformed
-        frmzfiltromes form = new frmzfiltromes();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);         // TODO add your handling code here:
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                frmzfiltromes form = new frmzfiltromes();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();   // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscamesActionPerformed
 
     private void btnbuscayearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscayearActionPerformed
-        frmzfiltroyear form = new frmzfiltroyear();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);         // TODO add your handling code here:
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                frmzfiltroyear form = new frmzfiltroyear();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();    // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscayearActionPerformed
 
     /**

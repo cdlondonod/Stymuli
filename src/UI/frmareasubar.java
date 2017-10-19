@@ -10,8 +10,10 @@ import datos.vsubarea;
 import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import logica.farea;
+import logica.fconfiguration;
 
 import logica.fsubarea;
 
@@ -20,6 +22,8 @@ import logica.fsubarea;
  * @author crist
  */
 public class frmareasubar extends javax.swing.JInternalFrame {
+
+    fconfiguration con = new fconfiguration();
 
     /**
      * Creates new form frmareasubar
@@ -718,12 +722,21 @@ public class frmareasubar extends javax.swing.JInternalFrame {
 
     private void tablalistado_areaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistado_areaMousePressed
 
-        int fila = tablalistado_area.getSelectedRow();
-        txtidarea.setText(tablalistado_area.getValueAt(fila, 0).toString());
-        habilitar_btnareapr();
-        pnllistado_sub.setVisible(true);
-        lblsuba.setVisible(true);
-        mostrar_sub("");
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                int fila = tablalistado_area.getSelectedRow();
+                txtidarea.setText(tablalistado_area.getValueAt(fila, 0).toString());
+                habilitar_btnareapr();
+                pnllistado_sub.setVisible(true);
+                lblsuba.setVisible(true);
+                mostrar_sub("");
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
     }//GEN-LAST:event_tablalistado_areaMousePressed
 
     private void txtbuscar_areaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscar_areaActionPerformed

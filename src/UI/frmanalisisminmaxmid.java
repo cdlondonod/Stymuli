@@ -10,6 +10,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
@@ -37,7 +38,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author crist
  */
 public class frmanalisisminmaxmid extends javax.swing.JInternalFrame {
-fconfiguration con=new fconfiguration();
+
+    fconfiguration con = new fconfiguration();
+
     /**
      * Creates new form frmanalisis
      */
@@ -543,9 +546,9 @@ fconfiguration con=new fconfiguration();
         renderer.setDrawLines(false);
         plot.setRenderer(renderer);
         ChartUtilities.applyCurrentTheme(chart);
-         NumberAxis rangefor = new NumberAxis("");
-            rangefor.setNumberFormatOverride(new DecimalFormat("$"+"#,##0;(#,##0)"));                        
-            plot.setRangeAxis(rangefor);
+        NumberAxis rangefor = new NumberAxis("");
+        rangefor.setNumberFormatOverride(new DecimalFormat("$" + "#,##0;(#,##0)"));
+        plot.setRangeAxis(rangefor);
 
         renderer.setItemLabelGenerator(new StandardCategoryItemLabelGenerator());
         renderer.setItemLabelPaint(new Color(75, 16, 160));
@@ -591,10 +594,20 @@ fconfiguration con=new fconfiguration();
     private void btnbuscaareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaareaActionPerformed
         // TODO add your handling code here:
 
-        frmzfiltroarea form = new frmzfiltroarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                frmzfiltroarea form = new frmzfiltroarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
     }//GEN-LAST:event_btnbuscaareaActionPerformed
 
     private void txtnombresubareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombresubareaActionPerformed
@@ -609,11 +622,21 @@ fconfiguration con=new fconfiguration();
             return;
 
         }
-        conexion.formsubarea = frmanalisisminmaxmid.txtnombrearea.getText();
-        frmzfiltrosubarea form = new frmzfiltrosubarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                conexion.formsubarea = frmanalisisminmaxmid.txtnombrearea.getText();
+                frmzfiltrosubarea form = new frmzfiltrosubarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trabActionPerformed
@@ -623,10 +646,21 @@ fconfiguration con=new fconfiguration();
     }//GEN-LAST:event_formInputMethodTextChanged
 
     private void btnclearselecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearselecActionPerformed
-        txtmes.setText("");
-        txtyear.setText("");
-        txtnombrearea.setText("");
-        txtnombresubarea.setText("");
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                txtmes.setText("");
+                txtyear.setText("");
+                txtnombrearea.setText("");
+                txtnombresubarea.setText("");
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed
@@ -653,17 +687,37 @@ fconfiguration con=new fconfiguration();
     }//GEN-LAST:event_txtyearActionPerformed
 
     private void btnbuscayearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscayearActionPerformed
-        frmzfiltroyear form = new frmzfiltroyear();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);        // TODO add your handling code here:
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                frmzfiltroyear form = new frmzfiltroyear();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();    // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscayearActionPerformed
 
     private void btnbuscamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscamesActionPerformed
-        frmzfiltromes form = new frmzfiltromes();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);        // TODO add your handling code here:
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                frmzfiltromes form = new frmzfiltromes();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();     // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscamesActionPerformed
 
     /**

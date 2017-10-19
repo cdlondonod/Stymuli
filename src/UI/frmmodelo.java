@@ -12,6 +12,7 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import logica.conexion;
 import logica.fconfiguration;
@@ -1188,14 +1189,24 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tablalistado_stymuliMouseClicked
 
     private void tablalistado_stymuliMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistado_stymuliMousePressed
-        int fila = tablalistado_stymuli.getSelectedRow();
 
-        txtidmodelo.setText(tablalistado_stymuli.getValueAt(fila, 0).toString());
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                int fila = tablalistado_stymuli.getSelectedRow();
 
-        habilitar_btnspr();
-        pnllistado_Obj.setVisible(true);
-        lblobjetivos.setVisible(true);
-        mostrar_Obj("");
+                txtidmodelo.setText(tablalistado_stymuli.getValueAt(fila, 0).toString());
+
+                habilitar_btnspr();
+                pnllistado_Obj.setVisible(true);
+                lblobjetivos.setVisible(true);
+                mostrar_Obj("");
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_tablalistado_stymuliMousePressed

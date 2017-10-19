@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -768,10 +769,20 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
     private void btnbuscaareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaareaActionPerformed
         // TODO add your handling code here:
 
-        frmzfiltroarea form = new frmzfiltroarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                frmzfiltroarea form = new frmzfiltroarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
     }//GEN-LAST:event_btnbuscaareaActionPerformed
 
     private void txtnombresubareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombresubareaActionPerformed
@@ -786,12 +797,22 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
             return;
 
         }
-        conexion.formsubarea = frmanalisfrecuencia.txtnombrearea.getText();
-        frmzfiltrosubarea form = new frmzfiltrosubarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
 
+                conexion.formsubarea = frmanalisfrecuencia.txtnombrearea.getText();
+                frmzfiltrosubarea form = new frmzfiltrosubarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trabActionPerformed
 
@@ -807,12 +828,22 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
             return;
 
         }
-        conexion.formsubarea = frmanalisfrecuencia.txtnombresubarea.getText();
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
 
-        frmzfiltrokpi form = new frmzfiltrokpi();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
+                conexion.formsubarea = frmanalisfrecuencia.txtnombresubarea.getText();
+
+                frmzfiltrokpi form = new frmzfiltrokpi();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbusca_kpi_ObjActionPerformed
 
@@ -821,11 +852,21 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInputMethodTextChanged
 
     private void btnclearselecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearselecActionPerformed
-        txtmes.setText("");
-        txtyear.setText("");
-        txtnombrearea.setText("");
-        txtnombresubarea.setText("");
-        txtnombrekpi.setText("");
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                txtmes.setText("");
+                txtyear.setText("");
+                txtnombrearea.setText("");
+                txtnombresubarea.setText("");
+                txtnombrekpi.setText("");
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclearselecActionPerformed
@@ -852,17 +893,37 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtyearActionPerformed
 
     private void btnbuscayearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscayearActionPerformed
-        frmzfiltroyear form = new frmzfiltroyear();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);         // TODO add your handling code here:
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                frmzfiltroyear form = new frmzfiltroyear();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();      // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscayearActionPerformed
 
     private void btnbuscamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscamesActionPerformed
-        frmzfiltromes form = new frmzfiltromes();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);           // TODO add your handling code here:
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                frmzfiltromes form = new frmzfiltromes();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();      // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscamesActionPerformed
 
     /**
