@@ -701,8 +701,7 @@ public class INICIO extends javax.swing.JFrame {
                     frmmodelo.lblnombrearea.setVisible(false);
                     frmmodelo.txtidarea.setText(INICIO.lblinicioidarea.getText());
                     frmmodelo.btnbusca_area_stym.setVisible(false);
-                    frmmodelo.txtbuscar_stymuli.setVisible(false);
-                    frmmodelo.lblbuscstym.setVisible(false);
+                    
 
                 } else {
 
@@ -734,7 +733,7 @@ public class INICIO extends javax.swing.JFrame {
 
                 if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
-                    frmresultados.lblbuscar.setVisible(false);
+                    frmresultados.btnbuscar.setVisible(false);
                     frmresultados.lblfiltrar.setVisible(false);
                     frmresultados.btnanalisis5.setVisible(false);
                     frmresultados.btnanalisis7.setVisible(false);

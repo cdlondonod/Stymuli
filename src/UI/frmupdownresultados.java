@@ -9,7 +9,9 @@ import java.io.File;
 import javax.swing.ButtonGroup;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import logica.fconfiguration;
 import logica.fresultados;
 
 /**
@@ -18,13 +20,14 @@ import logica.fresultados;
  */
 public class frmupdownresultados extends javax.swing.JFrame {
 
+    fconfiguration con = new fconfiguration();
+
     /**
      * Creates new form frmupanddownload
      */
     public frmupdownresultados() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
 
     }
 
@@ -151,25 +154,33 @@ public class frmupdownresultados extends javax.swing.JFrame {
             path = chooser.getSelectedFile().toString();
             path = path.replaceAll("\\\\", "\\/");
 
-            fresultados cargar = new fresultados();
-            cargar.load(path);
+            con.loadingscreen();
+            SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+                @Override
+                protected Void doInBackground() throws Exception {
 
-            if (cargar.rows > 0) {
-                JOptionPane.showMessageDialog(rootPane, "La base de datos fue Actualizada");
-                this.dispose();
+                    fresultados cargar = new fresultados();
+                    cargar.load(path);
 
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "No se pudo actualizar la base de datos, por favor verifique que el archivo que selecciono tiene el formato correcto CSV UTF8.");
-                this.dispose();
+                    if (cargar.rows > 0) {
+                        JOptionPane.showMessageDialog(rootPane, "La base de datos fue Actualizada");
 
-            }
+                    } else {
+                        JOptionPane.showMessageDialog(rootPane, "No se pudo actualizar la base de datos, por favor verifique que el archivo que selecciono tiene el formato correcto CSV UTF8.");
+
+                    }
+                    con.hideloading();
+                    return null;
+                }
+            };
+            swingWorker.execute();
 
         } else {
             JOptionPane.showMessageDialog(rootPane, "No se selecciono archivo");
 
         }
 
-        // TODO add your handling code here:
+// TODO add your handling code here:
     }//GEN-LAST:event_btnuploadActionPerformed
     private String path2;
     private void btndownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndownloadActionPerformed

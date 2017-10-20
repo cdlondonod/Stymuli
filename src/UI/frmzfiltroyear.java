@@ -13,7 +13,11 @@ import javax.swing.table.DefaultTableModel;
 import logica.conexion;
 import logica.farea;
 import logica.ffiltros;
-
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.SwingWorker;
+import logica.fconfiguration;
 /**
  *
  * @author crist
@@ -33,23 +37,15 @@ public class frmzfiltroyear extends javax.swing.JFrame {
         Tablafiltrado.setShowHorizontalLines(true);
        jScrollPane1.getColumnHeader().setVisible(false);
         txtfiltrar.requestFocus();
-        txtfiltrar.getDocument().addDocumentListener(new DocumentListener() {
+      Action buscar = new AbstractAction()
+{   
             @Override
-            public void insertUpdate(DocumentEvent e) {
-                mostrar(txtfiltrar.getText());
+            public void actionPerformed(ActionEvent e) {
+                btnbuscar.doClick();
+            //To change body of generated methods, choose Tools | Templates.
             }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                mostrar(txtfiltrar.getText());
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                mostrar(txtfiltrar.getText());
-            }
-
-        });
+        };
+        txtfiltrar.addActionListener(buscar);
 
     }
 
@@ -77,10 +73,12 @@ public class frmzfiltroyear extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btncancelar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        txtfiltrar = new javax.swing.JTextField();
         btnaceptar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tablafiltrado = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        txtfiltrar = new javax.swing.JTextField();
+        btnbuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,12 +102,6 @@ public class frmzfiltroyear extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(101, 54, 193));
         jPanel1.setPreferredSize(new java.awt.Dimension(546, 214));
-
-        txtfiltrar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtfiltrarKeyPressed(evt);
-            }
-        });
 
         btnaceptar.setBackground(new java.awt.Color(0, 51, 0));
         btnaceptar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -152,6 +144,32 @@ public class frmzfiltroyear extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Tablafiltrado);
 
+        jPanel3.setOpaque(false);
+        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtfiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfiltrarActionPerformed(evt);
+            }
+        });
+        txtfiltrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtfiltrarKeyPressed(evt);
+            }
+        });
+        jPanel3.add(txtfiltrar);
+
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        btnbuscar.setBorder(null);
+        btnbuscar.setBorderPainted(false);
+        btnbuscar.setContentAreaFilled(false);
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnbuscar);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -159,21 +177,28 @@ public class frmzfiltroyear extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnaceptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtfiltrar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnaceptar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtfiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnaceptar)
                 .addContainerGap(102, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(363, Short.MAX_VALUE)))
         );
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -262,9 +287,29 @@ public class frmzfiltroyear extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnaceptarActionPerformed
 
+    private void txtfiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfiltrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfiltrarActionPerformed
+
     private void txtfiltrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfiltrarKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfiltrarKeyPressed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        fconfiguration con = new fconfiguration();
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                mostrar(txtfiltrar.getText());
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();// TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,10 +380,12 @@ public class frmzfiltroyear extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tablafiltrado;
     private javax.swing.JButton btnaceptar;
+    public static javax.swing.JButton btnbuscar;
     private javax.swing.JButton btncancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtfiltrar;
     // End of variables declaration//GEN-END:variables

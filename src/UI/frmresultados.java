@@ -8,6 +8,9 @@ package UI;
 import datos.vresultados;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -45,6 +48,14 @@ public class frmresultados extends javax.swing.JInternalFrame {
         btncomparacion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/comparacion.png") + "\">");
         btnevolutivo.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/evolutivo.png") + "\">");
         btnproyeccion.setToolTipText("<html><img src=\"" + frmanalisis.class.getResource("/img/proyeccion.png") + "\">");
+
+        Action buscar = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnbuscar.doClick();
+            }
+        };
+        txtbuscar.addActionListener(buscar);
 
     }
     private String accion = "guardar";
@@ -149,12 +160,12 @@ public class frmresultados extends javax.swing.JInternalFrame {
         tablalistado = new javax.swing.JTable();
         txtbuscar = new javax.swing.JTextField();
         btneliminar = new javax.swing.JButton();
-        lblbuscar = new javax.swing.JLabel();
         btnnuevo = new javax.swing.JButton();
         btneditar1 = new javax.swing.JButton();
         cbofiltro = new javax.swing.JComboBox<>();
         lblfiltrar = new javax.swing.JLabel();
         btneliminarbulk = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
         pnlregistro = new javax.swing.JPanel();
         txtidpersona = new javax.swing.JTextField();
         txtidresultados = new javax.swing.JTextField();
@@ -268,10 +279,6 @@ public class frmresultados extends javax.swing.JInternalFrame {
             }
         });
 
-        lblbuscar.setBackground(new java.awt.Color(255, 255, 255));
-        lblbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-        lblbuscar.setLabelFor(txtbuscar);
-
         btnnuevo.setBackground(new java.awt.Color(0, 51, 0));
         btnnuevo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnnuevo.setForeground(new java.awt.Color(255, 255, 255));
@@ -326,6 +333,16 @@ public class frmresultados extends javax.swing.JInternalFrame {
             }
         });
 
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        btnbuscar.setBorder(null);
+        btnbuscar.setBorderPainted(false);
+        btnbuscar.setContentAreaFilled(false);
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnllistadoLayout = new javax.swing.GroupLayout(pnllistado);
         pnllistado.setLayout(pnllistadoLayout);
         pnllistadoLayout.setHorizontalGroup(
@@ -337,8 +354,8 @@ public class frmresultados extends javax.swing.JInternalFrame {
                     .addGroup(pnllistadoLayout.createSequentialGroup()
                         .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblbuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnbuscar)
+                        .addGap(18, 18, 18)
                         .addComponent(lblfiltrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,11 +375,11 @@ public class frmresultados extends javax.swing.JInternalFrame {
             .addGroup(pnllistadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblbuscar)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblfiltrar)))
+                        .addComponent(lblfiltrar))
+                    .addComponent(btnbuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                 .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -791,26 +808,44 @@ public class frmresultados extends javax.swing.JInternalFrame {
             return;
 
         }
-        conexion.formsubarea = frmresultados.txtidpersona.getText();
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                conexion.formsubarea = frmresultados.txtidpersona.getText();
 
-        frmvistakpi form = new frmvistakpi();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
-        form.setLocationRelativeTo(btnbuscarkpi);
+                frmvistakpi form = new frmvistakpi();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                form.setLocationRelativeTo(btnbuscarkpi);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscarkpiActionPerformed
 
     private void btnbuscartrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscartrabajadorActionPerformed
-        // TODO add your handling code here:
-        txtkpi.setText("");
-        txtidkpi.setText("");
-        frmvistatrabajador form = new frmvistatrabajador();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
-        form.setLocationRelativeTo(btnbuscartrabajador);
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {        // TODO add your handling code here:
+                txtkpi.setText("");
+                txtidkpi.setText("");
+                frmvistatrabajador form = new frmvistatrabajador();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                form.setLocationRelativeTo(btnbuscartrabajador);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
     }//GEN-LAST:event_btnbuscartrabajadorActionPerformed
 
@@ -954,28 +989,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
 
-        int seleccionado = cbofiltro.getSelectedIndex();
-        if (((String) cbofiltro.getItemAt(seleccionado)).equals("Documento")) {
-            filtropor = "p.documento";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Nombre")) {
-            filtropor = "p.nombre";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("1erApellido")) {
-            filtropor = "p.apaterno";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Area")) {
-            filtropor = "a.nombre";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("SubArea")) {
-            filtropor = "s.nombre";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("KPI")) {
-            filtropor = "k.nombre";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Año")) {
-            filtropor = "r.year";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Mes")) {
-            filtropor = "r.mes";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Resultado")) {
-            filtropor = "r.resultado_kpi";
-        }
-
-        mostrar(txtbuscar.getText(), filtropor);          // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyReleased
 
     private void txtresultadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtresultadoKeyTyped
@@ -1103,7 +1117,6 @@ public class frmresultados extends javax.swing.JInternalFrame {
                 INICIO.pnlmain.repaint();
 
                 frmanalisevolutivo form3chart = new frmanalisevolutivo();
-                
 
                 if (INICIO.lblinicioacceso.getText().equals("Trabajador")) {
 
@@ -1113,7 +1126,8 @@ public class frmresultados extends javax.swing.JInternalFrame {
                     frmanalisevolutivo.txtnombresubarea.setText(INICIO.lbliniciosubarea.getText());
                     frmanalisevolutivo.jPanel2.setVisible(false);
                     frmanalisevolutivo.jPanel7.setBackground(Color.WHITE);
-                }INICIO.pnlmain.add(form3chart);
+                }
+                INICIO.pnlmain.add(form3chart);
                 form3chart.toFront();
                 form3chart.setVisible(true);
                 form3chart.setSize(INICIO.pnlmain.getSize());
@@ -1176,6 +1190,40 @@ public class frmresultados extends javax.swing.JInternalFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarbulkActionPerformed
 
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                int seleccionado = cbofiltro.getSelectedIndex();
+                if (((String) cbofiltro.getItemAt(seleccionado)).equals("Documento")) {
+                    filtropor = "p.documento";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Nombre")) {
+                    filtropor = "p.nombre";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("1erApellido")) {
+                    filtropor = "p.apaterno";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Area")) {
+                    filtropor = "a.nombre";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("SubArea")) {
+                    filtropor = "s.nombre";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("KPI")) {
+                    filtropor = "k.nombre";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Año")) {
+                    filtropor = "r.year";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Mes")) {
+                    filtropor = "r.mes";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Resultado")) {
+                    filtropor = "r.resultado_kpi";
+                }
+
+                mostrar(txtbuscar.getText(), filtropor);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1217,6 +1265,7 @@ public class frmresultados extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnanalisis5;
     public static javax.swing.JButton btnanalisis7;
+    public static javax.swing.JButton btnbuscar;
     private javax.swing.JButton btnbuscarkpi;
     private javax.swing.JButton btnbuscartrabajador;
     private javax.swing.JButton btncancelar;
@@ -1242,7 +1291,6 @@ public class frmresultados extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JLabel lblbuscar;
     public static javax.swing.JLabel lblfiltrar;
     public static javax.swing.JLabel lblnombrearea1;
     private javax.swing.JLabel lblnombrekpi13;

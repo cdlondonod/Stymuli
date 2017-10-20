@@ -20,7 +20,7 @@ public class conexion {
     static public int frmabierto;
     fconfiguration con = new fconfiguration();
     public String db = con.GetProp("database");
-    public String dbip = "jdbc:mysql://"+con.GetProp("ipdatabase")+"/" + db;
+    public String dbip = "jdbc:mysql://"+con.GetProp("ipdatabase")+"/" + db+"?autoReconnect=true&useSSL=false";//temporal mientras reviso ssl
     public String user = con.GetProp("userdatabase");
     public String pass = con.GetProp("passworddatabase");
 

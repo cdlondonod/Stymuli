@@ -5,10 +5,15 @@
  */
 package UI;
 
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import logica.conexion;
 import logica.farea;
+import logica.fconfiguration;
 
 /**
  *
@@ -24,6 +29,17 @@ public class frmvistaarea extends javax.swing.JFrame {
         mostrar("");
                 
         tablalistado.setDefaultEditor(Object.class, null);
+        
+Action buscar = new AbstractAction()
+{   
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnbuscar.doClick();
+            }           
+
+        };
+        txtbuscar.addActionListener(buscar);
+        
     }
 
     void ocultar_columnas(){
@@ -62,8 +78,8 @@ public class frmvistaarea extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablalistado = new javax.swing.JTable();
         txtbuscar = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         btncancelar = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,9 +123,6 @@ public class frmvistaarea extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-
         btncancelar.setBackground(new java.awt.Color(0, 51, 0));
         btncancelar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btncancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,6 +137,16 @@ public class frmvistaarea extends javax.swing.JFrame {
             }
         });
 
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        btnbuscar.setBorder(null);
+        btnbuscar.setBorderPainted(false);
+        btnbuscar.setContentAreaFilled(false);
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -134,7 +157,7 @@ public class frmvistaarea extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(btnbuscar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -149,7 +172,7 @@ public class frmvistaarea extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(btnbuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -235,8 +258,22 @@ this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
-mostrar(txtbuscar.getText());         // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyReleased
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+fconfiguration con=new fconfiguration();
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                mostrar(txtbuscar.getText());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,9 +318,9 @@ mostrar(txtbuscar.getText());         // TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton btnbuscar;
     private javax.swing.JButton btncancelar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

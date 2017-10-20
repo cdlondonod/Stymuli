@@ -6,10 +6,15 @@
 package UI;
 
 import datos.vkpi;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import logica.farea;
+import logica.fconfiguration;
 import logica.fkpi;
 
 /**
@@ -17,7 +22,7 @@ import logica.fkpi;
  * @author crist
  */
 public class frmkpi extends javax.swing.JInternalFrame {
-
+fconfiguration con= new fconfiguration();
     /**
      * Creates new form frmkpi
      */
@@ -29,6 +34,17 @@ public class frmkpi extends javax.swing.JInternalFrame {
         tablalistado.setShowGrid(true);
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        
+        Action buscar = new AbstractAction()
+{   
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnbuscar.doClick();
+            }            
+
+        };
+        txtbuscar.addActionListener(buscar);
+        
 
     }
     private String accion = "guardar";
@@ -104,8 +120,8 @@ public class frmkpi extends javax.swing.JInternalFrame {
         txtbuscar = new javax.swing.JTextField();
         btneliminar = new javax.swing.JButton();
         btnnuevo = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         btneditar1 = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
         pnlregistro = new javax.swing.JPanel();
         txtnom_kpi = new javax.swing.JTextField();
         lblnombrekpi = new javax.swing.JLabel();
@@ -136,7 +152,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         pnllistado.setBackground(new java.awt.Color(101, 54, 193));
-        pnllistado.setPreferredSize(new java.awt.Dimension(260, 400));
+        pnllistado.setPreferredSize(new java.awt.Dimension(260, 410));
 
         tablalistado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tablalistado.setForeground(new java.awt.Color(75, 16, 160));
@@ -204,9 +220,6 @@ public class frmkpi extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-
         btneditar1.setBackground(new java.awt.Color(0, 51, 0));
         btneditar1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btneditar1.setForeground(new java.awt.Color(255, 255, 255));
@@ -218,6 +231,16 @@ public class frmkpi extends javax.swing.JInternalFrame {
         btneditar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneditar1ActionPerformed(evt);
+            }
+        });
+
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        btnbuscar.setBorder(null);
+        btnbuscar.setBorderPainted(false);
+        btnbuscar.setContentAreaFilled(false);
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
             }
         });
 
@@ -238,19 +261,19 @@ public class frmkpi extends javax.swing.JInternalFrame {
                         .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnllistadoLayout.createSequentialGroup()
                         .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addGap(0, 70, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnbuscar)
+                        .addGap(0, 82, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnllistadoLayout.setVerticalGroup(
             pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnllistadoLayout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnbuscar))
+                .addGap(10, 10, 10)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -513,7 +536,7 @@ public class frmkpi extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btneditar1ActionPerformed
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
-        mostrar(txtbuscar.getText());         // TODO add your handling code here:
+              // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyReleased
 
     private void txtnom_kpiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom_kpiKeyTyped
@@ -522,6 +545,19 @@ public class frmkpi extends javax.swing.JInternalFrame {
             evt.setKeyChar('-');
         }           // TODO add your handling code here:
     }//GEN-LAST:event_txtnom_kpiKeyTyped
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                 mostrar(txtbuscar.getText());  
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -560,13 +596,13 @@ public class frmkpi extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton btnbuscar;
     private javax.swing.JButton btncancelar;
     private javax.swing.JButton btneditar1;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnnuevo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

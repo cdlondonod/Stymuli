@@ -6,9 +6,14 @@
 package UI;
 
 import datos.vtrabajador;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
+import logica.fconfiguration;
 import logica.ftrabajador;
 
 /**
@@ -20,17 +25,22 @@ public class frmvistatrabajador extends javax.swing.JFrame {
     /**
      * Creates new form frmtrabajador
      */
-    String filtropor="p.documento";
+    String filtropor = "p.documento";
+
     public frmvistatrabajador() {
         initComponents();
-        mostrar("",filtropor);
-   
-      
-        tablalistado.setDefaultEditor(Object.class, null);
-        
+        mostrar("", filtropor);
 
+        tablalistado.setDefaultEditor(Object.class, null);
+
+        Action buscar = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnbuscar.doClick();
+            }
+        };
+        txtbuscar.addActionListener(buscar);
     }
- 
 
     void ocultar_columnas() {
         tablalistado.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -48,48 +58,42 @@ public class frmvistatrabajador extends javax.swing.JFrame {
         tablalistado.getColumnModel().getColumn(6).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(6).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(6).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(7).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(7).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(7).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(8).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(8).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(8).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(10).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(10).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(10).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(12).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(12).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(12).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(13).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(13).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(13).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(14).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(14).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(14).setPreferredWidth(0);
-        
+
         tablalistado.getColumnModel().getColumn(15).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(15).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(15).setPreferredWidth(0);
-        
-  
-        
-        
-        
+
     }
 
-    
-
-    void mostrar(String buscar,String filtrores) {
+    void mostrar(String buscar, String filtrores) {
         try {
             DefaultTableModel modelo;
             ftrabajador func = new ftrabajador();
-            modelo = func.mostrar(buscar,filtrores);
+            modelo = func.mostrar(buscar, filtrores);
             tablalistado.setModel(modelo);
             ocultar_columnas();
 
@@ -112,10 +116,10 @@ public class frmvistatrabajador extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablalistado = new javax.swing.JTable();
         txtbuscar = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         btncancelar1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         cbofiltro = new javax.swing.JComboBox<>();
+        btnbuscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -169,10 +173,6 @@ public class frmvistatrabajador extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-        jLabel2.setLabelFor(txtbuscar);
-
         btncancelar1.setBackground(new java.awt.Color(0, 51, 0));
         btncancelar1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btncancelar1.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,6 +192,16 @@ public class frmvistatrabajador extends javax.swing.JFrame {
 
         cbofiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Documento", "Nombre", "1erApellido", "2doApellido", "Area", "SubArea", "Cargo", "Salario", "Acceso", "Estado", "Email", "Telefono" }));
 
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        btnbuscar.setBorder(null);
+        btnbuscar.setBorderPainted(false);
+        btnbuscar.setContentAreaFilled(false);
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnllistadoLayout = new javax.swing.GroupLayout(pnllistado);
         pnllistado.setLayout(pnllistadoLayout);
         pnllistadoLayout.setHorizontalGroup(
@@ -203,8 +213,8 @@ public class frmvistatrabajador extends javax.swing.JFrame {
                     .addGroup(pnllistadoLayout.createSequentialGroup()
                         .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnbuscar)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,10 +229,11 @@ public class frmvistatrabajador extends javax.swing.JFrame {
             .addGroup(pnllistadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnbuscar)
+                        .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -269,27 +280,25 @@ public class frmvistatrabajador extends javax.swing.JFrame {
 
     private void tablalistadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMouseClicked
         // TODO add your handling code here:
-       
+
 
     }//GEN-LAST:event_tablalistadoMouseClicked
 
     private void tablalistadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMousePressed
-       if (evt.getClickCount()==2) {
-            
-            int fila=tablalistado.getSelectedRow();
+        if (evt.getClickCount() == 2) {
+
+            int fila = tablalistado.getSelectedRow();
             String cod;
             String valor;
-            cod=tablalistado.getValueAt(fila, 0).toString();
-      valor=tablalistado.getValueAt(fila, 1).toString()+" "+tablalistado.getValueAt(fila, 2).toString();
-            
+            cod = tablalistado.getValueAt(fila, 0).toString();
+            valor = tablalistado.getValueAt(fila, 1).toString() + " " + tablalistado.getValueAt(fila, 2).toString();
+
             frmresultados.txtidpersona.setText(cod);
             frmresultados.txttrabajador.setText(valor);
-            
-                      
-            
+
             this.dispose();
-            
-        }      
+
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_tablalistadoMousePressed
 
@@ -299,7 +308,7 @@ public class frmvistatrabajador extends javax.swing.JFrame {
 
     private void txtbuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyPressed
 
-           // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyPressed
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
@@ -313,40 +322,50 @@ public class frmvistatrabajador extends javax.swing.JFrame {
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
 
-        
-       int seleccionado = cbofiltro.getSelectedIndex();
-        if (((String) cbofiltro.getItemAt(seleccionado)).equals("Documento")) {
-            filtropor="p.documento";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Nombre")) {
-            filtropor="p.nombre";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("1erApellido")) {
-            filtropor="p.apaterno";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Area")) {
-            filtropor="a.nombre";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("SubArea")) {
-            filtropor="s.nombre";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("2doApellido")) {
-            filtropor="p.amaterno";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Cargo")) {
-            filtropor="p.cargo";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Salario")) {
-            filtropor="p.salario";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Acceso")) {
-            filtropor="p.acceso";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Estado")) {
-            filtropor="p.estado";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Email")) {
-            filtropor="p.email";
-        }else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Telefono")) {
-            filtropor="p.telefono";
-        }                             
-     
-
-
-
-
-        mostrar(txtbuscar.getText(),filtropor);           // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyReleased
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        fconfiguration con = new fconfiguration();
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+
+                int seleccionado = cbofiltro.getSelectedIndex();
+                if (((String) cbofiltro.getItemAt(seleccionado)).equals("Documento")) {
+                    filtropor = "p.documento";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Nombre")) {
+                    filtropor = "p.nombre";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("1erApellido")) {
+                    filtropor = "p.apaterno";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Area")) {
+                    filtropor = "a.nombre";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("SubArea")) {
+                    filtropor = "s.nombre";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("2doApellido")) {
+                    filtropor = "p.amaterno";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Cargo")) {
+                    filtropor = "p.cargo";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Salario")) {
+                    filtropor = "p.salario";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Acceso")) {
+                    filtropor = "p.acceso";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Estado")) {
+                    filtropor = "p.estado";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Email")) {
+                    filtropor = "p.email";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Telefono")) {
+                    filtropor = "p.telefono";
+                }
+
+                mostrar(txtbuscar.getText(), filtropor);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -391,10 +410,10 @@ public class frmvistatrabajador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton btnbuscar;
     private javax.swing.JButton btncancelar1;
     private javax.swing.JComboBox<String> cbofiltro;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

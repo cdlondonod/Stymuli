@@ -7,8 +7,12 @@ package UI;
 
 import datos.vtrabajador;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 import javax.swing.table.DefaultTableModel;
 import logica.conexion;
@@ -37,6 +41,14 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         tablalistado.setShowGrid(true);
+
+        Action buscar = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnbuscar.doClick();
+            }
+        };
+        txtbuscar.addActionListener(buscar);
 
     }
     private String accion = "guardar";
@@ -155,7 +167,6 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablalistado = new javax.swing.JTable();
         txtbuscar = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         cbofiltro = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
@@ -163,6 +174,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
         btneliminar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
         btneliminarbulk = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
         pnlregistro = new javax.swing.JPanel();
         txtidpersona = new javax.swing.JTextField();
         txtidarea = new javax.swing.JTextField();
@@ -289,10 +301,6 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-        jLabel2.setLabelFor(txtbuscar);
-
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Filtrar por:");
@@ -385,6 +393,16 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             }
         });
 
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        btnbuscar.setBorder(null);
+        btnbuscar.setBorderPainted(false);
+        btnbuscar.setContentAreaFilled(false);
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnllistadoLayout = new javax.swing.GroupLayout(pnllistado);
         pnllistado.setLayout(pnllistadoLayout);
         pnllistadoLayout.setHorizontalGroup(
@@ -402,8 +420,8 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
                             .addGroup(pnllistadoLayout.createSequentialGroup()
                                 .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnbuscar)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -415,11 +433,11 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             .addGroup(pnllistadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnllistadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cbofiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addComponent(btnbuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -698,12 +716,10 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
                     .addComponent(txtdocumento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 5, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblnombrekpi8)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(lblnombrekpi8))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
                         .addComponent(btnupdownload, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
                         .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -904,26 +920,45 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
             return;
 
         }
-        conexion.formsubarea = frmtrabajador.txtidarea.getText();
-        frmvistasubarea form = new frmvistasubarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
-        form.setLocationRelativeTo(btnbuscar_subarea_trab);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                conexion.formsubarea = frmtrabajador.txtidarea.getText();
+                frmvistasubarea form = new frmvistasubarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                form.setLocationRelativeTo(btnbuscar_subarea_trab);
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_trabActionPerformed
 
     private void btnbuscaareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaareaActionPerformed
-        // TODO add your handling code here:
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {        // TODO add your handling code here:
 
-        txtidsubarea.setText("");
-        txtnombresubarea.setText("");
-        frmvistaarea form = new frmvistaarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
-        form.setLocationRelativeTo(btnbuscaarea);
+                txtidsubarea.setText("");
+                txtnombresubarea.setText("");
+                frmvistaarea form = new frmvistaarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                form.setLocationRelativeTo(btnbuscaarea);
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
     }//GEN-LAST:event_btnbuscaareaActionPerformed
 
@@ -1050,7 +1085,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "El Trabajador fue registrado satisfactoriamente");
                 mostrar("", filtropor);
                 inhabilitar();
-              
+
             }
 
         } else if (accion.equals("editar")) {
@@ -1059,7 +1094,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "El Trabajador fue editado satisfactoriamente");
                 mostrar("", filtropor);
                 inhabilitar();
-              
+
             }
 
         }
@@ -1112,34 +1147,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
 
-        int seleccionado = cbofiltro.getSelectedIndex();
-        if (((String) cbofiltro.getItemAt(seleccionado)).equals("Documento")) {
-            filtropor = "p.documento";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Nombre")) {
-            filtropor = "p.nombre";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("1erApellido")) {
-            filtropor = "p.apaterno";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Area")) {
-            filtropor = "a.nombre";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("SubArea")) {
-            filtropor = "s.nombre";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("2doApellido")) {
-            filtropor = "p.amaterno";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Cargo")) {
-            filtropor = "p.cargo";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Salario")) {
-            filtropor = "p.salario";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Acceso")) {
-            filtropor = "p.acceso";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Estado")) {
-            filtropor = "p.estado";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Email")) {
-            filtropor = "p.email";
-        } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Telefono")) {
-            filtropor = "p.telefono";
-        }
-
-        mostrar(txtbuscar.getText(), filtropor);         // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarKeyReleased
 
     private void btnupdownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdownloadActionPerformed
@@ -1184,7 +1192,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtsalarioActionPerformed
 
     private void btneliminarbulkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarbulkActionPerformed
-        int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar Multiples Datos de la Tabla?", "Confirmar", 2,JOptionPane.WARNING_MESSAGE);
+        int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar Multiples Datos de la Tabla?", "Confirmar", 2, JOptionPane.WARNING_MESSAGE);
 
         if (confirmacion == 0) {
             INICIO.pnlmain.removeAll();
@@ -1202,6 +1210,46 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarbulkActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                int seleccionado = cbofiltro.getSelectedIndex();
+                if (((String) cbofiltro.getItemAt(seleccionado)).equals("Documento")) {
+                    filtropor = "p.documento";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Nombre")) {
+                    filtropor = "p.nombre";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("1erApellido")) {
+                    filtropor = "p.apaterno";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Area")) {
+                    filtropor = "a.nombre";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("SubArea")) {
+                    filtropor = "s.nombre";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("2doApellido")) {
+                    filtropor = "p.amaterno";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Cargo")) {
+                    filtropor = "p.cargo";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Salario")) {
+                    filtropor = "p.salario";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Acceso")) {
+                    filtropor = "p.acceso";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Estado")) {
+                    filtropor = "p.estado";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Email")) {
+                    filtropor = "p.email";
+                } else if (((String) cbofiltro.getItemAt(seleccionado)).equals("Telefono")) {
+                    filtropor = "p.telefono";
+                }
+
+                mostrar(txtbuscar.getText(), filtropor);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1241,6 +1289,7 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscaarea;
+    public static javax.swing.JButton btnbuscar;
     private javax.swing.JButton btnbuscar_subarea_trab;
     private javax.swing.JButton btncancelar;
     public static javax.swing.JButton btneditar;
@@ -1254,7 +1303,6 @@ public class frmtrabajador extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbofiltro;
     private javax.swing.JComboBox<String> cbotipo_documento;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

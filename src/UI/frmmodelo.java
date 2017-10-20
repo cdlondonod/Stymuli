@@ -7,8 +7,11 @@ package UI;
 
 import datos.vmodelo;
 import datos.vobjetivos;
+import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -52,7 +55,19 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                mostrar_stymuli("", messty(), yearsty()); //To change body of generated methods, choose Tools | Templates.
+
+                con.loadingscreen();
+                SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+                    @Override
+                    protected Void doInBackground() throws Exception {
+                        mostrar_stymuli("", messty(), yearsty());
+
+                        con.hideloading();
+                        return null;
+                    }
+                };
+                swingWorker.execute();
+//To change body of generated methods, choose Tools | Templates.
             }
         });
 
@@ -60,9 +75,39 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                mostrar_stymuli("", messty(), yearsty()); //To change body of generated methods, choose Tools | Templates.
+                con.loadingscreen();
+                SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+                    @Override
+                    protected Void doInBackground() throws Exception {
+
+                        mostrar_stymuli("", messty(), yearsty());
+
+                        con.hideloading();
+                        return null;
+                    }
+                };
+                swingWorker.execute();
+
+//To change body of generated methods, choose Tools | Templates.
             }
         });
+
+        Action buscarst = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnbuscar_sty.doClick();
+            }
+
+        };
+        txtbuscar_stymuli.addActionListener(buscarst);
+
+        Action buscarob = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnbuscar_obj.doClick();
+            }
+        };
+        txtbuscar_Obj.addActionListener(buscarob);
 
     }
 
@@ -255,7 +300,6 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         tablalistado_stymuli = new javax.swing.JTable();
         txtbuscar_stymuli = new javax.swing.JTextField();
         btneliminar_stymuli = new javax.swing.JButton();
-        lblbuscstym = new javax.swing.JLabel();
         btnnuevo_stymuli = new javax.swing.JButton();
         txtidmodelo = new javax.swing.JTextField();
         txtidsubarea = new javax.swing.JTextField();
@@ -266,6 +310,7 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         lblnombrearea2 = new javax.swing.JLabel();
         datemesfiltro = new com.toedter.calendar.JMonthChooser();
         dateyearfiltro = new com.toedter.calendar.JYearChooser();
+        btnbuscar_sty = new javax.swing.JButton();
         pnlregistro_stymuli = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtdescripcion = new javax.swing.JTextArea();
@@ -302,12 +347,12 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         tablalistado_Obj = new javax.swing.JTable();
         txtbuscar_Obj = new javax.swing.JTextField();
         btneliminar_Obj = new javax.swing.JButton();
-        lblbuscarobj = new javax.swing.JLabel();
         btnnuevo_Obj = new javax.swing.JButton();
         txtidkpi = new javax.swing.JTextField();
         txtidobjetivos = new javax.swing.JTextField();
         btneditarobj = new javax.swing.JButton();
         btnmodeloanterior = new javax.swing.JButton();
+        btnbuscar_obj = new javax.swing.JButton();
         lblobjetivos = new javax.swing.JLabel();
         pnlregistro_Obj = new javax.swing.JPanel();
         btncancelar_Obj = new javax.swing.JButton();
@@ -411,9 +456,6 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
-        lblbuscstym.setBackground(new java.awt.Color(255, 255, 255));
-        lblbuscstym.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-
         btnnuevo_stymuli.setBackground(new java.awt.Color(0, 51, 0));
         btnnuevo_stymuli.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnnuevo_stymuli.setForeground(new java.awt.Color(255, 255, 255));
@@ -476,6 +518,16 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         dateyearfiltro.setPreferredSize(new java.awt.Dimension(58, 20));
         jPanel11.add(dateyearfiltro);
 
+        btnbuscar_sty.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        btnbuscar_sty.setBorder(null);
+        btnbuscar_sty.setBorderPainted(false);
+        btnbuscar_sty.setContentAreaFilled(false);
+        btnbuscar_sty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscar_styActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnllistado_stymuliLayout = new javax.swing.GroupLayout(pnllistado_stymuli);
         pnllistado_stymuli.setLayout(pnllistado_stymuliLayout);
         pnllistado_stymuliLayout.setHorizontalGroup(
@@ -486,8 +538,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                     .addGroup(pnllistado_stymuliLayout.createSequentialGroup()
                         .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblbuscstym)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnbuscar_sty)
+                        .addGap(18, 18, 18)
                         .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -509,17 +561,17 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         pnllistado_stymuliLayout.setVerticalGroup(
             pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistado_stymuliLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblbuscstym)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnllistado_stymuliLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(checkmostrar)
-                        .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtbuscar_stymuli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnllistado_stymuliLayout.createSequentialGroup()
+                        .addGroup(pnllistado_stymuliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(checkmostrar)
+                            .addComponent(txtidsubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtidmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtidarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1))
+                    .addComponent(btnbuscar_sty))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -697,10 +749,10 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         jPanel7.add(lblnombrekpi10);
 
         txtstymuli.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 txtstymuliInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         txtstymuli.addActionListener(new java.awt.event.ActionListener() {
@@ -871,9 +923,6 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
-        lblbuscarobj.setBackground(new java.awt.Color(255, 255, 255));
-        lblbuscarobj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-
         btnnuevo_Obj.setBackground(new java.awt.Color(0, 51, 0));
         btnnuevo_Obj.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnnuevo_Obj.setForeground(new java.awt.Color(255, 255, 255));
@@ -914,6 +963,16 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             }
         });
 
+        btnbuscar_obj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        btnbuscar_obj.setBorder(null);
+        btnbuscar_obj.setBorderPainted(false);
+        btnbuscar_obj.setContentAreaFilled(false);
+        btnbuscar_obj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscar_objActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnllistado_ObjLayout = new javax.swing.GroupLayout(pnllistado_Obj);
         pnllistado_Obj.setLayout(pnllistado_ObjLayout);
         pnllistado_ObjLayout.setHorizontalGroup(
@@ -931,9 +990,9 @@ public class frmmodelo extends javax.swing.JInternalFrame {
                         .addComponent(btneliminar_Obj))
                     .addGroup(pnllistado_ObjLayout.createSequentialGroup()
                         .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblbuscarobj)
-                        .addGap(95, 95, 95)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnbuscar_obj)
+                        .addGap(107, 107, 107)
                         .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54)
                         .addComponent(txtidkpi, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -944,15 +1003,19 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         pnllistado_ObjLayout.setVerticalGroup(
             pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnllistado_ObjLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblbuscarobj)
-                    .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtidkpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                    .addGroup(pnllistado_ObjLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtbuscar_Obj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtidobjetivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtidkpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnllistado_ObjLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnbuscar_obj)))
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnllistado_ObjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btneditarobj, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1271,14 +1334,22 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtnombreareaActionPerformed
 
     private void btnbusca_area_stymActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbusca_area_stymActionPerformed
-        // TODO add your handling code here:
-        txtidsubarea.setText("");
-        txtnombresubarea.setText("");
-        frmvistaarea form = new frmvistaarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
-        form.setLocationRelativeTo(btnbusca_area_stym);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {     // TODO add your handling code here:
+                txtidsubarea.setText("");
+                txtnombresubarea.setText("");
+                frmvistaarea form = new frmvistaarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                form.setLocationRelativeTo(btnbusca_area_stym);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
     }//GEN-LAST:event_btnbusca_area_stymActionPerformed
 
     private void btnbuscar_subarea_stymActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar_subarea_stymActionPerformed
@@ -1289,13 +1360,22 @@ public class frmmodelo extends javax.swing.JInternalFrame {
             return;
 
         }
-        conexion.formsubarea = frmmodelo.txtidarea.getText();
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                conexion.formsubarea = frmmodelo.txtidarea.getText();
 
-        frmvistasubarea form = new frmvistasubarea();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
-        form.setLocationRelativeTo(btnbuscar_subarea_stym);
+                frmvistasubarea form = new frmvistasubarea();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                form.setLocationRelativeTo(btnbuscar_subarea_stym);
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscar_subarea_stymActionPerformed
@@ -1463,11 +1543,21 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtnombrekpi_ObjActionPerformed
 
     private void btnbusca_kpi_ObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbusca_kpi_ObjActionPerformed
-        frmvistakpiobjetivos form = new frmvistakpiobjetivos();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
-        form.setLocationRelativeTo(btnbusca_kpi_Obj);// TODO add your handling code here:
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                frmvistakpiobjetivos form = new frmvistakpiobjetivos();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                form.setLocationRelativeTo(btnbusca_kpi_Obj);
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();// TODO add your handling code here:
     }//GEN-LAST:event_btnbusca_kpi_ObjActionPerformed
 
     private void btnguardar_ObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar_ObjActionPerformed
@@ -1627,11 +1717,11 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btneditarobjActionPerformed
 
     private void txtbuscar_stymuliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscar_stymuliKeyReleased
-        mostrar_stymuli(txtbuscar_stymuli.getText(), messty(), yearsty());        // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscar_stymuliKeyReleased
 
     private void txtbuscar_ObjKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscar_ObjKeyReleased
-        mostrar_Obj(txtbuscar_Obj.getText());        // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscar_ObjKeyReleased
 
     private void txtvalor_ObjKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalor_ObjKeyTyped
@@ -1692,12 +1782,22 @@ public class frmmodelo extends javax.swing.JInternalFrame {
 
     private void btnbusca_kpi_estimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbusca_kpi_estimActionPerformed
 
-        conexion.frmabierto = 1;
-        frmvistakpiobjetivos form = new frmvistakpiobjetivos();
-        form.toFront();
-        form.setVisible(true);
-        form.setAlwaysOnTop(true);
-        form.setLocationRelativeTo(btnbusca_kpi_estim);
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                conexion.frmabierto = 1;
+                frmvistakpiobjetivos form = new frmvistakpiobjetivos();
+                form.toFront();
+                form.setVisible(true);
+                form.setAlwaysOnTop(true);
+                form.setLocationRelativeTo(btnbusca_kpi_estim);
+
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnbusca_kpi_estimActionPerformed
 
@@ -1757,6 +1857,32 @@ public class frmmodelo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formInternalFrameOpened
 
+    private void btnbuscar_styActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar_styActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                mostrar_stymuli(txtbuscar_stymuli.getText(), messty(), yearsty());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
+    }//GEN-LAST:event_btnbuscar_styActionPerformed
+
+    private void btnbuscar_objActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar_objActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                mostrar_Obj(txtbuscar_Obj.getText());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();         // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscar_objActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1796,6 +1922,8 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     public static javax.swing.JButton btnbusca_area_stym;
     private javax.swing.JButton btnbusca_kpi_Obj;
     private javax.swing.JButton btnbusca_kpi_estim;
+    public static javax.swing.JButton btnbuscar_obj;
+    public static javax.swing.JButton btnbuscar_sty;
     private javax.swing.JButton btnbuscar_subarea_stym;
     private javax.swing.JButton btncancelar_Obj;
     private javax.swing.JButton btncancelar_stymuli;
@@ -1833,8 +1961,6 @@ public class frmmodelo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    public static javax.swing.JLabel lblbuscarobj;
-    public static javax.swing.JLabel lblbuscstym;
     public static javax.swing.JLabel lblnombrearea;
     public static javax.swing.JLabel lblnombrearea1;
     public static javax.swing.JLabel lblnombrearea2;

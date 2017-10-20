@@ -7,6 +7,9 @@ package UI;
 
 import datos.varea;
 import datos.vsubarea;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -44,6 +47,23 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         btnguardar_area.setIcon(new ImageIcon(frmareasubar.class.getResource("/img/guardar.png")));
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        
+        Action buscararea = new AbstractAction()
+{   
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnbuscar.doClick();
+            }
+        };
+        txtbuscar_area.addActionListener(buscararea);
+         Action buscarsubarea = new AbstractAction()
+{   
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnbuscar1.doClick();
+            }
+        };
+        txtbuscar_sub.addActionListener(buscarsubarea);
 
     }
 
@@ -188,7 +208,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         btneditar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txtbuscar_area = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        btnbuscar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         pnlregistro_sub = new javax.swing.JPanel();
         txtnombre_sub = new javax.swing.JTextField();
@@ -205,7 +225,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         btneditar1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txtbuscar_sub = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        btnbuscar1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -407,9 +427,16 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         });
         jPanel1.add(txtbuscar_area);
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-        jPanel1.add(jLabel2);
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        btnbuscar.setBorder(null);
+        btnbuscar.setBorderPainted(false);
+        btnbuscar.setContentAreaFilled(false);
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnbuscar);
 
         javax.swing.GroupLayout pnllistado_areaLayout = new javax.swing.GroupLayout(pnllistado_area);
         pnllistado_area.setLayout(pnllistado_areaLayout);
@@ -639,9 +666,16 @@ public class frmareasubar extends javax.swing.JInternalFrame {
         });
         jPanel2.add(txtbuscar_sub);
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-        jPanel2.add(jLabel3);
+        btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        btnbuscar1.setBorder(null);
+        btnbuscar1.setBorderPainted(false);
+        btnbuscar1.setContentAreaFilled(false);
+        btnbuscar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscar1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnbuscar1);
 
         javax.swing.GroupLayout pnllistado_subLayout = new javax.swing.GroupLayout(pnllistado_sub);
         pnllistado_sub.setLayout(pnllistado_subLayout);
@@ -796,7 +830,7 @@ public class frmareasubar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtbuscar_subActionPerformed
 
     private void txtbuscar_subKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscar_subKeyPressed
-        mostrar_sub(txtbuscar_sub.getText());        // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscar_subKeyPressed
 
     private void btneliminar_subActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminar_subActionPerformed
@@ -970,11 +1004,11 @@ public class frmareasubar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tablalistado_areaFocusGained
 
     private void txtbuscar_areaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscar_areaKeyReleased
-        mostrar_area(txtbuscar_area.getText());        // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscar_areaKeyReleased
 
     private void txtbuscar_subKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscar_subKeyReleased
-        mostrar_sub(txtbuscar_sub.getText());         // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscar_subKeyReleased
 
     private void txtnombre_subKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombre_subKeyTyped
@@ -983,6 +1017,33 @@ public class frmareasubar extends javax.swing.JInternalFrame {
             evt.setKeyChar('-');
         }        // TODO add your handling code here:
     }//GEN-LAST:event_txtnombre_subKeyTyped
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                mostrar_area(txtbuscar_area.getText());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btnbuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar1ActionPerformed
+
+        con.loadingscreen();
+        SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                mostrar_sub(txtbuscar_sub.getText());
+                con.hideloading();
+                return null;
+            }
+        };
+        swingWorker.execute();
+    }//GEN-LAST:event_btnbuscar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1020,6 +1081,8 @@ public class frmareasubar extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btnbuscar1;
     private javax.swing.JButton btncancelar_area;
     private javax.swing.JButton btncancelar_sub;
     private javax.swing.JButton btneditar;
@@ -1031,8 +1094,6 @@ public class frmareasubar extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnnuevo_area;
     private javax.swing.JButton btnnuevo_sub;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
