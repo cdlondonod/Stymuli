@@ -132,17 +132,48 @@ public class frmanalisfrecuencia extends javax.swing.JInternalFrame {
         txtnombrekpi.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+
+                con.loadingscreen();
+                SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+                    @Override
+                    protected Void doInBackground() throws Exception {
+                        mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+
+                        con.hideloading();
+                        return null;
+                    }
+                };
+                swingWorker.execute();
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+                con.loadingscreen();
+                SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+                    @Override
+                    protected Void doInBackground() throws Exception {
+                        mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+
+                        con.hideloading();
+                        return null;
+                    }
+                };
+                swingWorker.execute();
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText()); //To change body of generated methods, choose Tools | Templates.
+               con.loadingscreen();
+                SwingWorker swingWorker = new SwingWorker<Void, Void>() {
+                    @Override
+                    protected Void doInBackground() throws Exception {
+                        mostrar(txtyear.getText(), txtmes.getText(), txtnombrearea.getText(), txtnombresubarea.getText(), "", txtnombrekpi.getText());  //To change body of generated methods, choose Tools | Templates.
+
+                        con.hideloading();
+                        return null;
+                    }
+                };
+                swingWorker.execute();
             }
         });
 

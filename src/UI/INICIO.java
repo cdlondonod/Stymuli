@@ -121,6 +121,11 @@ public class INICIO extends javax.swing.JFrame {
         menabout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                formComponentMoved(evt);
+            }
+        });
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -903,6 +908,14 @@ public class INICIO extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_menudeletedbActionPerformed
+
+    private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
+        if (con.loadingsc!=null) {
+            con.loadingsc.setLocationRelativeTo(escritorio);
+            con.loadingsc.setSize(escritorio.getSize());
+        }
+       // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentMoved
 
     /**
      * @param args the command line arguments

@@ -21,6 +21,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
@@ -129,15 +130,14 @@ public class fconfiguration {
         return local_number;
     }
 
-    JDialog loadingsc;
+    public JDialog loadingsc;
 
     public void loadingscreen() {
         loadingsc = new JDialog();
         loadingsc.setLayout(new GridBagLayout());
         ImageIcon icon = new ImageIcon(fconfiguration.class.getResource("/img/loadinggif.gif"));
         JLabel label = new JLabel(icon);
-        loadingsc.add(label);
-        //loadingsc.setSize(Toolkit.getDefaultToolkit().getScreenSize());      
+        loadingsc.add(label);            
         loadingsc.setSize(INICIO.escritorio.getSize());
         loadingsc.setResizable(false);
         loadingsc.setModal(false);
@@ -145,10 +145,14 @@ public class fconfiguration {
         loadingsc.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         loadingsc.setLocationRelativeTo(INICIO.escritorio);
         loadingsc.setVisible(true);
-        loadingsc.setBackground(new Color(30, 30, 30, 50));
-        //loadingsc.setBackground(new Color(75, 16, 160, 50));
-        loadingsc.validate();
-        loadingsc.repaint();
+        //loadingsc.setBackground(new Color(30, 30, 30, 50));
+        loadingsc.setBackground(new Color(75, 16, 160, 20));
+    
+     
+        //INICIO.escritorio.add(loadingsc);
+                loadingsc.setVisible(true);
+                loadingsc.toFront();
+                loadingsc.setAlwaysOnTop(true);
         
 
     }
